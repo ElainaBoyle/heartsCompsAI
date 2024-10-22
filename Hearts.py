@@ -10,7 +10,7 @@ When auto is True, passing is disabled and the computer plays the
 game by "guess and check", randomly trying moves until it finds a
 valid one.
 '''
-auto = False
+auto = True
 
 totalTricks = 13
 maxScore = 100
@@ -244,6 +244,7 @@ class Hearts:
 	# print player's hand
 	def printPlayer(self, i):
 		p = self.players[i]
+		
 		print(p.name + "'s hand: " + str(p.hand))
 		print(p.name + "'s round score: " + str(p.roundScore))
 
