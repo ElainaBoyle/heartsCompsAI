@@ -107,6 +107,7 @@ class Hearts:
 
 
 	def evaluateTrick(self):
+		self.updateTrickHistory() #Added
 		self.trickWinner = self.currentTrick.winner
 		p = self.players[self.trickWinner]
 		p.trickWon(self.currentTrick)
@@ -174,6 +175,7 @@ class Hearts:
 		# have each player take their turn
 		for i in range(start + shift, start + len(self.players)):
 			self.printCurrentTrick()
+			self.updatePlayerBoardState() #Added
 			curPlayerIndex = i % len(self.players)
 			self.printPlayer(curPlayerIndex)
 			curPlayer = self.players[curPlayerIndex]
@@ -262,8 +264,27 @@ class Hearts:
 				trickStr += self.players[i].name + ": " + str(card) + "\n"
 			else:
 				trickStr += self.players[i].name + ": None\n"
-		print(trickStr)
-
+  
+	def updatePlayerBoardState(self):
+		"""Update the known board for the player in list format"""
+		Player.boardState = []
+		for i, card in enumerate(self.currentTrick.trick):
+			if (self.currentTrick.trick[i] != 0):
+				Player.boardState.append(str(card))
+			else:
+				Player.boardState.append("")
+    
+	def updateTrickHistory(self):
+		"""Updates the full history of tricks played during each round for the player in list format"""
+		history = []
+		for i, card in enumerate(self.currentTrick.trick):
+			if (self.currentTrick.trick[i] != 0):
+				history.append(str(card))
+			else:
+				history.append("")
+		for player in self.players:
+			player.updateHistory(history)		
+  
 	def getWinner(self):
 		minScore = 200 # impossibly high
 		winner = None

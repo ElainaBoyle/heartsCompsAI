@@ -6,7 +6,9 @@ class Player:
 			self.hand = Hand()
 			self.score = 0
 			self.roundScore = 0
-			self.tricksWon = []
+			self.tricksWon = []															#p1, p2, p3, p4
+			self.boardState = [] #Hold the current known board state by player index ex [8c, "", "" ,2c]
+			self.trickHistory = [] #Holds the history of the each rounds of tricks
 
 	def addCard(self, card):
 		self.hand.addCard(card)
@@ -45,3 +47,11 @@ class Player:
 
 	def hasOnlyHearts(self):
 		return self.hand.hasOnlyHearts()
+
+	def updateHistory(self, history):
+		"""Updates the history of the tricks for each round"""
+		if len(self.trickHistory) < 13:
+			self.trickHistory.append(history)
+		else:
+			self.trickHistory = []
+			self.trickHistory.append(history)
