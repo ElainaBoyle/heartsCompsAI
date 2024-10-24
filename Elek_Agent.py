@@ -55,7 +55,7 @@ class EleksAgent(Player):
         my_cards = self.boardState[player_num-1].split()
         passing_cards = []
 
-        com_suit = most_common_suit(my_cards)
+        com_suit = self.most_common_suit(my_cards)
         
         for x in my_cards:
             if x[-1:] != com_suit:
