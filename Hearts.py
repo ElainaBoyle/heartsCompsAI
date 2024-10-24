@@ -268,7 +268,7 @@ class Hearts:
 	def updatePlayerBoardState(self):
 		"""Update the known board for the player in list format"""
 		Player.boardState = []
-		Player.curTrump = Trick.suit
+		#Player.curTrump = Trick.suit
 		for i, card in enumerate(self.currentTrick.trick):
 			if (self.currentTrick.trick[i] != 0):
 				Player.boardState.append(str(card))
