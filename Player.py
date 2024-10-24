@@ -8,6 +8,7 @@ class Player:
 			self.roundScore = 0
 			self.tricksWon = []															#p1, p2, p3, p4
 			self.boardState = [] #Hold the current known board state by player index ex [8c, "", "" ,2c]
+			self.curTrump = None
 			self.trickHistory = [] #Holds the history of the each rounds of tricks
 
 	def addCard(self, card):

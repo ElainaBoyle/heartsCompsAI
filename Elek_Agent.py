@@ -34,8 +34,8 @@ class EleksAgent(Player):
     def play(self, player_num):
         my_cards = self.boardState[player_num-1].split()
         card = my_cards[0]
-        #cur_suit = currentTrick.suit
-        cur_suit = 's'
+        cur_suit = self.curTrump
+        #cur_suit = 's'
 
         #if it doesn't have something in the suit it just plays a random card
         for x in my_cards:
