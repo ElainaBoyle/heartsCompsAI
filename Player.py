@@ -10,6 +10,7 @@ class Player:
 			self.boardState = [] #Hold the current known board state by player index ex [8c, "", "" ,2c]
 			self.curTrump = ""
 			self.heartsBroken = False
+			self.curTrick = None
 			self.trickHistory = [] #Holds the history of the each rounds of tricks
 
 	def addCard(self, card):
