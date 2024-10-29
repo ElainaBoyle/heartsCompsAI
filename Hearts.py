@@ -93,6 +93,7 @@ class Hearts:
 		#self.passingCards = [[], [], [], []]
 		for p in self.players:
 			p.discardTricks()
+			p.heartsBroken = False
 
 	def getFirstTrickStarter(self):
 		for i,p in enumerate(self.players):
@@ -214,6 +215,8 @@ class Hearts:
 							addCard = None
 						elif addCard.suit == Suit(hearts):
 							self.heartsBroken = True
+							for player in self.players:
+								player.heartsBroken = True	
 
 					if self.trickNum == 0:
 						if addCard is not None:
