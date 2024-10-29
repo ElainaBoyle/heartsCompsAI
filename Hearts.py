@@ -36,7 +36,7 @@ class Hearts:
 
 		# Make four players
 
-		self.players = [Elek_Agent("Danny"), Player("Desmond"), Player("Ben"), Player("Tyler")]
+		self.players = [Elek_Agent("Elek"), Player("Desmond"), Player("Ben"), Player("Tyler")]
 
 		'''
 		Player physical locations:
