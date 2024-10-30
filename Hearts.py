@@ -3,6 +3,7 @@ from Card import Card, Suit, Rank
 from Player import Player
 from Trick import Trick
 from Elek_Agent import Elek_Agent
+from BreannaAgent import BreannaAgent
 
 
 '''
@@ -37,7 +38,7 @@ class Hearts:
 
 		# Make four players
 
-		self.players = [Elek_Agent("Elek"), Player("Desmond"), Player("Ben"), Player("Tyler")]
+		self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("Ben"), Player("Tyler")]
 
 		'''
 		Player physical locations:
