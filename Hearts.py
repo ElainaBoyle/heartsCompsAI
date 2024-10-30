@@ -2,7 +2,7 @@ from Deck import Deck
 from Card import Card, Suit, Rank
 from Player import Player
 from Trick import Trick
-from BreannaAgent import BreannaAgent
+
 
 '''
 Change auto to False if you would like to play the game manually.
@@ -37,7 +37,7 @@ class Hearts:
 
 		# Make four players
 
-		self.players = [BreannaAgent("Breanna"), Player("Desmond"), Player("Ben"), Player("Tyler")]
+		self.players = [Player("Danny"), Player("Desmond"), Player("Ben"), Player("Tyler")]
 
 		'''
 		Player physical locations:
