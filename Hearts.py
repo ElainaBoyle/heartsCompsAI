@@ -2,6 +2,7 @@ from Deck import Deck
 from Card import Card, Suit, Rank
 from Player import Player
 from Trick import Trick
+from Elek_Agent import Elek_Agent
 
 
 '''
@@ -34,10 +35,9 @@ class Hearts:
 		self.losingPlayer = None
 		#self.passingCards = [[], [], [], []]
 
-
 		# Make four players
 
-		self.players = [Player("Danny"), Player("Desmond"), Player("Ben"), Player("Tyler")]
+		self.players = [Elek_Agent("Elek"), Player("Desmond"), Player("Ben"), Player("Tyler")]
 
 		'''
 		Player physical locations:
@@ -167,6 +167,7 @@ class Hearts:
 		shift = 0
 		if self.trickNum == 0:
 			startPlayer = self.players[start]
+			startPlayer.curTrick = self.currentTrick
 			addCard = startPlayer.play(option="play", c='2c')
 			startPlayer.removeCard(addCard)
 
@@ -184,7 +185,7 @@ class Hearts:
 			addCard = None
 
 			while addCard is None: # wait until a valid card is passed
-
+				curPlayer.curTrick = self.currentTrick
 				addCard = curPlayer.play(auto=auto) # change auto to False to play manually
 
 
