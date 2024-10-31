@@ -58,3 +58,12 @@ class Player:
 		else:
 			self.trickHistory = []
 			self.trickHistory.append(history)
+   
+	def updateBoardState(self, board):
+		"""Updates the history of the board"""
+		self.boardState = board
+
+	def updateCurTrump(self, trump):
+		"""Updates the current trump. Is "unset" if there is no current trump"""
+		self.curTrump = trump
+   

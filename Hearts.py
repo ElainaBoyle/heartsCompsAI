@@ -3,6 +3,8 @@ from Card import Card, Suit, Rank
 from Player import Player
 from Trick import Trick
 from Elek_Agent import Elek_Agent
+from BreannaAgent import BreannaAgent
+
 
 '''
 Change auto to False if you would like to play the game manually.
@@ -36,7 +38,7 @@ class Hearts:
 
 		# Make four players
 
-		self.players = [Elek_Agent("Elek"), Player("Desmond"), Player("Ben"), Player("Tyler")]
+		self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("Ben"), Player("Tyler")]
 
 		'''
 		Player physical locations:
@@ -271,13 +273,15 @@ class Hearts:
   
 	def updatePlayerBoardState(self):
 		"""Update the known board for the player in list format"""
-		Player.boardState = []
-		Player.curTrump = self.currentTrick.suit.__str__()
+		boardState = []
 		for i, card in enumerate(self.currentTrick.trick):
 			if (self.currentTrick.trick[i] != 0):
-				Player.boardState.append(str(card))
+				boardState.append(str(card))
 			else:
-				Player.boardState.append("")
+				boardState.append("")
+		for player in self.players:
+			player.updateBoardState(boardState)
+			player.updateCurTrump(self.currentTrick.suit.__str__())
     
 	def updateTrickHistory(self):
 		"""Updates the full history of tricks played during each round for the player in list format"""
