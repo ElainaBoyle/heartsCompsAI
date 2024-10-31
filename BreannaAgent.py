@@ -32,26 +32,25 @@ class BreannaAgent(Player):
             lowest = self.hand.diamonds[0]
         elif(len(self.hand.spades) != 0):
             lowest = self.hand.spades[0]
-        else:
+        elif(self.heartsBroken):
             lowest = self.hand.hearts[0]
-    
+        else:
+            lowest = self.hand.getRandomCard()
+                
         if(len(self.hand.clubs) != 0):
-            if(self.convertRank(lowest) > self.convertRank(self.hand.clubs[0])):
+            if(lowest.rank > self.hand.clubs[0].rank):
                 lowest = self.hand.clubs[0]
     
         if(len(self.hand.diamonds) != 0):
-            if(self.convertRank(lowest) > self.convertRank(self.hand.diamonds[0])):
+            if(lowest.rank > self.hand.diamonds[0].rank):
                 lowest = self.hand.diamonds[0]
         
         if(len(self.hand.spades) != 0):
-            if(self.convertRank(lowest) > self.convertRank(self.hand.spades[0])):
+            if(lowest.rank > self.hand.spades[0].rank):
                 lowest = self.hand.spades[0]
-            
-        if(self.heartsBroken == True):
-            if(len(self.hand.hearts) != 0):
-                if(self.convertRank(lowest) > self.convertRank(self.hand.hearts[0])):
-                    lowest = self.hand.hearts[0] 
+                
         
+
         return lowest
                        
     def playHighest(self):
@@ -60,27 +59,21 @@ class BreannaAgent(Player):
             highest = self.hand.clubs[-1]
         elif(len(self.hand.diamonds) != 0):
             highest = self.hand.diamonds[-1]
-        elif(len(self.hand.spades) != 0):
-            highest = self.hand.spades[-1]
         else:
-            highest = self.hand.hearts[-1]
+            highest = self.hand.spades[-1]
     
         if(len(self.hand.clubs) != 0):
-            if(self.convertRank(highest) < self.convertRank(self.hand.clubs[0])):
+            if(highest.rank < self.hand.clubs[0].rank):
                 highest = self.hand.clubs[-1]
     
         if(len(self.hand.diamonds) != 0):
-            if(self.convertRank(highest) < self.convertRank(self.hand.diamonds[0])):
+            if(highest.rank < self.hand.diamonds[0].rank):
                 highest = self.hand.diamonds[-1]
         
         if(len(self.hand.spades) != 0):
-            if(self.convertRank(highest) < self.convertRank(self.hand.spades[0])):
+            if(highest.rank < self.hand.spades[0].rank):
                 highest = self.hand.spades[-1]
             
-        if(self.heartsBroken == True):
-            if(len(self.hand.hearts) != 0):
-                if(self.convertRank(highest) < self.convertRank(self.hand.hearts[0])):
-                    highest = self.hand.hearts[-1] 
         return highest
                 
     def playHeart(self):
@@ -105,31 +98,43 @@ class BreannaAgent(Player):
     
     def play(self, option='play', c=None, auto=False):
         """Redefined play in player class to modify auto"""
-        if auto:  
-            highCard = ""     
-            if(self.curTrump == "Unset"):
-                currentPlay = self.playLowest()
+        if auto:
+            trickNum = len(self.trickHistory)
+            if(trickNum == 13 or trickNum == 0):
+                if(len(self.hand.clubs) != 0):
+                    currentPlay = self.hand.clubs[-1]
+                elif(len(self.hand.diamonds) != 0):
+                    currentPlay = self.hand.diamonds[-1]
+                else:
+                    if(str(self.hand.spades[-1]).find("Q")):
+                        currentPlay = self.hand.spades[-2]
+                    else:
+                        currentPlay = self.hand.spades[-1]
             else:
-                highCard = ""
-                for playedCard in self.board:
-                    playedString = str(playedCard)
-                    if (playedString != "" and highCard == ""):
-                        highCard = playedString
-                    elif((playedString != "" and highCard != "") and (self.convertRank(playedString) > self.convertRank(highCard))):
-                        highCard = playedString
-                        
-                if(self.curTrump == "c"):
-                    suitCards = self.hand.clubs
-                    currentPlay = self.playACard(suitCards, highCard)
-                elif(self.curTrump == "d"):
-                    suitCards = self.hand.diamonds
-                    currentPlay = self.playACard(suitCards, highCard)
-                elif(self.curTrump == "s"):
-                    suitCards = self.hand.spades
-                    currentPlay = self.playACard(suitCards, highCard)
-                elif(self.curTrump == "h"):
-                    suitCards = self.hand.hearts
-                    currentPlay = self.playACard(suitCards, highCard)
+                highCard = ""     
+                if(self.curTrump == "Unset"):
+                    currentPlay = self.playLowest()
+                else:
+                    highCard = ""
+                    for playedCard in self.board:
+                        playedString = str(playedCard)
+                        if (playedString != "" and highCard == ""):
+                            highCard = playedString
+                        elif((playedString != "" and highCard != "") and (self.convertRank(playedString) > self.convertRank(highCard))):
+                            highCard = playedString
+                            
+                    if(self.curTrump == "c"):
+                        suitCards = self.hand.clubs
+                        currentPlay = self.playACard(suitCards, highCard)
+                    elif(self.curTrump == "d"):
+                        suitCards = self.hand.diamonds
+                        currentPlay = self.playACard(suitCards, highCard)
+                    elif(self.curTrump == "s"):
+                        suitCards = self.hand.spades
+                        currentPlay = self.playACard(suitCards, highCard)
+                    elif(self.curTrump == "h"):
+                        suitCards = self.hand.hearts
+                        currentPlay = self.playACard(suitCards, highCard)
             
             card = currentPlay
             
