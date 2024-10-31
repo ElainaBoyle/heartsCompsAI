@@ -38,7 +38,7 @@ class Hearts:
 
 		# Make four players
 
-		self.players = [Elek_Agent("Elek"), Player("Breanna"), Player("Ben"), Player("Tyler")]
+		self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("Ben"), Player("Tyler")]
 
 		'''
 		Player physical locations:
@@ -224,6 +224,7 @@ class Hearts:
 					if self.trickNum == 0:
 						if addCard is not None:
 							if addCard.suit == Suit(hearts):
+								print(curPlayer)
 								print("Hearts cannot be broken on the first hand.")
 								self.heartsBroken = False
 								addCard = None
@@ -273,14 +274,16 @@ class Hearts:
   
 	def updatePlayerBoardState(self):
 		"""Update the known board for the player in list format"""
+		board = []
 		boardState = []
 		for i, card in enumerate(self.currentTrick.trick):
 			if (self.currentTrick.trick[i] != 0):
 				boardState.append(card)
-			# else:
-			# 	boardState.append("")
+				board.append(card)
+			else:
+				board.append("")
 		for player in self.players:
-			player.updateBoardState(boardState)
+			player.updateBoardState(boardState, board)
 			player.updateCurTrump(self.currentTrick.suit.__str__())
     
 	def updateTrickHistory(self):

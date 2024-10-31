@@ -111,11 +111,12 @@ class BreannaAgent(Player):
                 currentPlay = self.playLowest()
             else:
                 highCard = ""
-                for played in self.boardState:
-                    if (played != "" and highCard == ""):
-                        highCard = played
-                    elif((played != "" and highCard != "") and (self.convertRank(played) > self.convertRank(highCard))):
-                        highCard = played
+                for playedCard in self.board:
+                    playedString = str(playedCard)
+                    if (playedString != "" and highCard == ""):
+                        highCard = playedString
+                    elif((playedString != "" and highCard != "") and (self.convertRank(playedString) > self.convertRank(highCard))):
+                        highCard = playedString
                         
                 if(self.curTrump == "c"):
                     suitCards = self.hand.clubs

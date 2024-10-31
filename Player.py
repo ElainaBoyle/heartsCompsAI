@@ -12,6 +12,7 @@ class Player:
 			self.heartsBroken = False
 			self.curTrick = None
 			self.trickHistory = [] #Holds the history of the each rounds of tricks
+			self.board = []
 
 	def addCard(self, card):
 		self.hand.addCard(card)
@@ -59,9 +60,10 @@ class Player:
 			self.trickHistory = []
 			self.trickHistory.append(history)
    
-	def updateBoardState(self, board):
+	def updateBoardState(self, boardState, board):
 		"""Updates the history of the board"""
-		self.boardState = board
+		self.boardState = boardState
+		self.board = board
 
 	def updateCurTrump(self, trump):
 		"""Updates the current trump. Is "unset" if there is no current trump"""
