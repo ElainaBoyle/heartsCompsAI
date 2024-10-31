@@ -19,34 +19,56 @@ class Elek_Agent(Player):
         else:
             return 'h'
     
-    def playHeart(self):
-        hearts = self.hand[3]
+    #plays highest heart (if no hearts play the highest card in hand)
+    def playHearts(self):
+        hearts = self.hand.hearts
         if(len(hearts) != 0):
-            currentPlay = hearts[0]
+            play = hearts[0]
             for heart in hearts:
-                if(heart.rank > currentPlay.rank):
-                    currentPlay = heart
+                if(heart.rank > play.rank):
+                    play = heart
         else:
-            currentPlay = self.hand.getRandomCard() #change to play highest card
-        return currentPlay
+            play = self.playHighest()
+        return play
+
+
+    #plays the highest card left in hand. Doesn't look at suits at all
+    def playHighest(self):
+        play = None
+        for suit in self.hand.hand:
+            for card in suit:
+                if play is None:
+                    play = card
+                elif (card.rank > play.rank):
+                    play = card
         
-    def playACard(self, suitCards, highCard):
-        # if you don't have a card in the trump suit, play a heart
-        if(len(suitCards) == 0):
-            self.playHeart()
+        return play
+
         
+    def playTrump(self, suitCards, highCard):
+
         # if you do have a card in the trump suit, play the highest card in hand that is below the high card of the current trick
         #if you don't have a card below the current highest, play the next highest 
 
-        else:
-            foundCard = False
-            currentPlay = suitCards[0]
-            for play in suitCards:
-                if(play.rank < highCard):
-                    foundCard = True
-            if(foundCard):
-                currentPlay = suitCards[0]
-        return currentPlay
+        play = suitCards[0]
+        for card in suitCards:
+            if(card.rank < highCard.rank) and (card.rank > play.rank):
+                play = card
+
+        return play
+
+
+    #gets the highest value card of the current trick (thats in the trump suit)
+    def getHighCard(self):
+        highCard = self.boardState[0]
+        
+        for played in self.boardState:
+            if((played.rank > played.rank)) and (self.suit == self.curTrick.suit.string):
+                highCard = played
+
+        return highCard
+
+
 
 
 
@@ -60,48 +82,28 @@ class Elek_Agent(Player):
 
             #first card of trick, can only play hearts if nothing else or already been broken
             if cur_suit == 'Unset':
+                #do something interesting
                 card = self.hand.getRandomCard()
+                return card
 
-            
-            elif cur_suit == 's':
-                if len(self.hand.spades) > 0:
-                    card = self.hand.playCard(self.hand.spades[0].__str__())
-                else:
-                    card = self.hand.getRandomCard()
 
-                for x in self.hand.spades:
-                    if card.rank < x.rank:
-                        card = x
-
-            elif cur_suit == 'd':
-                if len(self.hand.diamonds) > 0:
-                    card = self.hand.playCard(self.hand.diamonds[0].__str__())
-                else:
-                    card = self.hand.getRandomCard()
-
-                for x in self.hand.diamonds:
-                    if card.rank < x.rank:
-                        card = x
-
-            elif cur_suit == 'c':
-                if len(self.hand.clubs) > 0:
-                    card = self.hand.playCard(self.hand.clubs[0].__str__())
-                else:
-                    card = self.hand.getRandomCard()
-
-                for x in self.hand.clubs:
-                    if card.rank < x.rank:
-                        card = x
-
+            if(cur_suit == "c"):
+                suitCards = self.hand.clubs
+            elif(cur_suit == "d"):
+                suitCards = self.hand.diamonds
+            elif(cur_suit == "s"):
+                suitCards = self.hand.spades
             else:
-                if len(self.hand.hearts) > 0:
-                    card = self.hand.playCard(self.hand.hearts[0].__str__())
-                else:
-                    card = self.hand.getRandomCard()
+                suitCards = self.hand.hearts
 
-                for x in self.hand.hearts:
-                    if card.rank < x.rank:
-                        card = x
+            #if can play trump, play trump
+            if len(suitCards) > 0:
+                highCard = self.getHighCard()
+                card = self.playTrump(suitCards, highCard)
+            #if can't play trump, play heart
+            else:
+                card = self.playHearts()
+
         else:
             card = self.hand.playCard(c)
 

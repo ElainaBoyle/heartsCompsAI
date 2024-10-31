@@ -38,7 +38,7 @@ class Hearts:
 
 		# Make four players
 
-		self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("Ben"), Player("Tyler")]
+		self.players = [Elek_Agent("Elek"), Player("Breanna"), Player("Ben"), Player("Tyler")]
 
 		'''
 		Player physical locations:
@@ -276,9 +276,9 @@ class Hearts:
 		boardState = []
 		for i, card in enumerate(self.currentTrick.trick):
 			if (self.currentTrick.trick[i] != 0):
-				boardState.append(str(card))
-			else:
-				boardState.append("")
+				boardState.append(card)
+			# else:
+			# 	boardState.append("")
 		for player in self.players:
 			player.updateBoardState(boardState)
 			player.updateCurTrump(self.currentTrick.suit.__str__())
