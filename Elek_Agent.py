@@ -12,13 +12,44 @@ class Elek_Agent(Player):
         
         if(max(len(self.hand.clubs), len(self.hand.diamonds), len(self.hand.spades), len(self.hand.hearts)) == len(self.hand.clubs)):
             return 'c'
-        elif(len(self.hand.clubs), len(self.hand.diamonds), len(self.hand.spades), len(self.hand.hearts) == len(self.hand.diamonds)):
+        elif(max(len(self.hand.clubs), len(self.hand.diamonds), len(self.hand.spades), len(self.hand.hearts)) == len(self.hand.diamonds)):
             return 'd'
         elif(max(len(self.hand.clubs), len(self.hand.diamonds), len(self.hand.spades), len(self.hand.hearts)) == len(self.hand.spades)):
             return 's'
         else:
             return 'h'
     
+    def playHeart(self):
+        hearts = self.hand[3]
+        if(len(hearts) != 0):
+            currentPlay = hearts[0]
+            for heart in hearts:
+                if(heart.rank > currentPlay.rank):
+                    currentPlay = heart
+        else:
+            currentPlay = self.hand.getRandomCard() #change to play highest card
+        return currentPlay
+        
+    def playACard(self, suitCards, highCard):
+        # if you don't have a card in the trump suit, play a heart
+        if(len(suitCards) == 0):
+            self.playHeart()
+        
+        # if you do have a card in the trump suit, play the highest card in hand that is below the high card of the current trick
+        #if you don't have a card below the current highest, play the next highest 
+
+        else:
+            foundCard = False
+            currentPlay = suitCards[0]
+            for play in suitCards:
+                if(play.rank < highCard):
+                    foundCard = True
+            if(foundCard):
+                currentPlay = suitCards[0]
+        return currentPlay
+
+
+
 
     def play(self, option='play', c=None, auto=True):
 
@@ -26,8 +57,12 @@ class Elek_Agent(Player):
 
         #plays the lowest card in the trump suit if possible, otherwise plays a random card
         if c == None:
+
+            #first card of trick, can only play hearts if nothing else or already been broken
             if cur_suit == 'Unset':
                 card = self.hand.getRandomCard()
+
+            
             elif cur_suit == 's':
                 if len(self.hand.spades) > 0:
                     card = self.hand.playCard(self.hand.spades[0].__str__())
