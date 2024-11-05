@@ -92,6 +92,7 @@ class Hearts:
 		self.dealer = (self.dealer + 1) % len(self.players)
 		self.dealCards()
 		self.currentTrick = Trick()
+		self.currentTrick.setTrickSuit(Card(2,0))
 		#self.passingCards = [[], [], [], []]
 		for p in self.players:
 			p.discardTricks()
@@ -118,7 +119,7 @@ class Hearts:
 		print(p.name + " won the trick.")
 		# print 'Making new trick'
 		self.currentTrick = Trick()
-		print(self.currentTrick.suit)
+		#print(self.currentTrick.suit)
 
 
 	# # def passCards(self, index):
@@ -224,7 +225,7 @@ class Hearts:
 					if self.trickNum == 0:
 						if addCard is not None:
 							if addCard.suit == Suit(hearts):
-								print(curPlayer)
+								#print(curPlayer) #commenting this out because it breaks with player objects
 								print("Hearts cannot be broken on the first hand.")
 								self.heartsBroken = False
 								addCard = None

@@ -96,16 +96,33 @@ class Elek_Agent(Player):
             else:
                 suitCards = self.hand.hearts
 
+            firstTrick = False
+            for play in self.curTrick.trick:
+                try:
+                    if play.rank.rank == 2 and play.suit.string == 'c':
+                        firstTrick = True
+                except:
+                        firstTrick = firstTrick
+
+
+
             #if can play trump, play trump
             if len(suitCards) > 0:
                 highCard = self.getHighCard()
                 card = self.playTrump(suitCards, highCard)
-            #if can't play trump, play heart
+
+            elif firstTrick:
+                card = self.hand.getRandomCard()
+            #if can't play trump, play hearts
             else:
                 card = self.playHearts()
 
         else:
-            card = self.hand.playCard(c)
+            for suit in self.hand.hand:
+                for potential in suit:
+                    if potential.__str__() == c:
+                        card = potential
+            
 
 
         return card
