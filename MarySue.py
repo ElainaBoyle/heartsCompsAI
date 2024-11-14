@@ -3,13 +3,25 @@
 '''
 from Player import Player
 
+
+
+
+
 class Cbr_Agent(Player):
 
+
+    myCardSuits = [3, 4, 1, 2] #number of clubs, diamonds, spades, hearts in my hand
+    myHand = hand()
+    curTrump = 0
 
 
     #get the specified card from hand and returns it
     def playCard(self, cardString):
         return cardString
+    
+    def update(self, curTrick): #to be called at the beginning of each trick
+        curTrump = curTrick.suit
+
 
 
 
@@ -21,7 +33,6 @@ class Cbr_Agent(Player):
     #suitNums = [numclubs, numdiamonds, numspades, numhearts] //for game-winning player’s hand
 
 
-
     #Check each hand for similarity, return id with highest similarity
     def determineSimilarity(array):
         #to start, just pick the hand with the closest total rank
@@ -30,12 +41,13 @@ class Cbr_Agent(Player):
         closestHandValue = 10000000000000
 
 
-        for hand in array:
-            if abs(countTotalRank(hand) - myTotal) < closestHandValue:
-                closestHand = hand
-                closestHandValue = countTotalRank(hand)
+        for game in array: #game[0] is hand, game[1] is next move.
+            if abs(countTotalRank(game[0]) - myTotal) < closestHandValue:
+                closestHand = game[0]
+                winMove = game[1]
+                closestHandValue = countTotalRank(game[0])
 
-        return ClosestHand.move
+        return winMove
                 
     def countTotalRank(hand):
         total = 0
@@ -47,40 +59,59 @@ class Cbr_Agent(Player):
 
 
 
-    def findSimilar(myCardSuits, trump):
+    def findSimilar(self):
 
-        searchString = 'SELECT ID, [winning player’s hand], move FROM CaseBase WHERE suitNums = myCardSuits AND trump suit = trump suit'
+        database = "mock_data" 
+        user = "aicomps"
+        host= 'localhost'
+        password = "12345"
+        port = 5432
+        
 
-        #^ returns array of ids and hands
+        outputArray = []
 
-        #look at all games at the current trick num
-        #where the winning player has the same number of each suit
-        return array
+        try:
+            conn = psycopg2.connect(database, user, password, host, port)
+            print("Database connected successfully. MS")
+        except:
+            print("Database not connected successfully. MS")
+
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM mock_data WHERE cardSuits = " + self.myCardSuits + " AND Trump =" + self.curTrump) 
+        rows = cur.fetchall()
+        for data in rows:
+            outputArray.append([data[2], data[4]]) #[[Hand, nextMove], [hand, nextMove], ....]
+            
+        return outputArray
+
+
+    def interpolateMove(self, move):
+        
+            theirRank = move[0]
+            theirSuit = move[1]
+            if theirSuit == 'c': theirSuit = 0
+            elif theirSuit == 'd': theirSuit = 1
+            elif theirSuit == 's': theirSuit = 2
+            elif theirSuit == 'h': theirSuit = 3
+            else: print("Invalid suit for theirWinMove in pickMyMove. MS")
     
-
-    def interpolateMove(move):
-            suit = move.suit #  or something
-            myCardsOfSuit = []
-
-            if suit == 0:		#rewrite this as a helper function AFTER looking at database
-                myCardsOfSuit = self.clubs
-            elif suit == 1:
-                myCardsOfSuit = self.diamonds
-            elif suit == 2:
-                myCardsOfSuit = self.spades
-            else:
-                myCardsOfSuit = self.hearts
+            myCardsOfSuit = self.myHand[theirSuit]
 
             difference = 13
-            myMove = card()
+            myMove = card(10, -1) #Mary Sue's default card to play is the 10 of Nothings
             for card in myCardsOfSuit:
                 curDiff = abs(move.rank - card.rank())
                 if curDiff < difference:
                     myMove = card
                     difference = curDiff
+            if difference == 13: print("No similar cards in interpolateMove. MS")
 
             return myMove
-    
+
+        
+            
+            
+            
 
     def play(self, option='play', c=None, auto=True):
 
@@ -100,14 +131,14 @@ class Cbr_Agent(Player):
 
             myCardSuits = [numClubs, numDiamonds, numSpades, numHearts]
 
-            array = self.findSimilar(myCardSuits, cur_suit)
+            array = self.findSimilar()
 
 
             
 
-            if array is empty:
+            if array.count() == 0:
                 return hand.getRandomCard()
-            Else:
+            else:
                 move = determineSimilarity(array)
                 
                 return interpolateMove(move)
