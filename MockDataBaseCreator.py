@@ -1,4 +1,6 @@
 import psycopg2
+from Deck import Deck
+import random
 
 def main():
 
@@ -13,13 +15,33 @@ def main():
 
         #create a table
         cur.execute("""CREATE TABLE mock_data(
-                game_num SERIAL PRIMARY KEY, XXXXXXXX, XXXXXXXX, XXXXXX)""")
+                ID SERIAL PRIMARY KEY, Trump, myHand SET, myCardSuits Set, nextMove)""")
 
 
         #import some mock games
-        inputString = """INSERT INTO mock_data (ID, XXXXXXXXXX,XXXXXXX) VALUES(%s)"""
-        arrarOfMockGames = []
-        for game in arrarOfMockGames:
+        inputString = """INSERT INTO mock_data (ID, Trump, myHand, myCardSuits, nextMove) VALUES(%s)"""
+        arrayOfMockGames = []
+
+        for x in range(100):
+                string = '' + x + ', c, (), (),' + ''
+
+
+                deck = Deck()
+	        deck.shuffle()
+                i = 0
+		for x in range(13):
+			self.players[i % len(self.players)].addCard(self.deck.deal())
+			i += 1
+
+
+
+
+
+
+
+
+                arrayOfMockGames[x] = string
+        for game in arrayOfMockGames:
                 cur.execute(inputString, game)
 
 
