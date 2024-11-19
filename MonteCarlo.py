@@ -6,6 +6,7 @@ Tree Structure: [ board, [ [ board w/played card, [], curhand, numVisit,  value]
 from Player import Player
 import time
 import random
+from Card import Card
 
 class Node:
     def __init__(self, board, curhand):
@@ -28,14 +29,85 @@ class MonteCarlo(Player):
             
         return self.bestChild(root)
     
-    def movesMath(self, node):
+    def movesMath(self, node): #written
         """How many moves can be generated based on a branch of the tree"""
-        
+        if(len(self.trickHistory) == 0 or len(self.trickHistory) == 13):
+            if(str(node.curhand.spades[-1]).find("Q")):
+                return node.curhand.size() - len(node.curhand.hearts) - 1
+            else:
+                return node.curhand.size() - len(node.curhand.hearts)
+        elif(not self.heartsBroken):
+            return node.curhand.size() - len(node.curhand.hearts)
+        else:
+            return node.curhand.size()
     
-    def traverse(self, node): #written
+    def expand(self, node):
+        
+        for card in node.curhand:
+            # for trick in self.trickHistory:
+            #     for card in trick:
+            #         pass #see what cards have been played
+            
+            hand = node.hand.copy()
+            hand = node.hand.removeCard(card)
+             
+            child = Node(["Ks", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+
+            child = Node(["Kd", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["Kh", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["Kc", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["8s", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["8d", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["8h", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["8c", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["2s", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["2d", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            
+            child = Node(["2h", card], hand)
+            child.parent = node  
+            node.children.append(child) 
+        
+            child = Node(["2c", card], hand)
+            child.parent = node  
+            node.children.append(child)  
+        
+        return node.children[0]
+    
+    def traverse(self, node): 
         while(len(node.children) == self.movesMath(node)): #while fullly expanded
             node = self.bestChild(node)
         
+        if(len(node.children < self.movesMath(node))):
+            return self.expand(node)
+    
         for child in node.children: #if a child has no children, explore it
             if(len(node.children) == 0):
                 return child
