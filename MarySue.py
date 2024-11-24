@@ -2,6 +2,7 @@
 
 '''
 from Player import Player
+import psycopg2
 
 
 
@@ -11,7 +12,6 @@ class Cbr_Agent(Player):
 
 
     myCardSuits = [3, 4, 1, 2] #number of clubs, diamonds, spades, hearts in my hand
-    myHand = hand()
     curTrump = 0
 
 
@@ -32,34 +32,34 @@ class Cbr_Agent(Player):
     #trump suit
     #suitNums = [numclubs, numdiamonds, numspades, numhearts] //for game-winning player’s hand
 
-
-    #Check each hand for similarity, return id with highest similarity
-    def determineSimilarity(array):
-        #to start, just pick the hand with the closest total rank
-        myTotal = countTotalRank(self.Hand)
-        closestHand = hand()
-        closestHandValue = 10000000000000
-
-
-        for game in array: #game[0] is hand, game[1] is next move.
-            if abs(countTotalRank(game[0]) - myTotal) < closestHandValue:
-                closestHand = game[0]
-                winMove = game[1]
-                closestHandValue = countTotalRank(game[0])
-
-        return winMove
-                
     def countTotalRank(hand):
         total = 0
         for card in hand:
             total += card.rank
         return total
+
+
+    #Check each hand for similarity, return id with highest similarity
+    def determineSimilarity(self, array):
+        #to start, just pick the hand with the closest total rank
+        myTotal = self.countTotalRank(self.hand)
+        closestHandValue = 10000000000000
+
+
+        for game in array: #game[0] is hand, game[1] is next move.
+            if abs(self.countTotalRank(game[0]) - myTotal) < closestHandValue:
+                winMove = game[1]
+                closestHandValue = self.countTotalRank(game[0])
+
+        return winMove
+                
+ 
     
 
 
 
 
-    def findSimilar(self):
+    def findSimilar(self, myCardSuits, curTrump):
 
         database = "mock_data" 
         user = "aicomps"
@@ -77,7 +77,7 @@ class Cbr_Agent(Player):
             print("Database not connected successfully. MS")
 
         cur = conn.cursor()
-        cur.execute("SELECT * FROM mock_data WHERE cardSuits = " + self.myCardSuits + " AND Trump =" + self.curTrump) 
+        cur.execute("SELECT * FROM heartsai_data WHERE cardSuits = " + myCardSuits + " AND Trump =" + curTrump) 
         rows = cur.fetchall()
         for data in rows:
             outputArray.append([data[2], data[4]]) #[[Hand, nextMove], [hand, nextMove], ....]
@@ -95,7 +95,7 @@ class Cbr_Agent(Player):
             elif theirSuit == 'h': theirSuit = 3
             else: print("Invalid suit for theirWinMove in pickMyMove. MS")
     
-            myCardsOfSuit = self.myHand[theirSuit]
+            myCardsOfSuit = self.hand[theirSuit]
 
             difference = 13
             myMove = card(10, -1) #Mary Sue's default card to play is the 10 of Nothings
@@ -115,7 +115,7 @@ class Cbr_Agent(Player):
 
     def play(self, option='play', c=None, auto=True):
 
-        cur_suit = self.curTrick.suit.string
+        curTrump = self.curTrick.suit.string
 
         #if c was specified, plays c (should probably only really happen w/ 2c), else does cbr stuff
         if c == None:
@@ -131,17 +131,17 @@ class Cbr_Agent(Player):
 
             myCardSuits = [numClubs, numDiamonds, numSpades, numHearts]
 
-            array = self.findSimilar()
+            array = self.findSimilar(myCardSuits, curTrump)
 
 
             
 
             if array.count() == 0:
-                return hand.getRandomCard()
+                return self.hand.getRandomCard()
             else:
-                move = determineSimilarity(array)
+                move = self.determineSimilarity(array)
                 
-                return interpolateMove(move)
+                return self.interpolateMove(move)
 
 
 
