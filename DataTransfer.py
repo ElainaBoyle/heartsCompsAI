@@ -77,9 +77,7 @@ def handParser(dealt_hands, move):
 
 #reads the lines of a JSON file and gathers the move data
 def read_json(file_name):
-    hand_number = 0
-    json_data={}
-    print(file_name)
+    cartridge = []
     move_data = []
     with open(file_name, 'r') as f:
         data = json.load(f)
@@ -89,9 +87,9 @@ def read_json(file_name):
             trick_number = 1
             dealt_cards = game["initialDeal"]
             temp_hands = dealt_cards
-            trick_data =[]
+            trick_data = []
 
-            for move in game["moves"]: 
+            for move in game["moves"]:
                 temp_hands = handParser(temp_hands, move)
                 if(temp_hands!= None and (dealt_cards != temp_hands)):
                     hands = temp_hands
@@ -101,23 +99,34 @@ def read_json(file_name):
 
                 if (plays!= None):
                     trick_data.append(plays)
-                
-                    if("winner" in move.keys()):
+                    #if("winner" in move.keys()):
+                    if(move["type"] == "trick"):
                         move_data.append(trick_data)
+                        #print("hello")
                         trick_data = []
-            # Process the JSON data here
+                if(winner != None):
+                    # print("winner is not empty!")
+                    cartridge.append({"move_data": move_data, "champion": winner, "hand": hands[winner]})
 
-    return {"move_data": move_data, "champion": winner, "hand": hands[winner]}
+                    # print(cartridge)
+                    # while True:
+                    #     cont = input("Want to continue? ")
+                    #     if cont == "y":
+                    #         break
+                    
+            # Process the JSON data here
+    return cartridge
 
 def generate_deck():
-    card_deck = []
+    card_deck = ""
     card_suits = ["c", "d", "s", "h"]
     for suit in card_suits:
         count = 1
         while count <= 13:
-            card_deck.append(str(count) + suit)
+            card_deck += "\"" + (str(count) + suit) + "\", "
             count+=1
-    print(card_deck)
+    card_deck = card_deck[:-2]
+    return(card_deck)
 
 def generate_deck_string():
     card_deck = ""
@@ -127,20 +136,20 @@ def generate_deck_string():
     for suit in card_suits:
         count = 1
         while count <= 13:
-            card_deck += str(count) + suit + type_string + ", "
+            card_deck += "\"" + str(count) + suit + "\"" + type_string + ", "
             count +=1
     return card_deck
 
 def generate_ID():
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    sequence = ""
+    sequence = "\'"
     index = 0
-    while index < 6:
+    while index < 50:
         letter = random.randint(0,25)
         sequence += alphabet[letter]
         index += 1
+    sequence += "\'"
     return sequence
-
 
 def main():
     #Info we need in our table
@@ -148,57 +157,70 @@ def main():
     #0-3: Player Number played card
     #4: In hand winning player's hand
     #5: Unknown
+    generate_deck()
+    conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
+
+    cur = conn.cursor()
+
+    deck_string = generate_deck_string()
+
+    query = "CREATE TABLE heartsai_data(trick_ID SERIAL UNIQUE NOT NULL PRIMARY KEY, " + deck_string + "trump_suit VARCHAR (5), game_winner SERIAL, winning_hand VARCHAR (100) NOT NULL);"
+    cur.execute(query)
+    # Make the changes to the database persistent
+    conn.commit()
+   
+    INSERT = "INSERT INTO heartsai_data (trick_ID, " + generate_deck()+ ", trump_suit, game_winner, winning_hand) "
+
     
     deck = ['1c', '2c', '3c', '4c', '5c', '6c', '7c', '8c', '9c', '10c', '11c', '12c', '13c', '1d', '2d', '3d', '4d', '5d', '6d', '7d', '8d', '9d', '10d', '11d', '12d', '13d', '1s', '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '10s', '11s', '12s', '13s', '1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h', '11h', '12h', '13h']  
     id_list = []
-    trick_num = ""
+    #trick_num = ""
+    trick_num = 0
     directory = 'HeartsData'
-    for filename in os.listdir(directory):
-        game_data = read_json(directory + '/'+ filename)
-        hand = []
+    for filename in os.listdir(directory): 
+        print(filename)
+        cartridge = read_json(directory + '/'+ filename)
+        #game_data structure:
+        #each index is an entire game, with a full set of tricks.  These games are structured as such:
+        #{"move_data": trick_data, "champion": winner, "hand": hands[winner]}
         deck_history = [5]*52
-        for trick in game_data["move_data"]:
-
-            for play in trick:
-                index = 0
-                if(5 not in deck_history):
-                    deck_history = [5]*52
-                for card in deck:
-                    if ("card_played" in play.keys()) and (play["card_played"] == card):
-                        if(play["player"] == game_data["champion"]):
-                            deck_history[index] = 4
-                        else:
-                            deck_history[index] = play["player"]
-                    
-                    index += 1
-        trick_num = generate_ID()
-        while trick_num not in id_list:  
-            if trick_num not in id_list:
-                print("Here's your unique code: "+ trick_num)
-                id_list.append(trick_num)
-                break
-            trick_num = generate_ID()
-        # cont = input("Should I go to the next file? ")
-        # if(cont != "y"):
-        #     break
+        for game_data in cartridge: #each game: {"move_data": trick_data, "champion": winner, "hand": hands[winner]}
+            for trick in game_data["move_data"]: #trick = [{player: x, card_played: x}.....{winner: x, trick_number: x}]
+                query ="" + INSERT
+                values = "VALUES ("
+                for play in trick: #play = {player: x, card_played: x}
+                    index = 0
+                    if(5 not in deck_history):
+                        deck_history = [5]*52
+                    for card in deck:
+                        if ("card_played" in play.keys()) and (play["card_played"] == card):
+                            if(play["player"] == game_data["champion"]):
+                                deck_history[index] = 4
+                            else:
+                                deck_history[index] = play["player"]
+                        index += 1
+                values += str(trick_num) + ", "
+                trick_num+=1
+                for item in deck_history: 
+                    values += str(item) + ", "
+                winning_hand = ""
+                for card in game_data["hand"]: 
+                    winning_hand += card + ", "
+                winning_hand = winning_hand[:-2]
+                values += "\'" + trick[0]["card_played"][-1] + "\'" +", "+ str(game_data["champion"]) + ", " + "\'" + winning_hand +"\'" + "); \n"
+                query += values
+                cur.execute(query)
+                # Make the changes to the database persistent
+                conn.commit()
+                query =""+ INSERT
     print("This is our ID: " + trick_num)
 
 
-    # conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
 
-    # cur = conn.cursor()
-
-    # deck_string = generate_deck_string()
-
-    # queury = "CREATE TABLE heartsai_data(trick_ID VARCHAR (50) UNIQUE NOT NULL PRIMARY KEY," + deck_string + "trump_suit VARCHAR (5), game_winner VARCHAR (20) NOT NULL, winning_hand VARCHAR (100) NOT NULL);"
-    # cur.execute(queury)
-    # # Make the changes to the database persistent
-    # conn.commit()
-   
   
-    # # Close cursor and communication with the database
-    # cur.close()
-    # conn.close()
+    # Close cursor and communication with the database
+    cur.close()
+    conn.close()
 
 if __name__ == '__main__':
 	main()
