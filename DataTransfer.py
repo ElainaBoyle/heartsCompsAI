@@ -21,7 +21,7 @@ def read_moves(data, history):
     return history
 
 #Returns the player that won each hand.  Saves the index with the lowest score
-def read_winner(finalScores):  #finalScores = [{handNumber: x, scores: [a,b,c,d]}]
+def read_winners(finalScores):  #finalScores = [{handNumber: x, scores: [a,b,c,d]}]
     winners = []
     for rounds in finalScores:
         player = 0
@@ -96,12 +96,17 @@ def read_json(file_name):
             dealt_cards = game["initialDeal"]
             temp_hands = dealt_cards
             deck_history = [5]*52
-            winner = read_winner(game["finalScores"])
+            winningPlayers = read_winners(game["finalScores"])
             hand_num = 0
             trump_suit = None
+            winner_play = ""
             for move in game["moves"]: #{"type": "pass","from": 0,"to": 1,"cards": ["1d","8c","6c"],"timestamp": "2024-10-20T09:05:56.631Z"}
-                if (move["type"] == "play") and (trump_suit == None):
-                    trump_suit = move["card"][-1:]   
+                if (move["type"] == "play"): 
+                    if (trump_suit == None):
+                        trump_suit = move["card"][-1:]
+                    if(move["player"] == winningPlayers[hand_num]):
+                        winner_play = move["card"]
+                        print(winner_play)
                 #hand stuff
                 if(move["type"] == "pass"):
                     temp_hands = hand_parser(temp_hands, move) #eventually gets us to "accurate" hands
@@ -115,14 +120,14 @@ def read_json(file_name):
                 #History
                 deck_history = read_moves(move, deck_history)
                 if(move["type"] == "trick"): 
-                    winning_hand = "["+ list_to_string(hands[winner[hand_num]]) + "]"
+                    winning_hand = "["+ list_to_string(hands[winningPlayers[hand_num]]) + "]"
                     trick_history = list_to_string(deck_history)
-                    values += trick_id + ", " + trick_history + ", " + "\'" + trump_suit + "\'" +", "+ str(winner[hand_num]) + ", " + "\'" + winning_hand +"\'" + "\n"                   
+                    values += trick_id + ", " + trick_history + ", " + "\'" + trump_suit + "\'" +", "+ str(winningPlayers[hand_num]) + ", " + "\'" + str(winner_play) + "\'" + ", "  +"\'"+ winning_hand +"\'" + "\n"                   
                     update_database(values)
                     values = ""
                     trump_suit = None
                 if(move["type"] == "handOver"):
-                    winning_hand = "["+ list_to_string(hands[winner[hand_num]]) + "]"
+                    winning_hand = "["+ list_to_string(hands[winningPlayers[hand_num]]) + "]"
                     deck_history = [5]*52
                     hand_num += 1
     return
@@ -165,7 +170,7 @@ def update_database(values):
     global cur
     global conn
     deck = "1c", "2c", "3c", "4c", "5c", "6c", "7c", "8c", "9c", "10c", "11c", "12c", "13c", "1d", "2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "10d", "11d", "12d", "13d", "1s", "2s", "3s", "4s", "5s", "6s", "7s", "8s", "9s", "10s", "11s", "12s", "13s", "1h", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h"
-    INSERT = "INSERT INTO heartsai_data (trick_ID, " + generate_deck()+ ", trump_suit, game_winner, winning_hand)"
+    INSERT = "INSERT INTO heartsai_data (trick_ID, " + generate_deck()+ ", trump_suit, game_winner, card_played, winning_hand)"
     query = INSERT + "VALUES (" + values + ")"
     cur.execute(query)
     conn.commit()
@@ -179,7 +184,7 @@ def main():
     global conn
     global cur
     deck_string = generate_deck_string()
-    query = "CREATE TABLE heartsai_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), game_winner SERIAL, winning_hand VARCHAR (200) NOT NULL);"
+    query = "CREATE TABLE heartsai_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
     cur.execute(query)
     # Make the changes to the database persistent
     conn.commit()
