@@ -1,12 +1,14 @@
 '''
 Monte Carlo Agent
-Tree Structure: [ board, [ [ board w/played card, [], curhand, numVisit,  value] [ board w/played card, [], curhand, numVisit, value] ], curhand, numVisit, value]?
 
 '''
 from Player import Player
-import time
-import random
 from Card import Card
+from Hand import Hand
+import time
+import copy
+import random
+
 
 class Node:
     def __init__(self, board, curhand):
@@ -14,139 +16,219 @@ class Node:
         self.children = []
         self.curhand = curhand
         self.numVisit = 0
-        self.value = 0
         self.parent = None
 
 class MonteCarlo(Player):
         
+    def __init__(self, name, auto=False):
+        super().__init__(name, auto)
+        self.gameHearts = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        self.gameSpades = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        self.gameClubs = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        self.gameDiamonds = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        
     def MonteSearch(self, root): #written
-        #if time? 5 seconds? 10 seconds?
+        """Monte Carlo Tree Search (calls helper functions)"""
+        #if time? 5 seconds? 7 seconds? 10 seconds?
         startTime = time.time()
-        while(time.time() - startTime < 10):
+        while(time.time() - startTime < 3):
             leaf = self.traverse(root)
-            simulation = self.rollout(leaf)
-            self.backProp(leaf, simulation)
+            simulationResult = self.rollout(leaf)
+            self.backProp(leaf, simulationResult)
             
         return self.bestChild(root)
     
-    def movesMath(self, node): #written
-        """How many moves can be generated based on a branch of the tree"""
-        if(len(self.trickHistory) == 0 or len(self.trickHistory) == 13):
-            if(str(node.curhand.spades[-1]).find("Q")):
-                return node.curhand.size() - len(node.curhand.hearts) - 1
-            else:
-                return node.curhand.size() - len(node.curhand.hearts)
-        elif(not self.heartsBroken):
-            return node.curhand.size() - len(node.curhand.hearts)
-        else:
-            return node.curhand.size()
-    
-    def expand(self, node):
-        
-        for card in node.curhand:
-            # for trick in self.trickHistory:
-            #     for card in trick:
-            #         pass #see what cards have been played
-            
-            hand = node.hand.copy()
-            hand = node.hand.removeCard(card)
-             
-            child = Node(["Ks", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-
-            child = Node(["Kd", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["Kh", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["Kc", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["8s", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["8d", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["8h", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["8c", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["2s", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["2d", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-            
-            child = Node(["2h", card], hand)
-            child.parent = node  
-            node.children.append(child) 
-        
-            child = Node(["2c", card], hand)
-            child.parent = node  
-            node.children.append(child)  
-        
-        return node.children[0]
-    
     def traverse(self, node): 
-        while(len(node.children) == self.movesMath(node)): #while fullly expanded
+        """Traverses the tree"""
+        while(node.numVisit != 0): 
             node = self.bestChild(node)
+            
+        if(node.numVisit == 0):
+            node = self.expand(node)
+            
+        return node
         
-        if(len(node.children < self.movesMath(node))):
-            return self.expand(node)
-    
-        for child in node.children: #if a child has no children, explore it
-            if(len(node.children) == 0):
-                return child
-        
-        return node #otherwise return the node
+    def expand(self, node): #written
+        """Adds branches to the tree"""
+        for card in node.curhand.clubs:
+            hand = copy.deepcopy(node.curhand)
+            hand = hand.removeCard(card)
+            
+            if(len(self.gameClubs) != 0):
+                self.addBranches(node, hand, card, self.gameClubs)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameDiamonds)
+            if(len(self.gameHearts) != 0 and (self.heartsBroken or self.hasOnlyHearts)):
+                self.addBranches(node, hand, card, self.gameHearts)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameSpades)
+            
+            
+        for card in node.curhand.hearts:
+            hand = copy.deepcopy(node.curhand)
+            hand = hand.removeCard(card)
+            
+            if(len(self.gameClubs) != 0):
+                self.addBranches(node, hand, card, self.gameClubs)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameDiamonds)
+            if(len(self.gameHearts) != 0):
+                self.addBranches(node, hand, card, self.gameHearts)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameSpades)
+            
+        for card in node.curhand.spades:
+            hand = copy.deepcopy(node.curhand)
+            hand = hand.removeCard(card)
 
-    def rollout(self, node):
-        while(self.hand.size() != 0): #while non terminal
-            node = self.rolloutRules(node)
+            if(len(self.gameClubs) != 0):
+                self.addBranches(node, hand, card, self.gameClubs)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameDiamonds)
+            if(len(self.gameHearts) != 0):
+                self.addBranches(node, hand, card, self.gameHearts)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameSpades)
+
+        for card in node.curhand.diamonds:
+            hand = copy.deepcopy(node.curhand)
+            hand = hand.removeCard(card)
+                    
+            if(len(self.gameClubs) != 0):
+                self.addBranches(node, hand, card, self.gameClubs)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameDiamonds)
+            if(len(self.gameHearts) != 0):
+                self.addBranches(node, hand, card, self.gameHearts)
+            if(len(self.gameDiamonds) != 0):
+                self.addBranches(node, hand, card, self.gameSpades)
+        return node
+    
+    def addBranches(self, node, hand, card, suite):
         
-        return node #results(node)??????
+        if(suite[0] == suite[(int(len(suite)/2))-1] and suite[0] == suite[-1]): #all equal
+            
+            child = Node([suite[0], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop(0)
+            
+        elif(suite[-1] == suite[(int(len(suite)/2))-1] and suite[-1] != suite[0]): # high and mid equal
+        
+            child = Node([suite[0], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop(0)
+            
+            child = Node([suite[(int(len(suite)/2))-1], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop((int(len(suite)/2))-1)
+            
+        elif(suite[0] == suite[(int(len(suite)/2))-1] and suite[0] != suite[-11]): # low and mid equal
+            
+            child = Node([suite[-1], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop(0)
+            
+            child = Node([suite[(int(len(suite)/2))-1], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop((int(len(suite)/2))-1)
+            
+        elif(suite[0] != suite[(int(len(suite)/2))-1] and suite[0] == suite[1]): # low and high equal
+        
+            child = Node([suite[0], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop(0)
+            
+            child = Node([suite[(int(len(suite)/2))-1], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop((int(len(suite)/2))-1)
+            
+        else: # none equal
+            
+            child = Node([suite[0], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop(0)
+            
+            child = Node([suite[(int(len(suite)/2))-1], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop((int(len(suite)/2))-1)
+            
+            child = Node([suite[-1], card], hand)
+            child.parent = node  
+            node.children.append(child) 
+            suite.pop(-1)
+        
     
-    def rolloutRules(self, node): #written
-        pick = random.randint(0, len(node.children)-1)
-        return node.children[pick]
+    def rollout(self, node):
+        """rollout the the rules"""
+        while(node.curhand is not None): #while non terminal
+            if(len(node.children) == 1):
+                node = node.children[0]
+            elif(len(node.children) != 0):
+                node = node.children[random.randint(0, len(node.children)-1)] #pick a random child node
+        return 1 #visited
     
-    def backProp(self, node, result):
+    def backProp(self, node, result): #written
+        """Back propigates the tree"""
         if(node.parent == None):
             return
         else:
-            node.value = node.value + result
-            node.numVisit = node.numVisit + 1
+            node.numVisit = node.numVisit + result
             self.backProp(node.parent, result)
     
     def bestChild(self, node): #written
-        pick = node.children[0]
+        """Returns the "best" node of the one with the most visits - Can be modified to use confidence bounds (better)"""
+        holder = Node([], node.curhand)
+        holder.numVisit = -1
+        pick = holder
         for child in node.children:
-            if(child.numVisit > pick.numVisit):
-                pick = child
+            
+            if(str(child.board[1])[-1] == self.curTrump):
+                if(child.numVisit > pick.numVisit):
+                    pick = child
+            elif(str(child.board[1])[-1] == "h" and self.heartsBroken):
+                if(child.numVisit > pick.numVisit):
+                    pick = child
+            elif(self.curTrump == "Unset"):
+                if(child.numVisit > pick.numVisit):
+                    pick = child 
+
 
         return pick
     
 #board is with ["", "", thing, thing]
 #board state is with [thing, thing]
 
-    def playCard(self):
+    def playCard(self): #written        
+        """Redefines playCard from player class to use MonteCarlo"""
+        
+        self.gameHearts = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        self.gameSpades = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        self.gameClubs = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        self.gameDiamonds = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        
+        for card in self.trickHistory:
+            if(card[1] == "c"):
+                self.gameClubs.remove(card[0])
+            if(card[1] == "d"):
+                self.gameDiamonds.remove(card[0])
+            if(card[1] == "h"):
+                self.gameHearts.remove(card[0])
+            if(card[1] == "s"):
+                self.gameSpades.remove(card[0])
+
+
         root = Node(self.boardState, self.hand)
         card = self.MonteSearch(root) #do the algo and get the best card
-        return card #return the best
+        return card.board[1] #return the best
     
     def play(self, option='play', c=None, auto=False):
         """Redefines play from player class to if auto call playCard defined above"""
