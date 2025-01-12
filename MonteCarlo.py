@@ -189,6 +189,7 @@ class MonteCarlo(Player):
         holder = Node([], node.curhand)
         holder.numVisit = -1
         pick = holder
+        
         for child in node.children:
             
             if(str(child.board[1])[-1] == self.curTrump):
@@ -200,7 +201,6 @@ class MonteCarlo(Player):
             elif(self.curTrump == "Unset"):
                 if(child.numVisit > pick.numVisit):
                     pick = child 
-
 
         return pick
     
