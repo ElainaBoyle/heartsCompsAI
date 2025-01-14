@@ -101,12 +101,19 @@ def read_json(file_name):
             trump_suit = None
             winner_play = ""
             for move in game["moves"]: #{"type": "pass","from": 0,"to": 1,"cards": ["1d","8c","6c"],"timestamp": "2024-10-20T09:05:56.631Z"}
+                if(move["type"] == "handOver"):
+                    winning_hand = "["+ list_to_string(hands[winningPlayers[hand_num]]) + "]"
+                    deck_history = [5]*52
+                    hand_num += 1
+                    
+                if(hand_num > 0):
+                    continue
+
                 if (move["type"] == "play"): 
                     if (trump_suit == None):
                         trump_suit = move["card"][-1:]
                     if(move["player"] == winningPlayers[hand_num]):
                         winner_play = move["card"]
-                        print(winner_play)
                 #hand stuff
                 if(move["type"] == "pass"):
                     temp_hands = hand_parser(temp_hands, move) #eventually gets us to "accurate" hands
@@ -124,12 +131,11 @@ def read_json(file_name):
                     trick_history = list_to_string(deck_history)
                     values += trick_id + ", " + trick_history + ", " + "\'" + trump_suit + "\'" +", "+ str(winningPlayers[hand_num]) + ", " + "\'" + str(winner_play) + "\'" + ", "  +"\'"+ winning_hand +"\'" + "\n"                   
                     update_database(values)
+                    if(winner_play in hands[winningPlayers[hand_num]]):
+                        hands[winningPlayers[hand_num]].remove(winner_play)
                     values = ""
                     trump_suit = None
-                if(move["type"] == "handOver"):
-                    winning_hand = "["+ list_to_string(hands[winningPlayers[hand_num]]) + "]"
-                    deck_history = [5]*52
-                    hand_num += 1
+
     return
 
 #Generates a string representing a deck of cards
@@ -184,15 +190,19 @@ def main():
     global conn
     global cur
     deck_string = generate_deck_string()
-    query = "CREATE TABLE heartsai_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
-    cur.execute(query)
-    # Make the changes to the database persistent
-    conn.commit()
-    directory = 'HeartsData'
-    for filename in os.listdir(directory): 
-        print(filename)
-        read_json(directory + '/'+ filename)
-    print("I-I... I think we're finished")
+    make_table = input("Do you want to create the HeartsAI table? " )
+    if(make_table.lower() in ("y", "yes")):
+        query = "CREATE TABLE heartsai_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
+        cur.execute(query)
+        # Make the changes to the database persistent
+        conn.commit()
+    fill_table = input("Should I fill the table with game data? ")
+    if(fill_table.lower() in ("y", "yes")):
+        directory = 'HeartsData'
+        for filename in os.listdir(directory): 
+            print(filename)
+            read_json(directory + '/'+ filename)
+        print("I-I... I think we're finished")
     # Close cursor and communication with the database
     cur.close()
     conn.close()
