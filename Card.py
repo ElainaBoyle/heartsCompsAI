@@ -2,6 +2,7 @@ class Card:
 	def __init__(self, rank, suit):
 		self.rank = Rank(rank)
 		self.suit = Suit(suit)
+		self.value = int(rank)
 
 	def __lt__(self, other):
 		return (self.rank < other.rank or (self.rank == other.rank and self.suit < other.suit))

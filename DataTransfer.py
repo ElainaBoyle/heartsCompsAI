@@ -98,7 +98,7 @@ def read_json(file_name):
             deck_history = [5]*52
             winningPlayers = read_winners(game["finalScores"])
             hand_num = 0
-            trump_suit = None
+            trump_suit = "NA"
             winner_play = ""
             for move in game["moves"]: #{"type": "pass","from": 0,"to": 1,"cards": ["1d","8c","6c"],"timestamp": "2024-10-20T09:05:56.631Z"}
                 if(move["type"] == "handOver"):
@@ -114,6 +114,8 @@ def read_json(file_name):
                         trump_suit = move["card"][-1:]
                     if(move["player"] == winningPlayers[hand_num]):
                         winner_play = move["card"]
+                        if(move["trickPosition"] == 1):
+                            trump_suit = "NA"
                 #hand stuff
                 if(move["type"] == "pass"):
                     temp_hands = hand_parser(temp_hands, move) #eventually gets us to "accurate" hands
