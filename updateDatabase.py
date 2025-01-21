@@ -15,17 +15,17 @@ def main():
     conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
     cur = conn.cursor()
 
-    cur.execute("ALTER TABLE heartsai_data ADD clubs varchar(255);")
-    cur.execute("ALTER TABLE heartsai_data ADD diamonds varchar(255);" )
-    cur.execute("ALTER TABLE heartsai_data ADD spades varchar(255);" )
-    cur.execute("ALTER TABLE heartsai_data ADD hearts varchar(255);" )
+    cur.execute("ALTER TABLE heartsai_data2 ADD clubs varchar(255);")
+    cur.execute("ALTER TABLE heartsai_data2 ADD diamonds varchar(255);" )
+    cur.execute("ALTER TABLE heartsai_data2 ADD spades varchar(255);" )
+    cur.execute("ALTER TABLE heartsai_data2 ADD hearts varchar(255);" )
     print("columns added")
 
-    cur.execute("SELECT * FROM heartsai_data;")
+    cur.execute("SELECT * FROM heartsai_data2;")
     frames = cur.fetchall()
     for frame in frames:
         id = frame[0]
-        winning_hand = (frame[56])[1:-1].split(", ")
+        winning_hand = (frame[57])[1:-1].split(", ")
         print(id)
         clubs = 0
         diamonds = 0
@@ -43,7 +43,7 @@ def main():
             if card[-1:] == 'h':
                 hearts += 1
         
-        suitsQuery = "UPDATE heartsai_data SET clubs = " + str(clubs)\
+        suitsQuery = "UPDATE heartsai_data2 SET clubs = " + str(clubs)\
                         + ", diamonds = '" + str(diamonds)\
                         + "', spades = '" + str(spades)\
                         + "', hearts = '" + str(hearts)\
@@ -53,10 +53,10 @@ def main():
         cur.execute(suitsQuery)
 
 
-    cur.execute("DELETE FROM heartsai_data WHERE card_played like '%%s' AND winning_hand NOT LIKE '%%s%%")
-    cur.execute("DELETE FROM heartsai_data WHERE card_played like '%%d' AND winning_hand NOT LIKE '%%d%%")
-    cur.execute("DELETE FROM heartsai_data WHERE card_played like '%%c' AND winning_hand NOT LIKE '%%c%%")
-    cur.execute("DELETE FROM heartsai_data WHERE card_played like '%%h' AND winning_hand NOT LIKE '%%h%%")
+    cur.execute("DELETE FROM heartsai_data2 WHERE card_played NOT LIKE '%%c' AND trumps_suit LIKE 'c' AND winning_hand LIKE '%%c%%';")
+    cur.execute("DELETE FROM heartsai_data2 WHERE card_played NOT LIKE '%%d' AND trumps_suit LIKE 'd' AND winning_hand LIKE '%%d%%';")
+    cur.execute("DELETE FROM heartsai_data2 WHERE card_played NOT LIKE '%%s' AND trumps_suit LIKE 's' AND winning_hand LIKE '%%s%%';")
+    cur.execute("DELETE FROM heartsai_data2 WHERE card_played NOT LIKE '%%h' AND trumps_suit LIKE 'h' AND winning_hand LIKE '%%h%%';")
 
     print("updates completed")
     # Make the changes to the database persistent

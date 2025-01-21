@@ -98,7 +98,8 @@ def read_json(file_name):
             deck_history = [5]*52
             winningPlayers = read_winners(game["finalScores"])
             hand_num = 0
-            trump_suit = "NA"
+            trump_suit = None #changed to None from "NA" but that could break it 
+            high_card = None
             winner_play = ""
             for move in game["moves"]: #{"type": "pass","from": 0,"to": 1,"cards": ["1d","8c","6c"],"timestamp": "2024-10-20T09:05:56.631Z"}
                 if(move["type"] == "handOver"):
@@ -110,6 +111,11 @@ def read_json(file_name):
                     continue
 
                 if (move["type"] == "play"): 
+                    if (high_card == None):
+                        high_card = move["card"]
+                    else:
+                        if (int(high_card[:-1]) > int(move["card"][:-1]) or int(high_card[:-1]) == 1) and move["card"][-1:] == high_card[-1:]:
+                            high_card = move["card"]
                     if (trump_suit == None):
                         trump_suit = move["card"][-1:]
                     if(move["player"] == winningPlayers[hand_num]):
@@ -131,12 +137,13 @@ def read_json(file_name):
                 if(move["type"] == "trick"): 
                     winning_hand = "["+ list_to_string(hands[winningPlayers[hand_num]]) + "]"
                     trick_history = list_to_string(deck_history)
-                    values += trick_id + ", " + trick_history + ", " + "\'" + trump_suit + "\'" +", "+ str(winningPlayers[hand_num]) + ", " + "\'" + str(winner_play) + "\'" + ", "  +"\'"+ winning_hand +"\'" + "\n"                   
+                    values += trick_id + ", " + trick_history + ", " + "\'" + trump_suit + "\'" +", \'" + high_card + "\' , "+ str(winningPlayers[hand_num]) + ", " + "\'" + str(winner_play) + "\'" + ", "  +"\'"+ winning_hand +"\'" + "\n"                   
                     update_database(values)
                     if(winner_play in hands[winningPlayers[hand_num]]):
                         hands[winningPlayers[hand_num]].remove(winner_play)
                     values = ""
                     trump_suit = None
+                    high_card = None
 
     return
 
@@ -178,7 +185,7 @@ def update_database(values):
     global cur
     global conn
     deck = "1c", "2c", "3c", "4c", "5c", "6c", "7c", "8c", "9c", "10c", "11c", "12c", "13c", "1d", "2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "10d", "11d", "12d", "13d", "1s", "2s", "3s", "4s", "5s", "6s", "7s", "8s", "9s", "10s", "11s", "12s", "13s", "1h", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h"
-    INSERT = "INSERT INTO heartsai_data (trick_ID, " + generate_deck()+ ", trump_suit, game_winner, card_played, winning_hand)"
+    INSERT = "INSERT INTO heartsai_data2 (trick_ID, " + generate_deck()+ ", trump_suit, high_card, game_winner, card_played, winning_hand)"
     query = INSERT + "VALUES (" + values + ")"
     cur.execute(query)
     conn.commit()
@@ -194,7 +201,7 @@ def main():
     deck_string = generate_deck_string()
     make_table = input("Do you want to create the HeartsAI table? " )
     if(make_table.lower() in ("y", "yes")):
-        query = "CREATE TABLE heartsai_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
+        query = "CREATE TABLE heartsai_data2(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), high_card VARCHAR (10), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
         cur.execute(query)
         # Make the changes to the database persistent
         conn.commit()

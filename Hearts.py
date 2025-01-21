@@ -204,8 +204,8 @@ class Hearts:
 							# if player only has hearts but hearts have not been broken,
 							# player can play hearts
 							if not curPlayer.hasOnlyHearts():
-								print(curPlayer.hasOnlyHearts())
-								print(curPlayer.hand.__str__())
+								#print(curPlayer.hasOnlyHearts())
+								#print(curPlayer.hand.__str__())
 								print("Hearts have not been broken.")
 								addCard = None
 							else:

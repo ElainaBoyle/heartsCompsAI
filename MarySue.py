@@ -32,17 +32,42 @@ class Cbr_Agent(Player):
 
 
 
-    def countTotalRankObj(self, hand):
-        total = 0
+    def getDifferenceBuckets(self, hand):
+
+        myLows = 0
+        myHighs = 0
+        myMeds = 0
+
         for card in hand.clubs:
-            total += card.value
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
         for card in hand.diamonds:
-            total += card.value
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
         for card in hand.spades:
-            total += card.value
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
         for card in hand.hearts:
-            total += card.value
-        return total
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
+
+        return [myLows, myMeds, myHighs]
     
     def countTotalRankStr(self, hand):
         hand = hand[1:-1].split(", ")
@@ -50,40 +75,104 @@ class Cbr_Agent(Player):
         for card in hand:
             total += int(card[:-1])
         return total
+        
 
     #Checks each frame in the array for similarity, return the next move of the frame with highest similarity
-    def mostSimilar(self, array):
-        #to start, just pick the hand with the closest total rank
-        myTotal = self.countTotalRankObj(self.hand)
-        closestHandValue = 10000000000000
 
-        for game in array: #game[0] is hand, game[1] is next move.
-            if abs(self.countTotalRankStr(game[0]) - myTotal) < closestHandValue:
+    #Things to add:
+    #plays to win trick or not -- requires knowing highest card played so far that trick
+    #difference in number of each suit already played out in the game -- may require updating of numbering
+
+
+    def mostSimilar(self, array):
+        #
+        buckets = self.getDifferenceBuckets(self.hand)
+
+        for game in array:
+
+            #variables
+            print("trick id is" + game[3])
+            hand = game[0]
+            cardPlayed = game[1]
+            highCardRank = int(game[2][:-1])
+            highCardSuit = game[2][-1:]
+            cardPlayedRank = int(cardPlayed[:-1])
+            cardPlayedSuit = cardPlayed[-1:]
+            bestSimilarity = 100000
+            winMove = None
+            lows = 0
+            highs = 0
+            meds = 0
+            noSimilarCardPenalty = 10
+            playingToWin = False
+            alignmentPenalty = 10
+
+            if cardPlayedRank > highCardRank:
+                playingToWin = True
+
+            index = -1
+            
+            if highCardSuit == 'c':
+                index = 0
+            if highCardSuit == 'd':
+                index = 1
+            if highCardSuit == 's':
+                index = 2
+            if highCardSuit == 'h':
+                index = 3
+
+            for card in self.hand.hand[index]:
+                if playingToWin:
+                    if card.value > highCardRank:
+                        alignmentPenalty = 0
+                else:
+                    if card.value < highCardRank:
+                        alignmentPenalty = 0
+
+
+            
+            
+                        
+                 
+
+            
+
+            #counts difference in card value buckets
+            for card in hand[1:-1].split(", "):
+                rank = int(card[:-1])
+                suit = card[-1:]
+                if suit == cardPlayedSuit and abs(rank - cardPlayedRank) <= 2:
+                    noSimilarCardPenalty = 0
+                if rank > 1 and rank < 8:
+                    lows += 1
+                elif rank >= 8 and rank <= 11:
+                    meds += 1
+                else:
+                    highs += 1
+            diffLow = abs(buckets[0] - lows)
+            diffMed = abs(buckets[1] - meds)
+            diffHigh = abs(buckets[2] - highs)
+
+            #Big importatant equation, open to lots of changes, this is still pretty simple
+            similarityScore = diffLow + diffMed + diffHigh + noSimilarCardPenalty + alignmentPenalty
+
+            if similarityScore < bestSimilarity:
                 winMove = game[1]
-                chosen_game = game[2]
-                closestHandValue = self.countTotalRankStr(game[0])
-        #print(chosen_game)
+                bestSimilarity = similarityScore
+
         return winMove
                 
     #finds similar game moments to the current one and returns them in a list
     def findSimilarFrames(self, myCardSuits, curTrump):
 
-        database = "heartsai_data" 
-        user = "aicomps"
-        host= 'localhost'
-        password = "12345"
-        port = 5432
-        
-
-
         try:
             conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
-            #print("Database connected successfully. MS")
+            print("Database connected successfully. MS")
         except:
             print("Database not connected successfully. MS")
 
         cur = conn.cursor()
-        cur.execute(("SELECT winning_hand, card_played, trick_id FROM heartsai_data WHERE clubs = cast({0} as varchar)" +
+        cur.execute(("SELECT winning_hand, card_played, high_card, trick_id FROM heartsai_data2 WHERE clubs = cast({0} as varchar)" +
                     " AND diamonds = CAST({1} as Varchar)" +
                     " AND spades = CAST({2} as Varchar)" +
                     " AND hearts = CAST({3} as Varchar)" +
@@ -144,9 +233,9 @@ class Cbr_Agent(Player):
                 return self.hand.getRandomCard()
             else:
                 move = self.mostSimilar(frames)
-                #print("ideal move is %s" % move)
+                print("ideal move is %s" % move)
                 actualmove = self.interpolateMove(move)
-                #print("actual move is %s" % move)
+                print("actual move is %s" % move)
                 return actualmove
 
         #sets card equal to the card specified by c, currently only used for the 2 of clubs
@@ -156,6 +245,7 @@ class Cbr_Agent(Player):
                     if potential.__str__() == c:
                         card = potential
             
+        print("MarySue wins!")
         return card
 
     ### BROKEN ###
