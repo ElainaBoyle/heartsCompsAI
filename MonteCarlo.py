@@ -275,7 +275,7 @@ class MonteCarlo(Player):
         while node is not None:
             node.numVisit = node.numVisit + 1
             node.value = node.value + result
-            none = node.parent
+            node = node.parent
         
         # if(node == None):
         #     return
