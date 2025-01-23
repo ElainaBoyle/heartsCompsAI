@@ -33,7 +33,7 @@ class MonteCarlo(Player):
         """Monte Carlo Tree Search (calls helper functions)"""
         #if time? 5 seconds? 7 seconds? 10 seconds?
         startTime = time.time()
-        while(time.time() - startTime < 1):
+        while(time.time() - startTime < 3):
             leaf = self.traverse(root)
             simulationResult = self.rollout(leaf)
             self.backProp(leaf, simulationResult)
@@ -187,173 +187,20 @@ class MonteCarlo(Player):
                     
          
     def addBranches(self, node, hand, card):
-        for otherPlay1 in self.gameDiamonds:
-            for otherPlay2 in self.gameDiamonds:
-                
-                for otherPlay3 in self.gameDiamonds:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node  
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameClubs:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameHearts:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-            
-            for otherPlay2 in self.gameClubs:
-                for otherPlay3 in self.gameHearts:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameClubs:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-           
-            for otherPlay2 in self.gameClubs:
-                for otherPlay3 in self.gameHearts:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameClubs:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)
-           
-            for otherPlay2 in self.gameHearts:
-                for otherPlay3 in self.gameHearts:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)
-            
-            for otherPlay2 in self.gameSpades:
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
         
-        
-        for otherPlay1 in self.gameClubs:
-            for otherPlay2 in self.gameClubs:
-                for otherPlay3 in self.gameHearts:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameClubs:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)
-
-            for otherPlay2 in self.gameHearts:
-                for otherPlay3 in self.gameHearts:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)          
-                        
-            for otherPlay2 in self.gameSpades:
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)  
-
-
-        for otherPlay1 in self.gameHearts:
-            for otherPlay2 in self.gameHearts:
-                for otherPlay3 in self.gameHearts:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)
-                        
-            for otherPlay2 in self.gameSpades:
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child)  
-                        
-                        
-        for otherPlay1 in self.gameSpades:
-            for otherPlay2 in self.gameSpades:
-                for otherPlay3 in self.gameSpades:
-                    if((otherPlay1 != otherPlay2) and (otherPlay1 != otherPlay3) and (otherPlay2 != otherPlay3)):
-                        child = Node([otherPlay1, card, otherPlay2, otherPlay3], hand)
-                        child.parent = node
-                        child.curTrump = otherPlay1[-1]
-                        node.children.append(child) 
+        suits = [self.gameDiamonds, self.gameSpades, self.gameClubs, self.gameHearts]
+        for otherPlay1 in suits:
+            for otherPlay2 in suits:
+                for otherPlay3 in suits:
+                    for card1 in otherPlay1:
+                        for card2 in otherPlay2:
+                            for card3 in otherPlay3:
+                                if((card1 != card2) and (card1 != card3) and (card2 != card3)):
+                                    child = Node([card1, card, card2, card3], hand)
+                                    child.parent = node
+                                    child.curTrump = card1[-1]
+                                    node.children.append(child)  
+                                    
         
     def rollout(self, node): #should probably have better logic than pick a random child
         """rollout the the rules"""
@@ -424,33 +271,37 @@ class MonteCarlo(Player):
 
     def backProp(self, node, result): #written - maybe needs rewritten
         """Back propigates the tree"""
-        if(node == None):
-            return
-        else:
+        
+        while node is not None:
             node.numVisit = node.numVisit + 1
             node.value = node.value + result
-            self.backProp(node.parent, result)
+            none = node.parent
+        
+        # if(node == None):
+        #     return
+        # else:
+        #     node.numVisit = node.numVisit + 1
+        #     node.value = node.value + result
+        #     self.backProp(node.parent, result)
     
     def bestChild(self, node): #written - needs updating
         """Returns the "best" node of the one with the most visits - Can be modified to use confidence bounds (better)"""
-        holder = Node([], node.curhand)
-        holder.value = -1
-        pick = holder
+        pick = Node([], node.curhand)
+        pick.value = 10000
         
         for child in node.children:
-            
-            if(str(child.board[1])[-1] == node.curTrump):
-                if(child.value > pick.value):
+            childTrump = str(child.board[1])[-1]
+            if(childTrump == node.curTrump):
+                if(child.value < pick.value):
                     pick = child
 
             elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())):
-                if(child.value > pick.value):
+                if(child.value < pick.value):
                     pick = child
             
             else:
-                if(str(child.board[1])[-1] != "h"):
-                    if(str(child.board[1]) != "Qs"):
-                        if(child.value > pick.value): 
+                if((childTrump != "h") and (str(child.board[1]) != "Qs")):
+                        if(child.value < pick.value): 
                             pick = child    
 
         return pick
