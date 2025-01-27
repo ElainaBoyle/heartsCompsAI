@@ -11,7 +11,7 @@ import psycopg2
 class Cbr_Agent(Player):
 
 
-    myCardSuits = [3, 4, 1, 2] #number of clubs, diamonds, spades, hearts in my hand
+    #myCardSuits = [3, 4, 1, 2] #number of clubs, diamonds, spades, hearts in my hand
     curTrump = 0
 
 
@@ -24,147 +24,229 @@ class Cbr_Agent(Player):
 
 
 
-
-
     #hand/trickNum, [Location of cards], winning player, card played, [winning player’s hand]
     #ADD to database:
     #game IDs
     #trump suit
     #suitNums = [numclubs, numdiamonds, numspades, numhearts] //for game-winning player’s hand
 
-    def countTotalRank(hand):
+
+
+    def getDifferenceBuckets(self, hand):
+
+        myLows = 0
+        myHighs = 0
+        myMeds = 0
+
+        for card in hand.clubs:
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
+        for card in hand.diamonds:
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
+        for card in hand.spades:
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
+        for card in hand.hearts:
+            if card.value > 1 and card.value < 8:
+                myLows += 1
+            elif card.value >= 8 and card.value <= 11:
+                myMeds += 1
+            else:
+                myHighs += 1
+
+        return [myLows, myMeds, myHighs]
+    
+    def countTotalRankStr(self, hand):
+        hand = hand[1:-1].split(", ")
         total = 0
         for card in hand:
-            total += card.rank
+            total += int(card[:-1])
         return total
+        
+
+    #Checks each frame in the array for similarity, return the next move of the frame with highest similarity
+
+    #Things to add:
+    #plays to win trick or not -- requires knowing highest card played so far that trick
+    #difference in number of each suit already played out in the game -- may require updating of numbering
 
 
-    #Check each hand for similarity, return id with highest similarity
-    def determineSimilarity(self, array):
-        #to start, just pick the hand with the closest total rank
-        myTotal = self.countTotalRank(self.hand)
-        closestHandValue = 10000000000000
+    def mostSimilar(self, array):
+        #
+        buckets = self.getDifferenceBuckets(self.hand)
+
+        for game in array:
+
+            #variables
+            print("trick id is" + game[3])
+            hand = game[0]
+            cardPlayed = game[1]
+            highCardRank = int(game[2][:-1])
+            highCardSuit = game[2][-1:]
+            cardPlayedRank = int(cardPlayed[:-1])
+            cardPlayedSuit = cardPlayed[-1:]
+            bestSimilarity = 100000
+            winMove = None
+            lows = 0
+            highs = 0
+            meds = 0
+            noSimilarCardPenalty = 10
+            playingToWin = False
+            alignmentPenalty = 10
+
+            if cardPlayedRank > highCardRank:
+                playingToWin = True
+
+            index = -1
+            
+            if highCardSuit == 'c':
+                index = 0
+            if highCardSuit == 'd':
+                index = 1
+            if highCardSuit == 's':
+                index = 2
+            if highCardSuit == 'h':
+                index = 3
+
+            for card in self.hand.hand[index]:
+                if playingToWin:
+                    if card.value > highCardRank:
+                        alignmentPenalty = 0
+                else:
+                    if card.value < highCardRank:
+                        alignmentPenalty = 0
 
 
-        for game in array: #game[0] is hand, game[1] is next move.
-            if abs(self.countTotalRank(game[0]) - myTotal) < closestHandValue:
+            
+            
+                        
+                 
+
+            
+
+            #counts difference in card value buckets
+            for card in hand[1:-1].split(", "):
+                rank = int(card[:-1])
+                suit = card[-1:]
+                if suit == cardPlayedSuit and abs(rank - cardPlayedRank) <= 2:
+                    noSimilarCardPenalty = 0
+                if rank > 1 and rank < 8:
+                    lows += 1
+                elif rank >= 8 and rank <= 11:
+                    meds += 1
+                else:
+                    highs += 1
+            diffLow = abs(buckets[0] - lows)
+            diffMed = abs(buckets[1] - meds)
+            diffHigh = abs(buckets[2] - highs)
+
+            #Big importatant equation, open to lots of changes, this is still pretty simple
+            similarityScore = diffLow + diffMed + diffHigh + noSimilarCardPenalty + alignmentPenalty
+
+            if similarityScore < bestSimilarity:
                 winMove = game[1]
-                closestHandValue = self.countTotalRank(game[0])
+                bestSimilarity = similarityScore
 
         return winMove
                 
- 
-    
-
-
-
-
-    def findSimilar(self, myCardSuits, curTrump):
-
-        database = "mock_data" 
-        user = "aicomps"
-        host= 'localhost'
-        password = "12345"
-        port = 5432
-        
-
-        outputArray = []
+    #finds similar game moments to the current one and returns them in a list
+    def findSimilarFrames(self, myCardSuits, curTrump):
 
         try:
-            conn = psycopg2.connect(database, user, password, host, port)
+            conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
             print("Database connected successfully. MS")
         except:
             print("Database not connected successfully. MS")
 
         cur = conn.cursor()
-        cur.execute("SELECT * FROM heartsai_data WHERE cardSuits = " + myCardSuits + " AND Trump =" + curTrump) 
-        rows = cur.fetchall()
-        for data in rows:
-            outputArray.append([data[2], data[4]]) #[[Hand, nextMove], [hand, nextMove], ....]
+        cur.execute(("SELECT winning_hand, card_played, high_card, trick_id FROM heartsai_data2 WHERE clubs = cast({0} as varchar)" +
+                    " AND diamonds = CAST({1} as Varchar)" +
+                    " AND spades = CAST({2} as Varchar)" +
+                    " AND hearts = CAST({3} as Varchar)" +
+                    " AND trump_suit = CAST('{4}' as Varchar)").format (myCardSuits[0], myCardSuits[1], myCardSuits[2], myCardSuits[3], curTrump)) 
+        
+        frames = cur.fetchall()
             
-        return outputArray
+        return frames
 
-
+    #takes in a move and plays the closet move possible
     def interpolateMove(self, move):
         
-            theirRank = move[0]
-            theirSuit = move[1]
+            theirRank = move[:-1]
+            theirSuit = move[-1:]
             if theirSuit == 'c': theirSuit = 0
             elif theirSuit == 'd': theirSuit = 1
             elif theirSuit == 's': theirSuit = 2
             elif theirSuit == 'h': theirSuit = 3
             else: print("Invalid suit for theirWinMove in pickMyMove. MS")
     
-            myCardsOfSuit = self.hand[theirSuit]
+            myCardsOfSuit = self.hand.hand[theirSuit]
 
             difference = 13
-            myMove = card(10, -1) #Mary Sue's default card to play is the 10 of Nothings
+            myMove = None
             for card in myCardsOfSuit:
-                curDiff = abs(move.rank - card.rank())
+                curDiff = abs(int(move[:-1]) - card.value)
                 if curDiff < difference:
+                    #print("found a better card", card)
                     myMove = card
                     difference = curDiff
-            if difference == 13: print("No similar cards in interpolateMove. MS")
+                #else:
+                    #print("didn't find a better card")
+            if difference == 13: 
+                print("No similar cards in interpolateMove. MS")
+                myMove = self.hand.getRandomCard()
 
             return myMove
 
-        
-            
-            
-            
-
+    #de facto main method, where the play pattern is usually run
     def play(self, option='play', c=None, auto=True):
 
         curTrump = self.curTrick.suit.string
 
         #if c was specified, plays c (should probably only really happen w/ 2c), else does cbr stuff
         if c == None:
-            #set up variables for easy access to information
+
+            #Key Variables
             numHearts = len(self.hand.hearts)
             numSpades = len(self.hand.spades)
             numClubs = len(self.hand.clubs)
             numDiamonds = len(self.hand.diamonds)
 
-
-
-
-
             myCardSuits = [numClubs, numDiamonds, numSpades, numHearts]
+            frames = self.findSimilarFrames(myCardSuits, curTrump)
+            #print(curTrump)
 
-            array = self.findSimilar(myCardSuits, curTrump)
-
-
-            
-
-            if array.count() == 0:
+            if len(frames) == 0:
                 return self.hand.getRandomCard()
             else:
-                move = self.determineSimilarity(array)
-                
-                return self.interpolateMove(move)
+                move = self.mostSimilar(frames)
+                print("ideal move is %s" % move)
+                actualmove = self.interpolateMove(move)
+                print("actual move is %s" % move)
+                return actualmove
 
-
-
-
-            
-
-
-
-
-
-        #sets card equal to the card specified by c
+        #sets card equal to the card specified by c, currently only used for the 2 of clubs
         else:
             for suit in self.hand.hand:
                 for potential in suit:
                     if potential.__str__() == c:
                         card = potential
             
-
-
+        print("MarySue wins!")
         return card
-
-
-
 
     ### BROKEN ###
     def passing(self, player_num):

@@ -1,0 +1,4035 @@
+Round 1
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+Elek's hand: 5c 9c Qc Ac 2d 7d 9s 10s Js As 2h 9h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Highest: 5
+Breanna's hand: 3c 7c Jc 6d 9d 7s Qs 4h 6h 8h Jh Qh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 11
+MarySue's hand: 8c Kc 3d 4d 5d 8d 10d Jd 2s 3s 6s 8s Kh 
+MarySue's round score: 0
+trick id isJPDMAVQXSNg#2216
+trick id isTETDPAZKZFg#3976
+Breanna won the trick.
+Round 1
+
+Playing trick number 2
+Breanna's hand: 3c 7c 6d 9d 7s Qs 4h 6h 8h Jh Qh Ah 
+Breanna's round score: 0
+Current trick suit: s
+Highest: 12
+MarySue's hand: Kc 3d 4d 5d 8d 10d Jd 2s 3s 6s 8s Kh 
+MarySue's round score: 0
+trick id isIJMAAXZPNDg#2241
+trick id isPDVYCWWIJGg#2288
+Tyler's hand: 4c 6c 10c Qd Kd Ad 4s 5s Ks 3h 5h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Elek's hand: 9c Qc Ac 2d 7d 9s 10s Js As 2h 9h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Breanna won the trick.
+Round 1
+
+Playing trick number 3
+Breanna's hand: 3c 7c 6d 9d 7s 4h 6h 8h Jh Qh Ah 
+Breanna's round score: 13
+Current trick suit: c
+Highest: 3
+MarySue's hand: Kc 3d 4d 5d 8d 10d Jd 2s 3s 6s Kh 
+MarySue's round score: 0
+trick id isITZWFZJYMJg#187
+trick id isUVTIBSYTZNg#1450
+trick id isAJCGNRJMCWg#1450
+Highest: 13
+Tyler's hand: 4c 6c 10c Qd Kd Ad 4s Ks 3h 5h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 9c Qc Ac 2d 7d 9s 10s As 2h 9h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue won the trick.
+Round 1
+
+Playing trick number 4
+MarySue's hand: 3d 4d 5d 8d 10d Jd 2s 3s 6s Kh 
+MarySue's round score: 0
+Current trick suit: h
+Highest: 13
+Tyler's hand: 4c 6c Qd Kd Ad 4s Ks 3h 5h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 9c Ac 2d 7d 9s 10s As 2h 9h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Breanna's hand: 7c 6d 9d 7s 4h 6h 8h Jh Qh Ah 
+Breanna's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue won the trick.
+Round 1
+
+Playing trick number 5
+MarySue's hand: 3d 4d 5d 8d 10d Jd 2s 3s 6s 
+MarySue's round score: 4
+Current trick suit: d
+Highest: 3
+Tyler's hand: 4c 6c Qd Kd Ad 4s Ks 3h 7h 
+Tyler's round score: 0
+Highest: 13
+Elek's hand: 9c Ac 2d 7d 9s 10s As 2h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 7c 6d 9d 7s 4h 6h 8h Qh Ah 
+Breanna's round score: 13
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 1
+
+Playing trick number 6
+Tyler's hand: 4c 6c Qd Ad 4s Ks 3h 7h 
+Tyler's round score: 0
+Current trick suit: h
+Highest: 7
+Elek's hand: 9c Ac 7d 9s 10s As 2h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Highest: 10
+Breanna's hand: 7c 9d 7s 4h 6h 8h Qh Ah 
+Breanna's round score: 13
+Must play the suit of the current trick.
+MarySue's hand: 4d 5d 8d 10d Jd 2s 3s 6s 
+MarySue's round score: 4
+trick id isIENFDIVDHRg#378
+trick id isIDBCQPFNEEg#387
+trick id isCDMAWJJPIQg#563
+trick id isFQMOQDWBNCg#1450
+trick id isJZHOHAESGOg#2957
+Elek won the trick.
+Round 1
+
+Playing trick number 7
+Elek's hand: 9c Ac 7d 9s 10s As 2h 
+Elek's round score: 3
+Current trick suit: c
+Highest: 9
+Breanna's hand: 7c 9d 7s 4h 6h Qh Ah 
+Breanna's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: 4d 5d 8d 10d 2s 3s 6s 
+MarySue's round score: 4
+trick id isHFYQDJNMAEg#2957
+trick id isMCXNEMDBYJg#2978
+trick id isGMGYYEXYHZg#3537
+Tyler's hand: 4c 6c Qd Ad 4s Ks 3h 
+Tyler's round score: 0
+Elek won the trick.
+Round 1
+
+Playing trick number 8
+Elek's hand: Ac 7d 9s 10s As 2h 
+Elek's round score: 3
+Current trick suit: c
+Highest: 14
+Breanna's hand: 9d 7s 4h 6h Qh Ah 
+Breanna's round score: 13
+MarySue's hand: 5d 8d 10d 2s 3s 6s 
+MarySue's round score: 4
+trick id isOWPIZQXWHDg#2539
+trick id isIRLPJYBFLSg#3990
+Tyler's hand: 6c Qd Ad 4s Ks 3h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek won the trick.
+Round 1
+
+Playing trick number 9
+Elek's hand: 7d 9s 10s As 2h 
+Elek's round score: 3
+Current trick suit: s
+Highest: 10
+Breanna's hand: 7s 4h 6h Qh Ah 
+Breanna's round score: 13
+MarySue's hand: 5d 8d 2s 3s 6s 
+MarySue's round score: 4
+trick id isKHQOQKUSNSg#414
+trick id isOJCLSGCFXKg#1496
+trick id isVIXTUAEAPZg#2957
+trick id isCIZOYXJCTBg#3781
+Tyler's hand: Qd Ad 4s Ks 3h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek won the trick.
+Round 1
+
+Playing trick number 10
+Elek's hand: 7d 9s As 2h 
+Elek's round score: 3
+Current trick suit: d
+Highest: 7
+Breanna's hand: 4h 6h Qh Ah 
+Breanna's round score: 13
+MarySue's hand: 5d 8d 2s 3s 
+MarySue's round score: 4
+trick id isVUVMRWNGPCg#1851
+trick id isEEKOTZPEGVg#2400
+trick id isSEUEELYMTIg#3999
+Highest: 8
+Tyler's hand: Qd Ad Ks 3h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+Tyler won the trick.
+Round 1
+
+Playing trick number 11
+Tyler's hand: Qd Ks 3h 
+Tyler's round score: 1
+Current trick suit: h
+Highest: 3
+Elek's hand: 9s As 2h 
+Elek's round score: 3
+Must play the suit of the current trick.
+Breanna's hand: 6h Qh Ah 
+Breanna's round score: 13
+Highest: 12
+MarySue's hand: 5d 2s 3s 
+MarySue's round score: 4
+trick id isEDTAONOIMXg#2154
+trick id isAZGTOJEKACg#3685
+Breanna won the trick.
+Round 1
+
+Playing trick number 12
+Breanna's hand: 6h Ah 
+Breanna's round score: 16
+Current trick suit: h
+Highest: 14
+MarySue's hand: 2s 3s 
+MarySue's round score: 4
+trick id isSJQEBAVGYWg#1435
+trick id isJHQTBTNYDSg#1466
+trick id isGBMQIJONCJg#1493
+trick id isRLKEXPPJCLg#2333
+trick id isCPBVOROYBMg#2407
+trick id isIXVHDMMGKFg#2491
+trick id isDQEOXCHLAQg#2539
+trick id isAEOYBNTFMZg#2957
+trick id isIBTKKUKIJAg#3790
+trick id isEWPSQJSJOGg#3990
+trick id isSOIMXWJFIFg#4483
+Tyler's hand: Qd Ks 
+Tyler's round score: 1
+Elek's hand: 9s As 
+Elek's round score: 3
+Breanna won the trick.
+Round 1
+
+Playing trick number 13
+Breanna's hand: 6h 
+Breanna's round score: 17
+Current trick suit: h
+Highest: 6
+MarySue's hand: 2s 
+MarySue's round score: 4
+trick id isYVUKGEOELRg#282
+trick id isMUKOAQMEKSg#361
+trick id isSPMKWQQTBMg#785
+trick id isFKNCWAWIXKg#783
+trick id isKZJRBVHDJFg#1435
+trick id isUBYHNHJYJKg#1427
+trick id isEBHQCSJKTGg#1493
+trick id isBTZSDCROIBg#2333
+trick id isOCYXMYQBVYg#2303
+trick id isVENOOZYFUGg#2407
+trick id isRPROCKTZBUg#3790
+trick id isKSNXMZWPXBg#2978
+trick id isBGNKAGSSEUg#3348
+trick id isBJWKAJDLUHg#3514
+trick id isIFROQTVRHYg#3773
+trick id isSOZDVJBNMGg#3990
+trick id isINLOMVBCYVg#3997
+trick id isGVVYXCYTGYg#4305
+trick id isUKJMUAQGDYg#585
+trick id isHGMQFOXMEVg#3993
+Tyler's hand: Ks 
+Tyler's round score: 1
+Elek's hand: 9s 
+Elek's round score: 3
+Breanna won the trick.
+
+Scores:
+
+Elek: 3
+Breanna: 18
+MarySue: 4
+Tyler: 1
+New round
+Round 2
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+Breanna's hand: 5c 8c Qc Ac 2d 8d Jd 2s 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+MarySue's hand: 3c 4c 6c 9c 10c 10d 3s 7s 3h 5h 7h 10h Kh 
+MarySue's round score: 0
+trick id isJUTYFFMQPAg#531
+trick id isBQMGPVLYGCg#2776
+trick id isJOASTDRBIEg#2792
+trick id isHBGWPQTSRRg#2858
+trick id isZNDEDKVOTGg#2936
+trick id isCDLRMTCXXPg#3119
+trick id isYNIUSPPHYQg#3191
+trick id isWTVWHKSRGGg#4195
+trick id isGYHHIBHTMXg#4255
+Tyler's hand: Jc Kc 5d 7d 9d Qd 4s 6s 9s 10s Js Ks 2h 
+Tyler's round score: 0
+Breanna won the trick.
+Round 2
+
+Playing trick number 2
+Breanna's hand: 5c 8c Qc 2d 8d Jd 2s 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+Current trick suit: c
+Highest: 5
+MarySue's hand: 3c 4c 6c 9c 10d 3s 7s 3h 5h 7h 10h Kh 
+MarySue's round score: 0
+trick id isJJFNSLYPJRg#344
+trick id isPWSUKDRQMPg#344
+trick id isROSGUAVCYEg#348
+trick id isJVZQQQYWPTg#348
+trick id isMHAWCMONDWg#760
+trick id isFSUKSJPYCIg#776
+trick id isEWGEALCBDWg#1544
+trick id isUDUSYRDLFXg#1704
+trick id isYNUDGXVKUFg#2500
+trick id isRXLVWFIUSGg#4038
+Tyler's hand: Kc 5d 7d 9d Qd 4s 6s 9s 10s Js Ks 2h 
+Tyler's round score: 0
+Highest: 13
+Elek's hand: 7c 3d 4d 6d Kd Ad 5s Qs As 9h Qh Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 2
+
+Playing trick number 3
+Tyler's hand: 5d 7d 9d Qd 4s 6s 9s 10s Js Ks 2h 
+Tyler's round score: 0
+Current trick suit: s
+Highest: 4
+Elek's hand: 3d 4d 6d Kd Ad 5s Qs As 9h Qh Ah 
+Elek's round score: 0
+Highest: 14
+Breanna's hand: 8c Qc 2d 8d Jd 2s 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: 3c 6c 9c 10d 3s 7s 3h 5h 7h 10h Kh 
+MarySue's round score: 0
+trick id isKQHXLTZNAIg#245
+trick id isYSWMYSZPQKg#344
+trick id isBMDAVJZPQEg#348
+trick id isUNNGYNSEGYg#1453
+trick id isJRTXPBLEHHg#1453
+trick id isWKPYDCQLJTg#1704
+trick id isPBJXAHNQXIg#1894
+trick id isPEHENWKHAHg#2434
+trick id isUDCTGKEMQBg#2500
+trick id isFHNTHMLNQYg#2858
+trick id isHBOKPOZATAg#4502
+trick id isIXBMNPDREWg#4525
+Elek won the trick.
+Round 2
+
+Playing trick number 4
+Elek's hand: 3d 4d 6d Kd Ad 5s Qs 9h Qh Ah 
+Elek's round score: 0
+len(self.hearts): 3
+self.size(): 10
+Hearts have not been broken.
+Current trick suit: d
+Highest: 14
+Breanna's hand: 8c Qc 2d 8d Jd 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+MarySue's hand: 3c 6c 9c 10d 3s 3h 5h 7h 10h Kh 
+MarySue's round score: 0
+trick id isNODYOFWLSVg#417
+trick id isEBXUKHVCDAg#1343
+trick id isDAQOZYAAARg#1453
+trick id isJHLDJLFGKFg#3119
+Tyler's hand: 5d 7d 9d Qd 6s 9s 10s Js Ks 2h 
+Tyler's round score: 0
+Elek won the trick.
+Round 2
+
+Playing trick number 5
+Elek's hand: 3d 4d 6d Kd 5s Qs 9h Qh Ah 
+Elek's round score: 0
+len(self.hearts): 3
+self.size(): 9
+Hearts have not been broken.
+Current trick suit: d
+Highest: 13
+Breanna's hand: 8c Qc 8d Jd 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+MarySue's hand: 3c 6c 9c 3s 3h 5h 7h 10h Kh 
+MarySue's round score: 0
+trick id isUCEEAOXFHUg#112
+trick id isEZSPROZJLEg#1835
+trick id isUVZVZXDYCPg#2459
+trick id isHFRNBJXXDYg#3305
+trick id isGDPSBVPDRWg#3778
+Tyler's hand: 7d 9d Qd 6s 9s 10s Js Ks 2h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Elek won the trick.
+Round 2
+
+Playing trick number 6
+Elek's hand: 3d 4d 6d 5s Qs 9h Qh Ah 
+Elek's round score: 1
+Current trick suit: d
+Highest: 3
+Breanna's hand: 8c Qc Jd 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+Highest: 11
+MarySue's hand: 3c 6c 9c 3s 3h 5h 7h 10h 
+MarySue's round score: 0
+trick id isESHKWMARJIg#153
+trick id isZQWJUQIKWJg#192
+trick id isHNNLVZNBWEg#201
+trick id isGAYGUTGVJQg#1365
+trick id isTFTCZPVJOPg#1832
+Tyler's hand: 7d Qd 6s 9s 10s Js Ks 2h 
+Tyler's round score: 0
+Breanna won the trick.
+Round 2
+
+Playing trick number 7
+Breanna's hand: 8c Qc 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+Current trick suit: c
+Highest: 8
+MarySue's hand: 6c 9c 3s 3h 5h 7h 10h 
+MarySue's round score: 0
+trick id isGBUSSJJBGRg#2783
+Highest: 9
+Tyler's hand: Qd 6s 9s 10s Js Ks 2h 
+Tyler's round score: 0
+Elek's hand: 4d 6d 5s Qs 9h Qh Ah 
+Elek's round score: 1
+MarySue won the trick.
+Round 2
+
+Playing trick number 8
+MarySue's hand: 6c 3s 3h 5h 7h 10h 
+MarySue's round score: 0
+Current trick suit: h
+Highest: 7
+Tyler's hand: Qd 6s 10s Js Ks 2h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Elek's hand: 4d 6d Qs 9h Qh Ah 
+Elek's round score: 1
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+Breanna's hand: Qc 8s 4h 6h 8h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek won the trick.
+Round 2
+
+Playing trick number 9
+Elek's hand: 4d 6d Qs 9h Ah 
+Elek's round score: 5
+Current trick suit: s
+Highest: 12
+Breanna's hand: Qc 8s 4h 6h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: 6c 3s 3h 5h 10h 
+MarySue's round score: 0
+trick id isZLIPRYCEAVg#381
+trick id isDBTTXNETTFg#2800
+Tyler's hand: Qd 6s 10s Js Ks 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Elek won the trick.
+Round 2
+
+Playing trick number 10
+Elek's hand: 4d 6d 9h Ah 
+Elek's round score: 18
+Current trick suit: d
+Highest: 6
+Breanna's hand: Qc 4h 6h Jh 
+Breanna's round score: 0
+MarySue's hand: 6c 3h 5h 10h 
+MarySue's round score: 0
+trick id isEWUGYCSHEZg#4421
+Tyler's hand: Qd 6s Js Ks 
+Tyler's round score: 0
+Highest: 12
+Tyler won the trick.
+Round 2
+
+Playing trick number 11
+Tyler's hand: 6s Js Ks 
+Tyler's round score: 0
+Current trick suit: s
+Highest: 6
+Elek's hand: 4d 9h Ah 
+Elek's round score: 18
+Breanna's hand: 4h 6h Jh 
+Breanna's round score: 0
+MarySue's hand: 3h 5h 10h 
+MarySue's round score: 0
+trick id isNKRFFBJZPZg#216
+trick id isDAHAHYVWQQg#724
+trick id isSMMIKRXMZPg#1190
+trick id isBBAWWBBYIJg#1601
+trick id isUCKREKWOVOg#1665
+trick id isOBYCVXVTGBg#1742
+trick id isAJQRTTVKXEg#1905
+trick id isEVZDFQETUQg#2105
+trick id isERIIGKVOYVg#2125
+trick id isVAFWTGXHBPg#2439
+trick id isKIQBQAPICMg#2572
+trick id isFHNDCPHEBAg#2864
+trick id isKNPUZLAORXg#2944
+trick id isNPBOPKTOIKg#3066
+trick id isAFAYZFOPZMg#3139
+trick id isCQLDEYVFLOg#3257
+trick id isFEYUZHTVXZg#4250
+trick id isSQCEYALRCIg#4255
+trick id isFBLFBIFSXGg#4165
+trick id isEHZUQGDFKVg#4246
+trick id isQRKJNFNIFKg#4668
+trick id isGNKMRUROLDg#1020
+Tyler won the trick.
+Round 2
+
+Playing trick number 12
+Tyler's hand: Js Ks 
+Tyler's round score: 2
+Current trick suit: s
+Highest: 11
+Elek's hand: 9h Ah 
+Elek's round score: 18
+Breanna's hand: 4h 6h 
+Breanna's round score: 0
+MarySue's hand: 3h 10h 
+MarySue's round score: 0
+trick id isERRDQLMQGBg#389
+trick id isYYACDLVSFTg#1222
+trick id isEWEFJVTCYGg#1665
+trick id isQOHTHKUEJLg#2105
+trick id isADBDVOVGQOg#2130
+trick id isUBNBHJKRPUg#2245
+trick id isQXMOBFCUYCg#2369
+trick id isQTLPBYIDHZg#2439
+trick id isKRJAXCAIAEg#4421
+Tyler won the trick.
+Round 2
+
+Playing trick number 13
+Tyler's hand: Ks 
+Tyler's round score: 5
+Current trick suit: s
+Highest: 13
+Elek's hand: Ah 
+Elek's round score: 18
+Breanna's hand: 6h 
+Breanna's round score: 0
+MarySue's hand: 10h 
+MarySue's round score: 0
+trick id isGAXUOMLMEXg#23
+trick id isWYLMKFOPJPg#93
+trick id isFHYVLZJKTJg#1193
+trick id isTTVJWELEQUg#1280
+trick id isYLTNTGPXHNg#1601
+trick id isPQDDJBFPJIg#1465
+trick id isJHGMKFAGCQg#1502
+trick id isPHMAAAYUWGg#2803
+trick id isEUJBFBZFJNg#3198
+trick id isGEUFIAPJWNg#4266
+trick id isWBAIGAYXCQg#3057
+Tyler won the trick.
+
+Scores:
+
+Elek: 21
+Breanna: 18
+MarySue: 4
+Tyler: 9
+New round
+Round 3
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+MarySue's hand: 3c Jc Kc 8d Qd Ad 4s 7s 8s Ks 4h 6h 9h 
+MarySue's round score: 0
+trick id isAUVBZGVTZBg#415
+trick id isEVGLKGYEHRg#430
+trick id isNWEPCHQIQOg#849
+trick id isPZXSHKSGTVg#896
+trick id isIKAXJARNLAg#1403
+trick id isSQDNEAITFRg#2009
+trick id isDOPOADEAYPg#2024
+trick id isLQUGWSWMNQg#2057
+trick id isBHTUGONINVg#2535
+trick id isFLWIEJAPAZg#2848
+trick id isQRFGCLYAISg#2867
+trick id isSVSGNIFQLAg#2901
+trick id isKQQFELQWYLg#2956
+trick id isIDAFNJWYUFg#2982
+trick id isZQLOFOUOPJg#3032
+trick id isULIOJEEJTNg#3046
+trick id isULOCISCAUXg#3054
+trick id isTDBXCQDDOUg#3540
+trick id isJAZJMNBUSSg#3591
+trick id isOERADVKEITg#3614
+Highest: 11
+Tyler's hand: 8c 9c Qc Ac 5d 5s 10s Js 7h 8h Jh Qh Kh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+Elek's hand: 6c 10c 6d 7d 10d 2s 6s 9s Qs As 3h 5h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 3
+
+Playing trick number 2
+Tyler's hand: 8c 9c Qc 5d 5s 10s Js 7h 8h Jh Qh Kh 
+Tyler's round score: 0
+Current trick suit: d
+Highest: 5
+Elek's hand: 6c 6d 7d 10d 2s 6s 9s Qs As 3h 5h 10h 
+Elek's round score: 0
+Highest: 7
+Breanna's hand: 4c 5c 7c 2d 3d 4d 9d Jd Kd 3s 2h Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 13
+MarySue's hand: 3c Kc 8d Qd Ad 4s 7s 8s Ks 4h 6h 9h 
+MarySue's round score: 0
+trick id isXCHNEHFFLDg#212
+trick id isXPUUZOSSYSg#415
+trick id isBXTOGQCYDYg#430
+trick id isYSJGIEGPUQg#501
+trick id isNAFCAQNVKQg#516
+trick id isKIEXXVCHJQg#548
+trick id isNUFTZHUXVMg#1403
+trick id isSCNZNBXGOPg#1723
+trick id isYEXLKDWRRGg#1723
+trick id isHAOLZGXKQUg#1736
+trick id isYOOHHOUOFRg#1750
+trick id isETQLXOMZBTg#2148
+trick id isIKJPHQCJAWg#2172
+trick id isVOUNJFGKGUg#2274
+trick id isPCIGDKOBYFg#2300
+trick id isYGEHKKDHXLg#2350
+trick id isCYIEDIQFNUg#2535
+trick id isENHEINYTMKg#2535
+trick id isZQIFUSYUUQg#2901
+trick id isDYBNGRUJHEg#2956
+trick id isZBFVCRHMPNg#3061
+trick id isAAYIWMLKHDg#3061
+trick id isIOLHEDROSWg#3153
+trick id isCCJWYQNKQAg#3179
+trick id isFTXEADBEFAg#3651
+trick id isBHMYMKPLHSg#3669
+Breanna won the trick.
+Round 3
+
+Playing trick number 3
+Breanna's hand: 4c 5c 7c 2d 3d 4d 9d Jd 3s 2h Ah 
+Breanna's round score: 0
+Current trick suit: s
+Highest: 3
+MarySue's hand: 3c Kc 8d Ad 4s 7s 8s Ks 4h 6h 9h 
+MarySue's round score: 0
+trick id isASRAZQCCMCg#35
+trick id isWDHFWMTFQAg#44
+trick id isZIVMGDEHZVg#86
+trick id isTPJYNDJBPOg#97
+trick id isYYQIZTPLQYg#212
+trick id isWPUHARZASSg#365
+trick id isSNQDEXKIIXg#365
+trick id isNXVJBTKAUMg#892
+trick id isHJPGFDHFBBg#907
+trick id isFCADJEXXHKg#1723
+trick id isJKPZDXBTYMg#1889
+trick id isSSQIFEWPTUg#2024
+trick id isEHPXHIEULWg#2195
+trick id isGACSLTOBFUg#2218
+trick id isGVFEWYVJFBg#2784
+trick id isXIZVXURXDZg#2784
+trick id isGPJATDVHMLg#2818
+trick id isNUBKOZUARGg#2901
+trick id isJFSHXKACRYg#3067
+trick id isAVKOBRGWRGg#3067
+trick id isCRQVKJRHJRg#3882
+trick id isPKGPXVXHRDg#3882
+trick id isGXYWQGMYEGg#3908
+trick id isEUDRMLONLSg#3908
+trick id isLOWRHQWAUDg#3937
+trick id isZODPUKXIQNg#4031
+trick id isGOPPTLILQFg#4661
+Highest: 8
+Tyler's hand: 8c 9c Qc 5s 10s Js 7h 8h Jh Qh Kh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Highest: 11
+Elek's hand: 6c 6d 10d 2s 6s 9s Qs As 3h 5h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+Elek won the trick.
+Round 3
+
+Playing trick number 4
+Elek's hand: 6c 6d 10d 2s 6s 9s As 3h 5h 10h 
+Elek's round score: 13
+Current trick suit: h
+Highest: 3
+Breanna's hand: 4c 5c 7c 2d 3d 4d 9d Jd 2h Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+MarySue's hand: 3c Kc 8d Ad 4s 7s Ks 4h 6h 9h 
+MarySue's round score: 0
+trick id isGPFPDBABBGg#100
+trick id isKJEWWBZDEEg#764
+trick id isDVGRBDYBRXg#803
+trick id isDYMLHFTSTCg#1364
+trick id isQIHAMIAKTHg#1383
+trick id isZDQIEORKHXg#1395
+trick id isUGYAWRFMLJg#1428
+trick id isLJHBEUMNUVg#1439
+trick id isAQMPWVNKRWg#2260
+trick id isGDHFHNCQSSg#2307
+trick id isLSFRWZURBCg#2330
+trick id isCWHMSDLKFZg#2332
+trick id isPXBZOJEMYFg#2696
+trick id isQOTWMUJUXGg#2696
+trick id isDPUEEMXJPVg#2887
+trick id isPRLBKCXYEOg#2901
+trick id isEGDPTRKURUg#3046
+trick id isFHALBEGSUVg#3284
+trick id isMJXPPNYYIGg#3284
+trick id isGOJZPBBAGHg#3353
+trick id isMDFAIGZEVKg#3377
+trick id isIOPXRSWZORg#3396
+trick id isRUPYSMCYXCg#3419
+trick id isPWZSCCHSXWg#3679
+trick id isTKWCNLFZJQg#3690
+trick id isPXOJSTEUTYg#3713
+trick id isWXYATJHMDYg#3784
+trick id isTHJHXKETDTg#4185
+trick id isRYKYWAVXABg#4197
+trick id isFGAXNBJMSEg#4213
+Highest: 6
+Tyler's hand: 8c 9c Qc 5s 10s 7h 8h Jh Qh Kh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 11
+Tyler won the trick.
+Round 3
+
+Playing trick number 5
+Tyler's hand: 8c 9c Qc 5s 10s 7h 8h Qh Kh 
+Tyler's round score: 4
+Current trick suit: h
+Highest: 13
+Elek's hand: 6c 6d 10d 2s 6s 9s As 5h 10h 
+Elek's round score: 13
+Must play the suit of the current trick.
+Breanna's hand: 4c 5c 7c 2d 3d 4d 9d Jd Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Highest: 14
+MarySue's hand: 3c Kc 8d Ad 4s 7s Ks 4h 9h 
+MarySue's round score: 0
+trick id isDNFCXXOYWPg#55
+trick id isLQDOIAEQQEg#601
+trick id isWTLFAFHEHBg#764
+trick id isLRGSCLEGTZg#764
+trick id isWOUTSTMVYRg#1101
+trick id isABGMHKCLSIg#1125
+trick id isMHZTCHSPENg#1383
+trick id isSNZUWYJZRAg#1395
+trick id isBASVPYUGHQg#1405
+trick id isWXKIUWEFDTg#1405
+trick id isCFTFEYMRFTg#1927
+trick id isBBQEYCWXMMg#2142
+trick id isPZWXFBZSWNg#2142
+trick id isVPWGNVHPIPg#2815
+trick id isHZRYLTJKQWg#3004
+trick id isQHBUKBQRPPg#3046
+trick id isTLBVYDLPVMg#3046
+trick id isVOQFPQLYCZg#3630
+trick id isSFJRPBJTSGg#3679
+trick id isUMQSSDDOWRg#3713
+trick id isWINWIGOBONg#3938
+trick id isWTWKLJTPAJg#3938
+trick id isGLUIEEVUHUg#3938
+trick id isBAFJJELWSJg#3955
+trick id isSAPYFUSPIQg#3955
+trick id isGVDTUJBPXXg#3955
+trick id isIXUFVHNJUYg#4291
+trick id isMZLYNZWKPLg#4501
+trick id isSYYUEVZZDXg#4523
+trick id isKLJZPMDQDPg#4526
+trick id isSTWWPRRRBPg#4549
+trick id isJVEOUQXFIJg#4549
+Breanna won the trick.
+Round 3
+
+Playing trick number 6
+Breanna's hand: 4c 5c 7c 2d 3d 4d 9d Jd 
+Breanna's round score: 4
+Current trick suit: d
+Highest: 4
+MarySue's hand: 3c Kc 8d Ad 4s 7s Ks 4h 
+MarySue's round score: 0
+trick id isANIWOMMZAIg#931
+trick id isSDXJKZGSGRg#948
+trick id isLEVOHNTAUCg#1278
+trick id isPADWBDDLMMg#1278
+trick id isAPTXPZHJCTg#3265
+trick id isWVUODCEYOLg#3679
+trick id isNOKLRMSLDCg#3679
+trick id isUSQMVRKYTMg#3713
+trick id isNSGYDFENVRg#3713
+Highest: 8
+Tyler's hand: 8c 9c Qc 5s 10s 7h 8h Qh 
+Tyler's round score: 4
+Elek's hand: 6c 6d 10d 2s 6s 9s As 10h 
+Elek's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue won the trick.
+Round 3
+
+Playing trick number 7
+MarySue's hand: 3c Kc Ad 4s 7s Ks 4h 
+MarySue's round score: 0
+Current trick suit: c
+Highest: 13
+Tyler's hand: 8c Qc 5s 10s 7h 8h Qh 
+Tyler's round score: 4
+Must play the suit of the current trick.
+Elek's hand: 6c 10d 2s 6s 9s As 10h 
+Elek's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 4c 5c 7c 2d 3d 9d Jd 
+Breanna's round score: 4
+MarySue won the trick.
+Round 3
+
+Playing trick number 8
+MarySue's hand: 3c Ad 4s 7s Ks 4h 
+MarySue's round score: 0
+Current trick suit: s
+Highest: 7
+Tyler's hand: 8c 5s 10s 7h 8h Qh 
+Tyler's round score: 4
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 10
+Elek's hand: 10d 2s 6s 9s As 10h 
+Elek's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 4c 5c 2d 3d 9d Jd 
+Breanna's round score: 4
+Tyler won the trick.
+Round 3
+
+Playing trick number 9
+Tyler's hand: 8c 5s 7h 8h Qh 
+Tyler's round score: 4
+Current trick suit: s
+Highest: 5
+Elek's hand: 10d 6s 9s As 10h 
+Elek's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 6
+Breanna's hand: 4c 5c 3d 9d Jd 
+Breanna's round score: 4
+MarySue's hand: 3c Ad 4s Ks 4h 
+MarySue's round score: 0
+trick id isEKGLYMGDZOg#3385
+Highest: 13
+MarySue won the trick.
+Round 3
+
+Playing trick number 10
+MarySue's hand: 3c Ad 4s 4h 
+MarySue's round score: 0
+Current trick suit: d
+Highest: 14
+Tyler's hand: 8c 7h 8h Qh 
+Tyler's round score: 4
+Elek's hand: 10d 9s As 10h 
+Elek's round score: 13
+Breanna's hand: 4c 5c 9d Jd 
+Breanna's round score: 4
+Must play the suit of the current trick.
+MarySue won the trick.
+Round 3
+
+Playing trick number 11
+MarySue's hand: 3c 4s 4h 
+MarySue's round score: 1
+Current trick suit: c
+Highest: 3
+Tyler's hand: 8c 7h 8h 
+Tyler's round score: 4
+Highest: 8
+Elek's hand: 9s As 10h 
+Elek's round score: 13
+Breanna's hand: 4c 5c 9d 
+Breanna's round score: 4
+Tyler won the trick.
+Round 3
+
+Playing trick number 12
+Tyler's hand: 7h 8h 
+Tyler's round score: 5
+Current trick suit: h
+Highest: 8
+Elek's hand: 9s As 
+Elek's round score: 13
+Breanna's hand: 4c 9d 
+Breanna's round score: 4
+MarySue's hand: 4s 4h 
+MarySue's round score: 1
+trick id isJTUIJMZJXTg#470
+trick id isDQVQKSTGZXg#640
+trick id isMZHGESXRIPg#936
+trick id isMWAVAAIWKGg#785
+trick id isHDHROPDLZEg#1427
+trick id isPASBICHYOTg#3773
+trick id isNKSXJETDPWg#585
+Tyler won the trick.
+Round 3
+
+Playing trick number 13
+Tyler's hand: 7h 
+Tyler's round score: 7
+Current trick suit: h
+Highest: 7
+Elek's hand: As 
+Elek's round score: 13
+Breanna's hand: 4c 
+Breanna's round score: 4
+MarySue's hand: 4s 
+MarySue's round score: 1
+trick id isYVUKGEOELRg#282
+trick id isMUKOAQMEKSg#361
+trick id isSPMKWQQTBMg#785
+trick id isFKNCWAWIXKg#783
+trick id isKZJRBVHDJFg#1435
+trick id isUBYHNHJYJKg#1427
+trick id isEBHQCSJKTGg#1493
+trick id isBTZSDCROIBg#2333
+trick id isOCYXMYQBVYg#2303
+trick id isVENOOZYFUGg#2407
+trick id isRPROCKTZBUg#3790
+trick id isKSNXMZWPXBg#2978
+trick id isBGNKAGSSEUg#3348
+trick id isBJWKAJDLUHg#3514
+trick id isIFROQTVRHYg#3773
+trick id isSOZDVJBNMGg#3990
+trick id isINLOMVBCYVg#3997
+trick id isGVVYXCYTGYg#4305
+trick id isUKJMUAQGDYg#585
+trick id isHGMQFOXMEVg#3993
+Tyler won the trick.
+
+Scores:
+
+Elek: 34
+Breanna: 22
+MarySue: 5
+Tyler: 17
+New round
+Round 4
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+MarySue's hand: 5c 8c Qd Kd 2s 6s 7s 8s 9s 10s Js 5h 8h 
+MarySue's round score: 0
+trick id isWGFCJBZUCOg#1085
+trick id isPMIFSUHZKNg#2491
+trick id isQWMHFQVTYTg#3224
+Highest: 8
+Tyler's hand: 6c 9c Jc 3d 4d 8d 10d Ad 6h 9h Jh Qh Kh 
+Tyler's round score: 0
+Highest: 11
+Elek's hand: 7c 10c Kc 2d 5d 6d 9d Jd 3s Qs Ks As 2h 
+Elek's round score: 0
+Highest: 13
+Elek won the trick.
+Round 4
+
+Playing trick number 2
+Elek's hand: 7c 10c 2d 5d 6d 9d Jd 3s Qs Ks As 2h 
+Elek's round score: 0
+Current trick suit: d
+Highest: 2
+Breanna's hand: 3c 4c Qc Ac 7d 4s 5s 3h 4h 7h 10h Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 7
+MarySue's hand: 5c Qd Kd 2s 6s 7s 8s 9s 10s Js 5h 8h 
+MarySue's round score: 0
+trick id isTUVYTUSAFAg#1085
+trick id isDVPSTINEJTg#3224
+Highest: 13
+Tyler's hand: 6c 9c 3d 4d 8d 10d Ad 6h 9h Jh Qh Kh 
+Tyler's round score: 0
+MarySue won the trick.
+Round 4
+
+Playing trick number 3
+MarySue's hand: 5c Qd 2s 6s 7s 8s 9s 10s Js 5h 8h 
+MarySue's round score: 0
+Current trick suit: c
+Highest: 5
+Tyler's hand: 6c 9c 4d 8d 10d Ad 6h 9h Jh Qh Kh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 6
+Elek's hand: 7c 10c 5d 6d 9d Jd 3s Qs Ks As 2h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 7
+Breanna's hand: 3c 4c Qc Ac 4s 5s 3h 4h 7h 10h Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Elek won the trick.
+Round 4
+
+Playing trick number 4
+Elek's hand: 10c 5d 6d 9d Jd 3s Qs Ks As 2h 
+Elek's round score: 0
+Current trick suit: s
+Highest: 13
+Breanna's hand: 3c Qc Ac 4s 5s 3h 4h 7h 10h Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+MarySue's hand: Qd 2s 6s 7s 8s 9s 10s Js 5h 8h 
+MarySue's round score: 0
+trick id isOZGSFMGYNDg#3224
+Tyler's hand: 9c 4d 8d 10d Ad 6h 9h Jh Qh Kh 
+Tyler's round score: 0
+Elek won the trick.
+Round 4
+
+Playing trick number 5
+Elek's hand: 10c 5d 6d 9d Jd 3s Qs As 2h 
+Elek's round score: 1
+Current trick suit: c
+Highest: 10
+Breanna's hand: 3c Qc Ac 5s 3h 4h 7h 10h Ah 
+Breanna's round score: 0
+Highest: 12
+MarySue's hand: Qd 6s 7s 8s 9s 10s Js 5h 8h 
+MarySue's round score: 0
+trick id isSICAFJVQNWg#1491
+trick id isCGDYYJJPXXg#1491
+trick id isBSEZXVVTGDg#1507
+trick id isVHPQDHOQMBg#1507
+Tyler's hand: 9c 4d 8d 10d Ad 6h 9h Jh Qh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Breanna won the trick.
+Round 4
+
+Playing trick number 6
+Breanna's hand: 3c Ac 5s 3h 4h 7h 10h Ah 
+Breanna's round score: 1
+Current trick suit: s
+Highest: 5
+MarySue's hand: Qd 6s 7s 8s 9s 10s Js 5h 
+MarySue's round score: 0
+trick id isUKRMZXKBXWg#4285
+Highest: 8
+Tyler's hand: 4d 8d 10d Ad 6h 9h Jh Qh 
+Tyler's round score: 0
+Elek's hand: 5d 6d 9d Jd 3s Qs As 2h 
+Elek's round score: 1
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+Elek won the trick.
+Round 4
+
+Playing trick number 7
+Elek's hand: 5d 6d 9d Jd 3s Qs 2h 
+Elek's round score: 2
+Current trick suit: h
+Highest: 2
+Breanna's hand: 3c Ac 3h 4h 7h 10h Ah 
+Breanna's round score: 1
+Highest: 3
+MarySue's hand: Qd 6s 7s 9s 10s Js 5h 
+MarySue's round score: 0
+trick id isHQEDQKTKQFg#3424
+trick id isDGNUFACVZTg#3451
+trick id isHKCPHZPYJHg#3470
+Highest: 5
+Tyler's hand: 4d 8d 10d Ad 6h 9h Jh 
+Tyler's round score: 0
+Highest: 6
+Tyler won the trick.
+Round 4
+
+Playing trick number 8
+Tyler's hand: 4d 8d 10d Ad 9h Jh 
+Tyler's round score: 4
+Current trick suit: h
+Highest: 9
+Elek's hand: 5d 6d 9d Jd 3s Qs 
+Elek's round score: 2
+Breanna's hand: 3c Ac 4h 7h 10h Ah 
+Breanna's round score: 1
+Highest: 10
+MarySue's hand: Qd 6s 7s 9s 10s Js 
+MarySue's round score: 0
+trick id isGMLHPAMMPQg#3997
+Breanna won the trick.
+Round 4
+
+Playing trick number 9
+Breanna's hand: 3c Ac 4h 7h Ah 
+Breanna's round score: 3
+Current trick suit: h
+Highest: 7
+MarySue's hand: Qd 6s 7s 10s Js 
+MarySue's round score: 0
+trick id isZATMLYGXLYg#3979
+Tyler's hand: 4d 8d 10d Ad Jh 
+Tyler's round score: 4
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 11
+Elek's hand: 5d 6d 9d Jd Qs 
+Elek's round score: 2
+Tyler won the trick.
+Round 4
+
+Playing trick number 10
+Tyler's hand: 4d 8d 10d Ad 
+Tyler's round score: 19
+Current trick suit: d
+Highest: 8
+Elek's hand: 5d 6d 9d Jd 
+Elek's round score: 2
+Highest: 9
+Breanna's hand: 3c Ac 4h Ah 
+Breanna's round score: 3
+MarySue's hand: 6s 7s 10s Js 
+MarySue's round score: 0
+trick id isEGLCDSPUAYg#361
+trick id isABWMDSZWSDg#3928
+Elek won the trick.
+Round 4
+
+Playing trick number 11
+Elek's hand: 5d 6d Jd 
+Elek's round score: 3
+Current trick suit: d
+Highest: 6
+Breanna's hand: 3c Ac Ah 
+Breanna's round score: 3
+MarySue's hand: 6s 7s 10s 
+MarySue's round score: 0
+trick id isZWRBWGVQTNg#1568
+trick id isVCNKMDVNNHg#2598
+trick id isPVBZRCTSHHg#2641
+trick id isXWXGWEOCNSg#2978
+trick id isWTOERXFWZNg#3325
+trick id isXFXSLXQAPWg#3656
+trick id isYTJDETBZKYg#3997
+trick id isZARZZPVVQMg#4184
+trick id isTTTYSFITXAg#4338
+Tyler's hand: 4d 10d Ad 
+Tyler's round score: 19
+Highest: 10
+Tyler won the trick.
+Round 4
+
+Playing trick number 12
+Tyler's hand: 4d Ad 
+Tyler's round score: 20
+Current trick suit: d
+Highest: 14
+Elek's hand: 5d Jd 
+Elek's round score: 3
+Breanna's hand: 3c Ac 
+Breanna's round score: 3
+MarySue's hand: 6s 7s 
+MarySue's round score: 0
+trick id isTGCTQLOBJTg#361
+trick id isOVUMLOWHQAg#2008
+trick id isTETQXXBTJWg#3268
+trick id isGLVZAUXNVAg#3905
+Tyler won the trick.
+Round 4
+
+Playing trick number 13
+Tyler's hand: 4d 
+Tyler's round score: 20
+Current trick suit: d
+Highest: 4
+Elek's hand: Jd 
+Elek's round score: 3
+Highest: 11
+Breanna's hand: 3c 
+Breanna's round score: 3
+MarySue's hand: 6s 
+MarySue's round score: 0
+trick id isUFZQEOVFIDg#1972
+trick id isJYBANQPTFLg#3685
+trick id isWYOFTAWDXAg#2539
+trick id isJNUVQVNBDKg#3073
+trick id isENWNDBQJLFg#3669
+trick id isHNOXCKYZDBg#3905
+trick id isUOWKCWSVBPg#3928
+trick id isXAGHNBUSFCg#4067
+trick id isSMMAZNNEIYg#4483
+Elek won the trick.
+
+Scores:
+
+Elek: 37
+Breanna: 25
+MarySue: 5
+Tyler: 37
+New round
+Round 5
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+Tyler's hand: 5c Qc Kc 5d 6d 9d Jd 9s 10s Js 5h 6h 7h 
+Tyler's round score: 0
+Highest: 5
+Elek's hand: 3c 8c Ac 3d 10d Kd 5s 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+Breanna's hand: 7c 9c Jc 2d Qd Ad 4s 8s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek won the trick.
+Round 5
+
+Playing trick number 2
+Elek's hand: 3c 8c 3d 10d Kd 5s 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Current trick suit: c
+Highest: 8
+Breanna's hand: 7c Jc 2d Qd Ad 4s 8s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: 4c 6c 10c 4d 7d 8d 2s 3s Qs Ks As 3h 
+MarySue's round score: 0
+trick id isYTCUWNTJLPg#51
+trick id isPGRHPYHTOSg#772
+trick id isCOXEPJPVXHg#2549
+trick id isBCRNJUBQOOg#2576
+trick id isGRAJWMSNWRg#3715
+trick id isAOBDKMOQCDg#3746
+Highest: 10
+Tyler's hand: Qc Kc 5d 6d 9d Jd 9s 10s Js 5h 6h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 13
+Tyler won the trick.
+Round 5
+
+Playing trick number 3
+Tyler's hand: Qc 5d 6d 9d Jd 9s 10s Js 5h 6h 7h 
+Tyler's round score: 0
+Current trick suit: d
+Highest: 5
+Elek's hand: 3c 3d 10d Kd 5s 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Highest: 10
+Breanna's hand: Jc 2d Qd Ad 4s 8s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+MarySue's hand: 4c 6c 4d 7d 8d 2s 3s Qs Ks As 3h 
+MarySue's round score: 0
+trick id isEWCUDHGJKHg#51
+trick id isVMZROJKKLDg#246
+trick id isRTLCLUREFBg#246
+trick id isAQMSCZSOOEg#3214
+trick id isSJLMZUUWMSg#3214
+trick id isUWHAXCGRLYg#3234
+trick id isYXYYRHCDYJg#3234
+trick id isNCNPKEBLMYg#3715
+Breanna won the trick.
+Round 5
+
+Playing trick number 4
+Breanna's hand: Jc 2d Ad 4s 8s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+Current trick suit: d
+Highest: 14
+MarySue's hand: 4c 6c 4d 7d 2s 3s Qs Ks As 3h 
+MarySue's round score: 0
+trick id isLOSVDKFTCUg#51
+trick id isOTEEQKWDIFg#51
+trick id isQGCFFVGIOWg#454
+trick id isHQUHTUUQNOg#467
+trick id isYSWSYQNATNg#2549
+trick id isTPHANDMRWLg#2576
+trick id isTRFUZILSISg#3264
+trick id isAZIBVNVVNPg#3842
+trick id isYRIWAAJPRIg#3940
+Tyler's hand: Qc 6d 9d Jd 9s 10s Js 5h 6h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 3c 3d Kd 5s 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna won the trick.
+Round 5
+
+Playing trick number 5
+Breanna's hand: Jc 2d 4s 8s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+len(self.hearts): 5
+self.size(): 9
+Hearts have not been broken.
+Current trick suit: c
+Highest: 11
+MarySue's hand: 4c 6c 7d 2s 3s Qs Ks As 3h 
+MarySue's round score: 0
+trick id isYXKNJYRCJZg#77
+trick id isAUQZJEOTVPg#864
+trick id isAGFWTEOLIQg#887
+trick id isLWFIOBSELCg#3264
+trick id isOXNTWAGIGFg#4299
+trick id isBPJJWBUYQEg#4329
+Tyler's hand: Qc 6d 9d 9s 10s Js 5h 6h 7h 
+Tyler's round score: 0
+Highest: 12
+Elek's hand: 3c Kd 5s 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Tyler won the trick.
+Round 5
+
+Playing trick number 6
+Tyler's hand: 6d 9d 9s 10s Js 5h 6h 7h 
+Tyler's round score: 0
+Current trick suit: d
+Highest: 9
+Elek's hand: Kd 5s 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Highest: 13
+Breanna's hand: 2d 4s 8s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+MarySue's hand: 4c 7d 2s 3s Qs Ks As 3h 
+MarySue's round score: 0
+trick id isXUXRGHVRESg#864
+trick id isZLEBKMVQUQg#864
+trick id isJSGKJJISNRg#887
+trick id isFZGPVKOWIXg#887
+trick id isBTDQTLMNICg#1192
+trick id isYHNVXSRDBNg#1206
+trick id isKIPAGSZINBg#4299
+trick id isJJNPHYFSTQg#4329
+Elek won the trick.
+Round 5
+
+Playing trick number 7
+Elek's hand: 5s 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Current trick suit: s
+Highest: 5
+Breanna's hand: 4s 8s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 8
+MarySue's hand: 4c 2s 3s Qs Ks As 3h 
+MarySue's round score: 0
+trick id isUQKMFWHVSSg#4299
+trick id isXVBHJNJKFUg#4329
+Tyler's hand: 6d 9s 10s Js 5h 6h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Highest: 10
+Tyler won the trick.
+Round 5
+
+Playing trick number 8
+Tyler's hand: 6d 9s Js 5h 6h 7h 
+Tyler's round score: 0
+Current trick suit: d
+Highest: 6
+Elek's hand: 6s 7s 2h 10h Qh Kh 
+Elek's round score: 0
+Breanna's hand: 4s 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+MarySue's hand: 4c 2s Qs Ks As 3h 
+MarySue's round score: 0
+trick id isJNSKJPGEMYg#4299
+trick id isQSNDGRDRHXg#4329
+Tyler won the trick.
+Round 5
+
+Playing trick number 9
+Tyler's hand: 9s Js 5h 6h 7h 
+Tyler's round score: 0
+len(self.hearts): 3
+self.size(): 5
+Hearts have not been broken.
+Current trick suit: s
+Highest: 11
+Elek's hand: 6s 2h 10h Qh Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Breanna's hand: 4h 8h 9h Jh Ah 
+Breanna's round score: 0
+MarySue's hand: 4c 2s Qs As 3h 
+MarySue's round score: 0
+trick id isJIAIRYITVKg#1591
+trick id isHDIYPHPHDPg#2333
+Tyler won the trick.
+Round 5
+
+Playing trick number 10
+Tyler's hand: 9s 5h 6h 7h 
+Tyler's round score: 1
+Current trick suit: s
+Highest: 9
+Elek's hand: 2h 10h Qh Kh 
+Elek's round score: 0
+Breanna's hand: 4h 9h Jh Ah 
+Breanna's round score: 0
+MarySue's hand: 4c Qs As 3h 
+MarySue's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+MarySue won the trick.
+Round 5
+
+Playing trick number 11
+MarySue's hand: 4c Qs 3h 
+MarySue's round score: 2
+Current trick suit: h
+Highest: 3
+Tyler's hand: 5h 6h 7h 
+Tyler's round score: 1
+Highest: 7
+Elek's hand: 2h 10h Qh 
+Elek's round score: 0
+Highest: 10
+Breanna's hand: 4h 9h Ah 
+Breanna's round score: 0
+Elek won the trick.
+Round 5
+
+Playing trick number 12
+Elek's hand: 2h Qh 
+Elek's round score: 4
+Current trick suit: h
+Highest: 12
+Breanna's hand: 4h Ah 
+Breanna's round score: 0
+MarySue's hand: 4c Qs 
+MarySue's round score: 2
+trick id isPOKDOYQYLZg#1973
+Tyler's hand: 5h 6h 
+Tyler's round score: 1
+Elek won the trick.
+Round 5
+
+Playing trick number 13
+Elek's hand: 2h 
+Elek's round score: 7
+Current trick suit: h
+Highest: 2
+Breanna's hand: Ah 
+Breanna's round score: 0
+Highest: 14
+MarySue's hand: Qs 
+MarySue's round score: 2
+trick id isYVUKGEOELRg#282
+trick id isMUKOAQMEKSg#361
+trick id isSPMKWQQTBMg#785
+trick id isFKNCWAWIXKg#783
+trick id isKZJRBVHDJFg#1435
+trick id isUBYHNHJYJKg#1427
+trick id isEBHQCSJKTGg#1493
+trick id isBTZSDCROIBg#2333
+trick id isOCYXMYQBVYg#2303
+trick id isVENOOZYFUGg#2407
+trick id isRPROCKTZBUg#3790
+trick id isKSNXMZWPXBg#2978
+trick id isBGNKAGSSEUg#3348
+trick id isBJWKAJDLUHg#3514
+trick id isIFROQTVRHYg#3773
+trick id isSOZDVJBNMGg#3990
+trick id isINLOMVBCYVg#3997
+trick id isGVVYXCYTGYg#4305
+trick id isUKJMUAQGDYg#585
+trick id isHGMQFOXMEVg#3993
+Tyler's hand: 6h 
+Tyler's round score: 1
+Breanna won the trick.
+
+Scores:
+
+Elek: 44
+Breanna: 41
+MarySue: 7
+Tyler: 38
+New round
+Round 6
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+MarySue's hand: 6c 7c 9c 10c Kd 4s 5s As 3h 6h 7h 8h 9h 
+MarySue's round score: 0
+trick id isAZDOZTQLJDg#172
+trick id isAUNFBEUBHRg#190
+trick id isSQNJYNYBKZg#689
+trick id isKNSQIRFOJIg#1881
+trick id isWFZDXPJDIQg#1897
+trick id isETXEAWRROOg#2319
+trick id isQQQYJIOMXZg#2359
+trick id isCPJYZGTFKJg#2439
+Highest: 6
+Tyler's hand: 4c 8c 2d 8d 10d Jd 6s 8s 10s Ks 5h Kh Ah 
+Tyler's round score: 0
+Elek's hand: 3c Jc Qc 5d 7d 9d 2s 7s 9s Js 2h 10h Jh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+Elek won the trick.
+Round 6
+
+Playing trick number 2
+Elek's hand: 3c Jc 5d 7d 9d 2s 7s 9s Js 2h 10h Jh 
+Elek's round score: 0
+len(self.hearts): 3
+self.size(): 12
+Hearts have not been broken.
+Current trick suit: c
+Highest: 11
+Breanna's hand: 5c Kc Ac 3d 4d 6d Qd Ad 3s Qs 4h Qh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+MarySue's hand: 7c 9c 10c Kd 4s 5s As 3h 6h 7h 8h 9h 
+MarySue's round score: 0
+trick id isBJYFOAIVTAg#139
+trick id isALEXNNOLFPg#689
+trick id isLTBGDNBEVQg#1658
+trick id isJUHDBAOISUg#1677
+Tyler's hand: 8c 2d 8d 10d Jd 6s 8s 10s Ks 5h Kh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Breanna won the trick.
+Round 6
+
+Playing trick number 3
+Breanna's hand: 5c Kc 3d 4d 6d Qd Ad 3s Qs 4h Qh 
+Breanna's round score: 0
+len(self.hearts): 2
+self.size(): 11
+Hearts have not been broken.
+len(self.hearts): 2
+self.size(): 11
+Hearts have not been broken.
+Current trick suit: d
+Highest: 6
+MarySue's hand: 9c 10c Kd 4s 5s As 3h 6h 7h 8h 9h 
+MarySue's round score: 0
+trick id isGXOJGDRRQLg#747
+trick id isDWVYDZJOYQg#761
+trick id isZHUUXFRWXBg#1029
+trick id isMEIZKPKYWSg#1029
+trick id isYQRFRMYTIUg#1658
+trick id isNDGXBMEIOJg#1677
+trick id isHQXBUTUKTEg#1771
+trick id isGSDKNIQIROg#2431
+trick id isAQTJBIGHSVg#2444
+Highest: 13
+Tyler's hand: 2d 8d 10d Jd 6s 8s 10s Ks 5h Kh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Elek's hand: 3c 5d 7d 9d 2s 7s 9s Js 2h 10h Jh 
+Elek's round score: 0
+MarySue won the trick.
+Round 6
+
+Playing trick number 4
+MarySue's hand: 9c 10c 4s 5s As 3h 6h 7h 8h 9h 
+MarySue's round score: 0
+Current trick suit: s
+Highest: 4
+Tyler's hand: 2d 8d 10d 6s 8s 10s Ks 5h Kh Ah 
+Tyler's round score: 0
+Highest: 8
+Elek's hand: 3c 7d 9d 2s 7s 9s Js 2h 10h Jh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 11
+Breanna's hand: 5c Kc 3d 4d Qd Ad 3s Qs 4h Qh 
+Breanna's round score: 0
+Highest: 12
+Breanna won the trick.
+Round 6
+
+Playing trick number 5
+Breanna's hand: 5c Kc 3d 4d Qd Ad 3s 4h Qh 
+Breanna's round score: 13
+Current trick suit: h
+Highest: 12
+MarySue's hand: 9c 10c 5s As 3h 6h 7h 8h 9h 
+MarySue's round score: 0
+trick id isBIDIMLFRXIg#562
+trick id isAQRAKTHQIXg#667
+trick id isHATWJBBIHBg#715
+trick id isLZKSLMZLIFg#715
+trick id isWBVWBIRMFEg#1903
+trick id isYRXVSSOYLGg#3216
+trick id isBGQJGGILRMg#3216
+Tyler's hand: 2d 8d 10d 6s 10s Ks 5h Kh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 3c 7d 9d 2s 7s 9s 2h 10h Jh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Breanna won the trick.
+Round 6
+
+Playing trick number 6
+Breanna's hand: 5c Kc 3d 4d Qd Ad 3s 4h 
+Breanna's round score: 17
+Current trick suit: s
+Highest: 3
+MarySue's hand: 9c 10c 5s As 6h 7h 8h 9h 
+MarySue's round score: 0
+trick id isVNEOCTXYYRg#519
+trick id isJYZNFFZZPNg#527
+trick id isZTRXUXHVRSg#1809
+trick id isGLGTIFKJAHg#1875
+Highest: 5
+Tyler's hand: 2d 8d 10d 6s 10s Ks Kh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 6
+Elek's hand: 3c 7d 9d 2s 7s 9s 2h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 9
+Elek won the trick.
+Round 6
+
+Playing trick number 7
+Elek's hand: 3c 7d 9d 2s 7s 2h 10h 
+Elek's round score: 0
+Current trick suit: c
+Highest: 3
+Breanna's hand: 5c Kc 3d 4d Qd Ad 4h 
+Breanna's round score: 17
+Must play the suit of the current trick.
+Highest: 5
+MarySue's hand: 9c 10c As 6h 7h 8h 9h 
+MarySue's round score: 0
+trick id isGBUSSJJBGRg#2783
+Highest: 10
+Tyler's hand: 2d 8d 10d 10s Ks Kh Ah 
+Tyler's round score: 0
+MarySue won the trick.
+Round 6
+
+Playing trick number 8
+MarySue's hand: 9c As 6h 7h 8h 9h 
+MarySue's round score: 0
+Current trick suit: s
+Highest: 14
+Tyler's hand: 8d 10d 10s Ks Kh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 7d 9d 2s 7s 2h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: Kc 3d 4d Qd Ad 4h 
+Breanna's round score: 17
+MarySue won the trick.
+Round 6
+
+Playing trick number 9
+MarySue's hand: 9c 6h 7h 8h 9h 
+MarySue's round score: 1
+Current trick suit: h
+Highest: 8
+Tyler's hand: 8d 10d 10s Kh Ah 
+Tyler's round score: 0
+Highest: 13
+Elek's hand: 7d 9d 2s 2h 10h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: Kc 3d 4d Qd Ad 
+Breanna's round score: 17
+Tyler won the trick.
+Round 6
+
+Playing trick number 10
+Tyler's hand: 8d 10d 10s Ah 
+Tyler's round score: 3
+Current trick suit: d
+Highest: 8
+Elek's hand: 7d 9d 2s 10h 
+Elek's round score: 0
+Highest: 9
+Breanna's hand: 3d 4d Qd Ad 
+Breanna's round score: 17
+MarySue's hand: 9c 6h 7h 9h 
+MarySue's round score: 1
+trick id isEWUGYCSHEZg#4421
+Elek won the trick.
+Round 6
+
+Playing trick number 11
+Elek's hand: 7d 2s 10h 
+Elek's round score: 0
+Current trick suit: s
+Highest: 2
+Breanna's hand: 3d Qd Ad 
+Breanna's round score: 17
+MarySue's hand: 6h 7h 9h 
+MarySue's round score: 1
+trick id isNKRFFBJZPZg#216
+trick id isDAHAHYVWQQg#724
+trick id isSMMIKRXMZPg#1190
+trick id isBBAWWBBYIJg#1601
+trick id isUCKREKWOVOg#1665
+trick id isOBYCVXVTGBg#1742
+trick id isAJQRTTVKXEg#1905
+trick id isEVZDFQETUQg#2105
+trick id isERIIGKVOYVg#2125
+trick id isVAFWTGXHBPg#2439
+trick id isKIQBQAPICMg#2572
+trick id isFHNDCPHEBAg#2864
+trick id isKNPUZLAORXg#2944
+trick id isNPBOPKTOIKg#3066
+trick id isAFAYZFOPZMg#3139
+trick id isCQLDEYVFLOg#3257
+trick id isFEYUZHTVXZg#4250
+trick id isSQCEYALRCIg#4255
+trick id isFBLFBIFSXGg#4165
+trick id isEHZUQGDFKVg#4246
+trick id isQRKJNFNIFKg#4668
+trick id isGNKMRUROLDg#1020
+Tyler's hand: 10d 10s Ah 
+Tyler's round score: 3
+Must play the suit of the current trick.
+Highest: 10
+Tyler won the trick.
+Round 6
+
+Playing trick number 12
+Tyler's hand: 10d Ah 
+Tyler's round score: 4
+Current trick suit: d
+Highest: 10
+Elek's hand: 7d 10h 
+Elek's round score: 0
+Breanna's hand: 3d Ad 
+Breanna's round score: 17
+Highest: 14
+MarySue's hand: 7h 9h 
+MarySue's round score: 1
+trick id isOEXCSGAVGWg#216
+trick id isIFEEVZYMDVg#1169
+trick id isOODQFPWIVQg#1502
+trick id isSWUGDJEFNAg#2149
+trick id isCFGRBOWKHOg#3057
+trick id isLXRUHEMQSPg#4255
+trick id isKEXGTAXKPRg#4008
+trick id isCKVETJDJBGg#4105
+trick id isERGQMAKXYDg#4382
+Breanna won the trick.
+Round 6
+
+Playing trick number 13
+Breanna's hand: 3d 
+Breanna's round score: 18
+Current trick suit: d
+Highest: 3
+MarySue's hand: 9h 
+MarySue's round score: 1
+trick id isSFSFJIEHFMg#26
+trick id isIJRJOHWAYSg#232
+trick id isYADKBILTNAg#247
+trick id isNWOMOJVVVKg#294
+trick id isTTXSIHGCXCg#816
+trick id isNNIUDYGRRBg#1015
+trick id isYSNNAQGAIKg#1043
+trick id isNTGLSMLBYOg#1169
+trick id isERGGOPIVWAg#1764
+trick id isPJCLOJEHAUg#1905
+trick id isRONLLWXNQCg#1922
+trick id isCEUULXYKSTg#2130
+trick id isAJCWSJVZDEg#2247
+trick id isMLXJUMHASJg#2369
+trick id isYPCBNTDEVRg#2456
+trick id isCXBDVWIPFLg#3053
+trick id isRZPOJADHIMg#3066
+trick id isJFGZTBZCVGg#3151
+trick id isTBIEILUNUNg#4202
+trick id isLEXTOFGORHg#3493
+trick id isMEHUYRGBCZg#4105
+trick id isJHDMKEASWCg#4484
+trick id isPFGDOXUJPEg#2149
+Tyler's hand: Ah 
+Tyler's round score: 4
+Elek's hand: 10h 
+Elek's round score: 0
+Breanna won the trick.
+
+Scores:
+
+Elek: 44
+Breanna: 62
+MarySue: 8
+Tyler: 42
+New round
+Round 7
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+MarySue's hand: 7c Ac 5d 7d 9d 3s 10s Js Qs Ks 4h 10h Jh 
+MarySue's round score: 0
+trick id isCTAMCIENNRg#741
+trick id isZGNRAOIPOVg#973
+trick id isUTULUKUHUOg#1232
+trick id isMBHRAHIEBMg#1751
+trick id isJVIDMVDHRRg#1767
+trick id isONHFZCCEPQg#1948
+trick id isIQLHWZHYUZg#2385
+trick id isNWHMQOYQBJg#2492
+trick id isNYQNUTBEUIg#2506
+trick id isPGMZABZWXGg#2763
+trick id isEWVYUMIGIIg#3260
+trick id isNFNVCVGHCWg#3307
+trick id isGBOKVBOPSKg#3482
+trick id isSVIATIDOUIg#3930
+trick id isURRUYUDMERg#4393
+Highest: 7
+Tyler's hand: 6c 10c 3d 6d Qd Kd Ad 2s 4s As 5h 9h Kh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Highest: 10
+Elek's hand: 3c 4c 5c 9c Jc Kc 8d 10d 6s 7s 9s 6h 8h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 7
+
+Playing trick number 2
+Tyler's hand: 6c 3d 6d Qd Kd Ad 2s 4s As 5h 9h Kh 
+Tyler's round score: 0
+Current trick suit: s
+Highest: 14
+Elek's hand: 4c 5c 9c Jc Kc 8d 10d 6s 7s 9s 6h 8h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 8c Qc 2d 4d Jd 5s 8s 2h 3h 7h Qh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: Ac 5d 7d 9d 3s 10s Js Qs Ks 4h 10h Jh 
+MarySue's round score: 0
+trick id isUKCOJBOKULg#194
+trick id isFBUOMQWIGQg#194
+trick id isDSUDGKKTKJg#211
+trick id isIOLLNSIIIOg#211
+trick id isPSIDXGKDWXg#1358
+trick id isTNFBHJJJQWg#3529
+trick id isFNTFALLZTVg#3899
+trick id isYVTPVXUJMEg#3909
+trick id isHGPRKSPXBIg#3920
+trick id isSOLTAZCPPJg#3930
+Tyler won the trick.
+Round 7
+
+Playing trick number 3
+Tyler's hand: 6c 3d 6d Qd Kd Ad 2s 4s 5h 9h Kh 
+Tyler's round score: 0
+Current trick suit: c
+Highest: 6
+Elek's hand: 4c 5c 9c Jc Kc 8d 10d 7s 9s 6h 8h 
+Elek's round score: 0
+Breanna's hand: 8c Qc 2d 4d Jd 8s 2h 3h 7h Qh Ah 
+Breanna's round score: 0
+Highest: 8
+MarySue's hand: Ac 5d 7d 9d 10s Js Qs Ks 4h 10h Jh 
+MarySue's round score: 0
+trick id isORAAQQMHAUg#1091
+trick id isHOGCXINMJZg#1108
+trick id isOCSTZGJRQDg#1323
+trick id isTQTMTDLAFTg#1339
+trick id isGVCJEQAVCOg#1979
+trick id isSQPFJGZDROg#2717
+trick id isDYZJJGXWPNg#3412
+trick id isOBVACUWATXg#3808
+trick id isPDPYPFGTWJg#3821
+trick id isHKXSIEHPOWg#3916
+trick id isKADKCXTACLg#3930
+trick id isNKIOUWBBCUg#4120
+trick id isAFDCTYECXZg#4120
+trick id isBJBOELSCVXg#4364
+Highest: 14
+MarySue won the trick.
+Round 7
+
+Playing trick number 4
+MarySue's hand: 5d 7d 9d 10s Js Qs Ks 4h 10h Jh 
+MarySue's round score: 0
+len(self.hearts): 3
+self.size(): 10
+Hearts have not been broken.
+Current trick suit: s
+Highest: 13
+Tyler's hand: 3d 6d Qd Kd Ad 2s 4s 5h 9h Kh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 5c 9c Jc Kc 8d 10d 7s 9s 6h 8h 
+Elek's round score: 0
+Breanna's hand: Qc 2d 4d Jd 8s 2h 3h 7h Qh Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue won the trick.
+Round 7
+
+Playing trick number 5
+MarySue's hand: 5d 7d 9d 10s Js Qs 4h 10h Jh 
+MarySue's round score: 0
+len(self.hearts): 3
+self.size(): 9
+Hearts have not been broken.
+Current trick suit: s
+Highest: 12
+Tyler's hand: 3d 6d Qd Kd Ad 2s 5h 9h Kh 
+Tyler's round score: 0
+Elek's hand: 5c 9c Jc Kc 8d 10d 7s 6h 8h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: Qc 2d 4d Jd 2h 3h 7h Qh Ah 
+Breanna's round score: 0
+MarySue won the trick.
+Round 7
+
+Playing trick number 6
+MarySue's hand: 5d 7d 9d 10s Js 4h 10h Jh 
+MarySue's round score: 14
+Current trick suit: d
+Highest: 5
+Tyler's hand: 3d 6d Qd Kd Ad 5h 9h Kh 
+Tyler's round score: 0
+Elek's hand: 5c 9c Jc Kc 8d 10d 6h 8h 
+Elek's round score: 0
+Highest: 10
+Breanna's hand: Qc 2d 4d Jd 2h 3h 7h Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek won the trick.
+Round 7
+
+Playing trick number 7
+Elek's hand: 5c 9c Jc Kc 8d 6h 8h 
+Elek's round score: 0
+Current trick suit: c
+Highest: 9
+Breanna's hand: Qc 4d Jd 2h 3h 7h Ah 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+MarySue's hand: 7d 9d 10s Js 4h 10h Jh 
+MarySue's round score: 14
+trick id isRTJAZETJAWg#701
+trick id isNQZLJWJNNEg#1113
+trick id isHJBHJXNKKUg#3318
+trick id isKIHOONUIMMg#3514
+trick id isRSIYOAGWEYg#3722
+trick id isVEDUEVDBMYg#3749
+trick id isNSNACVYIGNg#3790
+trick id isSJXPHBWNEFg#4061
+trick id isNDRFMHDZJAg#4078
+trick id isFAVINWSUQTg#4484
+Tyler's hand: 6d Qd Kd Ad 5h 9h Kh 
+Tyler's round score: 0
+Breanna won the trick.
+Round 7
+
+Playing trick number 8
+Breanna's hand: 4d Jd 2h 3h 7h Ah 
+Breanna's round score: 1
+Current trick suit: d
+Highest: 4
+MarySue's hand: 7d 10s Js 4h 10h Jh 
+MarySue's round score: 14
+trick id isNBTVQEVQCWg#2919
+trick id isMHBMHAVDFXg#2919
+trick id isIWNXIXUDFHg#3790
+Highest: 7
+Tyler's hand: 6d Qd Kd Ad 5h Kh 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 5c Jc Kc 8d 6h 8h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 8
+Elek won the trick.
+Round 7
+
+Playing trick number 9
+Elek's hand: 5c Jc Kc 6h 8h 
+Elek's round score: 0
+Current trick suit: h
+Highest: 8
+Breanna's hand: Jd 2h 3h 7h Ah 
+Breanna's round score: 1
+Highest: 14
+MarySue's hand: 10s Js 4h 10h Jh 
+MarySue's round score: 14
+trick id isNOVFRWTAECg#15
+trick id isEAIHWSVOQWg#452
+trick id isODVWYRXSOXg#965
+trick id isORCRAKRNSEg#1942
+trick id isVFEULGSIXCg#3440
+trick id isRRATEKHMMTg#3496
+trick id isRWTQPNGMVWg#3514
+trick id isBLTQBFQYMAg#3773
+trick id isXYAWAPSSRPg#3790
+trick id isNCWVCIHSYHg#4305
+trick id isCNDNGGNVVMg#4416
+trick id isTFHZKQXCKPg#4483
+Tyler's hand: Qd Kd Ad 5h Kh 
+Tyler's round score: 0
+Breanna won the trick.
+Round 7
+
+Playing trick number 10
+Breanna's hand: Jd 2h 3h 7h 
+Breanna's round score: 5
+Current trick suit: d
+Highest: 11
+MarySue's hand: 10s Js 10h Jh 
+MarySue's round score: 14
+trick id isXAIAXZEBXNg#585
+trick id isDBEAGUZKIMg#936
+trick id isQVOKXONLZIg#965
+trick id isIBDWWECQAIg#1612
+trick id isBWWLMEQWQHg#2008
+trick id isSDQGGAZHXLg#3790
+Tyler's hand: Qd Kd Ad 5h 
+Tyler's round score: 0
+Highest: 12
+Elek's hand: 5c Jc Kc 6h 
+Elek's round score: 0
+Tyler won the trick.
+Round 7
+
+Playing trick number 11
+Tyler's hand: Kd Ad 5h 
+Tyler's round score: 1
+Current trick suit: h
+Highest: 5
+Elek's hand: Jc Kc 6h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Highest: 6
+Breanna's hand: 2h 3h 7h 
+Breanna's round score: 5
+MarySue's hand: 10s Js Jh 
+MarySue's round score: 14
+trick id isYYWULDRZUDg#131
+trick id isQCVOMMSJRKg#965
+trick id isZGCGTUOTIPg#1979
+trick id isZIBXDXMCXTg#2763
+trick id isUOIPLCYBLYg#3519
+trick id isTULHANTVIYg#3669
+trick id isEVNVAQBNAXg#4521
+Highest: 11
+MarySue won the trick.
+Round 7
+
+Playing trick number 12
+MarySue's hand: 10s Js 
+MarySue's round score: 18
+Current trick suit: s
+Highest: 10
+Tyler's hand: Kd Ad 
+Tyler's round score: 1
+Elek's hand: Jc Kc 
+Elek's round score: 0
+Breanna's hand: 3h 7h 
+Breanna's round score: 5
+MarySue won the trick.
+Round 7
+
+Playing trick number 13
+MarySue's hand: Js 
+MarySue's round score: 19
+Current trick suit: s
+Highest: 11
+Tyler's hand: Ad 
+Tyler's round score: 1
+Elek's hand: Kc 
+Elek's round score: 0
+Breanna's hand: 7h 
+Breanna's round score: 5
+MarySue won the trick.
+
+Scores:
+
+Elek: 44
+Breanna: 67
+MarySue: 28
+Tyler: 43
+New round
+Round 8
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+Elek's hand: 3c 6c 8c Qc Ac 5d Kd 3s 4s 10s 3h 7h Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+Breanna's hand: 4c Kc 6d Jd 2s 7s 9s Qs 6h 8h 9h Jh Kh 
+Breanna's round score: 0
+MarySue's hand: 5c 9c Jc 2d 4d 8d 10d Qd Ad 5s 8s Ks 5h 
+MarySue's round score: 0
+trick id isPYIPVLEQMWg#3391
+Elek won the trick.
+Round 8
+
+Playing trick number 2
+Elek's hand: 3c 6c 8c Qc 5d Kd 3s 4s 10s 3h 7h Ah 
+Elek's round score: 0
+Current trick suit: c
+Highest: 8
+Breanna's hand: 4c 6d Jd 2s 7s 9s Qs 6h 8h 9h Jh Kh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: 5c 9c 2d 4d 8d 10d Qd Ad 5s 8s Ks 5h 
+MarySue's round score: 0
+trick id isVBSXUNZLTWg#812
+trick id isXGZTDLPLLOg#4663
+Tyler's hand: 7c 10c 3d 7d 9d 6s Js As 2h 4h 10h Qh 
+Tyler's round score: 0
+Elek won the trick.
+Round 8
+
+Playing trick number 3
+Elek's hand: 3c 6c Qc 5d Kd 3s 4s 10s 3h 7h Ah 
+Elek's round score: 0
+len(self.hearts): 3
+self.size(): 11
+Hearts have not been broken.
+len(self.hearts): 3
+self.size(): 11
+Hearts have not been broken.
+Current trick suit: c
+Highest: 3
+Breanna's hand: 6d Jd 2s 7s 9s Qs 6h 8h 9h Jh Kh 
+Breanna's round score: 0
+MarySue's hand: 9c 2d 4d 8d 10d Qd Ad 5s 8s Ks 5h 
+MarySue's round score: 0
+trick id isITZWFZJYMJg#187
+trick id isUVTIBSYTZNg#1450
+trick id isAJCGNRJMCWg#1450
+Highest: 9
+Tyler's hand: 10c 3d 7d 9d 6s Js As 2h 4h 10h Qh 
+Tyler's round score: 0
+Highest: 10
+Tyler won the trick.
+Round 8
+
+Playing trick number 4
+Tyler's hand: 3d 7d 9d 6s Js As 2h 4h 10h Qh 
+Tyler's round score: 1
+Current trick suit: d
+Highest: 3
+Elek's hand: 6c Qc 5d Kd 3s 4s 10s 3h 7h Ah 
+Elek's round score: 0
+Highest: 5
+Breanna's hand: 6d Jd 2s 7s 9s Qs 8h 9h Jh Kh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 11
+MarySue's hand: 2d 4d 8d 10d Qd Ad 5s 8s Ks 5h 
+MarySue's round score: 0
+trick id isSKGWGOQUJJg#4154
+Breanna won the trick.
+Round 8
+
+Playing trick number 5
+Breanna's hand: 6d 2s 7s 9s Qs 8h 9h Jh Kh 
+Breanna's round score: 0
+Current trick suit: h
+Highest: 8
+MarySue's hand: 4d 8d 10d Qd Ad 5s 8s Ks 5h 
+MarySue's round score: 0
+trick id isZYCYWMJCEIg#520
+trick id isWHDXITODHWg#1249
+trick id isJLVWVYYTZMg#1508
+trick id isLVGZJKWGFQg#3537
+Tyler's hand: 7d 9d 6s Js As 2h 4h 10h Qh 
+Tyler's round score: 1
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 10
+Elek's hand: 6c Qc Kd 3s 4s 10s 3h 7h Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 8
+
+Playing trick number 6
+Tyler's hand: 7d 9d 6s Js As 2h 4h Qh 
+Tyler's round score: 5
+Current trick suit: s
+Highest: 11
+Elek's hand: 6c Qc Kd 3s 4s 10s 3h Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Breanna's hand: 6d 2s 7s 9s Qs 9h Jh Kh 
+Breanna's round score: 0
+MarySue's hand: 4d 8d 10d Qd Ad 5s 8s Ks 
+MarySue's round score: 0
+trick id isLFTYXADEOQg#4270
+Tyler won the trick.
+Round 8
+
+Playing trick number 7
+Tyler's hand: 7d 9d 6s As 2h 4h Qh 
+Tyler's round score: 5
+Current trick suit: s
+Highest: 6
+Elek's hand: 6c Qc Kd 4s 10s 3h Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 6d 2s 9s Qs 9h Jh Kh 
+Breanna's round score: 0
+Highest: 9
+MarySue's hand: 4d 8d 10d Qd Ad 8s Ks 
+MarySue's round score: 0
+trick id isOKNUXMZZXQg#3818
+trick id isWMTGEEIWODg#4270
+Breanna won the trick.
+Round 8
+
+Playing trick number 8
+Breanna's hand: 6d 2s Qs 9h Jh Kh 
+Breanna's round score: 0
+Current trick suit: s
+Highest: 2
+MarySue's hand: 4d 8d 10d Qd Ad Ks 
+MarySue's round score: 0
+trick id isANKQGIQYHWg#505
+trick id isILFTEFLNEDg#3818
+Highest: 13
+Tyler's hand: 7d 9d As 2h 4h Qh 
+Tyler's round score: 5
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+Elek's hand: 6c Qc Kd 10s 3h Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 8
+
+Playing trick number 9
+Tyler's hand: 7d 9d 2h 4h Qh 
+Tyler's round score: 5
+Current trick suit: d
+Highest: 9
+Elek's hand: 6c Qc Kd 3h Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 13
+Breanna's hand: 6d Qs 9h Jh Kh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: 4d 8d 10d Qd Ad 
+MarySue's round score: 0
+trick id isIAVMSCQXKTg#591
+trick id isEQRZPXBNFRg#1745
+trick id isRBKXUONIAKg#1807
+trick id isLGYLOSEAGRg#4625
+Elek won the trick.
+Round 8
+
+Playing trick number 10
+Elek's hand: 6c Qc 3h Ah 
+Elek's round score: 0
+Current trick suit: h
+Highest: 3
+Breanna's hand: Qs 9h Jh Kh 
+Breanna's round score: 0
+Highest: 11
+MarySue's hand: 8d 10d Qd Ad 
+MarySue's round score: 0
+trick id isPZNVUIHKKCg#104
+trick id isZXDSOUVOMLg#796
+trick id isRJUYUJWZJNg#1807
+trick id isSXTJZPJRFEg#2473
+trick id isGXEDGKSBHAg#2489
+trick id isKYVGXRMVWHg#3005
+trick id isLVPWLJDYQQg#3017
+trick id isOSQCYGEJTMg#3311
+trick id isOQGWBAQOLVg#3388
+trick id isCLFEDZUTRUg#3541
+trick id isQTBQVNDRPHg#3737
+trick id isQKDIHLRHPYg#4476
+Tyler's hand: 7d 2h 4h Qh 
+Tyler's round score: 5
+Must play the suit of the current trick.
+Highest: 12
+Tyler won the trick.
+Round 8
+
+Playing trick number 11
+Tyler's hand: 7d 2h 4h 
+Tyler's round score: 8
+Current trick suit: d
+Highest: 7
+Elek's hand: 6c Qc Ah 
+Elek's round score: 0
+Breanna's hand: Qs 9h Kh 
+Breanna's round score: 0
+MarySue's hand: 10d Qd Ad 
+MarySue's round score: 0
+trick id isHYTBDWMMAJg#780
+trick id isXMZFIUDZKRg#1308
+trick id isCHWNWTUCIXg#1371
+trick id isXQCDISECGRg#1716
+trick id isUEIOFSRUUVg#2065
+trick id isLVGRNGUPAJg#2376
+trick id isJPCJNKZXGZg#3590
+trick id isLBQBUHDORXg#3612
+trick id isJPHUFTFHFXg#4601
+Highest: 10
+MarySue won the trick.
+Round 8
+
+Playing trick number 12
+MarySue's hand: Qd Ad 
+MarySue's round score: 13
+Current trick suit: d
+Highest: 12
+Tyler's hand: 2h 4h 
+Tyler's round score: 8
+Elek's hand: Qc Ah 
+Elek's round score: 0
+Breanna's hand: 9h Kh 
+Breanna's round score: 0
+MarySue won the trick.
+Round 8
+
+Playing trick number 13
+MarySue's hand: Ad 
+MarySue's round score: 16
+Current trick suit: d
+Highest: 14
+Tyler's hand: 4h 
+Tyler's round score: 8
+Elek's hand: Qc 
+Elek's round score: 0
+Breanna's hand: Kh 
+Breanna's round score: 0
+MarySue won the trick.
+
+Scores:
+
+Elek: 44
+Breanna: 67
+MarySue: 46
+Tyler: 51
+New round
+Round 9
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+Elek's hand: 4c 5c 8c Qc 3d 10d Qd 8s 4h 5h 7h 10h Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Highest: 5
+Breanna's hand: 6c Jc Kc Ac 2d 4d 6d 8d Jd 2s 10s 6h 8h 
+Breanna's round score: 0
+Highest: 11
+MarySue's hand: 3c 10c 5d Kd 4s 5s 6s 7s 9s Ks 2h 3h Jh 
+MarySue's round score: 0
+trick id isUSHZTGPUEUg#39
+trick id isJOELPDVWLCg#49
+trick id isVIFMFDQBVIg#608
+trick id isZBWKTETCGHg#1721
+trick id isKCFNZYPRQVg#1737
+trick id isVIFBLQJEYMg#1805
+trick id isEOYGWYUIPCg#3982
+trick id isJKALJAGTAEg#4001
+trick id isXLNQGUSCBNg#4082
+trick id isPDCSOTLHSIg#4102
+trick id isRJNVSDLGTPg#4111
+Breanna won the trick.
+Round 9
+
+Playing trick number 2
+Breanna's hand: 6c Kc Ac 2d 4d 6d 8d Jd 2s 10s 6h 8h 
+Breanna's round score: 0
+Current trick suit: d
+Highest: 8
+MarySue's hand: 3c 5d Kd 4s 5s 6s 7s 9s Ks 2h 3h Jh 
+MarySue's round score: 0
+trick id isHIHQPXBZBEg#25
+trick id isNXIVNZKNXBg#3982
+trick id isABTANFGWUHg#4001
+trick id isHCSMJONTNXg#4082
+trick id isESSQVKDXOEg#4102
+trick id isJDFJLGBWHVg#4109
+trick id isAAAWJEKQKVg#4111
+Tyler's hand: 7c 9c 7d 9d Ad 3s Js Qs As 9h Qh Ah 
+Tyler's round score: 0
+Elek's hand: 4c 8c Qc 3d 10d Qd 8s 4h 5h 7h 10h Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+Elek won the trick.
+Round 9
+
+Playing trick number 3
+Elek's hand: 4c 8c Qc 3d 10d 8s 4h 5h 7h 10h Kh 
+Elek's round score: 0
+len(self.hearts): 5
+self.size(): 11
+Hearts have not been broken.
+len(self.hearts): 5
+self.size(): 11
+Hearts have not been broken.
+len(self.hearts): 5
+self.size(): 11
+Hearts have not been broken.
+Current trick suit: c
+Highest: 4
+Breanna's hand: 6c Kc Ac 2d 4d 6d Jd 2s 10s 6h 8h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 6
+MarySue's hand: 3c Kd 4s 5s 6s 7s 9s Ks 2h 3h Jh 
+MarySue's round score: 0
+trick id isESAOJCAKXUg#4109
+Tyler's hand: 7c 9c 9d Ad 3s Js Qs As 9h Qh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 7
+Tyler won the trick.
+Round 9
+
+Playing trick number 4
+Tyler's hand: 9c 9d Ad 3s Js Qs As 9h Qh Ah 
+Tyler's round score: 0
+Current trick suit: s
+Highest: 14
+Elek's hand: 8c Qc 3d 10d 8s 4h 5h 7h 10h Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: Kc Ac 2d 4d 6d Jd 2s 10s 6h 8h 
+Breanna's round score: 0
+MarySue's hand: Kd 4s 5s 6s 7s 9s Ks 2h 3h Jh 
+MarySue's round score: 0
+trick id isELLINREVOZg#2408
+trick id isRCAJHLZXMDg#2423
+trick id isMKSQYTQSQQg#3424
+Tyler won the trick.
+Round 9
+
+Playing trick number 5
+Tyler's hand: 9c 9d Ad 3s Js Qs 9h Qh Ah 
+Tyler's round score: 0
+Current trick suit: d
+Highest: 14
+Elek's hand: 8c Qc 3d 10d 4h 5h 7h 10h Kh 
+Elek's round score: 0
+Breanna's hand: Kc Ac 2d 4d 6d Jd 2s 6h 8h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: Kd 4s 5s 6s 9s Ks 2h 3h Jh 
+MarySue's round score: 0
+trick id isKUWCXNKSREg#936
+trick id isXBXNEAPLYVg#3260
+trick id isDTXLRMENVCg#4184
+Tyler won the trick.
+Round 9
+
+Playing trick number 6
+Tyler's hand: 9c 9d 3s Js Qs 9h Qh Ah 
+Tyler's round score: 0
+len(self.hearts): 3
+self.size(): 8
+Hearts have not been broken.
+Current trick suit: d
+Highest: 9
+Elek's hand: 8c Qc 10d 4h 5h 7h 10h Kh 
+Elek's round score: 0
+Highest: 10
+Breanna's hand: Kc Ac 2d 6d Jd 2s 6h 8h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+MarySue's hand: 4s 5s 6s 9s Ks 2h 3h Jh 
+MarySue's round score: 0
+trick id isIOZNWRMQGJg#936
+trick id isSFLWNQSICRg#1313
+trick id isIEZJZMNSMNg#3704
+trick id isVEWXQEJDYPg#3727
+Elek won the trick.
+Round 9
+
+Playing trick number 7
+Elek's hand: 8c Qc 4h 5h 7h 10h Kh 
+Elek's round score: 0
+len(self.hearts): 5
+self.size(): 7
+Hearts have not been broken.
+Current trick suit: c
+Highest: 8
+Breanna's hand: Kc Ac 2d Jd 2s 6h 8h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 14
+MarySue's hand: 5s 6s 9s Ks 2h 3h Jh 
+MarySue's round score: 0
+trick id isPPQPAFLKQVg#845
+trick id isRDCDUOXAWOg#924
+trick id isAHOICXTEGXg#1466
+trick id isYKYBTVJZUYg#3113
+trick id isSLDTWDCNUXg#3440
+trick id isHTZTHAOJYXg#3656
+trick id isGMKHJRGNPGg#4184
+Tyler's hand: 9c 3s Js Qs 9h Qh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna won the trick.
+Round 9
+
+Playing trick number 8
+Breanna's hand: Kc 2d Jd 2s 6h 8h 
+Breanna's round score: 0
+Current trick suit: c
+Highest: 13
+MarySue's hand: 5s 6s 9s 2h 3h Jh 
+MarySue's round score: 0
+trick id isCFLRZXSABPg#110
+trick id isTBGHPMRDYEg#704
+trick id isFOKCIXLCUBg#1347
+trick id isLDPXLNTLQHg#1389
+trick id isXTIJSTKNWCg#1681
+trick id isOMLTOLBZBJg#2968
+trick id isFSJIDRHOFLg#4235
+trick id isFFEQZMHWLLg#4483
+Tyler's hand: 3s Js Qs 9h Qh Ah 
+Tyler's round score: 0
+Elek's hand: Qc 4h 5h 7h 10h Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna won the trick.
+Round 9
+
+Playing trick number 9
+Breanna's hand: 2d Jd 2s 6h 8h 
+Breanna's round score: 1
+Current trick suit: s
+Highest: 2
+MarySue's hand: 6s 9s 2h 3h Jh 
+MarySue's round score: 0
+trick id isKHRSQIUIEMg#535
+trick id isZAJCTONVHMg#2775
+Highest: 6
+Tyler's hand: 3s Js Qs 9h Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+Elek's hand: 4h 5h 7h 10h Kh 
+Elek's round score: 0
+Tyler won the trick.
+Round 9
+
+Playing trick number 10
+Tyler's hand: 3s Js 9h Ah 
+Tyler's round score: 14
+Current trick suit: s
+Highest: 11
+Elek's hand: 4h 5h 7h Kh 
+Elek's round score: 0
+Breanna's hand: 2d Jd 6h 8h 
+Breanna's round score: 1
+MarySue's hand: 9s 2h 3h Jh 
+MarySue's round score: 0
+trick id isLPMQRLMBZBg#1018
+trick id isCOCNKCGXGFg#1665
+trick id isIMNWMOPQCLg#1922
+trick id isEEOMZUOKFLg#2105
+trick id isFYFECATSSNg#2439
+trick id isAMXXCPCGSVg#2685
+trick id isUQCCDPPLHQg#4246
+trick id isOXZGHBWTAWg#4382
+Tyler won the trick.
+Round 9
+
+Playing trick number 11
+Tyler's hand: 3s 9h Ah 
+Tyler's round score: 15
+Current trick suit: s
+Highest: 3
+Elek's hand: 5h 7h Kh 
+Elek's round score: 0
+Breanna's hand: Jd 6h 8h 
+Breanna's round score: 1
+MarySue's hand: 2h 3h Jh 
+MarySue's round score: 0
+trick id isNKRFFBJZPZg#216
+trick id isDAHAHYVWQQg#724
+trick id isSMMIKRXMZPg#1190
+trick id isBBAWWBBYIJg#1601
+trick id isUCKREKWOVOg#1665
+trick id isOBYCVXVTGBg#1742
+trick id isAJQRTTVKXEg#1905
+trick id isEVZDFQETUQg#2105
+trick id isERIIGKVOYVg#2125
+trick id isVAFWTGXHBPg#2439
+trick id isKIQBQAPICMg#2572
+trick id isFHNDCPHEBAg#2864
+trick id isKNPUZLAORXg#2944
+trick id isNPBOPKTOIKg#3066
+trick id isAFAYZFOPZMg#3139
+trick id isCQLDEYVFLOg#3257
+trick id isFEYUZHTVXZg#4250
+trick id isSQCEYALRCIg#4255
+trick id isFBLFBIFSXGg#4165
+trick id isEHZUQGDFKVg#4246
+trick id isQRKJNFNIFKg#4668
+trick id isGNKMRUROLDg#1020
+Tyler won the trick.
+Round 9
+
+Playing trick number 12
+Tyler's hand: 9h Ah 
+Tyler's round score: 17
+Current trick suit: h
+Highest: 14
+Elek's hand: 5h 7h 
+Elek's round score: 0
+Breanna's hand: 6h 8h 
+Breanna's round score: 1
+MarySue's hand: 2h Jh 
+MarySue's round score: 0
+trick id isRMWYWYNRUWg#26
+trick id isOJNPWZKJXAg#93
+trick id isDDIENIJLXVg#185
+trick id isDTPAAXVLFJg#294
+trick id isTHBFCBJVVJg#462
+trick id isYBMNLSHSNWg#553
+trick id isXDGJSUVAMFg#840
+trick id isQTQIGTANXWg#1015
+trick id isEZUGXOMJWAg#1043
+trick id isTDFELYDMHNg#1190
+trick id isOXILENEBEPg#1229
+trick id isMLGSSJOJNSg#1280
+trick id isPGEZWVUVBRg#1465
+trick id isLUFUXQPNGVg#1905
+trick id isSZCGIINXCNg#1922
+trick id isRREQNJFKBRg#2247
+trick id isYYIZYBITQWg#2456
+trick id isHKWREPSVVNg#2685
+trick id isNHUMOBCHFPg#2803
+trick id isYMFVSSEYKPg#2864
+trick id isDYCLJLZIAEg#3053
+trick id isGSLYDHHRVAg#3066
+trick id isIJFAQBTIFSg#3151
+trick id isLGXAKWOIZFg#3198
+trick id isMNSOITIILHg#4250
+trick id isJICUXUYIPSg#3493
+trick id isYCXIJTMYTNg#3848
+trick id isKVNESPQCCMg#4143
+trick id isKJCZPKFNUWg#4266
+trick id isOPDEGHOJHXg#1020
+Tyler won the trick.
+Round 9
+
+Playing trick number 13
+Tyler's hand: 9h 
+Tyler's round score: 21
+Current trick suit: h
+Highest: 9
+Elek's hand: 5h 
+Elek's round score: 0
+Breanna's hand: 6h 
+Breanna's round score: 1
+MarySue's hand: Jh 
+MarySue's round score: 0
+trick id isTMEPUWIBOSg#185
+trick id isHNJWKSCLXVg#216
+trick id isYKKTCCANKZg#462
+trick id isOJGAVITAMRg#553
+trick id isCELEMANEJLg#1190
+trick id isDKZCKKEUBIg#1222
+trick id isIVUANOCRHDg#1665
+trick id isVXPVHVPTMQg#1742
+trick id isPKPHZNGSWDg#2024
+trick id isNMNUMRQFDGg#2245
+trick id isZZEPSJOPVTg#2439
+trick id isVQEBHEEMUCg#2864
+trick id isWNAYOHXZPYg#3139
+trick id isWWOROTDCTDg#4250
+trick id isRAHZZGRTZLg#4255
+trick id isKZIWCEAKNWg#4131
+trick id isCOZMGNSEZMg#4143
+trick id isYDDKXSNNQSg#4150
+trick id isVQCPZDOHRUg#4382
+trick id isWFYHFFKOTFg#1020
+trick id isFWEHUMTQPLg#3305
+Highest: 11
+MarySue won the trick.
+
+Scores:
+
+Elek: 44
+Breanna: 68
+MarySue: 50
+Tyler: 72
+New round
+Round 10
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+MarySue's hand: 6c 9c Ac 3d 5d 6d 2s 3s 4s 5s 9s 6h Qh 
+MarySue's round score: 0
+trick id isRBBQFXNZGVg#113
+trick id isXDNJXOAGKIg#113
+trick id isGJLGJQXABAg#1002
+trick id isXNQBZSIQAYg#1131
+trick id isHVPZMOLUHXg#1151
+trick id isWLAXLHBBMLg#1673
+trick id isKPCYGVJYTNg#1700
+trick id isCZYLUXCSWGg#2418
+trick id isSBOWNGZYMHg#2437
+trick id isGDSKTVYCUDg#2577
+trick id isAPAMKWXKSHg#3797
+trick id isFPGCVPVKUDg#3835
+trick id isJFMDEMHGUGg#4377
+Highest: 9
+Tyler's hand: 3c Qc 2d 7d Jd Qd 8s Ks 3h 4h 5h Kh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+Elek's hand: 4c 5c 7c 4d 9d 10d 6s 10s Js 2h 7h 8h 9h 
+Elek's round score: 0
+Tyler won the trick.
+Round 10
+
+Playing trick number 2
+Tyler's hand: 3c 2d 7d Jd Qd 8s Ks 3h 4h 5h Kh Ah 
+Tyler's round score: 0
+len(self.hearts): 5
+self.size(): 12
+Hearts have not been broken.
+Current trick suit: c
+Highest: 3
+Elek's hand: 4c 5c 4d 9d 10d 6s 10s Js 2h 7h 8h 9h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Highest: 4
+Breanna's hand: 8c 10c Jc Kc 8d Kd Ad 7s Qs As 10h Jh 
+Breanna's round score: 0
+Highest: 13
+MarySue's hand: 6c Ac 3d 5d 6d 2s 3s 4s 5s 9s 6h Qh 
+MarySue's round score: 0
+trick id isBWFVEOEQTVg#7
+trick id isNWDJMBGRGGg#11
+trick id isNNKTQMRDONg#113
+trick id isRIPNVIXCWUg#515
+trick id isRAOVKLECSAg#1517
+trick id isMOZDIZAKTKg#1537
+trick id isFUOAHIEWKZg#2166
+trick id isBNTSPIAUTOg#3488
+trick id isEBNYWNHVQBg#3512
+trick id isRXJKEVHDKFg#3797
+trick id isUMAESRLOXDg#3835
+Highest: 14
+MarySue won the trick.
+Round 10
+
+Playing trick number 3
+MarySue's hand: 6c 3d 5d 6d 2s 3s 4s 5s 9s 6h Qh 
+MarySue's round score: 0
+Current trick suit: s
+Highest: 9
+Tyler's hand: 2d 7d Jd Qd 8s Ks 3h 4h 5h Kh Ah 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Elek's hand: 5c 4d 9d 10d 6s 10s Js 2h 7h 8h 9h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 10
+Breanna's hand: 8c 10c Jc 8d Kd Ad 7s Qs As 10h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek won the trick.
+Round 10
+
+Playing trick number 4
+Elek's hand: 5c 4d 9d 10d 6s Js 2h 7h 8h 9h 
+Elek's round score: 0
+Current trick suit: s
+Highest: 11
+Breanna's hand: 8c 10c Jc 8d Kd Ad Qs As 10h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+MarySue's hand: 6c 3d 5d 6d 2s 3s 4s 5s 6h Qh 
+MarySue's round score: 0
+trick id isPVFBKDXKOKg#337
+trick id isMFIBYRQIRSg#2166
+trick id isBWEBZFAAOMg#2717
+trick id isAGLRQPVKNGg#2717
+trick id isNTHVWGAJDSg#2911
+trick id isXXLIULLICMg#3025
+trick id isZWRQUSJXKBg#3044
+trick id isLWLLLJQGKRg#3641
+trick id isZZEITHPNZFg#3797
+trick id isBRQQELHAJCg#3835
+trick id isWHOQROTENIg#3895
+trick id isJALKELKPARg#3911
+trick id isRPBBBRGUAFg#4489
+Tyler's hand: 2d 7d Jd Qd Ks 3h 4h 5h Kh Ah 
+Tyler's round score: 0
+Highest: 13
+Tyler won the trick.
+Round 10
+
+Playing trick number 5
+Tyler's hand: 2d 7d Jd Qd 3h 4h 5h Kh Ah 
+Tyler's round score: 13
+Current trick suit: d
+Highest: 2
+Elek's hand: 5c 4d 9d 10d 6s 2h 7h 8h 9h 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 4
+Breanna's hand: 8c 10c Jc 8d Kd Ad As 10h Jh 
+Breanna's round score: 0
+Highest: 14
+MarySue's hand: 6c 3d 5d 6d 2s 3s 4s 6h Qh 
+MarySue's round score: 0
+trick id isWKSGNFOMQOg#130
+trick id isYLILCPOGLXg#130
+trick id isJDLETXPILXg#369
+trick id isNRDCDRZOVEg#1698
+trick id isBISDAASANHg#1815
+trick id isIENPIOSIHSg#2329
+trick id isUWEAGSKUDJg#2463
+trick id isPEEKCPPNRZg#2488
+trick id isAFXZSHJVZRg#2877
+trick id isTYQQZEMIWAg#3463
+trick id isNHQYDIBHWPg#4112
+trick id isLJRUVGHQIRg#4258
+trick id isOJFJTVCZVLg#4489
+Breanna won the trick.
+Round 10
+
+Playing trick number 6
+Breanna's hand: 8c 10c Jc 8d Kd As 10h Jh 
+Breanna's round score: 0
+Current trick suit: c
+Highest: 8
+MarySue's hand: 6c 3d 6d 2s 3s 4s 6h Qh 
+MarySue's round score: 0
+trick id isAXXQTLQRFSg#266
+trick id isWZGUJQODGCg#272
+trick id isTRIWYKZXGSg#1815
+trick id isNZWAFANEPAg#3604
+trick id isEQPQFHDKOSg#3604
+trick id isMDYPXNHTANg#4192
+trick id isFJSPPBVQLGg#4418
+trick id isNIVMUEBZDZg#4418
+Tyler's hand: 7d Jd Qd 3h 4h 5h Kh Ah 
+Tyler's round score: 13
+Elek's hand: 5c 9d 10d 6s 2h 7h 8h 9h 
+Elek's round score: 0
+Breanna won the trick.
+Round 10
+
+Playing trick number 7
+Breanna's hand: 10c Jc 8d Kd As 10h Jh 
+Breanna's round score: 1
+Current trick suit: c
+Highest: 11
+MarySue's hand: 3d 6d 2s 3s 4s 6h Qh 
+MarySue's round score: 0
+trick id isPOLFIFQPDBg#2875
+trick id isRBONPQMNKOg#2883
+trick id isYATCVDLEPSg#3008
+trick id isQFAXKGXXCZg#3338
+trick id isTYKSRVQJGZg#4480
+Tyler's hand: 7d Jd Qd 3h 5h Kh Ah 
+Tyler's round score: 13
+Elek's hand: 9d 10d 6s 2h 7h 8h 9h 
+Elek's round score: 0
+Breanna won the trick.
+Round 10
+
+Playing trick number 8
+Breanna's hand: 10c 8d Kd As 10h Jh 
+Breanna's round score: 2
+Current trick suit: c
+Highest: 10
+MarySue's hand: 3d 6d 2s 3s 6h Qh 
+MarySue's round score: 0
+trick id isMQTXIHHPGKg#640
+trick id isNFSVTRHZIOg#1232
+trick id isSVCJYJPWVTg#1805
+trick id isTVCXFPICKYg#1921
+trick id isYNXQHYWZFLg#2052
+trick id isCICDGFWHATg#2075
+trick id isZWECINIJORg#2156
+trick id isHVSQZSAEUTg#4341
+Tyler's hand: 7d Jd Qd 3h Kh Ah 
+Tyler's round score: 13
+Elek's hand: 9d 6s 2h 7h 8h 9h 
+Elek's round score: 0
+Breanna won the trick.
+Round 10
+
+Playing trick number 9
+Breanna's hand: 8d Kd As 10h Jh 
+Breanna's round score: 3
+Current trick suit: s
+Highest: 14
+MarySue's hand: 3d 6d 2s 3s Qh 
+MarySue's round score: 0
+trick id isETKUPMZHSBg#843
+trick id isAPUKVFIZQFg#1481
+trick id isONYJHYXWOXg#2478
+trick id isZURHTUYAWIg#3772
+trick id isVMZWGKLQGKg#4341
+Tyler's hand: Jd Qd 3h Kh Ah 
+Tyler's round score: 13
+Elek's hand: 9d 2h 7h 8h 9h 
+Elek's round score: 0
+Breanna won the trick.
+Round 10
+
+Playing trick number 10
+Breanna's hand: 8d Kd 10h Jh 
+Breanna's round score: 4
+Current trick suit: h
+Highest: 11
+MarySue's hand: 3d 6d 2s Qh 
+MarySue's round score: 0
+trick id isGJKNRCEVSKg#2967
+Highest: 12
+Tyler's hand: Jd Qd 3h Kh 
+Tyler's round score: 13
+Elek's hand: 2h 7h 8h 9h 
+Elek's round score: 0
+MarySue won the trick.
+Round 10
+
+Playing trick number 11
+MarySue's hand: 3d 6d 2s 
+MarySue's round score: 4
+Current trick suit: s
+Highest: 2
+Tyler's hand: Jd Qd Kh 
+Tyler's round score: 13
+Elek's hand: 2h 7h 9h 
+Elek's round score: 0
+Breanna's hand: 8d Kd 10h 
+Breanna's round score: 4
+MarySue won the trick.
+Round 10
+
+Playing trick number 12
+MarySue's hand: 3d 6d 
+MarySue's round score: 6
+Current trick suit: d
+Highest: 3
+Tyler's hand: Jd Qd 
+Tyler's round score: 13
+Highest: 12
+Elek's hand: 2h 9h 
+Elek's round score: 0
+Breanna's hand: Kd 10h 
+Breanna's round score: 4
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 13
+Breanna won the trick.
+Round 10
+
+Playing trick number 13
+Breanna's hand: 10h 
+Breanna's round score: 5
+Current trick suit: h
+Highest: 10
+MarySue's hand: 6d 
+MarySue's round score: 6
+trick id isOBVFXMZHXVg#198
+trick id isVPGIOEBQJWg#414
+trick id isCHHJJETWMFg#418
+trick id isSDEXKAEMPAg#843
+trick id isYBBMHUJZIPg#1247
+trick id isVWBUUEOFEHg#1513
+trick id isJUPLPMNOKBg#1569
+trick id isVVOIJKYYIRg#1703
+trick id isNTEDLPOLPVg#1855
+trick id isZPTKBSMDAIg#1959
+trick id isJWZGSLEJKXg#2351
+trick id isCEMQIVVZDFg#2967
+trick id isVIGXDVZMKZg#3118
+trick id isDEUWHQHKGLg#4127
+trick id isLEEVNSLESFg#3416
+trick id isRHYESGJLGSg#3612
+trick id isYGWCBKWRHUg#3758
+trick id isKQGAWCUJLYg#3939
+trick id isYHFYLPVPBJg#1036
+Tyler's hand: Jd 
+Tyler's round score: 13
+Elek's hand: 9h 
+Elek's round score: 0
+Breanna won the trick.
+
+Scores:
+
+Elek: 44
+Breanna: 75
+MarySue: 56
+Tyler: 85
+New round
+Round 11
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+Tyler's hand: 3c 7c 9c 10c 7d 9d Jd 2s 9s Ks 2h 6h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Highest: 9
+Elek's hand: 8c Kc 4d 6d Kd 3s 4s 8s 8h 9h 10h Jh Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 5c 6c 2d 3d 5d 10d Ad 5s 7s 10s Js 3h 4h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 11
+
+Playing trick number 2
+Tyler's hand: 3c 7c 10c 7d 9d Jd 2s 9s Ks 2h 6h 7h 
+Tyler's round score: 0
+Current trick suit: c
+Highest: 3
+Elek's hand: Kc 4d 6d Kd 3s 4s 8s 8h 9h 10h Jh Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 13
+Breanna's hand: 6c 2d 3d 5d 10d Ad 5s 7s 10s Js 3h 4h 
+Breanna's round score: 0
+MarySue's hand: 4c Jc Qc Ac 8d Qd 6s Qs As 5h Qh Ah 
+MarySue's round score: 0
+trick id isUOBVKQPJLOg#72
+trick id isLFDCHHTVOIg#105
+trick id isQZREOWOYYBg#144
+trick id isENRCJPVERAg#477
+trick id isCIUSDFYGCBg#494
+trick id isNXIGSPEZUNg#507
+trick id isUWXKPAVKTHg#583
+trick id isEHWDROAFVQg#601
+trick id isRWYWRIEKLUg#1194
+trick id isVXPXUUXIYPg#1240
+trick id isTUYLQULVWBg#1657
+trick id isXNLOCIBKHWg#1932
+trick id isBNIASIGVTZg#1983
+trick id isPSNTDWKJMBg#2017
+trick id isRLJPYTSPNSg#2415
+trick id isTFRKSWXYWEg#2466
+trick id isEBFZDBVOMVg#2662
+trick id isHWZGAWCDEEg#2682
+trick id isBJZEUDCDRMg#3095
+trick id isKMVSZAAIKTg#3108
+trick id isTEYPRKPUTVg#3147
+trick id isPBBVUGHAWXg#3771
+trick id isVXYROHTEPYg#3788
+trick id isQPYKZLGZDVg#3929
+trick id isEMKZEJIHSXg#4041
+trick id isAAUOIXJOVGg#4211
+trick id isKQXAOANEDCg#4263
+trick id isAQEERYOZXSg#4291
+trick id isQJOHKLCXRMg#4520
+trick id isUXKUQIBJYGg#4520
+Elek won the trick.
+Round 11
+
+Playing trick number 3
+Elek's hand: 4d 6d Kd 3s 4s 8s 8h 9h 10h Jh Kh 
+Elek's round score: 0
+Current trick suit: s
+Highest: 8
+Breanna's hand: 2d 3d 5d 10d Ad 5s 7s 10s Js 3h 4h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Highest: 11
+MarySue's hand: 4c Qc Ac 8d Qd 6s Qs As 5h Qh Ah 
+MarySue's round score: 0
+trick id isZOBFSXXMZDg#72
+trick id isKJMBYIBIAQg#105
+trick id isOUEMKCKCKZg#477
+trick id isGDOFWTLOIWg#1364
+trick id isUTQIQNRZJFg#1439
+trick id isIXXJLOPTXQg#1638
+trick id isAGNCNYBIZJg#1932
+trick id isSLJSPSPDPOg#1956
+trick id isQSXHTWKBTUg#1983
+trick id isBYFYRQHRHWg#2117
+trick id isPBWJNFYSFLg#2540
+trick id isXFPQVUDRJSg#2662
+trick id isYIQAIJNCCLg#2662
+trick id isXWYBYXFNNDg#2682
+trick id isJNXTLUICUOg#2682
+trick id isUAOFULSIYZg#3042
+trick id isVUAQUFHJMBg#3393
+trick id isDMWYFGGNHTg#3553
+trick id isRJCRIIXYMCg#3654
+trick id isFDXCIIUPVXg#3654
+trick id isSWRVARVVLUg#3678
+trick id isBVNLGLNJDJg#3678
+trick id isTRYGRFMJUYg#3771
+trick id isJVAWSJGCEJg#3788
+trick id isEFSJBPCYAHg#4185
+trick id isZFDNCHOPJCg#4213
+trick id isCRBHKSKBBRg#4345
+trick id isFKVEHRFIZVg#4533
+trick id isIUUXDIKMJLg#4533
+trick id isSWGMNSXZWAg#4563
+trick id isRNBNDLTHFNg#4563
+trick id isCDREVIIRLJg#4608
+trick id isXFIGTWLUZKg#4642
+Highest: 12
+Tyler's hand: 7c 10c 7d 9d Jd 2s 9s Ks 2h 6h 7h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 13
+Tyler won the trick.
+Round 11
+
+Playing trick number 4
+Tyler's hand: 7c 10c 7d 9d Jd 2s 9s 2h 6h 7h 
+Tyler's round score: 13
+Current trick suit: h
+Highest: 2
+Elek's hand: 4d 6d Kd 3s 4s 8h 9h 10h Jh Kh 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 9
+Breanna's hand: 2d 3d 5d 10d Ad 5s 7s 10s 3h 4h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue's hand: 4c Qc Ac 8d Qd 6s As 5h Qh Ah 
+MarySue's round score: 0
+trick id isFHJMTLWKCJg#477
+trick id isNHPGSXRIZSg#860
+trick id isRHTCNMXBMTg#860
+trick id isLOWVIFZYYVg#880
+trick id isPANDGCFQRSg#880
+trick id isVOZLQUVNCQg#964
+trick id isOMIMYLOEPGg#1009
+trick id isKSQJVFWSBBg#1071
+trick id isHKOEWAFUXWg#1116
+trick id isKMYKFZNFGCg#1289
+trick id isJNOIDKYYDSg#1289
+trick id isEBYMQLTBLVg#1535
+trick id isIFQSCIXHCTg#2017
+trick id isNEVOAIUZFEg#2037
+trick id isPNSBQLYWFXg#2176
+trick id isNVEMMPZKSQg#2540
+trick id isBPSTTMKLWCg#2548
+trick id isMQOMWCOMLDg#2608
+trick id isYBSDEEANFVg#2640
+trick id isPOJZTOZWANg#2674
+trick id isXICKJKUCSQg#2834
+trick id isOKUDFCKMVHg#2834
+trick id isZEYEFAQXENg#2861
+trick id isVHVSVIYTQSg#2861
+trick id isMZBVKBHSFNg#2997
+trick id isWFBYFPJCQPg#3019
+trick id isLUWYJEKIQSg#3060
+trick id isUMLKWXCWHIg#3076
+trick id isHALCHEGTHSg#3973
+trick id isNPPXOJJOZKg#3973
+trick id isLBHDHGSLTWg#3973
+trick id isZUUUZXVTITg#4020
+trick id isCIIQSHFDTVg#4020
+trick id isKDWXHHEMKUg#4039
+trick id isTCHVNPXCDQg#4039
+trick id isYCBTYMPPGZg#4365
+trick id isSYPRMCEUBYg#4372
+trick id isEYUBBZHHFKg#4372
+trick id isSHJUIXMBDHg#4372
+Elek won the trick.
+Round 11
+
+Playing trick number 5
+Elek's hand: 4d 6d Kd 3s 4s 8h 10h Jh Kh 
+Elek's round score: 4
+Current trick suit: d
+Highest: 6
+Breanna's hand: 2d 3d 5d 10d Ad 5s 7s 10s 3h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Highest: 10
+MarySue's hand: 4c Qc Ac 8d Qd 6s As Qh Ah 
+MarySue's round score: 0
+trick id isFSVDKIPSBJg#359
+trick id isQZVPHTBGOUg#1572
+trick id isQORDSWYBCHg#2044
+trick id isXHNKOMWCFZg#2176
+trick id isJKBNHAIVFDg#2386
+trick id isXTGBGYBMFPg#2908
+trick id isTZJMTRBGVCg#2908
+trick id isWVBXMKHYQDg#4148
+Tyler's hand: 7c 10c 7d 9d Jd 2s 9s 6h 7h 
+Tyler's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 11
+Tyler won the trick.
+Round 11
+
+Playing trick number 6
+Tyler's hand: 7c 10c 7d 9d 2s 9s 6h 7h 
+Tyler's round score: 13
+Current trick suit: s
+Highest: 9
+Elek's hand: 4d Kd 3s 4s 8h 10h Jh Kh 
+Elek's round score: 4
+Must play the suit of the current trick.
+Breanna's hand: 2d 3d 5d Ad 5s 7s 10s 3h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 10
+MarySue's hand: 4c Qc Ac Qd 6s As Qh Ah 
+MarySue's round score: 0
+trick id isGYNERZJLKBg#1646
+trick id isZHYHUYMDPBg#1667
+trick id isVXAETICJZSg#1914
+trick id isYNRACBLVHYg#1926
+trick id isSUOLAPADXRg#3013
+trick id isCAPCGKDCTIg#3027
+Breanna won the trick.
+Round 11
+
+Playing trick number 7
+Breanna's hand: 2d 3d 5d Ad 5s 7s 3h 
+Breanna's round score: 0
+Current trick suit: d
+Highest: 5
+MarySue's hand: 4c Qc Ac Qd As Qh Ah 
+MarySue's round score: 0
+trick id isHRRTFFFZWYg#606
+trick id isKQBQFSNPRWg#734
+trick id isRELOCKYSQXg#748
+trick id isJCNABTYSBUg#3040
+trick id isCTDKSGDZOZg#3043
+trick id isTPUTGKOWOLg#3058
+trick id isQOSNIRMUZFg#3843
+Highest: 12
+Tyler's hand: 7c 10c 7d 9d 2s 6h 7h 
+Tyler's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 4d Kd 3s 8h 10h Jh Kh 
+Elek's round score: 4
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 13
+Elek won the trick.
+Round 11
+
+Playing trick number 8
+Elek's hand: 4d 3s 8h 10h Jh Kh 
+Elek's round score: 4
+Current trick suit: s
+Highest: 3
+Breanna's hand: 2d 3d Ad 5s 7s 3h 
+Breanna's round score: 0
+Highest: 7
+MarySue's hand: 4c Qc Ac As Qh Ah 
+MarySue's round score: 0
+trick id isFZOBTXUHCXg#1799
+trick id isQFRMEUSSXNg#3040
+Highest: 14
+Tyler's hand: 7c 10c 7d 2s 6h 7h 
+Tyler's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+MarySue won the trick.
+Round 11
+
+Playing trick number 9
+MarySue's hand: 4c Qc Ac Qh Ah 
+MarySue's round score: 0
+Current trick suit: c
+Highest: 14
+Tyler's hand: 7c 10c 7d 6h 7h 
+Tyler's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 4d 8h 10h Jh Kh 
+Elek's round score: 4
+Breanna's hand: 2d 3d Ad 5s 3h 
+Breanna's round score: 0
+MarySue won the trick.
+Round 11
+
+Playing trick number 10
+MarySue's hand: 4c Qc Qh Ah 
+MarySue's round score: 0
+Current trick suit: c
+Highest: 12
+Tyler's hand: 10c 7d 6h 7h 
+Tyler's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek's hand: 8h 10h Jh Kh 
+Elek's round score: 4
+Breanna's hand: 2d 3d Ad 3h 
+Breanna's round score: 0
+MarySue won the trick.
+Round 11
+
+Playing trick number 11
+MarySue's hand: 4c Qh Ah 
+MarySue's round score: 1
+Current trick suit: h
+Highest: 12
+Tyler's hand: 7d 6h 7h 
+Tyler's round score: 13
+Elek's hand: 8h Jh Kh 
+Elek's round score: 4
+Breanna's hand: 3d Ad 3h 
+Breanna's round score: 0
+Must play the suit of the current trick.
+MarySue won the trick.
+Round 11
+
+Playing trick number 12
+MarySue's hand: 4c Ah 
+MarySue's round score: 5
+Current trick suit: c
+Highest: 4
+Tyler's hand: 7d 7h 
+Tyler's round score: 13
+Elek's hand: 8h Kh 
+Elek's round score: 4
+Breanna's hand: 3d Ad 
+Breanna's round score: 0
+MarySue won the trick.
+Round 11
+
+Playing trick number 13
+MarySue's hand: Ah 
+MarySue's round score: 7
+Current trick suit: h
+Highest: 14
+Tyler's hand: 7d 
+Tyler's round score: 13
+Elek's hand: Kh 
+Elek's round score: 4
+Breanna's hand: 3d 
+Breanna's round score: 0
+MarySue won the trick.
+
+Scores:
+
+Elek: 48
+Breanna: 75
+MarySue: 65
+Tyler: 98
+New round
+Round 12
+
+Playing trick number 1
+Current trick suit: c
+Highest: 2
+Breanna's hand: 3c 4c 2d 5d 9d 10d Qd Ad 5s 8s 8h 9h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 4
+MarySue's hand: 7c Ac 4d 8d Jd Kd 3s 6s 2h 6h 7h Qh Kh 
+MarySue's round score: 0
+trick id isGQOKSNJKRXg#1647
+trick id isUUSDBMMFUJg#1669
+trick id isLBRYYTCBSUg#2109
+trick id isGVDIFGQVYUg#2109
+trick id isJSXZQAHPOGg#2327
+trick id isYFPCRVLYVKg#2432
+trick id isMGNFLMOLBUg#3272
+trick id isDQWSYLZWBCg#3298
+trick id isLYQDXMLDDJg#3696
+trick id isMZVOFIOBZVg#3720
+Highest: 7
+Tyler's hand: 6c 8c 10c Jc Kc 6d 4s 10s Ks 3h 4h 5h 10h 
+Tyler's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 10
+Tyler won the trick.
+Round 12
+
+Playing trick number 2
+Tyler's hand: 6c 8c Jc Kc 6d 4s 10s Ks 3h 4h 5h 10h 
+Tyler's round score: 0
+Current trick suit: s
+Highest: 13
+Elek's hand: 5c 9c Qc 3d 7d 2s 7s 9s Js Qs As Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 3c 2d 5d 9d 10d Qd Ad 5s 8s 8h 9h Jh 
+Breanna's round score: 0
+MarySue's hand: Ac 4d 8d Jd Kd 3s 6s 2h 6h 7h Qh Kh 
+MarySue's round score: 0
+trick id isYYBNFEKXJMg#440
+trick id isZIIFNTKOCRg#1647
+trick id isMOWAVGHMGOg#1647
+trick id isCHDVGRJHRSg#1669
+trick id isJBUOHCIHBEg#1669
+trick id isAFYQKIAFEJg#1827
+trick id isBAKUZAUSVXg#1827
+trick id isVASLGRIEEXg#1827
+trick id isDLCLZDTRBSg#4301
+trick id isRWYDHUBXMJg#4301
+trick id isBOJNBGOJIGg#4617
+Tyler won the trick.
+Round 12
+
+Playing trick number 3
+Tyler's hand: 6c 8c Jc Kc 6d 4s 10s 3h 4h 5h 10h 
+Tyler's round score: 13
+Current trick suit: d
+Highest: 6
+Elek's hand: 5c 9c Qc 3d 7d 2s 7s 9s Js As Ah 
+Elek's round score: 0
+Breanna's hand: 3c 2d 5d 9d 10d Qd Ad 5s 8h 9h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 10
+MarySue's hand: Ac 4d 8d Jd Kd 3s 2h 6h 7h Qh Kh 
+MarySue's round score: 0
+trick id isPZADBYPOSSg#206
+trick id isWXPRNRLKLSg#331
+trick id isZOIMJKJQTOg#842
+trick id isBUIZUZKMXOg#1802
+trick id isQWAHKLJSVKg#1825
+trick id isOTLOIWARYBg#2393
+trick id isWIBTOWYBAPg#2412
+trick id isGMEADQOLHMg#2698
+trick id isFXDXIIRYTXg#3083
+trick id isYLAMSIAJAHg#3083
+trick id isWCHRNPVAKYg#3122
+trick id isMFCQYCJXTMg#3149
+Highest: 13
+MarySue won the trick.
+Round 12
+
+Playing trick number 4
+MarySue's hand: Ac 4d 8d Jd 3s 2h 6h 7h Qh Kh 
+MarySue's round score: 0
+Current trick suit: h
+Highest: 12
+Tyler's hand: 6c 8c Jc Kc 4s 10s 3h 4h 5h 10h 
+Tyler's round score: 13
+Elek's hand: 5c 9c Qc 7d 2s 7s 9s Js As Ah 
+Elek's round score: 0
+Must play the suit of the current trick.
+Highest: 14
+Breanna's hand: 3c 2d 5d 9d Qd Ad 5s 8h 9h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Elek won the trick.
+Round 12
+
+Playing trick number 5
+Elek's hand: 5c 9c Qc 7d 2s 7s 9s Js As 
+Elek's round score: 4
+Current trick suit: d
+Highest: 7
+Breanna's hand: 3c 2d 5d 9d Qd Ad 5s 9h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 12
+MarySue's hand: Ac 4d 8d Jd 3s 2h 6h 7h Kh 
+MarySue's round score: 0
+trick id isJXAKTUEPGMg#2615
+trick id isKMJIYJCTGXg#2644
+trick id isEWNCWAHMVFg#2707
+trick id isQSZRZVORUFg#3142
+trick id isBFKCAVEVCHg#3160
+trick id isFQWHZSOZQGg#4674
+Tyler's hand: 6c 8c Jc Kc 4s 10s 3h 5h 10h 
+Tyler's round score: 13
+Breanna won the trick.
+Round 12
+
+Playing trick number 6
+Breanna's hand: 3c 2d 5d 9d Ad 5s 9h Jh 
+Breanna's round score: 0
+Current trick suit: s
+Highest: 5
+MarySue's hand: Ac 8d Jd 3s 2h 6h 7h Kh 
+MarySue's round score: 0
+trick id isGFJIILKXTMg#509
+trick id isITHKMQYIUBg#509
+trick id isUZFYYKDGDSg#524
+trick id isPEOKWMOXZQg#524
+trick id isGEVQKLUDUJg#881
+trick id isMWQNPREHLRg#899
+trick id isBCCTGCSFHQg#3021
+trick id isELLDOGHMDVg#3069
+trick id isMQKRIXUCRUg#3335
+trick id isNIJQJLFXILg#3407
+Tyler's hand: 6c 8c Jc Kc 10s 3h 5h 10h 
+Tyler's round score: 13
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 10
+Elek's hand: 5c 9c Qc 2s 7s 9s Js As 
+Elek's round score: 4
+Must play the suit of the current trick.
+Tyler won the trick.
+Round 12
+
+Playing trick number 7
+Tyler's hand: 6c 8c Jc Kc 3h 5h 10h 
+Tyler's round score: 13
+Current trick suit: c
+Highest: 11
+Elek's hand: 5c 9c Qc 7s 9s Js As 
+Elek's round score: 4
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Breanna's hand: 3c 2d 5d 9d Ad 9h Jh 
+Breanna's round score: 0
+MarySue's hand: Ac 8d Jd 2h 6h 7h Kh 
+MarySue's round score: 0
+trick id isFXHSCEVBOEg#3335
+Highest: 14
+MarySue won the trick.
+Round 12
+
+Playing trick number 8
+MarySue's hand: 8d Jd 2h 6h 7h Kh 
+MarySue's round score: 0
+Current trick suit: d
+Highest: 8
+Tyler's hand: 6c 8c Kc 3h 5h 10h 
+Tyler's round score: 13
+Elek's hand: 5c Qc 7s 9s Js As 
+Elek's round score: 4
+Breanna's hand: 2d 5d 9d Ad 9h Jh 
+Breanna's round score: 0
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Must play the suit of the current trick.
+Highest: 9
+Breanna won the trick.
+Round 12
+
+Playing trick number 9
+Breanna's hand: 2d 5d Ad 9h Jh 
+Breanna's round score: 1
+Current trick suit: d
+Highest: 5
+MarySue's hand: Jd 2h 6h 7h Kh 
+MarySue's round score: 0
+trick id isQLWGBMKHLQg#724
+trick id isLLKVMDIEIXg#1742
+trick id isMKVPBRNFHHg#2554
+trick id isKYMBJROMILg#3169
+trick id isKWFWCTZAYHg#4165
+Highest: 11
+Tyler's hand: 6c 8c Kc 5h 10h 
+Tyler's round score: 13
+Elek's hand: Qc 7s 9s Js As 
+Elek's round score: 4
+MarySue won the trick.
+Round 12
+
+Playing trick number 10
+MarySue's hand: 2h 6h 7h Kh 
+MarySue's round score: 1
+Current trick suit: h
+Highest: 7
+Tyler's hand: 6c 8c Kc 10h 
+Tyler's round score: 13
+Highest: 10
+Elek's hand: 7s 9s Js As 
+Elek's round score: 4
+Breanna's hand: 2d Ad 9h Jh 
+Breanna's round score: 1
+Tyler won the trick.
+Round 12
+
+Playing trick number 11
+Tyler's hand: 6c 8c Kc 
+Tyler's round score: 16
+Current trick suit: c
+Highest: 8
+Elek's hand: 9s Js As 
+Elek's round score: 4
+Breanna's hand: 2d Ad Jh 
+Breanna's round score: 1
+MarySue's hand: 2h 6h Kh 
+MarySue's round score: 1
+trick id isNZRRAOGRLUg#335
+trick id isWYWDFBYJFVg#397
+trick id isXICSFXQEACg#553
+trick id isQVFUWVLHJFg#1043
+trick id isDFRUGHDKBKg#1193
+trick id isVFPCWBIHDMg#1633
+trick id isPQVGJVGZJRg#1882
+trick id isOBHTUFFSPJg#1894
+trick id isKAACLFRUWYg#2029
+trick id isVWEQUZHDIMg#2149
+trick id isTQSLXKKRCSg#2247
+trick id isBFUMCYVEBMg#2530
+trick id isCVDATNTSXCg#3146
+trick id isYXSOUAQVASg#3198
+trick id isLNFXDGYJDXg#3471
+trick id isOGWMPRPYAMg#3485
+trick id isGNUHHGVPSUg#3848
+trick id isZRGSHJJAOFg#4150
+trick id isZWGMMLKZSPg#4266
+trick id isSFXGPENCHWg#4421
+Tyler won the trick.
+Round 12
+
+Playing trick number 12
+Tyler's hand: 6c Kc 
+Tyler's round score: 17
+Current trick suit: c
+Highest: 13
+Elek's hand: Js As 
+Elek's round score: 4
+Breanna's hand: 2d Jh 
+Breanna's round score: 1
+MarySue's hand: 2h Kh 
+MarySue's round score: 1
+trick id isGLHXABVCCQg#1193
+trick id isPGRTDNACRGg#816
+trick id isHJCWKLILVEg#1601
+trick id isNAKBIWAMZXg#1742
+trick id isRHIBSWJOJOg#3139
+trick id isMMHAVBAGBWg#3471
+trick id isZEPOWPMDVQg#3485
+trick id isMASKXDAABNg#4150
+Tyler won the trick.
+Round 12
+
+Playing trick number 13
+Tyler's hand: 6c 
+Tyler's round score: 19
+Current trick suit: c
+Highest: 6
+Elek's hand: As 
+Elek's round score: 4
+Breanna's hand: 2d 
+Breanna's round score: 1
+MarySue's hand: Kh 
+MarySue's round score: 1
+trick id isSASZLKQWDCg#389
+trick id isFHAXEWBXSLg#1229
+trick id isERFIMRQQIZg#2105
+trick id isCPLCEFZDLDg#2685
+trick id isNLFYSMLXTSg#3202
+trick id isOKUYVOGECGg#3471
+trick id isYRAQJNSBUPg#3485
+trick id isTIISMOXKWXg#4557
+trick id isCPUSCUAACJg#3848
+trick id isUCLRDUVWEIg#4008
+trick id isMOACCKRUUQg#4268
+trick id isDEDVBTLCNVg#4421
+trick id isAUTVDYKSCWg#840
+Tyler won the trick.
+
+Scores:
+
+Elek: 52
+Breanna: 76
+MarySue: 66
+Tyler: 118
+Elek wins!
+
+ space 

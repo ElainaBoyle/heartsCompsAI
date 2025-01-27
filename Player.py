@@ -8,11 +8,13 @@ class Player:
 			self.roundScore = 0
 			self.tricksWon = []															#p1, p2, p3, p4
 			self.boardState = [] #Hold the current known board state by player index ex [8c, "", "" ,2c]
+			self.board = [] #Hold the current known board state as played cards [8c, 2c]
 			self.curTrump = ""
 			self.heartsBroken = False
 			self.curTrick = None
-			self.trickHistory = [] #Holds the history of the each rounds of tricks
-			self.board = []
+			self.trickHistory = [] #Holds the history of the each rounds of tricks in string form
+			self.cardObjTrickHistory = [] #Holds the history of the each rounds of tricks in card object form
+			self.trickNum = 0
 
 	def addCard(self, card):
 		self.hand.addCard(card)
@@ -55,10 +57,21 @@ class Player:
 	def updateHistory(self, history):
 		"""Updates the history of the tricks for each round"""
 		if len(self.trickHistory) < 13:
-			self.trickHistory.append(history)
+      		
+			strHistory = []
+			for item in history:
+				strHistory.append(str(item))
+			self.trickHistory.append(strHistory)
+			self.cardObjTrickHistory.append(history)
 		else:
+			self.cardObjTrickHistory = []
+			self.cardObjTrickHistory.append(history)
+
+			strHistory = []
+			for item in history:
+				strHistory.append(str(item))
 			self.trickHistory = []
-			self.trickHistory.append(history)
+			self.trickHistory.append(strHistory)
    
 	def updateBoardState(self, boardState, board):
 		"""Updates the history of the board"""

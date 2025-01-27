@@ -5,7 +5,7 @@ matplotlib.use('TkAgg')
 
 wFile = open("rates.txt", "w")
 
-for i in range(1000):
+for i in range(10):
     result = os.popen("python3 Hearts.py").read()
     wFile.write(result)
     wFile.write("\n space \n")
@@ -21,35 +21,35 @@ BreannaTrickWins = 0
 BreannaGameWins = 0
 BreannaTotalScore = 0
 
-BenTrickWins = 0
-BenGameWins = 0
-BenTotalScore = 0
+MarySueTrickWins = 0
+MarySueGameWins = 0
+MarySueTotalScore = 0
 
-TylerTrickWins = 0
-TylerGameWins = 0
-TylerTotalScore = 0
+MonteTrickWins = 0
+MonteGameWins = 0
+MonteTotalScore = 0
 
 ElekScoreLine = ""
 BreannaScoreLine = ""
-BenScoreLine = ""
-TylerScoreLine = ""
+MarySueScoreLine = ""
+MonteScoreLine = ""
 previous = ""
 
 
 rFile = open("rates.txt", "r")
-#self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("Ben"), Player("Tyler")]
+#self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("MarySue"), Player("Monte")]
 for line in rFile:
     
     if(previous.find("wins!") != -1):
         ElekScoreLineList = ElekScoreLine.split(" ")
         BreannaScoreLineList = BreannaScoreLine.split(" ")
-        BenScoreLineList = BenScoreLine.split(" ")
-        TylerScoreLineList = TylerScoreLine.split(" ")
+        MarySueScoreLineList = MarySueScoreLine.split(" ")
+        MonteScoreLineList = MonteScoreLine.split(" ")
         
         ElekTotalScore = ElekTotalScore + int(ElekScoreLineList[1])
         BreannaTotalScore = BreannaTotalScore + int(BreannaScoreLineList[1])
-        BenTotalScore = BenTotalScore + int(BenScoreLineList[1])
-        TylerTotalScore = TylerTotalScore + int(TylerScoreLineList[1])
+        MarySueTotalScore = MarySueTotalScore + int(MarySueScoreLineList[1])
+        MonteTotalScore = MonteTotalScore + int(MonteScoreLineList[1])
     if(line.find("Elek wins!") != -1):
         ElekGameWins = ElekGameWins + 1
     if(line.find("Elek won the trick") != -1):
@@ -58,32 +58,32 @@ for line in rFile:
         BreannaGameWins = BreannaGameWins + 1
     if(line.find("Breanna won the trick") != -1):
         BreannaTrickWins = BreannaTrickWins + 1
-    if(line.find("Ben wins!") != -1):
-        BenGameWins = BenGameWins + 1
-    if(line.find("Ben won the trick") != -1):
-        BenTrickWins = BenTrickWins + 1
-    if(line.find("Tyler wins!") != -1):
-        TylerGameWins = TylerGameWins + 1
-    if(line.find("Tyler won the trick") != -1):
-        TylerTrickWins = TylerTrickWins + 1
+    if(line.find("MarySue wins!") != -1):
+        MarySueGameWins = MarySueGameWins + 1
+    if(line.find("MarySue won the trick") != -1):
+        MarySueTrickWins = MarySueTrickWins + 1
+    if(line.find("Monte wins!") != -1):
+        MonteGameWins = MonteGameWins + 1
+    if(line.find("Monte won the trick") != -1):
+        MonteTrickWins = MonteTrickWins + 1
         
     ElekScoreLine = BreannaScoreLine
-    BreannaScoreLine = BenScoreLine
-    BenScoreLine = TylerScoreLine
-    TylerScoreLine = previous
+    BreannaScoreLine = MarySueScoreLine
+    MarySueScoreLine = MonteScoreLine
+    MonteScoreLine = previous
     previous = line
 
 print("\nElek Stats:\nTotal Games Won:", ElekGameWins, "\nTotal Tricks Won:", ElekTrickWins, "\nAverage Score:", (ElekTotalScore/1000))
 print("\nBreanna Stats:\nTotal Games Won:", BreannaGameWins, "\nTotal Tricks Won:", BreannaTrickWins, "\nAverage Score:", (BreannaTotalScore/1000))
-print("\nBen Stats:\nTotal Games Won:", BenGameWins, "\nTotal Tricks Won:", BenTrickWins, "\nAverage Score:", (BenTotalScore/1000))
-print("\nTyler Stats:\nTotal Games Won:", TylerGameWins, "\nTotal Tricks Won:", TylerTrickWins, "\nAverage Score:", (TylerTotalScore/1000))
+print("\nMarySue Stats:\nTotal Games Won:", MarySueGameWins, "\nTotal Tricks Won:", MarySueTrickWins, "\nAverage Score:", (MarySueTotalScore/1000))
+print("\nMonte Stats:\nTotal Games Won:", MonteGameWins, "\nTotal Tricks Won:", MonteTrickWins, "\nAverage Score:", (MonteTotalScore/1000))
 print("\n")
 
 winnerList = []
 winnerList.append(("Elek", ElekGameWins))
 winnerList.append(("Breanna", BreannaGameWins))
-winnerList.append(("Ben", BenGameWins))
-winnerList.append(("Tyler", TylerGameWins))
+winnerList.append(("MarySue", MarySueGameWins))
+winnerList.append(("Monte", MonteGameWins))
 
 winnerList = sorted(winnerList, key=lambda person: person[1])
 winnerList.reverse()

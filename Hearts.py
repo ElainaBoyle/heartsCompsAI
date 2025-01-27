@@ -4,7 +4,8 @@ from Player import Player
 from Trick import Trick
 from Elek_Agent import Elek_Agent
 from BreannaAgent import BreannaAgent
-
+from MarySue import Cbr_Agent
+from MonteCarlo import MonteCarlo
 
 '''
 Change auto to False if you would like to play the game manually.
@@ -38,7 +39,7 @@ class Hearts:
 
 		# Make four players
 
-		self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("Ben"), Player("Tyler")]
+		self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Cbr_Agent("MarySue"), MonteCarlo("Monte")]
 
 		'''
 		Player physical locations:
@@ -87,6 +88,8 @@ class Hearts:
 		self.deck.shuffle()
 		self.roundNum += 1
 		self.trickNum = 0
+		for player in self.players:
+			player.trickNum = self.trickNum
 		self.trickWinner = -1
 		self.heartsBroken = False
 		self.dealer = (self.dealer + 1) % len(self.players)
@@ -120,6 +123,7 @@ class Hearts:
 		# print 'Making new trick'
 		self.currentTrick = Trick()
 		#print(self.currentTrick.suit)
+
 
 
 	# # def passCards(self, index):
@@ -203,8 +207,8 @@ class Hearts:
 							# if player only has hearts but hearts have not been broken,
 							# player can play hearts
 							if not curPlayer.hasOnlyHearts():
-								print(curPlayer.hasOnlyHearts())
-								print(curPlayer.hand.__str__())
+								#print(curPlayer.hasOnlyHearts())
+								#print(curPlayer.hand.__str__())
 								print("Hearts have not been broken.")
 								addCard = None
 							else:
@@ -250,6 +254,8 @@ class Hearts:
 
 		self.evaluateTrick()
 		self.trickNum += 1
+		for player in self.players:
+			player.trickNum = self.trickNum
 
 	# print player's hand
 	def printPlayer(self, i):
@@ -292,7 +298,7 @@ class Hearts:
 		history = []
 		for i, card in enumerate(self.currentTrick.trick):
 			if (self.currentTrick.trick[i] != 0):
-				history.append(str(card))
+				history.append(card)
 			else:
 				history.append("")
 		for player in self.players:
