@@ -41,10 +41,16 @@ class MonteCarlo(Player):
         
     def MonteSearch(self, root): #written
         """Monte Carlo Tree Search (calls helper functions)"""
-        #if time? 5 seconds? 7 seconds? 10 seconds?
-        startTime = time.time()
-        while(time.time() - startTime < 3):
-            leaf = self.traverse(root)
+        # #if time? 5 seconds? 7 seconds? 10 seconds?
+        # startTime = time.time()
+        # while(time.time() - startTime < 3):
+        #     leaf = self.traverse(root)
+        #     simulationResult = self.rollout(leaf)
+        #     self.backProp(leaf, simulationResult)
+        
+        leaf = root
+        while(leaf is not None):
+            leaf = self.traverse(leaf)
             simulationResult = self.rollout(leaf)
             self.backProp(leaf, simulationResult)
             
@@ -357,9 +363,8 @@ class MonteCarlo(Player):
 
     def playCard(self): #written - needs to rewritten faster
         """Redefines playCard from player class to use MonteCarlo"""
-        
-        # print(self.trickNum)
-        if(self.trickNum == 1 or self.hand.contains2ofclubs):
+
+        if(self.trickNum == 0 ^ (self.trickNum == 1 and self.hand.didContain2ofClubs)):
 
             self.gameClubs = [Card(2,0), Card(3,0), Card(4,0), Card(5,0), Card(6,0), Card(7,0), Card(8,0), Card(9,0), Card(10 ,0), Card(11, 0), Card(12,0), Card(13,0), Card(14,0)]
             self.gameDiamonds = [Card(2,1), Card(3,1), Card(4,1), Card(5,1), Card(6,1), Card(7,1), Card(8,1), Card(9,1), Card(10 ,1), Card(11, 1), Card(12,1), Card(13,1), Card(14,1)]
@@ -378,10 +383,10 @@ class MonteCarlo(Player):
                     
             for card in self.hand.spades:
                 self.gameSpades.remove(card)
-        
+                    
         ### remove what has been played already ###
 
-        if(len(self.cardObjTrickHistory) != 0 and len(self.cardObjTrickHistory) != 13):
+        if(self.trickNum != 0):
             for card in self.cardObjTrickHistory[-1]:
                 if(str(card)[-1] == "c" and (card in self.gameClubs)):
                     self.gameClubs.remove(card)
@@ -396,7 +401,8 @@ class MonteCarlo(Player):
                     self.gameSpades.remove(card)
         
         ### remove what is in the current board ###
-        if(self.trickNum != 13):
+        
+        if(self.trickNum != 0):
             for card in self.boardState:
                 if(str(card)[-1] == "c" and (card in self.gameClubs)):
                     self.gameClubs.remove(card)
@@ -410,25 +416,27 @@ class MonteCarlo(Player):
                 if(str(card)[-1] == "s" and (card in self.gameSpades)):
                     self.gameSpades.remove(card)
                 
-        erCheck = []
-        for card in self.gameClubs:
-            erCheck.append(str(card))
-        for card in self.gameHearts:
-            erCheck.append(str(card))
-        for card in self.gameDiamonds:
-            erCheck.append(str(card))
-        for card in self.gameSpades:
-            erCheck.append(str(card))
+        # erCheck = []
+        # for card in self.gameClubs:
+        #     erCheck.append(str(card))
+        # for card in self.gameHearts:
+        #     erCheck.append(str(card))
+        # for card in self.gameDiamonds:
+        #     erCheck.append(str(card))
+        # for card in self.gameSpades:
+        #     erCheck.append(str(card))
         # print(erCheck)
         
         root = Node(self.boardState, self.hand)
         root.curTrump = self.curTrump
         card = self.MonteSearch(root) #do the algo and get the best card
         
-        board = []
-        for item in card.board:
-            board.append(str(item))
+        # board = []
+        # for item in card.board:
+        #     board.append(str(item))
         # print(board)
+        
+        # print(self.trickHistory)
         
         return card.board[1] #return the best
     

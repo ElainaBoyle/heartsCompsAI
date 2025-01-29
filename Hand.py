@@ -20,6 +20,7 @@ class Hand:
 					self.spades, self.hearts]
 
 		self.contains2ofclubs = False
+		self.didContain2ofClubs = False
 
 	def size(self):
 		return len(self.clubs) + len(self.diamonds) + len(self.spades) + len(self.hearts)
@@ -28,6 +29,7 @@ class Hand:
 		if card.suit == Suit(clubs):
 			if card.rank.rank == 2:
 				self.contains2ofclubs = True
+				self.didContain2ofClubs = True
 			self.clubs.append(card)
 		elif card.suit == Suit(diamonds):
 			self.diamonds.append(card)
