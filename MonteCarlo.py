@@ -9,7 +9,6 @@ import time
 import copy
 import random
 import math
-import math
 
 class Node:
     def __init__(self, board, curhand):
