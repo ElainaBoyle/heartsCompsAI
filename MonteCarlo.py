@@ -8,7 +8,7 @@ from Hand import Hand
 import time
 import copy
 import random
-
+import math
 
 class Node:
     def __init__(self, board, curhand):
@@ -76,6 +76,32 @@ class MonteCarlo(Player):
                     node = self.bestChild(node)
                     
         return node
+    
+    def calculateUCB(self, node, strat):
+        constantValues = [5000,10000,20000]
+        parentVisit = 1
+        selfVisit = 1
+        
+        if(node.parent.numVisit > 0):
+            parentVisit = node.parent.numVisit
+        if(node.numVisit > 0):
+            selfVisit = node.numVisit
+        value = node.value + (constantValues[strat] * math.sqrt((math.log(parentVisit)/selfVisit)))
+        print("the upper confidence bound is: " + str(value))
+        return value
+    
+    def calculateUCB(self, node, strat):
+        constantValues = [5000,10000,20000]
+        parentVisit = 1
+        selfVisit = 1
+        
+        if(node.parent.numVisit > 0):
+            parentVisit = node.parent.numVisit
+        if(node.numVisit > 0):
+            selfVisit = node.numVisit
+        value = node.value + (constantValues[strat] * math.sqrt((math.log(parentVisit)/selfVisit)))
+        print("the upper confidence bound is: " + str(value))
+        return value
         
     def expand(self, node): #written
         """Adds branches to the tree"""
@@ -298,7 +324,8 @@ class MonteCarlo(Player):
         return self.bestChild(node)
     
     def backProp(self, node, result): #written 
-        """Back propigates the tree itteratively (also contains noniterative code)"""
+        """Back propagates the tree itteratively (also contains noniterative code)"""
+        """Back propagates the tree itteratively (also contains noniterative code)"""
         
         while node.parent is not None:
             node.numVisit = node.numVisit + 1
@@ -320,18 +347,29 @@ class MonteCarlo(Player):
         for child in node.children:
             childTrump = str(child.board[1])[-1]
             if(childTrump == node.curTrump):
-                if(child.value < pick.value):
-                    pick = child
+                if(self.calculateUCB(child, 0) < pick.value):
+                    print("pick value is " + str(pick.value))
+                    pick = child 
+                if(self.calculateUCB(child, 0) < pick.value):
+                    print("pick value is " + str(pick.value))
+                    pick = child 
 
             elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())):
-                if(child.value < pick.value):
+                if(self.calculateUCB(child, 2) < pick.value):
+                    print("pick value is " + str(pick.value))
+                if(self.calculateUCB(child, 2) < pick.value):
+                    print("pick value is " + str(pick.value))
                     pick = child
             
             else:
                 if((childTrump != "h") and (str(child.board[1]) != "Qs")):
-                        if(child.value < pick.value): 
+                        if(self.calculateUCB(child, 1) < pick.value): 
+                            print("pick value is " + str(pick.value))
+                        if(self.calculateUCB(child, 1) < pick.value): 
+                            print("pick value is " + str(pick.value))
                             pick = child    
-
+        
+        
         return pick
     
     def visualizeTree(self, node, file):
