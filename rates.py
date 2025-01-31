@@ -5,11 +5,11 @@ matplotlib.use('TkAgg')
 
 wFile = open("rates.txt", "w")
 
-for i in range(1000):
+for i in range(10):
     result = os.popen("python3 Hearts.py").read()
     wFile.write(result)
     wFile.write("\n space \n")
-    #print("Played game:", i)
+    print("Played game:", i)
     
 wFile.close()
 
@@ -73,11 +73,11 @@ for line in rFile:
     MonteScoreLine = previous
     previous = line
 
-#print("\nElek Stats:\nTotal Games Won:", ElekGameWins, "\nTotal Tricks Won:", ElekTrickWins, "\nAverage Score:", (ElekTotalScore/1000))
-#print("\nBreanna Stats:\nTotal Games Won:", BreannaGameWins, "\nTotal Tricks Won:", BreannaTrickWins, "\nAverage Score:", (BreannaTotalScore/1000))
-#print("\nMarySue Stats:\nTotal Games Won:", MarySueGameWins, "\nTotal Tricks Won:", MarySueTrickWins, "\nAverage Score:", (MarySueTotalScore/1000))
-#print("\nMonte Stats:\nTotal Games Won:", MonteGameWins, "\nTotal Tricks Won:", MonteTrickWins, "\nAverage Score:", (MonteTotalScore/1000))
-#print("\n")
+print("\nElek Stats:\nTotal Games Won:", ElekGameWins, "\nTotal Tricks Won:", ElekTrickWins, "\nAverage Score:", (ElekTotalScore/1000))
+print("\nBreanna Stats:\nTotal Games Won:", BreannaGameWins, "\nTotal Tricks Won:", BreannaTrickWins, "\nAverage Score:", (BreannaTotalScore/1000))
+print("\nMarySue Stats:\nTotal Games Won:", MarySueGameWins, "\nTotal Tricks Won:", MarySueTrickWins, "\nAverage Score:", (MarySueTotalScore/1000))
+print("\nMonte Stats:\nTotal Games Won:", MonteGameWins, "\nTotal Tricks Won:", MonteTrickWins, "\nAverage Score:", (MonteTotalScore/1000))
+print("\n")
 
 winnerList = []
 winnerList.append(("Elek", ElekGameWins))
