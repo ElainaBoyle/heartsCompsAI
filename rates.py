@@ -1,15 +1,24 @@
 import os
+import time
 import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')
 
+start = time.time()
 wFile = open("rates.txt", "w")
 
-for i in range(10):
+
+numOfGames = 5
+for i in range(numOfGames):
+    gameStart = time.time()
     result = os.popen("python3 Hearts.py").read()
     wFile.write(result)
     wFile.write("\n space \n")
     print("Played game:", i)
+    gameFin = time.time() - gameStart
+    print(int(gameFin), "seconds")
+    print(int(gameFin/60), "minutes")
+
     
 wFile.close()
 
@@ -88,10 +97,20 @@ winnerList.append(("Monte", MonteGameWins))
 winnerList = sorted(winnerList, key=lambda person: person[1])
 winnerList.reverse()
 
+totalGamesPlayed = 0
 place = 0
 for person in winnerList:
     place = place + 1
     print(person[0], "came in", place, "place with", person[1], "games won!")
+    totalGamesPlayed = totalGamesPlayed + person[1]
+
+
+fin = time.time() - start
+print(int(fin), "seconds")
+print(int(fin/60), "minutes")
+print(int(fin)/totalGamesPlayed, "avg, seconds")
+print(int(fin/60)/totalGamesPlayed, "avg, minutes")
+print(numOfGames - totalGamesPlayed, ": num of games that had an error")
 
 leftCords = [1, 2, 3, 4]
 players = [winnerList[0][0], winnerList[1][0], winnerList[2][0], winnerList[3][0]]
