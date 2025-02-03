@@ -4,7 +4,6 @@ Monte Carlo Agent
 '''
 from Player import Player
 from Card import Card
-from Hand import Hand
 import time
 import copy
 import random
@@ -39,46 +38,66 @@ class MonteCarlo(Player):
         self.gameSpades = [Card(2,2), Card(3,2), Card(4,2), Card(5,2), Card(6,2), Card(7,2), Card(8,2), Card(9,2), Card(10 ,2), Card(11, 2), Card(12,2), Card(13,2), Card(14,2)]
         self.gameHearts = [Card(2,3), Card(3,3), Card(4,3), Card(5,3), Card(6,3), Card(7,3), Card(8,3), Card(9,3), Card(10 ,3), Card(11, 3), Card(12,3), Card(13,3), Card(14,3)]
         
-        self.wFile = open("tree.txt", "w")
-        
     def MonteSearch(self, root): #written
         """Monte Carlo Tree Search (calls helper functions)"""
         # #if time? 5 seconds? 7 seconds? 10 seconds?
+        # 3 seconds = 10 min per game; 2 seconds = 7 mins per game; 1 second = 3min
         startTime = time.time()
         while(time.time() - startTime < 3):
             leaf = self.traverse(root)
             simulationResult = self.rollout(leaf)
             self.backProp(leaf, simulationResult)
-        
-        # startTime = time.time()
-
-        # for i in range(100):
+    
+        # for i in range(9000):
         #     leaf = self.traverse(root) #has children
         #     simulationResult = self.rollout(leaf)
         #     self.backProp(leaf, simulationResult)
+        #     print(leaf)
         #     i = i + 1
         
         return self.bestChild(root) #Not exploring or making children.children
         
     def traverse(self, node):#written
         """Traverses the tree"""
-        # while(node.numVisit != 0): #While explored
-        #     node = self.bestChild(node) #change to math?
+        while(node.numVisit != 0): #While explored
             
-        # if(node.numVisit == 0): #if not explored
-        #     node = self.expand(node)
-        
-        if(node.numVisit == 0):
-            node = self.expand(node)
-        else:
+            best = self.calculateUCB(node.children[0])
+            bestNode = node.children[0]
             for child in node.children:
-                if(child.numVisit == 0):
-                    node = self.bestChild(node)
+                if(best > self.calculateUCB(child)):
+                    best = self.calculateUCB(child)
+                    bestNode = child
+            
+        if(node.numVisit == 0): #if not explored
+            self.expand(node)
+            return node
+
+        return bestNode
+            
+        
+        # if(len(node.children) == 0):
+        #     print(node.children)
+        #     node = self.expand(node)
+        #     return node.children[0]
+        # else:
+        #     best = self.calculateUCB(node.children[0], 1)
+        #     bestNode = node.children[0]
+        #     i = 0
+        #     for child in node.children:
+        #         i = i+1
+        #         print(len(node.children))
+        #         print(i)
+                
+        #         # if(child.numVisit == 0):
+        #         #     self.expand(child)
+        #         #     return child
+        #         if(best < self.calculateUCB(child, 1)):
+        #             best = self.calculateUCB(child, 1)
+        #             bestNode = child
                     
-        return node
+        # return bestNode
     
-    def calculateUCB(self, node, strat):
-        constantValues = [5000,10000,20000]
+    def calculateUCB(self, node):
         parentVisit = 1
         selfVisit = 1
         
@@ -86,21 +105,7 @@ class MonteCarlo(Player):
             parentVisit = node.parent.numVisit
         if(node.numVisit > 0):
             selfVisit = node.numVisit
-        value = node.value + (constantValues[strat] * math.sqrt((math.log(parentVisit)/selfVisit)))
-        print("the upper confidence bound is: " + str(value))
-        return value
-    
-    def calculateUCB(self, node, strat):
-        constantValues = [5000,10000,20000]
-        parentVisit = 1
-        selfVisit = 1
-        
-        if(node.parent.numVisit > 0):
-            parentVisit = node.parent.numVisit
-        if(node.numVisit > 0):
-            selfVisit = node.numVisit
-        value = node.value + (constantValues[strat] * math.sqrt((math.log(parentVisit)/selfVisit)))
-        print("the upper confidence bound is: " + str(value))
+        value = node.value + (1 * math.sqrt((math.log(parentVisit)/selfVisit)))
         return value
         
     def expand(self, node): #written
@@ -296,33 +301,126 @@ class MonteCarlo(Player):
         return node
                                          
     def rollout(self, node): #written
-        """rollout the the rules"""
-        while(node.curhand is not None): #while non terminal (none because it is a hand)
-            if(len(node.children) == 1):
-                node = node.children[0]
-            elif(len(node.children) != 0):
-                node = self.bestMathPick(node)
+        """Plays a random game to the finish, recording the total score"""
         
-            if(node.curTrump == "Unset"):
-                node.curTrump == str(node.board[0])[-1]
-            high = node.board[0]
-            for card in node.board:
-                if(node.curTrump == str(card)[-1]):     
-                    if(high.rank < card.rank):
-                        high = card
+        score = 0
+        if(node.curhand == None):
+            print("ruh roh")
+            return score
+        
+        copiedNode = copy.deepcopy(node)
+        copyGameClubs = copy.deepcopy(self.gameClubs)
+        copyGameDiamonds = copy.deepcopy(self.gameDiamonds)
+        copyGameHearts = copy.deepcopy(self.gameHearts)
+        copyGameSpades = copy.deepcopy(self.gameSpades)
+        
+        gameSuits = [copyGameClubs, copyGameDiamonds, copyGameHearts, copyGameSpades]
+        gameCardList = []
+        for suit in gameSuits:
+            for card in suit:
+                gameCardList.append(card)
+    
+        handSuits = [copiedNode.curhand.clubs, copiedNode.curhand.diamonds, copiedNode.curhand.hearts, copiedNode.curhand.spades]
+        handCardList = []
+        for suit in handSuits:
+            for card in suit:
+                handCardList.append(card)
+               
+        x = len(handCardList)
+        while(x != 0): #while non terminal
+            # print(x)
+            
+            if(len(copiedNode.board) == 4):
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+                
+            elif(len(copiedNode.board) == 3):
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+
+                copiedNode.board.append(monteCard)
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+            
+            elif(len(copiedNode.board) == 2):
+                randPlayer1Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer1Card)
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+
+                copiedNode.board.append(randPlayer1Card)
+                copiedNode.board.append(monteCard)
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+                
+            elif(len(copiedNode.board) == 1):
+                randPlayer1Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer1Card)
+                randPlayer2Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer2Card)
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+                
+                copiedNode.board.append(randPlayer1Card)
+                copiedNode.board.append(randPlayer2Card)
+                copiedNode.board.append(monteCard)
+                
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+                
+            else:
+                randPlayer1Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer1Card)
+                randPlayer2Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer2Card)
+                randPlayer3Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer3Card)
+                
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+
+                board = [randPlayer1Card, randPlayer2Card, randPlayer3Card, monteCard] 
+                trump = str(random.choice(board))[-1] 
+            
+            high = random.choice(board)
+            for card in board:
+                if((str(card)[-1] == trump) and (card > high)):
+                    high = card
                     
-            score = 0
-            if(node.board[1] == high):
-                for card in node.board:
+            if(board[3] == high):
+                for card in board:
                     if(str(card)[-1] == "h"):
                         score = score + 1
                     if(str(card) == "Qs"):
                         score = score + 13 
-            return score
+            
+            x = x - 1
+            
+        # print(score)
+        return score
+        # while(node.curhand is not None): #while non terminal (none because it is a hand)
+        #     if(len(node.children) == 1):
+        #         node = node.children[0]
+        #     elif(len(node.children) != 0):
+        #         node = self.bestMathPick(node)
+        
+        #     if(node.curTrump == "Unset"):
+        #         node.curTrump == str(node.board[0])[-1]
+        #     high = node.board[0]
+        #     for card in node.board:
+        #         if(node.curTrump == str(card)[-1]):     
+        #             if(high.rank < card.rank):
+        #                 high = card
+                    
+        #     score = 0
+        #     if(node.board[1] == high):
+        #         for card in node.board:
+        #             if(str(card)[-1] == "h"):
+        #                 score = score + 1
+        #             if(str(card) == "Qs"):
+        #                 score = score + 13 
+        #     return score
                             
-    def bestMathPick(self, node): # needs to be written
-        return self.bestChild(node)
-    
     def backProp(self, node, result): #written 
         """Back propagates the tree itteratively (also contains noniterative code)"""
         """Back propagates the tree itteratively (also contains noniterative code)"""
@@ -342,69 +440,78 @@ class MonteCarlo(Player):
     def bestChild(self, node): #written - needs updating (probably)
         """Returns the "best" node of the one with the most visits - Can be modified to use confidence bounds (better)"""
         pick = Node([], node.curhand)
-        pick.value = 100000000000
+        pick.value = 30 #highest possible score is 26
         
         for child in node.children:
             childTrump = str(child.board[1])[-1]
             if(childTrump == node.curTrump):
-                if(self.calculateUCB(child, 0) < pick.value):
-                    print("pick value is " + str(pick.value))
+                if(child.value < pick.value):
                     pick = child 
-                if(self.calculateUCB(child, 0) < pick.value):
-                    print("pick value is " + str(pick.value))
-                    pick = child 
+                    # print("pick value is " + str(pick.value))
 
             elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())):
-                if(self.calculateUCB(child, 2) < pick.value):
-                    print("pick value is " + str(pick.value))
-                if(self.calculateUCB(child, 2) < pick.value):
-                    print("pick value is " + str(pick.value))
+                if(child.value < pick.value):
                     pick = child
+                    # print("pick value is " + str(pick.value))
             
             else:
                 if((childTrump != "h") and (str(child.board[1]) != "Qs")):
-                        if(self.calculateUCB(child, 1) < pick.value): 
-                            print("pick value is " + str(pick.value))
-                        if(self.calculateUCB(child, 1) < pick.value): 
-                            print("pick value is " + str(pick.value))
-                            pick = child    
-        
-        
+                        if(child.value < pick.value): 
+                            pick = child
+                            # print("pick value is " + str(pick.value))    
+    
         return pick
     
     def visualizeTree(self, node, file):
         
-        if(len(node.children) == 0):
-            file.write("\n Parent board: ")
-            printlist = []
-            if(node.parent is not None):
-                for card in node.parent.board:
-                    printlist.append(str(card))
-            file.write(" ".join(printlist))
+        # if(len(node.children) == 0):
+        #     file.write("\n Parent board: ")
+        #     printlist = []
+        #     if(node.parent is not None):
+        #         for card in node.parent.board:
+        #             printlist.append(str(card))
+        #     file.write(" ".join(printlist))
             
-            file.write(" Child board: ")
-            printlist = []
-            for card in node.board:
-                printlist.append(str(card))
-            printlist.append(str(node.value))
-            file.write(" ".join(printlist))
-            printlist = []
+        #     file.write(" Child board: ")
+        #     printlist = []
+        #     for card in node.board:
+        #         printlist.append(str(card))
+        #     file.write(" ".join(printlist))
+        #     printlist = []
             
-            file.write(str(node.value))
+        #     file.write(str(node.value))
             
-        else:  
-            
-            file.write("\n Parent board: ")
-            printlist = []
-            if(node.parent is not None):
-                for card in node.parent.board:
-                    printlist.append(str(card))
-            file.write(" ".join(printlist))        
-            printlist = []
-            
+        # else:  
+        
+        #     printlist = []
+        #     if(node.parent is not None):
+        #         for card in node.parent.board:
+        #             printlist.append(str(card))
+        #     file.write(" ".join(printlist))
+                    
+            # printlist = []
+            # for child in node.children:
+            #     return self.visualizeTree(child, file)
+        
+        
+        file.write("Parent: ")
+        printlist = []
+        for card in node.board:
+            printlist.append(str(card))
+        printlist.append("\n")
+        file.write(" ".join(printlist))
+        
+        if(len(node.children) != 0):
+            printlist = []       
             for child in node.children:
+                file.write(" Child")
+                for card in child.board:
+                    printlist.append(str(card))
+                printlist.append("//")
+                file.write(" ".join(printlist))
+                file.write("\n")
                 self.visualizeTree(child, file)
-           
+            
 #Notes \/
 #board is with ["", "", thing, thing]
 #board state is with [thing, thing]
@@ -483,9 +590,11 @@ class MonteCarlo(Player):
         # for item in card.board:
         #     board.append(str(item))
         # print(board)
-        
-        # print(self.trickHistory)    
-        self.visualizeTree(root, self.wFile)
+         
+        # print(self.trickHistory)   
+        # if(self.trickNum == 2): # Printed version exists at the moment for 1 round of tree stuff
+        #     wFile = open("tree.txt", "w")
+        #     self.visualizeTree(root, wFile)
         
         return card.board[1] #return the best
     
