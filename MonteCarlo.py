@@ -40,14 +40,15 @@ class MonteCarlo(Player):
         
     def MonteSearch(self, root): #written
         """Monte Carlo Tree Search (calls helper functions)"""
-        # #if time? 5 seconds? 7 seconds? 10 seconds?
+        # amount of time 
         # 3 seconds = 10 min per game; 2 seconds = 7 mins per game; 1 second = 3min
         startTime = time.time()
-        while(time.time() - startTime < 3):
+        while(time.time() - startTime < 1.5):
             leaf = self.traverse(root)
             simulationResult = self.rollout(leaf)
             self.backProp(leaf, simulationResult)
     
+        # amount of iterations
         # for i in range(9000):
         #     leaf = self.traverse(root) #has children
         #     simulationResult = self.rollout(leaf)
@@ -55,7 +56,7 @@ class MonteCarlo(Player):
         #     print(leaf)
         #     i = i + 1
         
-        return self.bestChild(root) #Not exploring or making children.children
+        return self.bestChild(root) 
         
     def traverse(self, node):#written
         """Traverses the tree"""
@@ -73,39 +74,20 @@ class MonteCarlo(Player):
             return node
 
         return bestNode
-            
-        
-        # if(len(node.children) == 0):
-        #     print(node.children)
-        #     node = self.expand(node)
-        #     return node.children[0]
-        # else:
-        #     best = self.calculateUCB(node.children[0], 1)
-        #     bestNode = node.children[0]
-        #     i = 0
-        #     for child in node.children:
-        #         i = i+1
-        #         print(len(node.children))
-        #         print(i)
-                
-        #         # if(child.numVisit == 0):
-        #         #     self.expand(child)
-        #         #     return child
-        #         if(best < self.calculateUCB(child, 1)):
-        #             best = self.calculateUCB(child, 1)
-        #             bestNode = child
-                    
-        # return bestNode
     
-    def calculateUCB(self, node):
+    def calculateUCB(self, node): #written - still working on constant picking
+        #Best constant so far: 0.75
         parentVisit = 1
         selfVisit = 1
         
-        if(node.parent.numVisit > 0):
-            parentVisit = node.parent.numVisit
+        if(node.parent != None):
+            if(node.parent.numVisit > 0):
+                parentVisit = node.parent.numVisit
+        else:
+            parentVisit = 1
         if(node.numVisit > 0):
             selfVisit = node.numVisit
-        value = node.value + (1 * math.sqrt((math.log(parentVisit)/selfVisit)))
+        value = node.value + (.75 * math.sqrt((math.log(parentVisit)/selfVisit)))
         return value
         
     def expand(self, node): #written
@@ -422,8 +404,7 @@ class MonteCarlo(Player):
         #     return score
                             
     def backProp(self, node, result): #written 
-        """Back propagates the tree itteratively (also contains noniterative code)"""
-        """Back propagates the tree itteratively (also contains noniterative code)"""
+        """Back propagates the tree itteratively (also contains recursive code)"""
         
         while node.parent is not None:
             node.numVisit = node.numVisit + 1
@@ -437,62 +418,44 @@ class MonteCarlo(Player):
         #     node.value = node.value + result
         #     self.backProp(node.parent, result)
     
-    def bestChild(self, node): #written - needs updating (probably)
+    def bestChild(self, node): #written
         """Returns the "best" node of the one with the most visits - Can be modified to use confidence bounds (better)"""
         pick = Node([], node.curhand)
         pick.value = 30 #highest possible score is 26
         
         for child in node.children:
             childTrump = str(child.board[1])[-1]
-            if(childTrump == node.curTrump):
-                if(child.value < pick.value):
+            if(childTrump == node.curTrump): #if in the correct suit, consider it (will consider anything in right suit)
+                # if(child.value < pick.value):
+                #     pick = child 
+                if(self.calculateUCB(child) < self.calculateUCB(pick)):
                     pick = child 
                     # print("pick value is " + str(pick.value))
 
-            elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())):
-                if(child.value < pick.value):
-                    pick = child
+            elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())): #if hearts have been broken or monte only has hearts, consider it (only will consider hearts)
+                # if(child.value < pick.value):
+                #     pick = child
+                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                    pick = child 
                     # print("pick value is " + str(pick.value))
             
-            else:
-                if((childTrump != "h") and (str(child.board[1]) != "Qs")):
-                        if(child.value < pick.value): 
-                            pick = child
-                            # print("pick value is " + str(pick.value))    
+            elif(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
+                if(childTrump != "h"): #if not a heart
+                   if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
+                        # if(child.value < pick.value): 
+                        #     pick = child
+                        if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                            pick = child 
+                            # print("pick value is " + str(pick.value))  
+            else: 
+                # if(child.value < pick.value):
+                #     pick = child
+                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                    pick = child 
     
         return pick
     
-    def visualizeTree(self, node, file):
-        
-        # if(len(node.children) == 0):
-        #     file.write("\n Parent board: ")
-        #     printlist = []
-        #     if(node.parent is not None):
-        #         for card in node.parent.board:
-        #             printlist.append(str(card))
-        #     file.write(" ".join(printlist))
-            
-        #     file.write(" Child board: ")
-        #     printlist = []
-        #     for card in node.board:
-        #         printlist.append(str(card))
-        #     file.write(" ".join(printlist))
-        #     printlist = []
-            
-        #     file.write(str(node.value))
-            
-        # else:  
-        
-        #     printlist = []
-        #     if(node.parent is not None):
-        #         for card in node.parent.board:
-        #             printlist.append(str(card))
-        #     file.write(" ".join(printlist))
-                    
-            # printlist = []
-            # for child in node.children:
-            #     return self.visualizeTree(child, file)
-        
+    def visualizeTree(self, node, file): #written
         
         file.write("Parent: ")
         printlist = []
@@ -516,7 +479,7 @@ class MonteCarlo(Player):
 #board is with ["", "", thing, thing]
 #board state is with [thing, thing]
 
-    def playCard(self): #written - needs to rewritten faster
+    def playCard(self): #written
         """Redefines playCard from player class to use MonteCarlo"""
 
         if(self.trickNum == 0 ^ (self.trickNum == 1 and self.hand.didContain2ofClubs)):
@@ -592,6 +555,7 @@ class MonteCarlo(Player):
         # print(board)
          
         # print(self.trickHistory)   
+        
         # if(self.trickNum == 2): # Printed version exists at the moment for 1 round of tree stuff
         #     wFile = open("tree.txt", "w")
         #     self.visualizeTree(root, wFile)
@@ -609,3 +573,14 @@ class MonteCarlo(Player):
         if not auto:
             card = self.hand.playCard(card)
         return card
+    
+### Next Steps ###
+
+# Find a good constant
+# Write in the consideration for what other players hands are
+    # ex: Player 1 played off the suit, they do not have a suit do not consider that suit
+        #could be expanded into do not consider that combination (will make the tree smaller, might need to adjust constant)
+# Add in shoot the moon
+    # might be as simple as changing the signs to pick greatest value
+        #possible additions: bul to make it stick to one strat, conditions to switch strats (what val could be achevied as close to 26 as pos), etc.
+
