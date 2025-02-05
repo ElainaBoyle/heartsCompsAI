@@ -43,7 +43,7 @@ class MonteCarlo(Player):
         # amount of time 
         # 3 seconds = 10 min per game; 2 seconds = 7 mins per game; 1 second = 3min
         startTime = time.time()
-        while(time.time() - startTime < 1.5):
+        while(time.time() - startTime < 3):
             leaf = self.traverse(root)
             simulationResult = self.rollout(leaf)
             self.backProp(leaf, simulationResult)
