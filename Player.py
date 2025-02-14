@@ -1,4 +1,5 @@
 from Hand import Hand
+from Card import Card
 
 class Player:
 	def __init__(self, name, auto=False):
@@ -17,8 +18,8 @@ class Player:
 			self.trickNum = 0
 
 	def addCard(self, card):
+		print("adding:", card.getIden())
 		self.hand.addCard(card)
-
 
 	def getInput(self, option):
 		card = None
@@ -31,10 +32,12 @@ class Player:
 			card = self.hand.getRandomCard()
 		elif c is None:
 			card = self.getInput(option)
+			print(card)
 		else:
 			card = c
 		if not auto:
-			card = self.hand.playCard(card)
+			card = self.hand.hasCard(card)
+		print("Selected card", card)
 		return card
 
 
@@ -42,8 +45,10 @@ class Player:
 		self.roundScore += trick.points
 
 
-	def hasSuit(self, suit):
-		return len(self.hand.hand[suit.iden]) > 0
+	def hasSuit(self, card):
+		suit = card.getSuitInt()
+
+		return len(self.hand.hand[suit]) > 0
 
 	def removeCard(self, card):
 		self.hand.removeCard(card)

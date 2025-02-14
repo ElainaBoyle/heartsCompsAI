@@ -1,193 +1,146 @@
 import pygame
 import os
 
-pygame.init()
 
 
 
 
 
-#Create game window, screen-related variables
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 1000
-BACKGROUND_COLOR = (3, 49, 3) #poker table green
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Hearts")
-screen.fill(BACKGROUND_COLOR)
+class GameGraphics:
 
-#frame rate
-clock = pygame.time.Clock()
-FPS = 60
+    #game window, screen-related variables
+    SCREEN_WIDTH = 1000
+    SCREEN_HEIGHT = 1000
+    BACKGROUND_COLOR = (3, 49, 3) #poker table green
 
-#Card-related variables
-cardwidth = 100
-cardheight = 140
-overlap = 50
-p1Card_y = 800 #y coordinate for the top of p1's cards
+    #frame rate
+    FPS = 60
+    
+    #Card-related variables
+    cardwidth = 100
+    cardheight = 140
+    overlap = 50
+    p1Card_y = 800 #y coordinate for the top of p1's cards
+    cardLocations = [] #a list of lists containing the coordinate for the top left point of each card.
+    
+    waitTime = 500 #change how long it waits between actions
 
-#testing variables
-myHand = ["4c", "5d", "7d", "Jd", "2s", "7s", "Js", "Ks", "As", "2h", "6h", "8h", "9h"]
+    def __init__(self):
+        pygame.init()
+        self.clock = pygame.time.Clock()
+
+        self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        pygame.display.set_caption("Hearts")
+        self.screen.fill(self.BACKGROUND_COLOR)
+        #self.myHand = ["Ah", "5d", "7d", "Jd", "2s", "7s", "Js", "Ks", "As", "2h", "6h", "8h", "9h"] 
+        
+        
+        
+        
+    def setHand(self, hand):
+        self.myHand = hand
+        #print(self.myHand)
 
 
+    # Formats the cards in your hand to be used SPECIFICALLY FOR FETCHING .png FILES. Also updates overlap for display convenience.
+    # PARAM hand a list of card idens (eg. ["2c", "5h"])
+    # RETURN a list of card idens with ".png" appended (eg. ["2c.png", "5h.png"])
+    def formatCards(self): 
+        self.formattedHand = []
+        for card in self.myHand:
+            self.formattedHand.append(card + ".png")
+        self.updateOverlap()
+        return self.formattedHand 
 
+    # Displays a hand of cards at the bottom of your screen.
+    # PARAM hand a list of FORMATTED card idens (eg. ["2c.png", "5h.png"])
+    # Global variables in this calculation: cardwidth, overlap, screen
+    def dealHand(self): 
+        self.formatCards()
+        pos = 500 - (6 * (self.cardwidth - self.overlap)) # 6 cards before the center, 100-overlap apart.
+        self.startPos = pos - (self.cardwidth/2) # move left by half of card width (position of card placement is defined by top left corner, not center)
+        pos = self.startPos
+        for card in self.formattedHand:
+            myCard = pygame.image.load(os.path.join('pygamecards/cards', card))
+            self.screen.blit(myCard, (pos, self.p1Card_y))
+            self.cardLocations.append((pos, self.p1Card_y))
+            pos += (self.cardwidth - self.overlap)
+            pygame.display.update()
+            pygame.time.wait(self.waitTime)
+        return
+    
+    def updateOverlap(self):
+        self.overlap = len(self.formattedHand) * 4
+        self.startPos = 450 - ((self.cardwidth - self.overlap) * len(self.myHand)/2)
+        
+        
+    def clickACard(self):
+        myTurn = True
+        while(myTurn):
+            # get all events
+            ev = pygame.event.get()
 
-
-
-# PARAM hand a list of card idens (eg. ["2c", "5h"])
-# RETURN a list of card idens with ".png" appended (eg. ["2c.png", "5h.png"])
-def formatCards(hand): 
-    formatted_hand = []
-    for card in hand:
-        formatted_hand.append(card + ".png")
-    return formatted_hand 
-
-# Displays a hand of cards at the bottom of your screen.
-# PARAM hand a list of FORMATTED card idens (eg. ["2c.png", "5h.png"])
-# Global variables in this calculation: cardwidth, overlap, screen
-def dealCards(hand):
-    pos = 500 - (6 * (100 - overlap)) # 6 cards before the center, 100-overlap apart.
-    pos = pos - (cardwidth/2) # move left by half of card width (position of card placement is defined by top left corner, not center)
-    for card in hand:
-        myCard = pygame.image.load(os.path.join('pygamecards/cards', card))
-        screen.blit(myCard, (pos, p1Card_y))
-        pos += overlap
+            for event in ev:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    pos = pygame.mouse.get_pos()
+                    if self.getCardAtPos(pos) is not None:
+                        print("I got a card!!")
+                        return self.getCardAtPos(pos)
+        return
+    
+    def getCardAtPos(self, pos):
+        for cardLocation in self.cardLocations:
+            if cardLocation[0] <= pos[0] <= cardLocation[0] + self.cardwidth - self.overlap: # CURRENTLY ONLY CHECKS x COORDINATE
+                pickedCard = self.myHand[self.cardLocations.index(cardLocation)] #The card in your hand is at the same index as this card location
+                print(pickedCard)
+                return pickedCard
+        print("No card here!")
+        return
+    
+    
+    def updateGraphics(self):
+        self.screen.fill(self.BACKGROUND_COLOR)
+        
+        #other player assets?
+        #only display available cards
+        #card pool?
+        #card indicator?
+        
+        self.formatCards()
+        pos = 500 - ((len(self.myHand)/2) * (self.cardwidth - self.overlap)) #half of the cards happen before it maybe
+        print(self.formattedHand)
+        
+        for card in self.formattedHand:
+            myCard = pygame.image.load(os.path.join('pygamecards/cards', card))
+            self.screen.blit(myCard, (pos, self.p1Card_y))
+            self.cardLocations.append((pos, self.p1Card_y))
+            pos += (self.cardwidth - self.overlap)
         pygame.display.update()
-        pygame.time.wait(1000)
-    return
-
-
-
-
-
-formatted_hand = formatCards(myHand)
-dealCards(formatted_hand)
-
-
-
-
-
-
-
-#thisfuckingcard = pygame.image.load(os.path.join('pygamecards/cards', '2c.png'))
-#screen.blit(thisfuckingcard, (250, 250))
-#pygame.display.update()
-#pygame.time.wait(1000)
-
-
-
-
-#!ACTION NEEDED! You want the cards to be 100x140.
-#!! Cards are labelled 2c, 3d, 4h, 5s.... Jh, Qd, Ks, Ac [face cards]
-#!! 13 cards in a hand
-#!! 50px overlap with central (7th) card at 500,100. 
-#!! [200, 100],[250, 100],[300, 100],[350, 100],[400, 100],[450, 100],[500, 100]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# #Create class for cards
-# class cardsprite(pygame.sprite.Sprite):
-#     def __init__(self, iden, x, y):
-#         pygame.sprite.Sprite.__init__(self)
-#         #iden is "c2" or "d6" etc
-#         self.iden = iden
-
-#         self.image = pygame.Surface((100,145))
-#         self.image.fill((255,255,255))
-#         self.rect = self.image.get_rect()
-#         self.rect.center = (x,y)
-        
-#     def set_position(self, x, y):
-#         self.rect.x = x
-#         self.rect.y = y
-        
-#     def set_image(self, filename = None):
-#         if (filename != None):
-#             self.image = pygame.image.load(os.path.join('pygamecards/cards', '2_of_clubs.png')) #replace with iden
-#             self.rect = self.image.get_rect()
-        
-        
-# #create a card
-# thisCard = cardsprite("c2", 250, 250)
-# thisCard.set_image("anyhtng")
-# thisCard.set_position(250, 250)
-# cards = pygame.sprite.Group()
-# cards.add(thisCard)
-
-# screen.blit(thisCard, (250, 250))
-
-# #pygame.sprite.Group.draw(cards)
-# #pygame.display.flip()
-# pygame.time.wait(1000)
-
-# #Game loop
-# run = True
-# while run:
-#     clock.tick(FPS)
+        pygame.time.wait(self.waitTime)
+        return
+            
     
-#     #update background
-#     screen.fill((0, 255, 0))
+    #def playCard(self)
     
-    
-#     #update sprite group (unnecessary for right now?)
-#     cards.update()
-    
-#     #draw sprite group
-#     cards.draw(screen)
-#     #pygame.display.flip()
-#     pygame.time.wait(1000)
-    
-    
-    
-#     #event handler
-    
-        
-        
-        
-        
+    def test(self):
+        formatted_hand = self.formatCards(self.myHand) 
+        self.dealHand(formatted_hand)
+
+
+
+
+#myGame = GameGraphics()
+#myGame.test()
 
 
 
 
 
 
-# #First: drawing the background
-
-# #deal the cards
-# #13 card-shaped rectangles at the bottom ish of the screen
-# #The cards are 500x726 pixels each (as of right now)
-# #left = 50
-# #top = 800
-
-# #c2 = pygame.image.load(os.path.join("pygamecards/cards", "2_of_clubs.png"))
 
 
-# #pygame.display.flip()
-# #pygame.time.wait(1000)
 
-
-# #myHand = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-# #for myCard in myHand:
-# #    pygame.draw.rect(screen, BLACK, pygame.Rect(left, top, 100, 145)) #will probably have to distinguish rect separately
-# #    pygame.display.flip()
-# #    pygame.time.wait(1000)
-# #    left += 65
+#pygame.time.wait(10000)
 
 pygame.quit()
 
