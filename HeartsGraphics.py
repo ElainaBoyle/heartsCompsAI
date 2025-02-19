@@ -51,6 +51,7 @@ class Hearts:
 		self.trickWinner = -1
 		self.heartsBroken = False
 		self.losingPlayer = None
+		self.memory = [] #Trick history
 
 		# Make four players
 		self.players = [Player("Elaina", auto=False), Player("B", auto=False), Player("C", auto=False), Player("D", auto=False)]
@@ -159,13 +160,18 @@ class Hearts:
 	'''
 	 Evaluate the trick, update trick history, update player stats
 	'''
-	def evaluateTrick(self): #Could maybe more efficient? idk
+	def evaluateTrick(self): 
 		self.updateTrickHistory() 
 		self.trickWinner = self.currentTrick.winner
 		p = self.players[self.trickWinner]
 		p.trickWon(self.currentTrick)
 		self.printCurrentTrick()
 		print(p.name + " won the trick.")
+
+		#Add the trick to memory
+		self.memory.append(self.currentTrick)
+  
+		#Reset the current trick
 		self.currentTrick = Trick()
 
 

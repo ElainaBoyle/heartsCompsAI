@@ -47,3 +47,16 @@ class Trick:
 				self.highest = card.rank
 				self.winner = index
 				print("Highest:",self.highest)
+	
+	'''
+	Prints information about the trick
+	@RETURN outList a list containing the winner followed by the cards played in the trick. eg: [1, [2c, 5c, 9c, 10c]]
+	'''
+	def getTrickInfo(self):
+		print("Trick Winner:", self.winner)
+		print("Trick Starter:", self.starter)
+		print("Cards in trick:", self.trick[0], self.trick[1], self.trick[2], self.trick[3])
+		outList = []
+		outList[0] = self.winner
+		outList[1] = self.trick
+		return outList
