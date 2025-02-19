@@ -25,8 +25,6 @@ When auto is True, passing is disabled and the computer plays the
 game by "guess and check", randomly trying moves until it finds a
 valid one.
 '''
-#!ACTION NEEDED! decide what to do about "auto"
-#!ACTION NEEDED! autoplay function
 auto = False
 
 randomOrder = True
@@ -135,7 +133,7 @@ class Hearts:
  
 	'''
 	Find the player who will start the game
-	RETURN index of player with the 2 of Clubs UNLESS randomOrder = False. if not randomOrder, returns 0
+	@RETURN int index of player with the 2 of Clubs UNLESS randomOrder = False. if not randomOrder, returns 0
 	'''
 	def getFirstTrickStarter(self):
 		if not randomOrder: 
@@ -340,9 +338,9 @@ class Hearts:
 			player.updateHistory(history)		
   
 	'''
-	 Get the current player with the lowest score
-	  RETURN the player with the lowest score
-	   '''
+	Get the current player with the lowest score
+	@RETURN Player winner the player with the lowest score
+	'''
 	def getWinner(self):
 		minScore = 200 # impossibly high
 		winner = None
