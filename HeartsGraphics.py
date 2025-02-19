@@ -134,7 +134,7 @@ class Hearts:
 	
  
 	'''
-	 Find the player who will start the game
+	Find the player who will start the game
 	RETURN index of player with the 2 of Clubs UNLESS randomOrder = False. if not randomOrder, returns 0
 	'''
 	def getFirstTrickStarter(self):
@@ -173,12 +173,24 @@ class Hearts:
   
 		#Reset the current trick
 		self.currentTrick = Trick()
+  
+		self.printMemory() #Take this out!
+  
+	'''
+	A helper function that will print all of the tricks stored in our memory. 
+ 	''' 
+	def printMemory(self):
+		for trick in self.memory:
+			trick.getTrickInfo()
 
 
 	'''
 	Play a trick
 	 '''
 	def playTrick(self, start):
+		
+		#Set the start player for the trick
+		self.currentTrick.setTrickStarter(start)
 		shift = 0
 		if self.trickNum == 0 and randomOrder:
 			startPlayer = self.players[start]

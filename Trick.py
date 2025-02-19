@@ -50,13 +50,13 @@ class Trick:
 	
 	'''
 	Prints information about the trick
-	@RETURN outList a list containing the winner followed by the cards played in the trick. eg: [1, [2c, 5c, 9c, 10c]]
+	@RETURN outList a list containing the index of the starter followed by the cards played in the trick. eg: [0, [2c, 5c, 9c, 10c]]
 	'''
 	def getTrickInfo(self):
 		print("Trick Winner:", self.winner)
 		print("Trick Starter:", self.starter)
-		print("Cards in trick:", self.trick[0], self.trick[1], self.trick[2], self.trick[3])
-		outList = []
-		outList[0] = self.winner
+		print("Cards in trick:", self.trick[0].getIden(), self.trick[1].getIden(), self.trick[2].getIden(), self.trick[3].getIden())
+		outList = [0,0]
+		outList[0] = self.starter
 		outList[1] = self.trick
 		return outList
