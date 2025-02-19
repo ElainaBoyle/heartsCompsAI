@@ -55,7 +55,16 @@ class Hand:
 		return self.fullHand[cardIndex]
 
 
+	'''
+	Checks to see if there is an instance of the specified card in your hand.
+	Note: was written to take in cardStr as a card or as a string.
+	@PARAM cardStr the card you're checking for
+	@RETURN the card object from your hand
+ 	'''
 	def hasCard(self, cardStr): 
+		if isinstance(cardStr, Card):
+			cardStr = cardStr.getIden()
+     
 		# see if player has that card in hand
 		for card in self.fullHand:
 			if card.getIden() == cardStr:

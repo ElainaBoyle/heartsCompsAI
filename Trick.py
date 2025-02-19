@@ -12,6 +12,7 @@ class Trick:
 		self.points = 0
 		self.highest = 0 # rank of the high trump suit card in hand
 		self.winner = -1
+		self.starter = -1
 
 	def reset(self):
 		self.trick = [0, 0, 0, 0]
@@ -21,6 +22,9 @@ class Trick:
 		self.highest = 0
 		self.winner = -1
 
+	def setTrickStarter(self, num):
+		self.starter = num
+		return
 
 	def setTrickSuit(self, suit):
 		self.suit = suit

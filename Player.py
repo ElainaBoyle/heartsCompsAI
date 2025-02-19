@@ -22,22 +22,35 @@ class Player:
 		self.hand.addCard(card)
 
 	def getInput(self, option):
+		print("getting input!")
 		card = None
 		while card is None:
 			card = input(self.name + ", select a card to " + option + ": ")
+		print("You have selected card", card)
 		return card
 
+	#Takes in c as string format
+	
+	'''
+	Returns the card object stored inside the current player's hand.
+	@PARAM c the STRING representation of a card [eg: "2c"]
+	@RETURN card the corresponding card object from inside the current player's hand
+	 '''
 	def play(self, option='play', c=None, auto=False):
-		if auto:
+		#Check if c is already a card
+		if isinstance(c, Card):
+			print("Error; Passed in card", c.getIden(), "by", self.name)
+			c = c.getIden()
+	   
+		if c is not None:
+			card = self.hand.hasCard(c) #returns card in hand
+		elif auto:
 			card = self.hand.getRandomCard()
-		elif c is None:
-			card = self.getInput(option)
-			print(card)
-		else:
-			card = c
-		if not auto:
-			card = self.hand.hasCard(card)
-		print("Selected card", card)
+		else: #c is none and auto
+			strCard = self.getInput(option)
+			card = self.hand.hasCard(strCard)
+
+		print("Selected card", card.getIden())
 		return card
 
 
@@ -46,12 +59,20 @@ class Player:
 
 
 	def hasSuit(self, card):
-		suit = card.getSuitInt()
+		if isinstance(card, str):
+			print("Passed in string", card, "in Player.hasSuit")
+			suit = Card(5, card).getSuitInt()
+		else:
+			suit = card.getSuitInt()
 
 		return len(self.hand.hand[suit]) > 0
 
 	def removeCard(self, card):
-		self.hand.removeCard(card)
+		if self.hand.hasCard(card):
+			self.hand.removeCard(card)
+		else:
+			print("Error: No card", card.getIden(), "in ", self.name, "'s hand")
+		return
 
 	def discardTricks(self):
 		self.tricksWon = []
@@ -62,7 +83,7 @@ class Player:
 	def updateHistory(self, history):
 		"""Updates the history of the tricks for each round"""
 		if len(self.trickHistory) < 13:
-      		
+			  
 			strHistory = []
 			for item in history:
 				strHistory.append(str(item))

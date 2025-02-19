@@ -8,6 +8,7 @@ from BreannaAgent import BreannaAgent
 #from MonteCarlo import MonteCarlo 
 
 #ELAINA ADD MARYSUE AND MONTE BACK IN
+#add discard pile groups of 5 - [playerIndex, C1, C2, C3, C4]
 
 
 '''
@@ -52,7 +53,7 @@ class Hearts:
 		self.losingPlayer = None
 
 		# Make four players
-		self.players = [Player("Elaina", auto=False), Elek_Agent("Elek2"), Elek_Agent("Elek3"), Elek_Agent("Elek4")]
+		self.players = [Player("Elaina", auto=False), Player("B", auto=False), Player("C", auto=False), Player("D", auto=False)]
 
 		'''
 		Player physical locations:
@@ -178,7 +179,7 @@ class Hearts:
 			startPlayer.curTrick = self.currentTrick
 
    
-			addCard = startPlayer.play(option="play", c=Card(2,"c"))
+			addCard = startPlayer.play(option="play", c="2c")
 			#Build removeCard into addCard???
 			startPlayer.removeCard(addCard)
 
@@ -198,7 +199,7 @@ class Hearts:
 
 
 			while addCard is None: # wait until a valid card is passed
-				addCard = curPlayer.play(auto=auto) # change auto to False to play manually
+				addCard = curPlayer.play(auto=False) # change auto to False to play manually
 	
 
 				# the rules for what cards can be played
@@ -332,7 +333,6 @@ class Hearts:
 				winner = p
 				minScore = p.score
 		return winner
-
 
 
 
