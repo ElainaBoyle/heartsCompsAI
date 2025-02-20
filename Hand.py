@@ -73,7 +73,7 @@ class Hand:
 	def removeCard(self, card): 
 		cardRemoved = False
   
-		print(card)		
+		#print(card)		
 		suit = card.getSuitInt()
    
    
@@ -83,24 +83,22 @@ class Hand:
 		for myCard in self.hand[suit]:
 			if card.getIden() == myCard.getIden():
 				self.hand[suit].remove(myCard)
-				self.fullHand[self.fullHand.index(myCard)] = Card(0, "X")
+				self.fullHand.pop(self.fullHand.index(myCard))
 				cardRemoved = True
 				
-		if cardRemoved:
-			print("Successfully removed card", card.getIden())
-		else:
+		if not cardRemoved:
 			print("Error: could not find card ", card.getIden(), " in suit ", card.suit, " which has suitIden ", str(suit))
 			return
    
 		return card
 
 	def hasOnlyHearts(self):
-		print ("len(self.hearts):",len(self.hearts))
-		print ("self.size():",self.size())
+		#print ("len(self.hearts):",len(self.hearts))
+		#print ("self.size():",self.size())
 		return len(self.hearts) == self.size()
 
 
-	def whatAreMyCards(self): #no longer necessary
+	def whatAreMyCards(self): 
 		outList = []
 		for playerhand in self.hand:
 			for card in playerhand:

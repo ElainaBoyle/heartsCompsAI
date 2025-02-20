@@ -19,33 +19,33 @@ class Player:
 
 
 	'''
-	Add a card to this player's hand
-	@PARAM card a Card that you want to add to this player's hand
+	 Add a card to this player's hand
+	 @PARAM card a Card that you want to add to this player's hand
  	'''
 	def addCard(self, card):
-		print("adding:", card.getIden())
+		#print("adding:", card.getIden())
 		self.hand.addCard(card)
 
 
 	'''
-	Get input from the player about which card they would like to select
-	@PARAM option a string stating if the player would like to play or pass; a relic from passing
-	@RETURN str card a string representation of the selected card
+	 Get input from the player about which card they would like to select
+	 @PARAM option a string stating if the player would like to play or pass; a relic from passing
+	 @RETURN str card a string representation of the selected card
  	'''
 	def getInput(self, option):
-		print("getting input!")
+		#print("getting input!")
 		card = None
 		while card is None:
-			card = input(self.name + ", select a card to " + option + ": ")
-		print("You have selected card", card)
+			card = input(self.name + ", select a card from your hand to " + option + ": ")
+		#print("You have selected card", card)
 		return card
 
 	
 	'''
-	Returns the card object stored inside the current player's hand.
-	@PARAM c the STRING representation of a card [eg: "2c"]
-	@RETURN Card card the corresponding card object from inside the current player's hand
-	 '''
+	 Returns the card object stored inside the current player's hand.
+	 @PARAM c the STRING representation of a card [eg: "2c"]
+	 @RETURN Card card the corresponding card object from inside the current player's hand
+	'''
 	def play(self, option='play', c=None, auto=False):
 		#Check if c is already a card
 		if isinstance(c, Card):
@@ -60,23 +60,26 @@ class Player:
 			strCard = self.getInput(option)
 			card = self.hand.hasCard(strCard)
 
-		print("Selected card", card.getIden())
+		if not isinstance(card, Card):
+			print("Error: Could not find card", card)
+			return None
+		#print("Selected card", card.getIden())
 		return card
 
 
 	'''
- 	Add the points from the trick to the winning player's score
-	@PARAM trick the Trick that we are evaluating
+ 	 Add the points from the trick to the winning player's score
+	 @PARAM trick the Trick that we are evaluating
   	'''
 	def trickWon(self, trick):
 		self.roundScore += trick.points
 
 
 	'''
-	Check to see if this player has cards of the corresponding suit
-	@PARAM card a Card of the suit you'd like to check
-	Note: card can be a string or a Card
-	@RETURN int how many cards of the suit are left in the player's hand
+	 Check to see if this player has cards of the corresponding suit
+	 @PARAM card a Card of the suit you'd like to check
+	 Note: card can be a string or a Card
+	 @RETURN int how many cards of the suit are left in the player's hand
  	'''
 	def hasSuit(self, card):
 		if isinstance(card, str):
@@ -88,9 +91,9 @@ class Player:
 
 
 	'''
-	Remove a card from this player's hand
-	@PARAM card the Card representation of the card you'd like to remove
-	Note: card can be a string or a card, either way should work.
+	 Remove a card from this player's hand
+	 @PARAM card the Card representation of the card you'd like to remove
+	 Note: card can be a string or a card, either way should work.
  	'''
 	def removeCard(self, card):
 		if self.hand.hasCard(card):
@@ -104,23 +107,23 @@ class Player:
 
 
 	'''
- 	Discard this player's won tricks
+ 	 Discard this player's won tricks
   	'''
 	def discardTricks(self):
 		self.tricksWon = []
 
 
 	'''
-	Check if this player only has hearts left
-	@RETURN bool True if this player only has hearts left
+	 Check if this player only has hearts left
+	 @RETURN bool True if this player only has hearts left
  	'''
 	def hasOnlyHearts(self):
 		return self.hand.hasOnlyHearts()
 
 
 	'''
-	Update the history of the tricks for each round
-	I assume this is used for Monte? 
+	 Update the history of the tricks for each round
+	 I assume this is used for Monte? 
  	'''
 	def updateHistory(self, history):
 		if len(self.trickHistory) < 13:
@@ -142,7 +145,7 @@ class Player:
    
    
 	'''
- 	Update the history of the board
+ 	 Update the history of the board
   	'''
 	def updateBoardState(self, boardState, board):
 		self.boardState = boardState
@@ -150,7 +153,7 @@ class Player:
 
 
 	'''
-	Updates the current trump. Is "unset" if there is no current trump
+	 Updates the current trump. Is "unset" if there is no current trump
  	'''
 	def updateCurTrump(self, trump):
 		self.curTrump = trump

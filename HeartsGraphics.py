@@ -8,7 +8,6 @@ from BreannaAgent import BreannaAgent
 #from MonteCarlo import MonteCarlo 
 
 #ELAINA ADD MARYSUE AND MONTE BACK IN
-#add discard pile groups of 5 - [playerIndex, C1, C2, C3, C4]
 
 
 '''
@@ -39,7 +38,7 @@ hearts = 3
 class Hearts:
 	
 	'''
-	Initialize the game
+	 Initialize the game
 	'''
 	def __init__(self):  
 		self.roundNum = 0
@@ -132,8 +131,8 @@ class Hearts:
 	
  
 	'''
-	Find the player who will start the game
-	@RETURN int index of player with the 2 of Clubs UNLESS randomOrder = False. if not randomOrder, returns 0
+	 Find the player who will start the game
+	 @RETURN int index of player with the 2 of Clubs UNLESS randomOrder = False. if not randomOrder, returns 0
 	'''
 	def getFirstTrickStarter(self):
 		if not randomOrder: 
@@ -174,117 +173,132 @@ class Hearts:
   
 		self.printMemory() #Take this out!
   
+  
 	'''
-	A helper function that will print all of the tricks stored in our memory. 
- 	''' 
+	 A helper function that will print all of the tricks stored in our memory. 
+	''' 
 	def printMemory(self):
 		for trick in self.memory:
 			trick.getTrickInfo()
 
 
 	'''
-	Play a trick
-	 '''
+	 Play a trick
+	 @PARAM int start the index of the starting player
+	'''
 	def playTrick(self, start):
-		
-		#Set the start player for the trick
+	 
+
+		# Set up variables for the whole trick
 		self.currentTrick.setTrickStarter(start)
-		shift = 0
+		shift = 0 
+		
+
 		if self.trickNum == 0 and randomOrder:
+	  
 			startPlayer = self.players[start]
 			startPlayer.curTrick = self.currentTrick
-
    
-			addCard = startPlayer.play(option="play", c="2c")
-			#Build removeCard into addCard???
-			startPlayer.removeCard(addCard)
+			playCard = startPlayer.play(option="play", c="2c")
 
-			self.currentTrick.addCard(addCard, start)
+			self.currentTrick.addCard(playCard, start)
 
 			shift = 1 # alert game that first player has already played
 
 		# have each player take their turn
 		for i in range(start + shift, start + len(self.players)):
+	  
+			#reset variables for each player
 			self.printCurrentTrick()
 			self.updatePlayerBoardState() #Added
 			curPlayerIndex = i % len(self.players)
 			self.printPlayer(curPlayerIndex)
 			curPlayer = self.players[curPlayerIndex]
-			addCard = None
+			playCard = None
 			curPlayer.curTrick = self.currentTrick 
 
 
-			while addCard is None: # wait until a valid card is passed
-				addCard = curPlayer.play(auto=False) # change auto to False to play manually
-	
+			while playCard is None: # wait until a valid card is passed
+				playCard = self.playCard(curPlayer)
 
-				# the rules for what cards can be played
-				# card set to None if it is found to be invalid
-				if addCard is not None:
-
-					# if it is not the first trick and no cards have been played,
-					# set the first card played as the trick suit if it is not a heart
-					# or if hearts have been broken
-					if self.trickNum != 0 and self.currentTrick.cardsInTrick == 0:
-						if addCard.suit == "h" and not self.heartsBroken:
-							# if player only has hearts but hearts have not been broken,
-							# player can play hearts
-							if not curPlayer.hasOnlyHearts():
-								print("Hearts have not been broken.")
-								print(curPlayer.hand.whatAreMyCards())
-								addCard = None
-							else:
-								self.currentTrick.setTrickSuit(addCard.suit)
-						else:
-							self.currentTrick.setTrickSuit(addCard.suit)
-
-					# player tries to play off suit but has trick suit
-					if addCard is not None and addCard.suit != self.currentTrick.suit:
-						if curPlayer.hasSuit(self.currentTrick.suit):
-							print("Must play the suit of the current trick.")
-							addCard = None
-						elif addCard.suit == "h":
-							self.heartsBroken = True
-							for player in self.players:
-								player.heartsBroken = True	
-
-					if self.trickNum == 0:
-						if addCard is not None:
-							if addCard.suit == "h":
-								#print(curPlayer) #commenting this out because it breaks with player objects
-								print("Hearts cannot be broken on the first hand.")
-								self.heartsBroken = False
-								addCard = None
-							elif addCard.getIden() == "Qs":
-								print("The queen of spades cannot be played on the first hand.")
-								addCard = None
-
-					if addCard is not None and self.currentTrick.suit == "":
-						if addCard.suit == "h" and not self.heartsBroken:
-							print("Hearts not yet broken.")
-							addCard = None
-
-
-					if addCard is not None:
-						if addCard == Card(queen, spades):
-							self.heartsBroken = True
-						curPlayer.removeCard(addCard)
-
-			print("Playing card", addCard.getIden())
-			self.currentTrick.addCard(addCard, curPlayerIndex)
+			print("Playing card", playCard.getIden())
+			curPlayer.removeCard(playCard)
+			self.currentTrick.addCard(playCard, curPlayerIndex)
 
 		self.evaluateTrick()
 		self.trickNum += 1
 		for player in self.players:
 			player.trickNum = self.trickNum
 
+
+	'''
+	 Pick a card from the player's hand that the player would like to play.
+	 @PARAM Player player the player that is playing
+	 @RETURN card playCard the card that this player will play
+	'''
+	def playCard(self, player):
+		
+		playCard = player.play(auto=False) # change auto to False to play manually
+  
+		if playCard is not None:
+			#You tried to play a card that's in your hand!
+   
+			#Are you setting the suit for this trick?
+			if self.currentTrick.cardsInTrick == 0:
+				#You're the starting player for this trick! Did you pick a hearts card?
+				if playCard.suit == "h" and not self.heartsBroken:
+					#You're trying to start with a heart and hearts have not been broken!
+					if player.hasOnlyHearts():
+						#Okay, you can play this heart because you only have hearts left in your hand!
+						self.breakHearts()
+					else:
+						print("You can't play a hearts card to start this trick, Hearts have not been broken!")
+						playCard = None
+						return None
+				#Set the trick suit to the suit of the played card!
+				self.currentTrick.setTrickSuit(playCard.suit)
+			#You are not setting the suit for this trick. Did you play a card of the correct suit?
+			elif playCard.suit != self.currentTrick.suit:
+				#Do you have cards of the correct suit?
+				if player.hasSuit(playCard):
+					print("Play a card of the correct suit! The current suit is:", self.currentTrick.suit)
+					playCard = None
+   
+
+			# If the player chose the Queen of Spades or a hearts card, hearts are broken.
+		if playCard is not None:
+			if (playCard.getIden() == "Qs" or playCard.suit == "h"):
+				if self.trickNum == 0 and not player.hasOnlyHearts():
+					print("Cannot play a point card on the first trick.") #unless you only have point cards.
+					playCard = None
+				elif not self.heartsBroken:
+					self.breakHearts()
+	 
+		if playCard is None: #If we have not found a card for playCard, try again.
+			playCard = self.playCard(player)
+				
+		return playCard
+
+	 
+	'''
+	 A helper function for when hearts are broken
+	'''
+	def breakHearts(self):
+		print("Hearts have been broken!")
+		self.heartsBroken = True
+		for player in self.players:
+			player.heartsBroken = True
+					
+
 	'''
 	 Print a single player's hand and round score
+	 @PARAM int i the index of the player you want to print
 	'''
 	def printPlayer(self, i):
 		p = self.players[i]
 		print(p.name + "'s hand: ", p.hand.whatAreMyCards())
 		print(p.name + "'s round score: " + str(p.roundScore))
+
 
 	'''
 	 Print all players' hands
@@ -337,9 +351,10 @@ class Hearts:
 		for player in self.players:
 			player.updateHistory(history)		
   
+  
 	'''
-	Get the current player with the lowest score
-	@RETURN Player winner the player with the lowest score
+	 Get the current player with the lowest score
+	 @RETURN Player winner the player with the lowest score
 	'''
 	def getWinner(self):
 		minScore = 200 # impossibly high

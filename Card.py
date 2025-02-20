@@ -15,18 +15,6 @@ class Card: #value = int representation of rank
 		else:
 			self.stringRank = str(rank)
 
-
-  
-		#if self.stringRank == "J":
-		#	self.value = 11
-		#elif self.stringRank == "Q":
-		#	self.value = 12
-		#elif self.stringRank == "K":
-		#	self.value = 13
-		#elif self.stringRank == "A":
-		#	self.value = 14
-		#else:
-		#	self.value = int(rank)
    
 		self.rank = self.value # for now.
    		
