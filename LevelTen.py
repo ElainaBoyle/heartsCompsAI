@@ -171,12 +171,12 @@ class Strong_agent(Player):
     # returns true if any of the players have demonstrated that they do not have any of the suits
     # suits should be an array of chars and players should be an array of integers 0-3
     def playersOut(self, players, suits, discarded):
-        for trick in discarded:
+        for trick in discarded[:-1]:
             trick_starter = trick[0]
-            trump = trick[trick_starter + 1]
+            trump = trick[1].suit
             if trump in suits:
-                for player in players:
-                    if trick[player + 1].suit != trump:
+                for card in trick[1:]:
+                    if card.suit != trump:
                         return True
         return False
     
@@ -217,11 +217,7 @@ class Strong_agent(Player):
             qsLocation = self.findQs(hand, discarded)
             longestSuit = self.getLongestSuit(suitCounts)
             suitsinPlay = self.getSuitsinPlay(suitCounts, discarded)
-            heartsBroken = False
-            for trick in discarded:
-                for card in trick[1:]:
-                    if card.suit == 'h':
-                        heartsBroken = True
+            heartsBroken = self.heartsBroken
             firstTrick = False
             if len(discarded) == 1:
                 firstTrick == True
@@ -272,21 +268,21 @@ class Strong_agent(Player):
                     else: #playing 2-4 in the trick
                         if suitCounts[self.suitToInt(trump)] > 0:
                             highCard = self.getHighCard(discarded[-1])
-                            if qsLocation == 0: #Qs location unkown
+                            if qsLocation == 4: #Qs location unkown
                                 if  trump == 's':
                                     if trickPosition == 4:
                                         return self.highestBelow(legalMoves, 's', 15)
                                     else:
                                         return self.highestBelow(legalMoves, 's', 12)
                                 elif (self.playersOut([1,2,3,4], [trump], discarded) or suitsinPlay[self.suitToInt(trump)] < 7 or len(discarded) > 7):
-                                    return self.highestBelow(legalMoves, trump, highCard.value)
+                                    return self.highestBelow(legalMoves, trump, highCard)
                                 else: #early in the game only, risk is low
                                     return self.highestBelow(legalMoves, trump, 15)
                             if qsLocation == 3: #lose this trick at all costs
-                                return self.highestBelow(legalMoves, trump, highCard.value)
+                                return self.highestBelow(legalMoves, trump, highCard)
                             if qsLocation == 2:
                                 if len(discarded) > 7: #playing the 8th trick or later
-                                    return self.highestBelow(legalMoves, trump, highCard.value)
+                                    return self.highestBelow(legalMoves, trump, highCard)
                                 else: #would really rather pass control
                                     return self.highestBelow(legalMoves, trump, 15)
                         else: #can't play trump

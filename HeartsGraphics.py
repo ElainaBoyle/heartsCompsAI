@@ -54,7 +54,7 @@ class Hearts:
 		self.memory = [] #Trick history
 
 		# Make four players
-		self.players = [Player("Elek", auto=True), Player("B", auto=True), Player("C", auto=True), Player("D", auto=True)]
+		self.players = [Strong_agent("Elek", auto=True), Player("B", auto=True), Player("C", auto=True), Player("D", auto=True)]
 
 		'''
 		Player physical locations:
@@ -219,7 +219,9 @@ class Hearts:
 
 
 			while addCard is None: # wait until a valid card is passed
+				print(curPlayer.name)
 				addCard = curPlayer.play(self.memory, auto=True) # change auto to False to play manually
+				print(addCard.getIden())
 	
 
 				# the rules for what cards can be played
