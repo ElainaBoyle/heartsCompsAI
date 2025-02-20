@@ -83,7 +83,7 @@ class Hand:
 		for myCard in self.hand[suit]:
 			if card.getIden() == myCard.getIden():
 				self.hand[suit].remove(myCard)
-				self.fullHand[self.fullHand.index(myCard)] = Card(0, "X")
+				self.fullHand.pop(self.fullHand.index(myCard))
 				cardRemoved = True
 				
 		if cardRemoved:

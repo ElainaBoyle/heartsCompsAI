@@ -252,7 +252,7 @@ class Strong_agent(Player):
                             for card in hand:
                                 if lowest is None:
                                     lowest = card
-                                elif self.numAbove(card, discarded, hand) > self.numAbove(highest, discarded, hand):
+                                elif self.numAbove(card, discarded, hand) > self.numAbove(lowest, discarded, hand):
                                     lowest = card
                             return lowest
                         else: #early in the game
