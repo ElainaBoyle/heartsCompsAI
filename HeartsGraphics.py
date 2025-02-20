@@ -4,6 +4,8 @@ from Player import Player
 from Trick import Trick
 from Elek_Agent import Elek_Agent
 from BreannaAgent import BreannaAgent
+from LevelTen import Strong_agent
+
 #from MarySue import Cbr_Agent
 #from MonteCarlo import MonteCarlo 
 
@@ -15,7 +17,7 @@ from BreannaAgent import BreannaAgent
 A copy of Hearts.py with graphics instead of text-based interaction.
 '''
 
-from GameGraphics import GameGraphics
+#from GameGraphics import GameGraphics
 
 
 '''
@@ -54,7 +56,7 @@ class Hearts:
 		self.memory = [] #Trick history
 
 		# Make four players
-		self.players = [Player("Elaina", auto=False), Player("B", auto=False), Player("C", auto=False), Player("D", auto=False)]
+		self.players = [Player("Elek", auto=True), Player("B", auto=True), Player("C", auto=True), Player("D", auto=True)]
 
 		'''
 		Player physical locations:
@@ -169,12 +171,12 @@ class Hearts:
 		print(p.name + " won the trick.")
 
 		#Add the trick to memory
-		self.memory.append(self.currentTrick)
+		#self.memory.append(self.currentTrick)
   
 		#Reset the current trick
 		self.currentTrick = Trick()
   
-		self.printMemory() #Take this out!
+		#self.printMemory() #Take this out!
   
 	'''
 	A helper function that will print all of the tricks stored in our memory. 
@@ -195,16 +197,18 @@ class Hearts:
 		if self.trickNum == 0 and randomOrder:
 			startPlayer = self.players[start]
 			startPlayer.curTrick = self.currentTrick
+			
 
    
-			addCard = startPlayer.play(option="play", c="2c")
+			addCard = startPlayer.play(self.memory, option="play", c="2c")
 			#Build removeCard into addCard???
 			startPlayer.removeCard(addCard)
 
 			self.currentTrick.addCard(addCard, start)
+			self.memory[-1].append(addCard)
 
 			shift = 1 # alert game that first player has already played
-
+		
 		# have each player take their turn
 		for i in range(start + shift, start + len(self.players)):
 			self.printCurrentTrick()
@@ -217,7 +221,7 @@ class Hearts:
 
 
 			while addCard is None: # wait until a valid card is passed
-				addCard = curPlayer.play(auto=False) # change auto to False to play manually
+				addCard = curPlayer.play(self.memory, auto=True) # change auto to False to play manually
 	
 
 				# the rules for what cards can be played
@@ -274,7 +278,7 @@ class Hearts:
 
 			print("Playing card", addCard.getIden())
 			self.currentTrick.addCard(addCard, curPlayerIndex)
-
+			self.memory[-1].append(addCard)
 		self.evaluateTrick()
 		self.trickNum += 1
 		for player in self.players:
@@ -359,11 +363,13 @@ def main():
 
 	# play until someone loses
 	while hearts.losingPlayer is None or hearts.losingPlayer.score < maxScore:
+		hearts.memory = []
 		while hearts.trickNum < totalTricks:
 			print("Round", hearts.roundNum)
 			if hearts.trickNum == 0:
 				hearts.getFirstTrickStarter()
 			print('\nPlaying trick number', hearts.trickNum + 1)
+			hearts.memory.append([hearts.trickWinner])
 			hearts.playTrick(hearts.trickWinner)
 
 		# tally scores
