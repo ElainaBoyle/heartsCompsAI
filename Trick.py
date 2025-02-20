@@ -1,10 +1,10 @@
 from Card import Card
 
-hearts = 3 # the corresponding index to the suit hearts
-spades = 2
-queen = 12
-
 class Trick:
+	
+	'''
+	Initialize the trick
+	'''
 	def __init__(self):
 		self.trick = [0, 0, 0, 0]
 		self.suit = ""
@@ -14,6 +14,10 @@ class Trick:
 		self.winner = -1
 		self.starter = -1
 
+
+	'''
+	 Reset the trick
+	 '''
 	def reset(self):
 		self.trick = [0, 0, 0, 0]
 		self.suit = ""
@@ -22,13 +26,29 @@ class Trick:
 		self.highest = 0
 		self.winner = -1
 
+
+	'''
+	 Set the starter of this trick
+	@PARAM num an integer representing the index of the player who is starting this trick
+	  '''
 	def setTrickStarter(self, num):
 		self.starter = num
-		return
 
+
+	'''
+	 Set the suit of this trick
+	@PARAM suit a string representing the suit. eg: "s"
+	  '''
 	def setTrickSuit(self, suit):
 		self.suit = suit
 
+
+	'''
+	Add a card to this trick at the specified index
+	@PARAM card a Card that a player is playing
+	@PARAM index an integer representation of the index of the current player
+	Note: cards are stored in the order of Player Indexes. so, even if P1 goes 3rd, their card will be stored in the 0th position.
+	'''
 	def addCard(self, card, index):
 		if self.cardsInTrick == 0: # if this is the first card added, set the trick suit
 			self.setTrickSuit(card.suit)
@@ -48,9 +68,10 @@ class Trick:
 				self.winner = index
 				print("Highest:",self.highest)
 	
+ 
 	'''
 	Prints information about the trick
-	@RETURN outList a list containing the index of the starter followed by the cards played in the trick. eg: [0, [2c, 5c, 9c, 10c]]
+	@RETURN list outList a list containing the index of the starter followed by the cards played in the trick. eg: [0, [2c, 5c, 9c, 10c]]
 	'''
 	def getTrickInfo(self):
 		print("Trick Winner:", self.winner)

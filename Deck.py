@@ -1,8 +1,6 @@
 import random as rand
-
 from Card import Card
 
-numSuits = 4
 minRank = 2
 maxRank = 15
 suits = ["c", "d", "s", "h"]
