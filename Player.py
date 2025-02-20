@@ -42,11 +42,11 @@ class Player:
 
 	
 	'''
-	 Returns the card object stored inside the current player's hand.
-	 @PARAM c the STRING representation of a card [eg: "2c"]
-	 @RETURN Card card the corresponding card object from inside the current player's hand
-	'''
-	def play(self, option='play', c=None, auto=False):
+	Returns the card object stored inside the current player's hand.
+	@PARAM c the STRING representation of a card [eg: "2c"]
+	@RETURN Card card the corresponding card object from inside the current player's hand
+	 '''
+	def play(self, discarded, option='play', c=None, auto=False):
 		#Check if c is already a card
 		if isinstance(c, Card):
 			print("Error; Passed in card", c.getIden(), "by", self.name)
