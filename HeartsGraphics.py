@@ -24,7 +24,6 @@ When auto is True, passing is disabled and the computer plays the
 game by "guess and check", randomly trying moves until it finds a
 valid one.
 '''
-auto = False
 
 randomOrder = True
 
@@ -51,7 +50,7 @@ class Hearts:
 		self.memory = [] #Trick history
 
 		# Make four players
-		self.players = [Player("Elaina", auto=False), Player("B", auto=False), Player("C", auto=False), Player("D", auto=False)]
+		self.players = [Player("Elaina", auto=True), Player("B", auto=True), Player("C", auto=True), Player("D", auto=True)]
 
 		'''
 		Player physical locations:
@@ -238,7 +237,7 @@ class Hearts:
 	'''
 	def playCard(self, player):
 		
-		playCard = player.play(auto=False) # change auto to False to play manually
+		playCard = player.play(auto=True) # change auto to False to play manually
   
 		if playCard is not None:
 			#You tried to play a card that's in your hand!
@@ -260,7 +259,7 @@ class Hearts:
 			#You are not setting the suit for this trick. Did you play a card of the correct suit?
 			elif playCard.suit != self.currentTrick.suit:
 				#Do you have cards of the correct suit?
-				if player.hasSuit(playCard):
+				if player.hasSuit(self.currentTrick.suit):
 					print("Play a card of the correct suit! The current suit is:", self.currentTrick.suit)
 					playCard = None
    
