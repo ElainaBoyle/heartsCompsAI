@@ -8,6 +8,9 @@ hearts = 3
 suits = ["c", "d", "s", "h"]
 
 class Hand:
+	'''
+	 Initialize hand
+	'''
 	def __init__(self):
 
 		self.clubs = []
@@ -24,9 +27,18 @@ class Hand:
 		self.contains2ofclubs = False
 		self.didContain2ofClubs = False
 
+
+	'''
+	 @RETURN int how many cards in this hand
+	'''
 	def size(self):
 		return len(self.clubs) + len(self.diamonds) + len(self.spades) + len(self.hearts)
 
+
+	'''
+	 Add a card to this hand
+	 @PARAM Card card the card you're adding to this hand
+	'''
 	def addCard(self, card):
   
 		self.fullHand.append(card) #add to fullHand variable, previously unused
@@ -46,7 +58,7 @@ class Hand:
 			print('Invalid card')
 		return
 
-	def updateHand(self): #do we need this?
+	def updateHand(self): 
 		self.hand = [self.clubs, self.diamonds,
 					self.spades, self.hearts]
 
@@ -56,15 +68,15 @@ class Hand:
 
 
 	'''
-	Checks to see if there is an instance of the specified card in your hand.
-	Note: was written to take in cardStr as a card or as a string.
-	@PARAM cardStr the card you're checking for
-	@RETURN the card object from your hand
- 	'''
+	 Checks to see if there is an instance of the specified card in your hand.
+	 Note: was written to take in cardStr as a card or as a string.
+	 @PARAM cardStr the card you're checking for
+	 @RETURN the card object from your hand
+	'''
 	def hasCard(self, cardStr): 
 		if isinstance(cardStr, Card):
 			cardStr = cardStr.getIden()
-     
+	 
 		# see if player has that card in hand
 		for card in self.fullHand:
 			if card.getIden() == cardStr:
@@ -93,8 +105,6 @@ class Hand:
 		return card
 
 	def hasOnlyHearts(self):
-		#print ("len(self.hearts):",len(self.hearts))
-		#print ("self.size():",self.size())
 		return len(self.hearts) == self.size()
 
 
@@ -102,13 +112,5 @@ class Hand:
 		outList = []
 		for playerhand in self.hand:
 			for card in playerhand:
-				outList.append(card.getIden()) #ELAINA ADDED THIS
+				outList.append(card.getIden()) 
 		return outList
-
-
-	def __str__(self): #unnecessary
-		handStr = ''
-		for suit in self.hand:
-			for card in suit:
-				handStr += card.__str__() + ' '
-		return handStr
