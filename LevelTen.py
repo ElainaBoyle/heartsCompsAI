@@ -36,9 +36,9 @@ class Strong_agent(Player):
     
 
     #returns all of the possible legal moves
-    def getLegalMoves(self, hand, heartsBroken, firstTrick, trump = None):
+    def getLegalMoves(self, hand, heartsBroken, firstTrick, trump = ''):
         legalMoves = []
-        if trump is not None:
+        if trump != '':
             for card in hand:
                 if card.suit == trump:
                     legalMoves.append(card)
@@ -52,26 +52,16 @@ class Strong_agent(Player):
                             legalMoves.append(card)
         else: # trump is unset
             for card in hand:
-                if heartsBroken or (card.suit != 'h'):
-                    if not (not heartsBroken and card.getIden() == 'Qs'):
-                        legalMoves.append(card)
+                if heartsBroken:
+                    legalMoves.append(card)
+                elif card.suit != 'h' and card.getIden() != 'Qs':
+                    legalMoves.append(card)
 
-                    
-            
-        #if trump suit is set, must play in trump
-            #if dont have any cards in that suit:
-                #if hearts have not been broken:
-                    #return everything but hearts and Qs
-                #else
-                    #return everything
-            #return all the cards in that suit
-        
-        #if trump suit is not set,
-            #if hearts not broken
-                # return all but hearts
-            #else
-                #return all
-        return hand
+        if len(legalMoves) == 0: #should only happen in some weird edge cases with hands of all hearts, not common at all
+            print("You got really lucky to have so many hearts -- or -- there is a bug in the code in getLegalMoves")
+            for card in hand:
+                legalMoves.append(card)
+        return legalMoves
 
     # not yet built, may never get added
     # Decides if it is worth staying open to shooting the moon
@@ -109,14 +99,14 @@ class Strong_agent(Player):
     # Returns 4 if Qs is in none of those places (and therefore in someone elses hand)
     def findQs(self, hand, discarded):
         for card in hand:
-            if card.getIden == "Qs":
+            if card.getIden() == "Qs":
                 return 1
         for trick in discarded[:-1]:
             for card in trick [1:]:
-                if card.getIden == "Qs":
+                if card.getIden() == "Qs":
                     return 2
         for card in discarded[-1][1:]:
-            if card.getIden == "Qs":
+            if card.getIden() == "Qs":
                 return 3
         return 4
     
@@ -141,6 +131,13 @@ class Strong_agent(Player):
                     lowestCard = card
                 elif lowestCard.value > card.value:
                     lowestCard = card
+
+        if lowestCard == None:
+            print("highestBelow returned tried to return a None card")
+            for card in hand:
+                print(card.getIden())
+            print(suit)
+            #lowestCard = self.getRandom(hand)
         return lowestCard
     
     # Returns the suit that you are currently the longest in (have the most cards in)
@@ -194,17 +191,17 @@ class Strong_agent(Player):
         return hand[random.randint(0,len(hand)-1)]
 
     # Determines which card is played when called in hearts.py
-    def play(self, discarded, option='play', c=None, auto=True):
+    def play(self, discarded = [], option='play', c=None, auto=True):
         
-        for trick in discarded:
-            print(trick[0])
-            for card in trick[1:]:
-                print(card.getIden())
-        print(self.curTrick.suit)
-        print(self.hand.fullHand)
+        # for trick in discarded:
+        #     print(trick[0])
+        #     for card in trick[1:]:
+        #         print(card.getIden())
+        # print(self.curTrick.suit)
+       # print(self.hand.fullHand)
 
-        for card in self.hand.fullHand:
-            print(card.getIden())
+        # for card in self.hand.fullHand:
+        #     print(card.getIden())
 
 
 
@@ -220,8 +217,8 @@ class Strong_agent(Player):
             heartsBroken = self.heartsBroken
             firstTrick = False
             if len(discarded) == 1:
-                firstTrick == True
-            legalMoves = self.getLegalMoves(hand, heartsBroken, firstTrick, discarded)
+                firstTrick = True
+            legalMoves = self.getLegalMoves(hand, heartsBroken, firstTrick, trump)
 
             
             if self.moveMatters(legalMoves):
@@ -229,9 +226,13 @@ class Strong_agent(Player):
                     return self.getRandom(legalMoves)
                 else: #try to create a void
                     if trickPosition == 1: #you are starting the trick
+                        print("starting trick")
 
                         if suitCounts[2] > 0:
                             if qsLocation != 1 or (suitCounts[2] >= 5): # Qs not in hand or you just have a ton of spades
+                                print("tried to play a spades")
+                                print(qsLocation)
+                                print(suitCounts)
                                 return self.highestBelow(legalMoves, 's', 12) # This is a temporary fix, could be improved to consider Ks and As
                             
                         if suitCounts[0] == 1 and not self.playersOut([1,2,3,4], ['c'], discarded):
@@ -249,7 +250,7 @@ class Strong_agent(Player):
                         #if none of the above logic is relevant, just lead a high card early and a low card late
                         if len(discarded) > 7:
                             lowest = None
-                            for card in hand:
+                            for card in legalMoves:
                                 if lowest is None:
                                     lowest = card
                                 elif self.numAbove(card, discarded, hand) > self.numAbove(lowest, discarded, hand):
@@ -257,7 +258,7 @@ class Strong_agent(Player):
                             return lowest
                         else: #early in the game
                             highest = None
-                            for card in hand:
+                            for card in legalMoves:
                                 if highest is None:
                                     highest = card
                                 elif self.numAbove(card, discarded, hand) < self.numAbove(highest, discarded, hand):
@@ -266,6 +267,7 @@ class Strong_agent(Player):
 
             
                     else: #playing 2-4 in the trick
+                        print("not starting trick")
                         if suitCounts[self.suitToInt(trump)] > 0:
                             highCard = self.getHighCard(discarded[-1])
                             if qsLocation == 4: #Qs location unkown
@@ -283,10 +285,19 @@ class Strong_agent(Player):
                             if qsLocation == 2:
                                 if len(discarded) > 7: #playing the 8th trick or later
                                     return self.highestBelow(legalMoves, trump, highCard)
-                                else: #would really rather pass control
+                                else: #happy enough to win, could change this
                                     return self.highestBelow(legalMoves, trump, 15)
+                            else: #qslocation == 1 -> in hand
+                                if trump == 's':
+                                    if highCard > 12:
+                                        return self.highestBelow(legalMoves, trump, 13) #play Qs
+                                    else: 
+                                        temp = self.highestBelow(legalMoves, trump, highCard)
+                                        if temp.getIden() == 'Qs':
+                                            return self.highestBelow(legalMoves, trump, 15)
+                                        return temp
                         else: #can't play trump
-                            if len(discarded) > 0: #if not first trick
+                            if not firstTrick: #if not first trick
                                 if qsLocation == 1: #Qs in hand, get rid of at first opportunity
                                     for card in hand:
                                         if card.getIden() == "Qs":
@@ -302,9 +313,15 @@ class Strong_agent(Player):
                                             return card
                                 if suitCounts[1] > 0:     
                                     return self.highestBelow(legalMoves, 'd', 15)
-                                elif suitCounts[2] > 1:
+                                elif suitCounts[2] > 0:
                                     if qsLocation == 1:
                                         return self.highestBelow(legalMoves, 's', 12)
+                                elif suitCounts[0] > 0:
+                                    return self.highestBelow(legalMoves, 'c', 15)
+                                else:
+                                    return self.getRandom(legalMoves)
+                                    
+                    return self.getRandom(legalMoves)
 
             else:
                 #Play a random card, ideally from legal moves

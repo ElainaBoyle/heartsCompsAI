@@ -1,5 +1,6 @@
 from Hand import Hand
 from Card import Card
+import random
 
 class Player:
 	def __init__(self, name, auto=False):
@@ -40,13 +41,43 @@ class Player:
 		#print("You have selected card", card)
 		return card
 
-	
+	#returns all of the possible legal moves
+	def getLegalMoves(self, hand, heartsBroken, firstTrick, trump = ''):
+		legalMoves = []
+		if trump != '':
+			for card in hand:
+				if card.suit == trump:
+					legalMoves.append(card)
+			if len(legalMoves) == 0:
+				if not firstTrick:
+					for card in hand:
+						legalMoves.append(card)
+				else:
+					for card in hand:
+						if card.suit != 'h' and not card.getIden() == 'Qs':
+							legalMoves.append(card)
+		else: # trump is unset
+			for card in hand:
+				if heartsBroken:
+					legalMoves.append(card)
+				elif card.suit != 'h' and card.getIden() != 'Qs':
+					legalMoves.append(card)
+					
+		if len(legalMoves) == 0: #should only happen in some weird edge cases with hands of all hearts, not common at all
+			print("You got really lucky to have so many hearts -- or -- there is a bug in the code in getLegalMoves")
+			for card in hand:
+				legalMoves.append(card)
+		return legalMoves
+
+
+	def getRandom(self, hand):
+		return hand[random.randint(0,len(hand)-1)]
 	'''
 	Returns the card object stored inside the current player's hand.
 	@PARAM c the STRING representation of a card [eg: "2c"]
 	@RETURN Card card the corresponding card object from inside the current player's hand
 	 '''
-	def play(self, discarded, option='play', c=None, auto=False):
+	def play(self, discarded = [], option='play', c=None, auto=False):
 		#Check if c is already a card
 		if isinstance(c, Card):
 			print("Error; Passed in card", c.getIden(), "by", self.name)
@@ -55,7 +86,8 @@ class Player:
 		if c is not None:
 			card = self.hand.hasCard(c) #returns card in hand
 		elif auto:
-			card = self.hand.getRandomCard()
+			legalCards = self.getLegalMoves(self.hand.fullHand, self.heartsBroken, (self.trickNum == 1), trump = self.curTrick.suit)
+			card = self.getRandom(legalCards)
 		else: #c is none and auto
 			strCard = self.getInput(option)
 			card = self.hand.hasCard(strCard)

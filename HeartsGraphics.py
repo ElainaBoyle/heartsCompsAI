@@ -4,6 +4,7 @@ from Player import Player
 from Trick import Trick
 from Elek_Agent import Elek_Agent
 from BreannaAgent import BreannaAgent
+from LevelTen import Strong_agent
 #from MarySue import Cbr_Agent
 #from MonteCarlo import MonteCarlo 
 
@@ -14,7 +15,7 @@ from BreannaAgent import BreannaAgent
 A copy of Hearts.py with graphics instead of text-based interaction.
 '''
 
-from GameGraphics import GameGraphics
+#from GameGraphics import GameGraphics
 
 
 '''
@@ -51,7 +52,7 @@ class Hearts:
 		self.memory = [] #Trick history
 
 		# Make four players
-		self.players = [Player("Elaina", auto=False), Player("B", auto=False), Player("C", auto=False), Player("D", auto=False)]
+		self.players = [Strong_agent("Elek", auto=True), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 
 		'''
 		Player physical locations:
@@ -166,12 +167,12 @@ class Hearts:
 		print(p.name + " won the trick.")
 
 		#Add the trick to memory
-		self.memory.append(self.currentTrick)
+		#self.memory.append(self.currentTrick)
   
 		#Reset the current trick
 		self.currentTrick = Trick()
   
-		self.printMemory() #Take this out!
+		#self.printMemory() #Take this out!
   
   
 	'''
@@ -199,9 +200,10 @@ class Hearts:
 			startPlayer = self.players[start]
 			startPlayer.curTrick = self.currentTrick
    
-			playCard = startPlayer.play(option="play", c="2c")
+			playCard = startPlayer.play(discarded = self.memory, option="play", c="2c")
 
 			self.currentTrick.addCard(playCard, start)
+			self.memory[-1].append(playCard)
 
 			shift = 1 # alert game that first player has already played
 
@@ -224,6 +226,7 @@ class Hearts:
 			print("Playing card", playCard.getIden())
 			curPlayer.removeCard(playCard)
 			self.currentTrick.addCard(playCard, curPlayerIndex)
+			self.memory[-1].append(playCard)
 
 		self.evaluateTrick()
 		self.trickNum += 1
@@ -238,7 +241,7 @@ class Hearts:
 	'''
 	def playCard(self, player):
 		
-		playCard = player.play(auto=False) # change auto to False to play manually
+		playCard = player.play(discarded = self.memory, auto=True) # change auto to False to play manually
   
 		if playCard is not None:
 			#You tried to play a card that's in your hand!
@@ -260,7 +263,7 @@ class Hearts:
 			#You are not setting the suit for this trick. Did you play a card of the correct suit?
 			elif playCard.suit != self.currentTrick.suit:
 				#Do you have cards of the correct suit?
-				if player.hasSuit(playCard):
+				if player.hasSuit(self.currentTrick.suit):
 					print("Play a card of the correct suit! The current suit is:", self.currentTrick.suit)
 					playCard = None
    
@@ -273,10 +276,11 @@ class Hearts:
 					playCard = None
 				elif not self.heartsBroken:
 					self.breakHearts()
-	 
-		if playCard is None: #If we have not found a card for playCard, try again.
-			playCard = self.playCard(player)
-				
+		else: 
+			print("You tried to play a None card")
+		# if playCard is None: #If we have not found a card for playCard, try again.
+		# 	playCard = self.playCard(player)
+
 		return playCard
 
 	 
@@ -372,11 +376,13 @@ def main():
 
 	# play until someone loses
 	while hearts.losingPlayer is None or hearts.losingPlayer.score < maxScore:
+		hearts.memory = []
 		while hearts.trickNum < totalTricks:
 			print("Round", hearts.roundNum)
 			if hearts.trickNum == 0:
 				hearts.getFirstTrickStarter()
 			print('\nPlaying trick number', hearts.trickNum + 1)
+			hearts.memory.append([hearts.trickWinner])
 			hearts.playTrick(hearts.trickWinner)
 
 		# tally scores
