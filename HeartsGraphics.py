@@ -5,8 +5,11 @@ from Trick import Trick
 from Elek_Agent import Elek_Agent
 from BreannaAgent import BreannaAgent
 from LevelTen import Strong_agent
+from ElainaAgent import ElainaAgent
 #from MarySue import Cbr_Agent
 #from MonteCarlo import MonteCarlo 
+from GameGraphics import GameGraphics
+import pygame
 
 #ELAINA ADD MARYSUE AND MONTE BACK IN
 
@@ -27,6 +30,8 @@ valid one.
 '''
 
 randomOrder = True
+
+realPlayer = False #Change to true if you are a real player
 
 totalTricks = 13
 maxScore = 100
@@ -49,10 +54,15 @@ class Hearts:
 		self.heartsBroken = False
 		self.losingPlayer = None
 		self.memory = [] #Trick history
+  
+		if realPlayer:
+			pygame.init()
+			self.myGame = GameGraphics()
 
 		# Make four players
+		#self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 		self.players = [Strong_agent("Elek", auto=True), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
-
+  
 		'''
 		Player physical locations:
 		Game runs clockwise
@@ -201,6 +211,12 @@ class Hearts:
    
 			playCard = startPlayer.play(discarded = self.memory, option="play", c="2c")
 
+			if realPlayer:
+				self.myGame.addCardToTrick(start, playCard)
+				self.myGame.updateGraphics()
+    
+			startPlayer.removeCard(playCard)
+
 			self.currentTrick.addCard(playCard, start)
 			self.memory[-1].append(playCard)
 
@@ -223,7 +239,12 @@ class Hearts:
 				playCard = self.playCard(curPlayer)
 
 			print("Playing card", playCard.getIden())
+
+			if realPlayer:
+				self.myGame.addCardToTrick(curPlayerIndex, playCard)
+				self.myGame.updateGraphics()
 			curPlayer.removeCard(playCard)
+   
 			self.currentTrick.addCard(playCard, curPlayerIndex)
 			self.memory[-1].append(playCard)
 
@@ -240,10 +261,12 @@ class Hearts:
 	'''
 	def playCard(self, player):
 		
-		playCard = player.play(discarded = self.memory, auto=True) # change auto to False to play manually
+		playCard = player.play(discarded = self.memory) # change auto to False to play manually
+		print("You are trying to play card", playCard)
   
 		if playCard is not None:
 			#You tried to play a card that's in your hand!
+			
    
 			#Are you setting the suit for this trick?
 			if self.currentTrick.cardsInTrick == 0:
@@ -276,7 +299,7 @@ class Hearts:
 				elif not self.heartsBroken:
 					self.breakHearts()
 		else: 
-			print("You tried to play a None card")
+			print("You tried to play an illegal card")
 		# if playCard is None: #If we have not found a card for playCard, try again.
 		# 	playCard = self.playCard(player)
 
