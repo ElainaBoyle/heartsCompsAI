@@ -3,7 +3,7 @@ from Card import Card
 import random
 
 class Player:
-	def __init__(self, name, auto=False):
+	def __init__(self, name, auto=False, game=None):
 			self.name = name
 			self.hand = Hand()
 			self.score = 0
@@ -17,6 +17,8 @@ class Player:
 			self.trickHistory = [] #Holds the history of the each rounds of tricks in string form
 			self.cardObjTrickHistory = [] #Holds the history of the each rounds of tricks in card object form
 			self.trickNum = 0
+   
+			self.isAuto = auto
 
 
 	'''
@@ -77,7 +79,7 @@ class Player:
 	@PARAM c the STRING representation of a card [eg: "2c"]
 	@RETURN Card card the corresponding card object from inside the current player's hand
 	 '''
-	def play(self, discarded = [], option='play', c=None, auto=False):
+	def play(self, discarded = [], option='play', c=None):
 		#Check if c is already a card
 		if isinstance(c, Card):
 			print("Error; Passed in card", c.getIden(), "by", self.name)
@@ -85,7 +87,7 @@ class Player:
 	   
 		if c is not None:
 			card = self.hand.hasCard(c) #returns card in hand
-		elif auto:
+		elif self.isAuto:
 			legalCards = self.getLegalMoves(self.hand.fullHand, self.heartsBroken, (self.trickNum == 1), trump = self.curTrick.suit)
 			card = self.getRandom(legalCards)
 		else: #c is none and auto
@@ -189,4 +191,4 @@ class Player:
  	'''
 	def updateCurTrump(self, trump):
 		self.curTrump = trump
-   
+  
