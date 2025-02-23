@@ -45,6 +45,10 @@ class Card: #value = int representation of rank
 	def suit(self):
 		return self.suit #will always be a string
 
+	def isCard(self, card):
+		if card.getIden() == self.getIden():
+			return card
+
 
 	def __lt__(self, other):
 		if self.rank() < other.rank():
