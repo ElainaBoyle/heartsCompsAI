@@ -54,7 +54,7 @@ class Strong_agent(Player):
             for card in hand:
                 if heartsBroken:
                     legalMoves.append(card)
-                elif card.suit != 'h' and card.getIden() != 'Qs':
+                elif card.suit != 'h':
                     legalMoves.append(card)
 
         if len(legalMoves) == 0: #should only happen in some weird edge cases with hands of all hearts, not common at all

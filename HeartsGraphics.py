@@ -360,7 +360,7 @@ class Hearts:
 	 @RETURN Player winner the player with the lowest score
 	'''
 	def getWinner(self):
-		minScore = 200 # impossibly high
+		minScore = 1000000000000 # impossibly high
 		winner = None
 		for p in self.players:
 			if p.score < minScore:
