@@ -1,5 +1,13 @@
 class Card: #value = int representation of rank
 	def __init__(self, rank, suit):
+     
+		
+		#Added to allow suits to be written as integers, for Monte convenience.
+		suits = ["c","d","s","h"]
+		if isinstance(suit, int):
+			suit = suits[suit]
+  
+  
 		self.stringRank = str(rank)
 		self.suit = suit
 		self.value = int(rank)
@@ -22,15 +30,10 @@ class Card: #value = int representation of rank
 	def rank(self):
 		return self.value
 
-	def getSuitInt(self): #COULD BE INTEGRATED INTO INIT FOR MORE EFFICIENCY
-		if self.suit == "c":
-			return 0
-		elif self.suit == "d":
-			return 1
-		elif self.suit == "s":
-			return 2
-		elif self.suit =="h":
-			return 3
+	def getSuitInt(self): 
+		suits = ["c","d","s","h"]
+		if self.suit in suits:
+			return suits.index(self.suit)
 		else: return 
 
 	def stringRank(self):
@@ -41,6 +44,10 @@ class Card: #value = int representation of rank
 
 	def suit(self):
 		return self.suit #will always be a string
+
+	def isCard(self, card):
+		if card.getIden() == self.getIden():
+			return card
 
 
 	def __lt__(self, other):
