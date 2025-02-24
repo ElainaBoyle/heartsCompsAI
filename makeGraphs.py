@@ -4,23 +4,11 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')
 
+""" This is the second half following runXGames.py which reads the output file and then makes a graph based on it. For more info please see
+runXGames.py. """
+
 start = time.time()
-wFile = open("rates.txt", "w")
-
-
-numOfGames = 5
-for i in range(numOfGames):
-    gameStart = time.time()
-    result = os.popen("python3 Hearts.py").read()
-    wFile.write(result)
-    wFile.write("\n space \n")
-    print("Played game:", i)
-    gameFin = time.time() - gameStart
-    print(int(gameFin), "seconds")
-    print(int(gameFin/60), "minutes")
-
-    
-wFile.close()
+numOfGames = 100
 
 ElekTrickWins = 0
 ElekGameWins = 0
@@ -45,7 +33,7 @@ MonteScoreLine = ""
 previous = ""
 
 
-rFile = open("rates.txt", "r")
+rFile = open("GamesRan.txt", "r")
 #self.players = [Elek_Agent("Elek"), BreannaAgent("Breanna"), Player("MarySue"), Player("Monte")]
 for line in rFile:
     
@@ -82,10 +70,10 @@ for line in rFile:
     MonteScoreLine = previous
     previous = line
 
-print("\nElek Stats:\nTotal Games Won:", ElekGameWins, "\nTotal Tricks Won:", ElekTrickWins, "\nAverage Score:", (ElekTotalScore/1000))
-print("\nBreanna Stats:\nTotal Games Won:", BreannaGameWins, "\nTotal Tricks Won:", BreannaTrickWins, "\nAverage Score:", (BreannaTotalScore/1000))
-print("\nMarySue Stats:\nTotal Games Won:", MarySueGameWins, "\nTotal Tricks Won:", MarySueTrickWins, "\nAverage Score:", (MarySueTotalScore/1000))
-print("\nMonte Stats:\nTotal Games Won:", MonteGameWins, "\nTotal Tricks Won:", MonteTrickWins, "\nAverage Score:", (MonteTotalScore/1000))
+print("\nElek Stats:\nTotal Games Won:", ElekGameWins, "\nTotal Tricks Won:", ElekTrickWins, "\nAverage Score:", (ElekTotalScore/numOfGames))
+print("\nBreanna Stats:\nTotal Games Won:", BreannaGameWins, "\nTotal Tricks Won:", BreannaTrickWins, "\nAverage Score:", (BreannaTotalScore/numOfGames))
+print("\nMarySue Stats:\nTotal Games Won:", MarySueGameWins, "\nTotal Tricks Won:", MarySueTrickWins, "\nAverage Score:", (MarySueTotalScore/numOfGames))
+print("\nMonte Stats:\nTotal Games Won:", MonteGameWins, "\nTotal Tricks Won:", MonteTrickWins, "\nAverage Score:", (MonteTotalScore/numOfGames))
 print("\n")
 
 winnerList = []
