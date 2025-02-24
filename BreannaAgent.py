@@ -13,8 +13,8 @@ class BreannaAgent(Player):
         if(type(card) != type("String")):
             card = str(card)
             
-        if(card[0].isnumeric()):
-            return int(card[0])
+        if(card[:-1].isnumeric()):
+            return int(card[:-1])
         elif(card.find("J") != -1):
             return 11
         elif(card.find("Q") != -1):
@@ -92,13 +92,13 @@ class BreannaAgent(Player):
         else:
             currentPlay = suitCards[0]
             for play in suitCards:
-                    if(self.convertRank(play.rank) < self.convertRank(highCard)):
+                    if(play.value) < highCard:
                         currentPlay = play
         return currentPlay
     
-    def play(self, option='play', c=None, auto=False):
+    def play(self, discarded = [], option='play', c=None, auto=False):
         """Redefined play in player class to modify auto"""
-        if auto:
+        if c is None:
             trickNum = len(self.trickHistory)
             if(trickNum == 13 or trickNum == 0):
                 if(len(self.hand.clubs) != 0):
@@ -111,17 +111,23 @@ class BreannaAgent(Player):
                     else:
                         currentPlay = self.hand.spades[-1]
             else:
-                highCard = ""     
-                if(self.curTrump == "Unset"):
+                highCard = 0     
+                if(self.curTrump == ""):
                     currentPlay = self.playLowest()
                 else:
-                    highCard = ""
-                    for playedCard in self.board:
-                        playedString = str(playedCard)
-                        if (playedString != "" and highCard == ""):
-                            highCard = playedString
-                        elif((playedString != "" and highCard != "") and (self.convertRank(playedString) > self.convertRank(highCard))):
-                            highCard = playedString
+                    highCard = 0
+    
+                    # for playedCard in self.boardState:
+                    #     playedString = str(playedCard.getIden())
+                    #     if (playedString != "" and highCard == ""):
+                    #         highCard = playedString
+                    #     elif((playedString != "" and highCard != "") and (self.convertRank(playedString) > self.convertRank(highCard))):
+                    #         highCard = playedString
+
+                    for card in self.boardState:
+                        if card.rank > highCard:
+                            highCard = card.rank
+
                             
                     if(self.curTrump == "c"):
                         suitCards = self.hand.clubs
@@ -138,11 +144,11 @@ class BreannaAgent(Player):
             
             card = currentPlay
             
-        elif c is None:
-            card = self.getInput(option)
         else:
-            card = c
-        if not auto:
-            card = self.hand.playCard(card)
+            for card in self.hand.fullHand:
+                if card.getIden() == c:
+                    return card
+        # if not auto:
+        #     card = self.hand.playCard(card)
         return card
 
