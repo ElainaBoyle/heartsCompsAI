@@ -58,10 +58,10 @@ class Hearts:
 		if realPlayer:
 			pygame.init()
 			self.myGame = GameGraphics()
-
-		# Make four players
-		#self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
-		self.players = [Strong_agent("Elek", auto=True), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
+			self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
+		else:
+			# Make four players
+			self.players = [Strong_agent("Elek", auto=True), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
   
 		'''
 		Player physical locations:

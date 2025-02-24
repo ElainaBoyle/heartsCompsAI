@@ -10,7 +10,10 @@ from Card import Card
 class CardDisp(pygame.sprite.Sprite):
     #card should be a card
     def __init__(self, card, x, y):
-        self.iden = card.getIden()
+        if isinstance(card, Card):
+            self.iden = card.getIden()
+        else:
+            self.iden = card
         pygame.sprite.Sprite.__init__(self) 
         self.image = pygame.image.load(os.path.join('pygamecards/cards', self.formatCard(card)))
         self.rect = self.image.get_rect()

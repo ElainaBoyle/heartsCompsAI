@@ -23,9 +23,11 @@ class GameGraphics:
     cardwidth = 100
     cardheight = 140
     overlap = 50
-    p1Card_y = 800 #y coordinate for the top of p1's cards
+    p1Card_y = 750 #y coordinate for the top of p1's cards
     
     cards = pygame.sprite.Group()
+    
+    trickHolders = pygame.sprite.Group()
     
     middleCards = pygame.sprite.Group()
     
@@ -37,6 +39,8 @@ class GameGraphics:
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         pygame.display.set_caption("Hearts")
         self.screen.fill(self.BACKGROUND_COLOR)
+        
+        self.makeTrickHolders()
 
         self.reset()
         
@@ -46,6 +50,14 @@ class GameGraphics:
     def reset(self):
         self.overlap = 50
         self.startPos = 500 - (6 * (self.cardwidth - self.overlap)) # 6 cards before the center, 100-overlap apart.
+        
+    
+    def makeTrickHolders(self):
+        self.trickHolders.add(CardDisp("back-side", 500, 910))
+        self.trickHolders.add(CardDisp("back-side", 100, 500))
+        self.trickHolders.add(CardDisp("back-side", 500, 100))
+        self.trickHolders.add(CardDisp("back-side", 900, 500))
+        return
         
 
 
@@ -151,6 +163,7 @@ class GameGraphics:
         self.cards.update()
         self.cards.draw(self.screen)
         self.middleCards.draw(self.screen)
+        self.trickHolders.draw(self.screen)
         
         #other player assets?
         #only display available cards
