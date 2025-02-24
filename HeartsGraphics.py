@@ -18,6 +18,8 @@ import pygame
 A copy of Hearts.py with graphics instead of text-based interaction.
 '''
 
+#from GameGraphics import GameGraphics
+
 
 '''
 Change auto to False if you would like to play the game manually.
@@ -232,7 +234,7 @@ class Hearts:
 		for i in range(start + shift, start + len(self.players)):
 	  
 			#reset variables for each player
-			#self.printCurrentTrick()
+			self.printCurrentTrick()
 			self.updatePlayerBoardState() #Added
 			curPlayerIndex = i % len(self.players)
 			self.printPlayer(curPlayerIndex)
@@ -269,7 +271,7 @@ class Hearts:
 	def playCard(self, player):
 		
 		playCard = player.play(discarded = self.memory) # change auto to False to play manually
-		print("You are trying to play card", playCard.getIden())
+		print("You are trying to play card", playCard)
   
 		if playCard is not None:
 			#You tried to play a card that's in your hand!
