@@ -1,5 +1,5 @@
 from random import randint
-from Card import Card, Suit
+from Card import Card
 
 clubs = 0
 diamonds = 1
@@ -8,12 +8,17 @@ hearts = 3
 suits = ["c", "d", "s", "h"]
 
 class Hand:
+	'''
+	 Initialize hand
+	'''
 	def __init__(self):
 
 		self.clubs = []
 		self.diamonds = []
 		self.spades = []
 		self.hearts = []
+
+		self.fullHand = []
 
 		# create hand of cards split up by suit
 		self.hand = [self.clubs, self.diamonds,
@@ -22,124 +27,91 @@ class Hand:
 		self.contains2ofclubs = False
 		self.didContain2ofClubs = False
 
+
+	'''
+	 @RETURN int how many cards in this hand
+	'''
 	def size(self):
 		return len(self.clubs) + len(self.diamonds) + len(self.spades) + len(self.hearts)
 
+
+	'''
+	 Add a card to this hand
+	 @PARAM Card card the card you're adding to this hand
+	'''
 	def addCard(self, card):
-		if card.suit == Suit(clubs):
-			if card.rank.rank == 2:
+  
+		self.fullHand.append(card) #add to fullHand variable, previously unused
+  
+		if card.suit == "c":
+			if card.value == 2:
 				self.contains2ofclubs = True
 				self.didContain2ofClubs = True
 			self.clubs.append(card)
-		elif card.suit == Suit(diamonds):
+		elif card.suit == "d":
 			self.diamonds.append(card)
-		elif card.suit == Suit(spades):
+		elif card.suit == "s":
 			self.spades.append(card)
-		elif card.suit == Suit(hearts):
+		elif card.suit == "h":
 			self.hearts.append(card)
 		else:
 			print('Invalid card')
+		return
 
-		if self.size() == 13:
-			for suit in self.hand:
-				suit.sort()
-
-	def updateHand(self):
+	def updateHand(self): 
 		self.hand = [self.clubs, self.diamonds,
 					self.spades, self.hearts]
 
 	def getRandomCard(self):
-		suit = randint(0,3)
-		suit = self.hand[suit]
-		while len(suit) == 0:
-			suit = randint(0,3)
-			suit = self.hand[suit]
-		index = randint(0, len(suit)-1)
-
-		return suit[index]
+		cardIndex = randint(0,len(self.fullHand) - 1)
+		return self.fullHand[cardIndex]
 
 
-
-	def strToCard(self, card):
-		if len(card) == 0: return None
-
-		suit = card[len(card)-1].lower() # get the suit from the string
-
-		try:
-			suitIden = suits.index(suit)
-		except:
-			print ('Invalid suit')
-			return None
-
-		cardRank = card[0:len(card)-1] # get rank from string
-
-		try:
-			cardRank = cardRank.upper()
-		except AttributeError:
-			pass
-
-		# convert rank to int
-		if cardRank == "J":
-			cardRank = 11
-		elif cardRank == "Q":
-			cardRank = 12
-		elif cardRank == "K":
-			cardRank = 13
-		elif cardRank == "A":
-			cardRank = 14
-		else:
-			try:
-				cardRank = int(cardRank)
-			except:
-				print ("Invalid card rank.")
-				return None
-
-		return cardRank, suitIden
-
-	def containsCard(self, cardRank, suitIden):
-		for card in self.hand[suitIden]:
-			if card.rank.rank == cardRank:
-				cardToPlay = card
-
-				# remove cardToPlay from hand
-				# self.hand[suitIden].remove(card)
-
-				# update hand representation
-				# self.updateHand()
-				return cardToPlay
-		return None
-
-	def playCard(self, card):
-		cardInfo = self.strToCard(card)
-
-		if cardInfo is None:
-			return None
-		else:
-			cardRank, suitIden = cardInfo[0], cardInfo[1]
-
+	'''
+	 Checks to see if there is an instance of the specified card in your hand.
+	 Note: was written to take in cardStr as a card or as a string.
+	 @PARAM cardStr the card you're checking for
+	 @RETURN the card object from your hand
+	'''
+	def hasCard(self, cardStr): 
+		if isinstance(cardStr, Card):
+			cardStr = cardStr.getIden()
+	 
 		# see if player has that card in hand
-		return self.containsCard(cardRank, suitIden)
+		for card in self.fullHand:
+			#print(card.getIden(), cardStr)
+			if card.getIden() == cardStr:
+				return card
 
-	def removeCard(self, card):
-		suitId = card.suit.iden
-		for c in self.hand[suitId]:
-			if c == card:
-				if suitId == clubs and card.rank.rank == 2:
-					self.contains2ofclubs = False
-				# print "Removing:", c.__str__()
-				self.hand[card.suit.iden].remove(c)
-				self.updateHand()
+	def removeCard(self, card): 
+		cardRemoved = False
+  
+		#print(card)		
+		suit = card.getSuitInt()
+   
+   
+		if card.getIden() == "2c":
+			self.contains2ofclubs = False
+
+		for myCard in self.hand[suit]:
+			if card.getIden() == myCard.getIden():
+				self.hand[suit].remove(myCard)
+				self.fullHand.pop(self.fullHand.index(myCard))
+				cardRemoved = True
+				
+		if not cardRemoved:
+			print("Error: could not find card ", card.getIden(), " in suit ", card.suit, " which has suitIden ", str(suit))
+			return
+   
+		return card
 
 	def hasOnlyHearts(self):
-		print ("len(self.hearts):",len(self.hearts))
-		print ("self.size():",self.size())
 		return len(self.hearts) == self.size()
 
 
-
-	def __str__(self):
-		handStr = ''
-		for suit in self.hand:
-			for card in suit:
-				handStr += card.__str__() + ' '
-		return handStr
+	def whatAreMyCards(self): 
+		outList = []
+		for playerhand in self.hand:
+			for card in playerhand:
+				outList.append(card.getIden()) 
+		return outList

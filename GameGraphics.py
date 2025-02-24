@@ -1,193 +1,206 @@
 import pygame
 import os
-
-pygame.init()
-
-
-
-
-
-#Create game window, screen-related variables
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 1000
-BACKGROUND_COLOR = (3, 49, 3) #poker table green
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Hearts")
-screen.fill(BACKGROUND_COLOR)
-
-#frame rate
-clock = pygame.time.Clock()
-FPS = 60
-
-#Card-related variables
-cardwidth = 100
-cardheight = 140
-overlap = 50
-p1Card_y = 800 #y coordinate for the top of p1's cards
-
-#testing variables
-myHand = ["4c", "5d", "7d", "Jd", "2s", "7s", "Js", "Ks", "As", "2h", "6h", "8h", "9h"]
+from CardDisp import CardDisp
+from Card import Card
 
 
 
 
 
 
-# PARAM hand a list of card idens (eg. ["2c", "5h"])
-# RETURN a list of card idens with ".png" appended (eg. ["2c.png", "5h.png"])
-def formatCards(hand): 
-    formatted_hand = []
-    for card in hand:
-        formatted_hand.append(card + ".png")
-    return formatted_hand 
+class GameGraphics:
 
-# Displays a hand of cards at the bottom of your screen.
-# PARAM hand a list of FORMATTED card idens (eg. ["2c.png", "5h.png"])
-# Global variables in this calculation: cardwidth, overlap, screen
-def dealCards(hand):
-    pos = 500 - (6 * (100 - overlap)) # 6 cards before the center, 100-overlap apart.
-    pos = pos - (cardwidth/2) # move left by half of card width (position of card placement is defined by top left corner, not center)
-    for card in hand:
-        myCard = pygame.image.load(os.path.join('pygamecards/cards', card))
-        screen.blit(myCard, (pos, p1Card_y))
-        pos += overlap
-        pygame.display.update()
-        pygame.time.wait(1000)
-    return
+    #game window, screen-related variables
+    SCREEN_WIDTH = 1000
+    SCREEN_HEIGHT = 1000
+    BACKGROUND_COLOR = (3, 49, 3) #poker table green
 
+    #frame rate
+    clock = pygame.time.Clock()
+    FPS = 60
+    
+    #Card-related variables
+    cardwidth = 100
+    cardheight = 140
+    overlap = 50
+    p1Card_y = 750 #y coordinate for the top of p1's cards
+    
+    cards = pygame.sprite.Group()
+    
+    trickHolders = pygame.sprite.Group()
+    
+    middleCards = pygame.sprite.Group()
+    
+    
+    waitTime = 300 #change how long it waits between actions
 
-
-
-
-formatted_hand = formatCards(myHand)
-dealCards(formatted_hand)
-
-
-
-
-
-
-
-#thisfuckingcard = pygame.image.load(os.path.join('pygamecards/cards', '2c.png'))
-#screen.blit(thisfuckingcard, (250, 250))
-#pygame.display.update()
-#pygame.time.wait(1000)
-
-
-
-
-#!ACTION NEEDED! You want the cards to be 100x140.
-#!! Cards are labelled 2c, 3d, 4h, 5s.... Jh, Qd, Ks, Ac [face cards]
-#!! 13 cards in a hand
-#!! 50px overlap with central (7th) card at 500,100. 
-#!! [200, 100],[250, 100],[300, 100],[350, 100],[400, 100],[450, 100],[500, 100]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# #Create class for cards
-# class cardsprite(pygame.sprite.Sprite):
-#     def __init__(self, iden, x, y):
-#         pygame.sprite.Sprite.__init__(self)
-#         #iden is "c2" or "d6" etc
-#         self.iden = iden
-
-#         self.image = pygame.Surface((100,145))
-#         self.image.fill((255,255,255))
-#         self.rect = self.image.get_rect()
-#         self.rect.center = (x,y)
+    def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        pygame.display.set_caption("Hearts")
+        self.screen.fill(self.BACKGROUND_COLOR)
         
-#     def set_position(self, x, y):
-#         self.rect.x = x
-#         self.rect.y = y
-        
-#     def set_image(self, filename = None):
-#         if (filename != None):
-#             self.image = pygame.image.load(os.path.join('pygamecards/cards', '2_of_clubs.png')) #replace with iden
-#             self.rect = self.image.get_rect()
-        
-        
-# #create a card
-# thisCard = cardsprite("c2", 250, 250)
-# thisCard.set_image("anyhtng")
-# thisCard.set_position(250, 250)
-# cards = pygame.sprite.Group()
-# cards.add(thisCard)
+        self.makeTrickHolders()
 
-# screen.blit(thisCard, (250, 250))
-
-# #pygame.sprite.Group.draw(cards)
-# #pygame.display.flip()
-# pygame.time.wait(1000)
-
-# #Game loop
-# run = True
-# while run:
-#     clock.tick(FPS)
-    
-#     #update background
-#     screen.fill((0, 255, 0))
-    
-    
-#     #update sprite group (unnecessary for right now?)
-#     cards.update()
-    
-#     #draw sprite group
-#     cards.draw(screen)
-#     #pygame.display.flip()
-#     pygame.time.wait(1000)
-    
-    
-    
-#     #event handler
-    
+        self.reset()
         
         
         
         
+    def reset(self):
+        self.overlap = 50
+        self.startPos = 500 - (6 * (self.cardwidth - self.overlap)) # 6 cards before the center, 100-overlap apart.
+        
+    
+    def makeTrickHolders(self):
+        self.trickHolders.add(CardDisp("back-side", 500, 910))
+        self.trickHolders.add(CardDisp("back-side", 100, 500))
+        self.trickHolders.add(CardDisp("back-side", 500, 100))
+        self.trickHolders.add(CardDisp("back-side", 900, 500))
+        return
+        
+
+
+
+    
+    def addCard(self, card):
+        myCard = CardDisp(card, self.startPos, self.p1Card_y)
+        self.startPos += (self.cardwidth - self.overlap)
+        self.cards.add(myCard)
+    
+    def updateOverlap(self):
+        self.overlap = len(self.cards) * 4
+        pos = 525 - ((self.cardwidth - self.overlap) * len(self.cards)/2)
+        
+        x = pos
+        y = self.p1Card_y
+        
+        for card in self.cards:
+            card.rect.center = (x,y)
+            x += (self.cardwidth - self.overlap)
+        
+        
+    def clickACard(self):
+        myTurn = True
+        while(myTurn):
+            # get all events
+            ev = pygame.event.get()
+
+            for event in ev:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    clickedSprites = []
+                    for card in self.cards:
+                        if card.rect.collidepoint(event.pos):
+                            clickedSprites.append(card)
+                    if len(clickedSprites) == 1:
+                        clickedSprite = clickedSprites[0].getIden()
+                        print("You clicked on card", clickedSprite)
+                    elif len(clickedSprites) == 2:
+                        clickedSprite = clickedSprites[-1].getIden()
+                        print("You clicked on card", clickedSprite)
+                    else:
+                        clickedSprite = None
+                        print("No card sprite clicked.")
+                    return clickedSprite
+                elif event.type == pygame.QUIT:
+                    pygame.quit()
+    
+    def addCardToTrick(self, playerIdx, card):
+        print("Player", playerIdx, "Played card", card.getIden())
+        
+        if playerIdx == 0:
+            pos = (500, 600)
+        elif playerIdx == 1:
+            pos = (300, 500)
+        elif playerIdx == 2:
+            pos = (500, 300)
+        elif playerIdx == 3:
+            pos = (700, 500)
+        else: return
+            
+        newCard = CardDisp(card, pos[0], pos[1])
+        self.middleCards.add(newCard)
+        self.updateGraphics()
+        pygame.time.wait(500)
+        
+    def concludeTrick(self, winnerIdx):
+        if winnerIdx == 0:
+            direction = (0, 5)
+        elif winnerIdx == 1:
+            direction = (-5, 0)
+        elif winnerIdx == 2:
+            direction = (0, -5)
+        elif winnerIdx == 3:
+            direction = (5, 0)
+            
+        concluding = True
+        
+        while concluding:
+            print("CONCLDUBNGIN")
+            for card in self.middleCards:
+                card.rect.move_ip(direction[0], direction[1])
+                if (card.rect.top > self.SCREEN_HEIGHT) or (card.rect.bottom < 0) or (card.rect.left > self.SCREEN_WIDTH) or (card.rect.right < 0):
+                    card.kill()
+            self.updateGraphics()
+            if len(self.middleCards) == 0:
+                concluding = False
+        
+                    
+                    
+
+    
+    def updateGraphics(self):
+        
+        
+        
+        
+        self.clock.tick(self.FPS)
+        
+        #Update background
+        self.screen.fill(self.BACKGROUND_COLOR)
+        
+        #Update card assets
+        self.cards.update()
+        self.cards.draw(self.screen)
+        self.middleCards.draw(self.screen)
+        self.trickHolders.draw(self.screen)
+        
+        #other player assets?
+        #only display available cards
+        #card pool?
+        #card indicator?
+        
+        #Handle Events
+        ev = pygame.event.get()
+        for event in ev:
+            if event.type == pygame.QUIT:
+                pygame.quit()
+        
+        
+        pygame.display.flip()
+        return
+            
+    
+    #def playCard(self)
+    
+    def test(self):
+        self.updateGraphics()
+        self.dealHand(self.myHand)
+        self.updateGraphics()
+        
+        
+
+
+
+
+#myGame = GameGraphics()
+#myGame.test()
 
 
 
 
 
-
-# #First: drawing the background
-
-# #deal the cards
-# #13 card-shaped rectangles at the bottom ish of the screen
-# #The cards are 500x726 pixels each (as of right now)
-# #left = 50
-# #top = 800
-
-# #c2 = pygame.image.load(os.path.join("pygamecards/cards", "2_of_clubs.png"))
-
-
-# #pygame.display.flip()
-# #pygame.time.wait(1000)
-
-
-# #myHand = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-# #for myCard in myHand:
-# #    pygame.draw.rect(screen, BLACK, pygame.Rect(left, top, 100, 145)) #will probably have to distinguish rect separately
-# #    pygame.display.flip()
-# #    pygame.time.wait(1000)
-# #    left += 65
+#pygame.time.wait(10000)
 
 pygame.quit()
 

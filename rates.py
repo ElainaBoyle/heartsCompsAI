@@ -7,11 +7,8 @@ matplotlib.use('TkAgg')
 start = time.time()
 wFile = open("rates.txt", "w")
 
-
-numOfGames = 5
-for i in range(numOfGames):
-    gameStart = time.time()
-    result = os.popen("python3 Hearts.py").read()
+for i in range(1000):
+    result = os.popen("python3 HeartsGraphics.py").read()
     wFile.write(result)
     wFile.write("\n space \n")
     print("Played game:", i)
