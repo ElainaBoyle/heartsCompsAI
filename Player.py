@@ -62,9 +62,9 @@ class Player:
 			for card in hand:
 				if heartsBroken:
 					legalMoves.append(card)
-				elif card.suit != 'h':
+				elif card.suit != 'h' and card.getIden() != 'Qs':
 					legalMoves.append(card)
-
+					
 		if len(legalMoves) == 0: #should only happen in some weird edge cases with hands of all hearts, not common at all
 			print("You got really lucky to have so many hearts -- or -- there is a bug in the code in getLegalMoves")
 			for card in hand:

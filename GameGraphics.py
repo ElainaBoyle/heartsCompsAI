@@ -57,7 +57,14 @@ class GameGraphics:
     
     def updateOverlap(self):
         self.overlap = len(self.cards) * 4
-        self.startPos = 450 - ((self.cardwidth - self.overlap) * len(self.myHand)/2)
+        self.startPos = 525 - ((self.cardwidth - self.overlap) * len(self.cards)/2)
+        
+        x = self.startPos
+        y = self.p1Card_y
+        
+        for card in self.cards:
+            card.rect.center = (x,y)
+            x += (self.cardwidth - self.overlap)
         
         
     def clickACard(self):
@@ -88,6 +95,7 @@ class GameGraphics:
     def addCardToTrick(self, playerIdx, card):
         print("Player", playerIdx, "Played card", card.getIden())
         
+
         if playerIdx == 1:
             pos = (300, 500)
         elif playerIdx == 2:
@@ -98,6 +106,29 @@ class GameGraphics:
             
         newCard = CardDisp(card, pos[0], pos[1])
         self.middleCards.add(newCard)
+        
+    def concludeTrick(self, winnerIdx):
+        if winnerIdx == 0:
+            direction = (0, 100)
+        elif winnerIdx == 1:
+            direction = (-100, 0)
+        elif winnerIdx == 2:
+            direction = (0, -100)
+        elif winnerIdx == 3:
+            direction = (100, 0)
+            
+        concluding = True
+        
+        while concluding:
+            print("CONCLDUBNGIN")
+            for card in self.middleCards:
+                card.rect.move_ip(direction[0], direction[1])
+                if (card.rect.top > self.SCREEN_HEIGHT) or (card.rect.bottom < 0) or (card.rect.left > self.SCREEN_WIDTH) or (card.rect.right < 0):
+                    card.kill()
+            self.updateGraphics()
+            if len(self.middleCards) == 0:
+                concluding = False
+        
                     
                     
 

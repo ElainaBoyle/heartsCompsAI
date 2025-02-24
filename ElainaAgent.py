@@ -37,11 +37,13 @@ class ElainaAgent(Player):
 			for cardspr in self.myGame.cards:
 				print(cardspr.getIden(), card.getIden())
 				if cardspr.getIden() == card.getIden():
+					print("ITS HAPPENING")
 					#Move this card to the middle
-					cardspr.move(500, 600)
+					cardspr.rect.center = (500, 600)
 					self.myGame.cards.remove(cardspr)
 					self.myGame.middleCards.add(cardspr)
 					
+					self.myGame.updateOverlap()
 					self.myGame.updateGraphics()
 					super().removeCard(card)
 					return

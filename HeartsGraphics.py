@@ -60,7 +60,7 @@ class Hearts:
 			self.myGame = GameGraphics()
 
 		# Make four players
-		#self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
+		#self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 		self.players = [Strong_agent("Elek", auto=True), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
   
 		'''
@@ -174,6 +174,9 @@ class Hearts:
 		p.trickWon(self.currentTrick)
 		self.printCurrentTrick()
 		print(p.name + " won the trick.")
+  
+		if realPlayer:
+			self.myGame.concludeTrick(self.trickWinner)
 
 		#Add the trick to memory
 		#self.memory.append(self.currentTrick)
@@ -383,7 +386,7 @@ class Hearts:
 	 @RETURN Player winner the player with the lowest score
 	'''
 	def getWinner(self):
-		minScore = 1000000000000 # impossibly high
+		minScore = 200 # impossibly high
 		winner = None
 		for p in self.players:
 			if p.score < minScore:
