@@ -590,309 +590,48 @@ class MonteCarlo(Player):
             self.gameDiamonds = [Card(2,1), Card(3,1), Card(4,1), Card(5,1), Card(6,1), Card(7,1), Card(8,1), Card(9,1), Card(10 ,1), Card(11, 1), Card(12,1), Card(13,1), Card(14,1)]
             self.gameSpades = [Card(2,2), Card(3,2), Card(4,2), Card(5,2), Card(6,2), Card(7,2), Card(8,2), Card(9,2), Card(10 ,2), Card(11, 2), Card(12,2), Card(13,2), Card(14,2)]
             self.gameHearts = [Card(2,3), Card(3,3), Card(4,3), Card(5,3), Card(6,3), Card(7,3), Card(8,3), Card(9,3), Card(10 ,3), Card(11, 3), Card(12,3), Card(13,3), Card(14,3)]
-                                    
-            ### reset other players past cards ###
-            
-            self.player1.reset()
-            self.player2.reset()
-            self.player3.reset()
             
             ### remove what is in the hand ###
-            
             for card in self.hand.clubs:
-                if(card in self.gameClubs):
-                    self.gameClubs.remove(card)
+                for secondCard in self.gameClubs:
+                    if card.isCard(secondCard):
+                        self.gameClubs.remove(secondCard)
             
             for card in self.hand.diamonds:
-                if(card in self.gameDiamonds):
-                    self.gameDiamonds.remove(card)
+                 for secondCard in self.gameDiamonds:
+                    if card.isCard(secondCard):
+                        self.gameDiamonds.remove(secondCard)
                     
             for card in self.hand.hearts:
-                if(card in self.gameHearts):
-                    self.gameHearts.remove(card)
+                 for secondCard in self.gameHearts:
+                    if card.isCard(secondCard):
+                        self.gameHearts.remove(secondCard)
                     
             for card in self.hand.spades:
-                if(card in self.gameSpades):
-                    self.gameSpades.remove(card)
+                 for secondCard in self.gameSpades:
+                    if card.isCard(secondCard):
+                        self.gameSpades.remove(secondCard)
                     
-        ### remove what has been played already (currently in the board) ###
-        
-        if(len(self.boardState) == 1): # player 3 played
-            
-            for card in self.boardState:
-                if(str(card)[-1] != self.curTrump):
-                    if(self.curTrump == "c"):
-                        self.player3.hasClubs = False
-                    elif(self.curTrump == "d"):
-                        self.player3.hasDiamonds = False
-                    elif(self.curTrump == "s"):
-                        self.player3.hasSpades = False
-                    elif(self.curTrump == "h"):
-                        self.player3.hasHearts = False
-                            
-                if(str(card)[-1] == "c" and (card in self.gameClubs)):
-                    self.gameClubs.remove(card)
-                
-                if(str(card)[-1] == "d" and (card in self.gameDiamonds)):
-                    self.gameDiamonds.remove(card)
-                
-                if(str(card)[-1] == "h" and (card in self.gameHearts)):
-                    self.gameHearts.remove(card)
-                
-                if(str(card)[-1] == "s" and (card in self.gameSpades)):
-                    self.gameSpades.remove(card)
-                        
-        elif(len(self.boardState) == 2): # player 2, 3
-            i = 0
-            for card in self.boardState:
-                if(i == 0):
-                    
-                    if(str(card)[-1] != self.curTrump):
-                        if(self.curTrump == "c"):
-                            self.player2.hasClubs = False
-                        elif(self.curTrump == "d"):
-                            self.player2.hasDiamonds = False
-                        elif(self.curTrump == "s"):
-                            self.player2.hasSpades = False
-                        elif(self.curTrump == "h"):
-                            self.player2.hasHearts = False
-                if(i == 1):
-                
-                    if(str(card)[-1] != self.curTrump):
-                        if(self.curTrump == "c"):
-                            self.player3.hasClubs = False
-                        elif(self.curTrump == "d"):
-                            self.player3.hasDiamonds = False
-                        elif(self.curTrump == "s"):
-                            self.player3.hasSpades = False
-                        elif(self.curTrump == "h"):
-                            self.player3.hasHearts = False
-                i = i + 1
-                  
-                if(str(card)[-1] == "c" and (card in self.gameClubs)):
-                    self.gameClubs.remove(card)
-                
-                if(str(card)[-1] == "d" and (card in self.gameDiamonds)):
-                    self.gameDiamonds.remove(card)
-                
-                if(str(card)[-1] == "h" and (card in self.gameHearts)):
-                    self.gameHearts.remove(card)
-                
-                if(str(card)[-1] == "s" and (card in self.gameSpades)):
-                    self.gameSpades.remove(card)
-                 
-        elif(len(self.boardState) == 3): # player 1, 2, 3
-            i = 0
-            for card in self.boardState:
-                
-                if(i == 0):
-                    if(str(card)[-1] != self.curTrump):
-                        if(self.curTrump == "c"):
-                            self.player1.hasClubs = False
-                        elif(self.curTrump == "d"):
-                            self.player1.hasDiamonds = False
-                        elif(self.curTrump == "s"):
-                            self.player1.hasSpades = False
-                        elif(self.curTrump == "h"):
-                            self.player1.hasHearts = False
-                    
-                elif(i == 1):                    
-                    if(str(card)[-1] != self.curTrump):
-                        if(self.curTrump == "c"):
-                            self.player2.hasClubs = False
-                        elif(self.curTrump == "d"):
-                            self.player2.hasDiamonds = False
-                        elif(self.curTrump == "s"):
-                            self.player2.hasSpades = False
-                        elif(self.curTrump == "h"):
-                            self.player2.hasHearts = False
-                            
-                elif(i == 2):
-                    if(str(card)[-1] != self.curTrump):
-                        if(self.curTrump == "c"):
-                            self.player3.hasClubs = False
-                        elif(self.curTrump == "d"):
-                            self.player3.hasDiamonds = False
-                        elif(self.curTrump == "s"):
-                            self.player3.hasSpades = False
-                        elif(self.curTrump == "h"):
-                            self.player3.hasHearts = False
-            i = i + 1
-                              
-            if(str(card)[-1] == "c" and (card in self.gameClubs)):
-                self.gameClubs.remove(card)
-            
-            if(str(card)[-1] == "d" and (card in self.gameDiamonds)):
-                self.gameDiamonds.remove(card)
-            
-            if(str(card)[-1] == "h" and (card in self.gameHearts)):
-                self.gameHearts.remove(card)
-            
-            if(str(card)[-1] == "s" and (card in self.gameSpades)):
-                self.gameSpades.remove(card)
-                    
-        ### remove what has been played already (trick history) ###
+        ### remove what has been played already ###
+
         if(self.trickNum != 0):
-            i = 0
-            if(self.prevBoardNum == 0): # none [monte, p1, p2, p3]
-                i = 0
-                for card in self.cardObjTrickHistory[-1]:
-                    
-                    if(i == 1):
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player1.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player1.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player1.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player1.hasHearts = False
-                        
-                    elif(i == 2):                    
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player2.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player2.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player2.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player2.hasHearts = False
-                                
-                    elif(i == 3):
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player3.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player3.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player3.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player3.hasHearts = False
-                    i = i + 1
-                i = 0
-                                
+            for card in self.cardObjTrickHistory[-1]:
                 if(str(card)[-1] == "c" and (card in self.gameClubs)):
                     self.gameClubs.remove(card)
-                
+
                 if(str(card)[-1] == "d" and (card in self.gameDiamonds)):
                     self.gameDiamonds.remove(card)
-                
+
                 if(str(card)[-1] == "h" and (card in self.gameHearts)):
                     self.gameHearts.remove(card)
-                
+
                 if(str(card)[-1] == "s" and (card in self.gameSpades)):
                     self.gameSpades.remove(card)
         
-            elif(self.prevBoardNum == 1): # player 3 played [p3, monte, p1, p2]
-                for card in self.cardObjTrickHistory[-1]:
-                    if(i == 2):
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player1.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player1.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player1.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player1.hasHearts = False
-                                
-                    if(i == 3):
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player2.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player2.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player2.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player2.hasHearts = False
-                        
-                    if(str(card)[-1] == "c" and (card in self.gameClubs)):
-                        self.gameClubs.remove(card)
-                    
-                    if(str(card)[-1] == "d" and (card in self.gameDiamonds)):
-                        self.gameDiamonds.remove(card)
-                    
-                    if(str(card)[-1] == "h" and (card in self.gameHearts)):
-                        self.gameHearts.remove(card)
-                    
-                    if(str(card)[-1] == "s" and (card in self.gameSpades)):
-                        self.gameSpades.remove(card)
-                    
-                    i = i + 1
-                        
-                i = 0
-                            
-            elif(self.prevBoardNum == 2): # player 2, 3 [p2, p3, monte, p1]
-                for card in self.cardObjTrickHistory[-1]:
-                    if(i == 3):
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player1.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player1.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player1.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player1.hasHearts = False
-                                    
-                    if(str(card)[-1] == "c" and (card in self.gameClubs)):
-                        self.gameClubs.remove(card)
-                    
-                    if(str(card)[-1] == "d" and (card in self.gameDiamonds)):
-                        self.gameDiamonds.remove(card)
-                    
-                    if(str(card)[-1] == "h" and (card in self.gameHearts)):
-                        self.gameHearts.remove(card)
-                    
-                    if(str(card)[-1] == "s" and (card in self.gameSpades)):
-                        self.gameSpades.remove(card)
-                    
-                    i = i + 1
-                    
-                i = 0
-                    
-            elif(self.prevBoardNum == 0): # none [monte, p1, p2, p3]
-                i = 0
-                for card in self.cardObjTrickHistory[-1]:
-                    
-                    if(i == 1):
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player1.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player1.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player1.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player1.hasHearts = False
-                        
-                    elif(i == 2):                    
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player2.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player2.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player2.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player2.hasHearts = False
-                                
-                    elif(i == 3):
-                        if(str(card)[-1] != self.pastTrump):
-                            if(self.pastTrump == "c"):
-                                self.player3.hasClubs = False
-                            elif(self.pastTrump == "d"):
-                                self.player3.hasDiamonds = False
-                            elif(self.pastTrump == "s"):
-                                self.player3.hasSpades = False
-                            elif(self.pastTrump == "h"):
-                                self.player3.hasHearts = False
-                    i = i + 1
-                i = 0
-                                
+        ### remove what is in the current board ###
+        
+        if(self.trickNum != 0):
+            for card in self.boardState:
                 if(str(card)[-1] == "c" and (card in self.gameClubs)):
                     self.gameClubs.remove(card)
                 
@@ -904,21 +643,6 @@ class MonteCarlo(Player):
                 
                 if(str(card)[-1] == "s" and (card in self.gameSpades)):
                     self.gameSpades.remove(card)
-            
-        # i = 0
-        # if(self.trickNum != 0):
-        #     for card in self.cardObjTrickHistory[-1]:
-        #         if(str(card)[-1] == "c" and (card in self.gameClubs)):
-        #             self.gameClubs.remove(card)
-
-        #         if(str(card)[-1] == "d" and (card in self.gameDiamonds)):
-        #             self.gameDiamonds.remove(card)
-
-        #         if(str(card)[-1] == "h" and (card in self.gameHearts)):
-        #             self.gameHearts.remove(card)
-
-        #         if(str(card)[-1] == "s" and (card in self.gameSpades)):
-        #             self.gameSpades.remove(card)
                 
         # erCheck = []
         # for card in self.gameClubs:
@@ -951,7 +675,7 @@ class MonteCarlo(Player):
         
         return card.board[1] #return the best
     
-    def play(self, option='play', c=None, auto=False): #written - taken from player
+    def play(self, option='play', discarded=None, c=None, auto=True): #written - taken from player
         """Redefines play from player class to if auto call playCard defined above"""
         if auto:
             card = self.playCard()
@@ -960,7 +684,7 @@ class MonteCarlo(Player):
         else:
             card = c
         if not auto:
-            card = self.hand.playCard(card)
+            card = self.hand.hasCard(card)
         return card
     
 ### Next Steps ###
