@@ -76,7 +76,8 @@ class Elek_Agent(Player):
 
 
 
-    def play(self, option='play', c=None, auto=True):
+    def play(self, discarded =[], option='play', c=None, auto=True):
+        print("getting to play")
 
         cur_suit = self.curTrick.suit
         
@@ -86,7 +87,6 @@ class Elek_Agent(Player):
 
             #first card of trick, can only play hearts if nothing else or already been broken
             if cur_suit == "":
-                #do something interesting
                 card = self.hand.getRandomCard()
                 return card
 
@@ -101,14 +101,10 @@ class Elek_Agent(Player):
             else:
                 suitCards = self.hand.hearts
 
-            firstTrick = False
             
-            for play in self.curTrick.trick: #there's a better way to do this maybe
-                try:
-                    if play.getIden() == "2c":
-                        firstTrick = True
-                except:
-                        firstTrick = firstTrick
+            firstTrick = False
+            if len(discarded) == 1:
+                firstTrick = True
 
 
             print(suitCards)
@@ -124,7 +120,11 @@ class Elek_Agent(Player):
                 card = self.playHearts()
 
         else:
-            card = c
+            
+            for card in self.hand.fullHand:
+                if card.getIden() == c:
+                    return card
+
             
 
         return card
