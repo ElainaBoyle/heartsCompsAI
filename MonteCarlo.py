@@ -4,11 +4,10 @@ Monte Carlo Agent
 '''
 from Player import Player
 from Card import Card
-from Hand import Hand
 import time
 import copy
 import random
-
+import math
 
 class Node:
     def __init__(self, board, curhand):
@@ -41,30 +40,55 @@ class MonteCarlo(Player):
         
     def MonteSearch(self, root): #written
         """Monte Carlo Tree Search (calls helper functions)"""
-        # #if time? 5 seconds? 7 seconds? 10 seconds?
-        # startTime = time.time()
-        # while(time.time() - startTime < 3):
-        #     leaf = self.traverse(root)
-        #     simulationResult = self.rollout(leaf)
-        #     self.backProp(leaf, simulationResult)
-        
-        leaf = root
-        while(leaf is not None):
-            leaf = self.traverse(leaf)
+        # amount of time 
+        # 3 seconds = 10 min per game; 2 seconds = 7 mins per game; 1 second = 3min
+        startTime = time.time()
+        while(time.time() - startTime < 3):
+            leaf = self.traverse(root)
             simulationResult = self.rollout(leaf)
             self.backProp(leaf, simulationResult)
-            
-        return self.bestChild(root)
     
+        # amount of iterations
+        # for i in range(9000):
+        #     leaf = self.traverse(root) #has children
+        #     simulationResult = self.rollout(leaf)
+        #     self.backProp(leaf, simulationResult)
+        #     print(leaf)
+        #     i = i + 1
+        
+        return self.bestChild(root) 
+        
     def traverse(self, node):#written
         """Traverses the tree"""
         while(node.numVisit != 0): #While explored
-            node = self.bestChild(node) #change to math?
+            
+            best = self.calculateUCB(node.children[0])
+            bestNode = node.children[0]
+            for child in node.children:
+                if(best > self.calculateUCB(child)):
+                    best = self.calculateUCB(child)
+                    bestNode = child
             
         if(node.numVisit == 0): #if not explored
-            node = self.expand(node)
-            
-        return node
+            self.expand(node)
+            return node
+
+        return bestNode
+    
+    def calculateUCB(self, node): #written - still working on constant picking
+        #Best constant so far: 0.75
+        parentVisit = 1
+        selfVisit = 1
+        
+        if(node.parent != None):
+            if(node.parent.numVisit > 0):
+                parentVisit = node.parent.numVisit
+        else:
+            parentVisit = 1
+        if(node.numVisit > 0):
+            selfVisit = node.numVisit
+        value = node.value + (.75 * math.sqrt((math.log(parentVisit)/selfVisit)))
+        return value
         
     def expand(self, node): #written
         """Adds branches to the tree"""
@@ -74,26 +98,26 @@ class MonteCarlo(Player):
                 for card in node.curhand.hearts:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
                     
             else: #No hearts
                 if(len(node.curhand.clubs) != 0):
                     for card in node.curhand.clubs:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
                 if(len(node.curhand.diamonds) != 0):
                     for card in node.curhand.diamonds:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
                 if(len(node.curhand.spades) != 0):    
                     for card in node.curhand.spades:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
             
         elif(node.curTrump == "s"):
@@ -101,26 +125,26 @@ class MonteCarlo(Player):
                 for card in node.curhand.spades:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
     
             else: #No spades
                 if(len(node.curhand.hearts) != 0):
                     for card in node.curhand.hearts:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
         
                 if(len(node.curhand.clubs) != 0):
                     for card in node.curhand.clubs:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
         
                 if(len(node.curhand.diamonds) != 0):    
                     for card in node.curhand.diamonds:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
         
         
         elif(node.curTrump == "d"):
@@ -128,26 +152,26 @@ class MonteCarlo(Player):
                 for card in node.curhand.diamonds:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
                     
             else: #No diamonds
                 if(len(node.curhand.hearts) != 0):
                     for card in node.curhand.hearts:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
                 if(len(node.curhand.clubs) != 0):
                     for card in node.curhand.clubs:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
                 if(len(node.curhand.spades) != 0):    
                     for card in node.curhand.spades:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
         
         elif(node.curTrump == "c"):
@@ -155,51 +179,53 @@ class MonteCarlo(Player):
                 for card in node.curhand.clubs:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
                     
             else: #No clubs
                 if(len(node.curhand.hearts) != 0):
                     for card in node.curhand.hearts:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
                 if(len(node.curhand.diamonds) != 0):
                     for card in node.curhand.diamonds:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
                 if(len(node.curhand.spades) != 0):    
                     for card in node.curhand.spades:
                         hand = copy.deepcopy(node.curhand)
                         hand = hand.removeCard(card)
-                        self.addBranches(node, hand, card)
+                        node = self.addBranches(node, hand, card)
                         
         else: # Unset
             if((len(node.curhand.hearts) != 0) and (self.heartsBroken or self.hasOnlyHearts)):
                 for card in node.curhand.hearts:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
                     
             if(len(node.curhand.clubs) != 0):
                 for card in node.curhand.clubs:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
                     
             if(len(node.curhand.diamonds) != 0):
                 for card in node.curhand.diamonds:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
                     
             if(len(node.curhand.spades) != 0):    
                 for card in node.curhand.spades:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
-                    self.addBranches(node, hand, card)
+                    node = self.addBranches(node, hand, card)
+        
+        return node
                           
     def addBranches(self, node, hand, card): #written
         
@@ -253,77 +279,134 @@ class MonteCarlo(Player):
                                         child.parent = node
                                         child.curTrump = str(card1)[-1]
                                         node.children.append(child)  
+        
+        return node
                                          
     def rollout(self, node): #written
-        """rollout the the rules"""
-        while(node is not None): #while non terminal (none because it is a hand)
-            if(len(node.children) == 1):
-                node = node.children[0]
-            elif(len(node.children) != 0):
-                node = self.bestMathPick(node)
+        """Plays a random game to the finish, recording the total score"""
         
-            high = None
-            for card in node.board:
-                if(high == None):
-                    card = high
-                else:
-                    # if(type(card) != type("string")):
-                    #     card = str(card)
-                        
-                    # if(high[-1] == card[-1]):
-                    #     if(high[0] == 1):
-                    #         cardCheck = 10
-                    #     elif(high[0] == "J"):
-                    #         cardCheck = 11
-                    #     elif(high[0] == "Q"):
-                    #         cardCheck = 12
-                    #     elif(high[0] == "K"):
-                    #         cardCheck = 13
-                    #     elif(high[0] == "A"):
-                    #         cardCheck = 14
-                    #     else:
-                    #         cardCheck = int(card[0])
+        score = 0
+        if(node.curhand == None):
+            print("ruh roh")
+            return score
+        
+        copiedNode = copy.deepcopy(node)
+        copyGameClubs = copy.deepcopy(self.gameClubs)
+        copyGameDiamonds = copy.deepcopy(self.gameDiamonds)
+        copyGameHearts = copy.deepcopy(self.gameHearts)
+        copyGameSpades = copy.deepcopy(self.gameSpades)
+        
+        gameSuits = [copyGameClubs, copyGameDiamonds, copyGameHearts, copyGameSpades]
+        gameCardList = []
+        for suit in gameSuits:
+            for card in suit:
+                gameCardList.append(card)
+    
+        handSuits = [copiedNode.curhand.clubs, copiedNode.curhand.diamonds, copiedNode.curhand.hearts, copiedNode.curhand.spades]
+        handCardList = []
+        for suit in handSuits:
+            for card in suit:
+                handCardList.append(card)
+               
+        x = len(handCardList)
+        while(x != 0): #while non terminal
+            # print(x)
+            
+            if(len(copiedNode.board) == 4):
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+                
+            elif(len(copiedNode.board) == 3):
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+
+                copiedNode.board.append(monteCard)
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+            
+            elif(len(copiedNode.board) == 2):
+                randPlayer1Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer1Card)
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+
+                copiedNode.board.append(randPlayer1Card)
+                copiedNode.board.append(monteCard)
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+                
+            elif(len(copiedNode.board) == 1):
+                randPlayer1Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer1Card)
+                randPlayer2Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer2Card)
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+                
+                copiedNode.board.append(randPlayer1Card)
+                copiedNode.board.append(randPlayer2Card)
+                copiedNode.board.append(monteCard)
+                
+                trump = copiedNode.curTrump
+                board = copiedNode.board
+                
+            else:
+                randPlayer1Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer1Card)
+                randPlayer2Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer2Card)
+                randPlayer3Card = random.choice(gameCardList)
+                gameCardList.remove(randPlayer3Card)
+                
+                monteCard = random.choice(handCardList)
+                handCardList.remove(monteCard)
+
+                board = [randPlayer1Card, randPlayer2Card, randPlayer3Card, monteCard] 
+                trump = str(random.choice(board))[-1] 
+            
+            high = random.choice(board)
+            for card in board:
+                if((str(card)[-1] == trump) and (card > high)):
+                    high = card
                     
-                    # if(type(high) != type("string")):
-                    #     high = str(high)
-                        
-                    # if(high[-1] == high[-1]):
-                    #     if(high[0] == 1):
-                    #         highCheck = 10
-                    #     elif(high[0] == "J"):
-                    #         highCheck = 11
-                    #     elif(high[0] == "Q"):
-                    #         highCheck = 12
-                    #     elif(high[0] == "K"):
-                    #         highCheck = 13
-                    #     elif(high[0] == "A"):
-                    #         highCheck = 14
-                    #     else:
-                    #         highCheck = int(high[0])
-                    
-                    if(str(high)[-1] == str(card)[-1]):     
-                        if(high.rank < card.rank):
-                            high = card
-                    
-            score = 0
-            if(type(high) != type("string")):
-                for card in node.board:
-                    # if(type(card) != type("string")):
-                    #     card = str(card)
+            if(board[3] == high):
+                for card in board:
                     if(str(card)[-1] == "h"):
                         score = score + 1
                     if(str(card) == "Qs"):
                         score = score + 13 
-            return score
-                            
-    def bestMathPick(self, node): # needs to be written
-        return self.bestChild(node)
-    
-
-    def backProp(self, node, result): #written 
-        """Back propigates the tree itteratively (also contains noniterative code)"""
+            
+            x = x - 1
+            
+        # print(score)
+        return score
+        # while(node.curhand is not None): #while non terminal (none because it is a hand)
+        #     if(len(node.children) == 1):
+        #         node = node.children[0]
+        #     elif(len(node.children) != 0):
+        #         node = self.bestMathPick(node)
         
-        while node is not None:
+        #     if(node.curTrump == "Unset"):
+        #         node.curTrump == str(node.board[0])[-1]
+        #     high = node.board[0]
+        #     for card in node.board:
+        #         if(node.curTrump == str(card)[-1]):     
+        #             if(high.rank < card.rank):
+        #                 high = card
+                    
+        #     score = 0
+        #     if(node.board[1] == high):
+        #         for card in node.board:
+        #             if(str(card)[-1] == "h"):
+        #                 score = score + 1
+        #             if(str(card) == "Qs"):
+        #                 score = score + 13 
+        #     return score
+                            
+    def backProp(self, node, result): #written 
+        """Back propagates the tree itteratively (also contains recursive code)"""
+        
+        while node.parent is not None:
             node.numVisit = node.numVisit + 1
             node.value = node.value + result
             node = node.parent
@@ -335,33 +418,68 @@ class MonteCarlo(Player):
         #     node.value = node.value + result
         #     self.backProp(node.parent, result)
     
-    def bestChild(self, node): #written - needs updating (probably)
+    def bestChild(self, node): #written
         """Returns the "best" node of the one with the most visits - Can be modified to use confidence bounds (better)"""
         pick = Node([], node.curhand)
-        pick.value = 10000
+        pick.value = 30 #highest possible score is 26
         
         for child in node.children:
             childTrump = str(child.board[1])[-1]
-            if(childTrump == node.curTrump):
-                if(child.value < pick.value):
-                    pick = child
+            if(childTrump == node.curTrump): #if in the correct suit, consider it (will consider anything in right suit)
+                # if(child.value < pick.value):
+                #     pick = child 
+                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                    pick = child 
+                    # print("pick value is " + str(pick.value))
 
-            elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())):
-                if(child.value < pick.value):
-                    pick = child
+            elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())): #if hearts have been broken or monte only has hearts, consider it (only will consider hearts)
+                # if(child.value < pick.value):
+                #     pick = child
+                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                    pick = child 
+                    # print("pick value is " + str(pick.value))
             
-            else:
-                if((childTrump != "h") and (str(child.board[1]) != "Qs")):
-                        if(child.value < pick.value): 
-                            pick = child    
-
+            elif(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
+                if(childTrump != "h"): #if not a heart
+                   if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
+                        # if(child.value < pick.value): 
+                        #     pick = child
+                        if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                            pick = child 
+                            # print("pick value is " + str(pick.value))  
+            else: 
+                # if(child.value < pick.value):
+                #     pick = child
+                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                    pick = child 
+    
         return pick
     
+    def visualizeTree(self, node, file): #written
+        
+        file.write("Parent: ")
+        printlist = []
+        for card in node.board:
+            printlist.append(str(card))
+        printlist.append("\n")
+        file.write(" ".join(printlist))
+        
+        if(len(node.children) != 0):
+            printlist = []       
+            for child in node.children:
+                file.write(" Child")
+                for card in child.board:
+                    printlist.append(str(card))
+                printlist.append("//")
+                file.write(" ".join(printlist))
+                file.write("\n")
+                self.visualizeTree(child, file)
+            
 #Notes \/
 #board is with ["", "", thing, thing]
 #board state is with [thing, thing]
 
-    def playCard(self): #written - needs to rewritten faster
+    def playCard(self): #written
         """Redefines playCard from player class to use MonteCarlo"""
 
         if(self.trickNum == 0 ^ (self.trickNum == 1 and self.hand.didContain2ofClubs)):
@@ -373,16 +491,24 @@ class MonteCarlo(Player):
             
             ### remove what is in the hand ###
             for card in self.hand.clubs:
-                self.gameClubs.remove(card)
+                for secondCard in self.gameClubs:
+                    if card.isCard(secondCard):
+                        self.gameClubs.remove(secondCard)
             
             for card in self.hand.diamonds:
-                self.gameDiamonds.remove(card)
+                 for secondCard in self.gameDiamonds:
+                    if card.isCard(secondCard):
+                        self.gameDiamonds.remove(secondCard)
                     
             for card in self.hand.hearts:
-                self.gameHearts.remove(card)
+                 for secondCard in self.gameHearts:
+                    if card.isCard(secondCard):
+                        self.gameHearts.remove(secondCard)
                     
             for card in self.hand.spades:
-                self.gameSpades.remove(card)
+                 for secondCard in self.gameSpades:
+                    if card.isCard(secondCard):
+                        self.gameSpades.remove(secondCard)
                     
         ### remove what has been played already ###
 
@@ -435,12 +561,16 @@ class MonteCarlo(Player):
         # for item in card.board:
         #     board.append(str(item))
         # print(board)
+         
+        # print(self.trickHistory)   
         
-        # print(self.trickHistory)
+        # if(self.trickNum == 2): # Printed version exists at the moment for 1 round of tree stuff
+        #     wFile = open("tree.txt", "w")
+        #     self.visualizeTree(root, wFile)
         
         return card.board[1] #return the best
     
-    def play(self, option='play', c=None, auto=False): #written - taken from player
+    def play(self, option='play', discarded=None, c=None, auto=True): #written - taken from player
         """Redefines play from player class to if auto call playCard defined above"""
         if auto:
             card = self.playCard()
@@ -449,5 +579,15 @@ class MonteCarlo(Player):
         else:
             card = c
         if not auto:
-            card = self.hand.playCard(card)
+            card = self.hand.hasCard(card)
         return card
+    
+### Next Steps ###
+
+# Find a good constant
+# Write in the consideration for what other players hands are
+    # ex: Player 1 played off the suit, they do not have a suit do not consider that suit
+        #could be expanded into do not consider that combination (will make the tree smaller, might need to adjust constant)
+# Add in shoot the moon
+    # might be as simple as changing the signs to pick greatest value
+        #possible additions: bul to make it stick to one strat, conditions to switch strats (what val could be achevied as close to 26 as pos), etc.
