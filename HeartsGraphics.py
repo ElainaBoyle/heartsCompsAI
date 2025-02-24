@@ -6,7 +6,7 @@ from Elek_Agent import Elek_Agent
 from BreannaAgent import BreannaAgent
 from LevelTen import Strong_agent
 from ElainaAgent import ElainaAgent
-#from MarySue import Cbr_Agent
+from MarySue import Cbr_Agent
 #from MonteCarlo import MonteCarlo 
 from GameGraphics import GameGraphics
 import pygame
@@ -17,8 +17,6 @@ import pygame
 '''
 A copy of Hearts.py with graphics instead of text-based interaction.
 '''
-
-#from GameGraphics import GameGraphics
 
 
 '''
@@ -61,7 +59,7 @@ class Hearts:
 			self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 		else:
 			# Make four players
-			self.players = [Strong_agent("Elek", auto=True), Player("Breanna", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
+			self.players = [Player("Elek", auto=True), Player("Breanna", auto=True), Cbr_Agent("MarySue", auto=True), Player("Monte", auto=True)]
   
 		'''
 		Player physical locations:
@@ -234,7 +232,7 @@ class Hearts:
 		for i in range(start + shift, start + len(self.players)):
 	  
 			#reset variables for each player
-			self.printCurrentTrick()
+			#self.printCurrentTrick()
 			self.updatePlayerBoardState() #Added
 			curPlayerIndex = i % len(self.players)
 			self.printPlayer(curPlayerIndex)
@@ -271,7 +269,7 @@ class Hearts:
 	def playCard(self, player):
 		
 		playCard = player.play(discarded = self.memory) # change auto to False to play manually
-		print("You are trying to play card", playCard)
+		print("You are trying to play card", playCard.getIden())
   
 		if playCard is not None:
 			#You tried to play a card that's in your hand!
