@@ -91,7 +91,7 @@ class Cbr_Agent(Player):
         for game in array:
 
             #variables
-            #print("trick id is" + game[3])
+            print("trick id is" + game[3])
             hand = game[0]
             cardPlayed = game[1]
             highCardRank = int(game[2][:-1])
@@ -167,7 +167,7 @@ class Cbr_Agent(Player):
 
         try:
             conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
-            #print("Database connected successfully. MS")
+            print("Database connected successfully. MS")
         except:
             print("Database not connected successfully. MS")
 
@@ -212,9 +212,9 @@ class Cbr_Agent(Player):
             return myMove
 
     #de facto main method, where the play pattern is usually run
-    def play(self, discarded = [], option='play', c=None, auto=True):
+    def play(self, option='play', c=None, auto=True):
 
-        curTrump = self.curTrick.suit
+        curTrump = self.curTrick.suit.string
 
         #if c was specified, plays c (should probably only really happen w/ 2c), else does cbr stuff
         if c == None:
@@ -233,17 +233,19 @@ class Cbr_Agent(Player):
                 return self.hand.getRandomCard()
             else:
                 move = self.mostSimilar(frames)
-                #print("ideal move is %s" % move)
+                print("ideal move is %s" % move)
                 actualmove = self.interpolateMove(move)
-                #print("actual move is %s" % move)
+                print("actual move is %s" % move)
                 return actualmove
 
         #sets card equal to the card specified by c, currently only used for the 2 of clubs
         else:
-            for card in self.hand.fullHand:
-                if card.getIden() == c:
-                    return card
+            for suit in self.hand.hand:
+                for potential in suit:
+                    if potential.__str__() == c:
+                        card = potential
             
+        print("MarySue wins!")
         return card
 
     ### BROKEN ###

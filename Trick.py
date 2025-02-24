@@ -1,83 +1,51 @@
-from Card import Card
+from Card import Card, Suit
+
+hearts = 3 # the corresponding index to the suit hearts
+spades = 2
+queen = 12
 
 class Trick:
-	
-	'''
-	Initialize the trick
-	'''
 	def __init__(self):
 		self.trick = [0, 0, 0, 0]
-		self.suit = ""
+		self.suit = Suit(-1)
 		self.cardsInTrick = 0
 		self.points = 0
 		self.highest = 0 # rank of the high trump suit card in hand
 		self.winner = -1
-		self.starter = -1
 
-
-	'''
-	 Reset the trick
-	'''
 	def reset(self):
 		self.trick = [0, 0, 0, 0]
-		self.suit = ""
+		self.suit = -1
 		self.cardsInTrick = 0
 		self.points = 0
 		self.highest = 0
 		self.winner = -1
 
+	# def cardsInTrick(self):
+	# 	count = 0
+	# 	for card in self.trick:
+	# 		if card is not 0:
+	# 			count += 1
+	# 	return count
 
-	'''
-	 Set the starter of this trick
-	 @PARAM num an integer representing the index of the player who is starting this trick
-	'''
-	def setTrickStarter(self, num):
-		self.starter = num
+	def setTrickSuit(self, card):
+		self.suit = card.suit
 
-
-	'''
-	 Set the suit of this trick
-	 @PARAM suit a string representing the suit. eg: "s"
-	'''
-	def setTrickSuit(self, suit):
-		self.suit = suit
-
-
-	'''
-	 Add a card to this trick at the specified index
-	 @PARAM card a Card that a player is playing
-	 @PARAM index an integer representation of the index of the current player
-	 Note: cards are stored in the order of Player Indexes. so, even if P1 goes 3rd, their card will be stored in the 0th position.
-	'''
 	def addCard(self, card, index):
 		if self.cardsInTrick == 0: # if this is the first card added, set the trick suit
-			self.setTrickSuit(card.suit)
+			self.setTrickSuit(card)
 			print('Current trick suit:', self.suit)
 
 		self.trick[index] = card
 		self.cardsInTrick += 1
 
-		if card.suit == "h":
+		if card.suit == Suit(hearts):
 			self.points += 1
-		elif card.getIden() == "Qs":
+		elif card == Card(queen, spades):
 			self.points += 13
 
 		if card.suit == self.suit:
-			if card.rank > self.highest:
-				self.highest = card.rank
+			if card.rank.rank > self.highest:
+				self.highest = card.rank.rank
 				self.winner = index
 				print("Highest:",self.highest)
-	
- 
-	'''
-	 Prints information about the trick
-	 @RETURN list outList a list containing the index of the starter followed by the cards played in the trick. eg: [0, [2c, 5c, 9c, 10c]]
-	'''
-	def getTrickInfo(self):
-		print("Trick Winner:", self.winner)
-		print("Trick Starter:", self.starter)
-		print("Cards in trick:", self.trick[0].getIden(), self.trick[1].getIden(), self.trick[2].getIden(), self.trick[3].getIden())
-		outList = [0,0]
-		outList[0] = self.starter
-		outList[1] = self.trick
-		return outList

@@ -1,57 +1,118 @@
-class Card: #value = int representation of rank
+class Card:
 	def __init__(self, rank, suit):
-     
-		
-		#Added to allow suits to be written as integers, for Monte convenience.
-		suits = ["c","d","s","h"]
-		if isinstance(suit, int):
-			suit = suits[suit]
-  
-  
-		self.stringRank = str(rank)
-		self.suit = suit
+		self.rank = Rank(rank)
+		self.suit = Suit(suit)
 		self.value = int(rank)
 
-		if self.value == 11:
-			self.stringRank = "J"
-		elif self.value == 12:
-			self.stringRank = "Q"
-		elif self.value == 13:
-			self.stringRank = "K"
-		elif self.value == 14:
-			self.stringRank = "A"
-		else:
-			self.stringRank = str(rank)
+	def __lt__(self, other):
+		return (self.rank < other.rank or (self.rank == other.rank and self.suit < other.suit))
 
-   
-		self.rank = self.value # for now.
-   		
+	def __ge__(self, other):
+		return not (self < other)
+
+	def __gt__(self, other):
+		return (self.rank > other.rank or (self.rank == other.rank and self.suit > other.suit))
+
+	def __le__(self, other):
+		return not (self > other)
+
+	def __eq__(self, other):
+		if(other == 0):
+			return False
+		return (self.rank == other.rank and self.suit == other.suit)
+
+	def __ne__(self, other):
+		return not (self == other)
 
 	def rank(self):
-		return self.value
-
-	def getSuitInt(self): 
-		suits = ["c","d","s","h"]
-		if self.suit in suits:
-			return suits.index(self.suit)
-		else: return 
-
-	def stringRank(self):
-		return str(self.rank)
-
-	def getIden(self): #returns as string
-		return self.stringRank + self.suit
+		return self.rank
 
 	def suit(self):
-		return self.suit #will always be a string
+		return self.suit
 
-	def isCard(self, card):
-		if card.getIden() == self.getIden():
-			return card
+	def __str__(self):
+		return self.rank.__str__() + self.suit.__str__()
 
+'''
+Suit identification (iden)
+0: clubs
+1: diamonds
+2: spades
+3: hearts
+
+The suit that leads is trump, aces are high
+'''
+
+class Suit:
+	def __init__(self, iden):
+		self.iden = iden
+		self.string = ''
+		suits = ["c", "d", "s", "h"]
+		if iden == -1:
+			self.string = "Unset"
+		elif iden <= 3:
+			self.string = suits[iden]
+		else:
+			print('Invalid card identifier')
+
+	def __eq__(self, other):
+		return self.iden == other.iden
+
+	def __ne__(self, other):
+		return not (self == other)
 
 	def __lt__(self, other):
-		if self.rank < other.rank:
-			return True
+		return self.iden < other.iden
+
+	def __gt__(self, other):
+		return self.iden > other.iden
+
+	def __ge__(self, other):
+		return not (self < other)
+
+	def __le__(self, other):
+		return not (self > other)
+
+	def __str__(self):
+		return self.string
+
+
+
+'''
+Ranks indicated by numbers 2-14, 2-Ace
+Where ace is high and two is low
+'''
+class Rank:
+	def __init__(self, rank):
+		self.rank = rank
+		self.string = ''
+
+		strings = ["J", "Q", "K", "A"]
+
+		if rank >= 2 and rank <= 10:
+			self.string = str(rank)
+		elif rank > 10 and rank <= 14:
+			self.string = strings[rank - 11]
 		else:
-			return False
+			print('Invalid rank identifier')
+
+	def __lt__(self, other):
+		return self.rank < other.rank
+
+	def __ge__(self, other):
+		return not (self < other)
+
+	def __gt__(self, other):
+		return self.rank > other.rank
+
+	def __le__(self, other):
+		return not (self > other)
+
+	def __eq__(self, other):
+		return self.rank == other.rank
+
+	def __ne__(self, other):
+		return not (self == other)
+
+	def __str__(self):
+		return self.string

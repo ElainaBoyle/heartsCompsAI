@@ -1,14 +1,15 @@
 import random as rand
+
 from Card import Card
 
+numSuits = 4
 minRank = 2
 maxRank = 15
-suits = ["c", "d", "s", "h"]
 
 class Deck:
-	def __init__(self): 
+	def __init__(self):
 		self.deck = []
-		for suit in suits:
+		for suit in range(0,numSuits):
 			for rank in range(minRank,maxRank):
 				self.deck.append(Card(rank, suit))
 
@@ -21,7 +22,7 @@ class Deck:
 	def shuffle(self):
 		rand.shuffle(self.deck)
 
-	def deal(self): 
+	def deal(self):
 		return self.deck.pop(0)
 
 	def sort(self):

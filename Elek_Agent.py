@@ -1,8 +1,8 @@
 '''
 Agent which always plays the lowest card possible. 
+In the passing phase, it will pass its highest cards first
 '''
 from Player import Player
-from Card import Card
 
 class Elek_Agent(Player):
 
@@ -52,10 +52,7 @@ class Elek_Agent(Player):
 
         play = suitCards[0]
         for card in suitCards:
-            print(card.getIden())
-
-            if(card.rank > highCard.rank) and (card.rank > play.rank):
-                print(card.getIden())
+            if(card.rank < highCard.rank) and (card.rank > play.rank):
                 play = card
 
         return play
@@ -63,10 +60,10 @@ class Elek_Agent(Player):
 
     #gets the highest value card of the current trick (thats in the trump suit)
     def getHighCard(self):
-        highCard = Card(0,"c")
+        highCard = self.boardState[0]
         
         for played in self.boardState:
-            if((played.rank > highCard.rank)) and (played.suit == self.curTrick.suit):
+            if((played.rank > played.rank)) and (self.suit == self.curTrick.suit.string):
                 highCard = played
 
         return highCard
@@ -78,20 +75,18 @@ class Elek_Agent(Player):
 
     def play(self, option='play', c=None, auto=True):
 
-        cur_suit = self.curTrick.suit
-        
+        cur_suit = self.curTrick.suit.string
 
         #plays the lowest card in the trump suit if possible, otherwise plays a random card
         if c == None:
 
             #first card of trick, can only play hearts if nothing else or already been broken
-            if cur_suit == "":
+            if cur_suit == 'Unset':
                 #do something interesting
                 card = self.hand.getRandomCard()
                 return card
 
 
-            print("cur_suit:", cur_suit)
             if(cur_suit == "c"):
                 suitCards = self.hand.clubs
             elif(cur_suit == "d"):
@@ -102,16 +97,15 @@ class Elek_Agent(Player):
                 suitCards = self.hand.hearts
 
             firstTrick = False
-            
-            for play in self.curTrick.trick: #there's a better way to do this maybe
+            for play in self.curTrick.trick:
                 try:
-                    if play.getIden() == "2c":
+                    if play.rank.rank == 2 and play.suit.string == 'c':
                         firstTrick = True
                 except:
                         firstTrick = firstTrick
 
 
-            print(suitCards)
+
             #if can play trump, play trump
             if len(suitCards) > 0:
                 highCard = self.getHighCard()
@@ -124,10 +118,29 @@ class Elek_Agent(Player):
                 card = self.playHearts()
 
         else:
-            card = c
+            for suit in self.hand.hand:
+                for potential in suit:
+                    if potential.__str__() == c:
+                        card = potential
             
+
 
         return card
 
 
 
+    #takes the first 3 cards in hand that aren't in the most common suit and passes those
+
+    ### BROKEN ###
+    def passing(self, player_num):
+        my_cards = self.boardState[player_num-1].split()
+        passing_cards = []
+
+        com_suit = self.most_common_suit(my_cards)
+        
+        for x in my_cards:
+            if x[-1:] != com_suit:
+                passing_cards.append(x)
+                if(len(passing_cards) == 3):
+                    return passing_cards
+        return passing_cards
