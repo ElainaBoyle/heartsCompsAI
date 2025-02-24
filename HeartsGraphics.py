@@ -88,6 +88,9 @@ class Hearts:
 		self.heartsBroken = False
 		self.dealer = (self.dealer + 1) % len(self.players)
   
+		if realPlayer:
+			self.myGame.reset()
+  
 		#Reset Deck
 		self.deck = Deck()
 		self.deck.shuffle()
@@ -102,6 +105,8 @@ class Hearts:
 			p.trickNum = 0
 			p.discardTricks()
 			p.heartsBroken = False
+   
+		
 
 
 	'''
@@ -243,10 +248,11 @@ class Hearts:
 
 			print("Playing card", playCard.getIden())
 
+
+			curPlayer.removeCard(playCard)
 			if realPlayer:
 				self.myGame.addCardToTrick(curPlayerIndex, playCard)
 				self.myGame.updateGraphics()
-			curPlayer.removeCard(playCard)
    
 			self.currentTrick.addCard(playCard, curPlayerIndex)
 			self.memory[-1].append(playCard)

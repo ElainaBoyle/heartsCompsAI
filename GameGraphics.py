@@ -29,6 +29,7 @@ class GameGraphics:
     
     middleCards = pygame.sprite.Group()
     
+    
     waitTime = 300 #change how long it waits between actions
 
     def __init__(self):
@@ -36,16 +37,16 @@ class GameGraphics:
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         pygame.display.set_caption("Hearts")
         self.screen.fill(self.BACKGROUND_COLOR)
+
+        self.reset()
         
+        
+        
+        
+    def reset(self):
+        self.overlap = 50
         self.startPos = 500 - (6 * (self.cardwidth - self.overlap)) # 6 cards before the center, 100-overlap apart.
         
-        
-        
-        
-    def setHand(self, hand):
-        self.myHand = hand
-        #print(self.myHand)
-
 
 
 
@@ -57,9 +58,9 @@ class GameGraphics:
     
     def updateOverlap(self):
         self.overlap = len(self.cards) * 4
-        self.startPos = 525 - ((self.cardwidth - self.overlap) * len(self.cards)/2)
+        pos = 525 - ((self.cardwidth - self.overlap) * len(self.cards)/2)
         
-        x = self.startPos
+        x = pos
         y = self.p1Card_y
         
         for card in self.cards:
@@ -89,14 +90,15 @@ class GameGraphics:
                         clickedSprite = None
                         print("No card sprite clicked.")
                     return clickedSprite
-                elif event.type ==pygame.QUIT:
+                elif event.type == pygame.QUIT:
                     pygame.quit()
     
     def addCardToTrick(self, playerIdx, card):
         print("Player", playerIdx, "Played card", card.getIden())
         
-
-        if playerIdx == 1:
+        if playerIdx == 0:
+            pos = (500, 600)
+        elif playerIdx == 1:
             pos = (300, 500)
         elif playerIdx == 2:
             pos = (500, 300)
@@ -106,16 +108,18 @@ class GameGraphics:
             
         newCard = CardDisp(card, pos[0], pos[1])
         self.middleCards.add(newCard)
+        self.updateGraphics()
+        pygame.time.wait(500)
         
     def concludeTrick(self, winnerIdx):
         if winnerIdx == 0:
-            direction = (0, 100)
+            direction = (0, 5)
         elif winnerIdx == 1:
-            direction = (-100, 0)
+            direction = (-5, 0)
         elif winnerIdx == 2:
-            direction = (0, -100)
+            direction = (0, -5)
         elif winnerIdx == 3:
-            direction = (100, 0)
+            direction = (5, 0)
             
         concluding = True
         
@@ -154,10 +158,13 @@ class GameGraphics:
         #card indicator?
         
         #Handle Events
+        ev = pygame.event.get()
+        for event in ev:
+            if event.type == pygame.QUIT:
+                pygame.quit()
         
         
         pygame.display.flip()
-        pygame.time.wait(self.waitTime)
         return
             
     

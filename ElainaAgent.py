@@ -21,6 +21,8 @@ class ElainaAgent(Player):
 			self.hand.addCard(card)
 
 			self.myGame.updateGraphics()
+			pygame.time.wait(500)
+
 			return
 
 		def play(self, discarded = [], option='play', c=None):
@@ -39,18 +41,16 @@ class ElainaAgent(Player):
 				if cardspr.getIden() == card.getIden():
 					print("ITS HAPPENING")
 					#Move this card to the middle
-					cardspr.rect.center = (500, 600)
 					self.myGame.cards.remove(cardspr)
-					self.myGame.middleCards.add(cardspr)
 					
 					self.myGame.updateOverlap()
 					self.myGame.updateGraphics()
 					super().removeCard(card)
 					return
-			
+ 
 
 
-			
+   
 		'''
 		def play(self):
 			print("YAHOOOO")
