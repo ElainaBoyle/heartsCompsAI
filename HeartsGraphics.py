@@ -6,8 +6,8 @@ from Elek_Agent import Elek_Agent
 from BreannaAgent import BreannaAgent
 from LevelTen import Strong_agent
 from ElainaAgent import ElainaAgent
-from MarySue import Cbr_Agent
-#from MonteCarlo import MonteCarlo 
+#from MarySue import Cbr_Agent
+from MonteCarlo import MonteCarlo 
 from GameGraphics import GameGraphics
 import pygame
 
