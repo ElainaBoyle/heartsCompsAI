@@ -79,7 +79,7 @@ class Hand:
 	 
 		# see if player has that card in hand
 		for card in self.fullHand:
-			print(card.getIden(), cardStr)
+			#print(card.getIden(), cardStr)
 			if card.getIden() == cardStr:
 				return card
 
