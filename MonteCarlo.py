@@ -284,7 +284,7 @@ class MonteCarlo(Player):
                                          
     def rollout(self, node): #written
         """Plays a random game to the finish, recording the total score"""
-        
+         
         score = 0
         if(node.curhand == None):
             print("ruh roh")
@@ -366,8 +366,9 @@ class MonteCarlo(Player):
             
             high = random.choice(board)                
             for card in board:    
-                if((str(card)[-1] == trump) and (card > high)): #How to get the rank of a card
-                    high = card
+                if(str(card)[-1] == trump):
+                   if(card > high or str(card)[-1] != trump): #How to get the rank of a card
+                        high = card
                     
                     
             if(board[3] == high):
