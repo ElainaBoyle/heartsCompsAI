@@ -201,7 +201,7 @@ class MonteCarlo(Player):
                         node = self.addBranches(node, hand, card)
                         
         else: # Unset
-            if((len(node.curhand.hearts) != 0) and (self.heartsBroken or self.hasOnlyHearts)):
+            if((len(node.curhand.hearts) != 0) and (self.heartsBroken or self.hasOnlyHearts())):
                 for card in node.curhand.hearts:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
@@ -284,7 +284,7 @@ class MonteCarlo(Player):
                                          
     def rollout(self, node): #written
         """Plays a random game to the finish, recording the total score"""
-        
+         
         score = 0
         if(node.curhand == None):
             print("ruh roh")
@@ -364,10 +364,12 @@ class MonteCarlo(Player):
                 board = [randPlayer1Card, randPlayer2Card, randPlayer3Card, monteCard] 
                 trump = str(random.choice(board))[-1] 
             
-            high = random.choice(board)
-            for card in board:
-                if((str(card)[-1] == trump) and (card > high)):
-                    high = card
+            high = random.choice(board)                
+            for card in board:    
+                if(str(card)[-1] == trump):
+                   if(card.rank > high.rank or str(card)[-1] != trump): #How to get the rank of a card
+                        high = card
+                    
                     
             if(board[3] == high):
                 for card in board:
@@ -423,35 +425,97 @@ class MonteCarlo(Player):
         pick = Node([], node.curhand)
         pick.value = 30 #highest possible score is 26
         
+        hasChild = False
         for child in node.children:
-            childTrump = str(child.board[1])[-1]
-            if(childTrump == node.curTrump): #if in the correct suit, consider it (will consider anything in right suit)
-                # if(child.value < pick.value):
-                #     pick = child 
-                if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                    pick = child 
-                    # print("pick value is " + str(pick.value))
-
-            elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())): #if hearts have been broken or monte only has hearts, consider it (only will consider hearts)
-                # if(child.value < pick.value):
-                #     pick = child
-                if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                    pick = child 
-                    # print("pick value is " + str(pick.value))
             
-            elif(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
-                if(childTrump != "h"): #if not a heart
+            childTrump = str(child.board[1])[-1]
+            
+            if(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
+                if(str(child.board[1]) != "h"): #if not a heart
                    if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
-                        # if(child.value < pick.value): 
-                        #     pick = child
+                        if(childTrump == self.curTrump):
+                            if(hasChild):
+                                if(len(pick.board) != 0):
+                                    if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                        pick = child
+                                else:
+                                    pick = child
+                            else:
+                                pick = child
+                                hasChild = True
+                        elif(hasChild == False):
+                            if(len(pick.board) != 0):
+                                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                    pick = child
+                            else:
+                                pick = child
+                                
+            elif(self.heartsBroken == False):
+                if(str(child.board[1]) != "h"): #if not a heart
+                    if(childTrump == self.curTrump):
+                        if(hasChild):
+                            if(len(pick.board) != 0):
+                                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                    pick = child
+                            else:
+                                pick = child
+                        else:
+                            pick = child
+                            hasChild = True
+                    elif(hasChild == False):
+                        if(len(pick.board) != 0):
+                            if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                pick = child
+                        else:
+                            pick = child
+            elif(self.heartsBroken or self.hasOnlyHearts):
+                if(childTrump == self.curTrump):
+                    if(hasChild):
+                        if(len(pick.board) != 0):
+                            if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                pick = child
+                        else:
+                            pick = child
+                    else:
+                        pick = child
+                        hasChild = True
+                elif(hasChild == False):
+                    if(len(pick.board) != 0):
                         if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                            pick = child 
-                            # print("pick value is " + str(pick.value))  
-            else: 
-                # if(child.value < pick.value):
-                #     pick = child
-                if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                    pick = child 
+                            pick = child
+                    else:
+                        pick = child
+        
+        
+        # for child in node.children:
+        #     childTrump = str(child.board[1])[-1]
+        #     if(childTrump == node.curTrump): #if in the correct suit, consider it (will consider anything in right suit)
+        #         # if(child.value < pick.value):
+        #         #     pick = child 
+        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #             pick = child 
+        #             # print("pick value is " + str(pick.value))
+
+        #     elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())): #if hearts have been broken or monte only has hearts, consider it (only will consider hearts)
+        #         # if(child.value < pick.value):
+        #         #     pick = child
+        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #             pick = child 
+        #             # print("pick value is " + str(pick.value))
+            
+        #     elif(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
+        #         if(childTrump != "h"): #if not a heart
+        #            if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
+        #                 # if(child.value < pick.value): 
+        #                 #     pick = child
+        #                 if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #                     pick = child 
+        #                     # print("pick value is " + str(pick.value))  
+        #     else: 
+        #         # if(child.value < pick.value):
+        #         #     pick = child
+        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #             pick = child 
     
         return pick
     
@@ -572,12 +636,13 @@ class MonteCarlo(Player):
     
     def play(self, option='play', discarded=None, c=None, auto=True): #written - taken from player
         """Redefines play from player class to if auto call playCard defined above"""
-        if auto:
+        if c is not None:
+            card = self.hand.hasCard(c)
+        elif auto:
             card = self.playCard()
         elif c is None:
             card = self.getInput(option)
-        else:
-            card = c
+            
         if not auto:
             card = self.hand.hasCard(card)
         return card
