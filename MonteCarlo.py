@@ -367,7 +367,7 @@ class MonteCarlo(Player):
             high = random.choice(board)                
             for card in board:    
                 if(str(card)[-1] == trump):
-                   if(card > high or str(card)[-1] != trump): #How to get the rank of a card
+                   if(card.rank > high.rank or str(card)[-1] != trump): #How to get the rank of a card
                         high = card
                     
                     
@@ -636,12 +636,13 @@ class MonteCarlo(Player):
     
     def play(self, option='play', discarded=None, c=None, auto=True): #written - taken from player
         """Redefines play from player class to if auto call playCard defined above"""
-        if auto:
+        if c is not None:
+            card = self.hand.hasCard(c)
+        elif auto:
             card = self.playCard()
         elif c is None:
             card = self.getInput(option)
-        else:
-            card = c
+            
         if not auto:
             card = self.hand.hasCard(card)
         return card
