@@ -431,7 +431,7 @@ class MonteCarlo(Player):
             childTrump = str(child.board[1])[-1]
             
             if(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
-                if(childTrump != "h"): #if not a heart
+                if(str(child.board[1]) != "h"): #if not a heart
                    if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
                         if(childTrump == self.curTrump):
                             if(hasChild):
@@ -451,7 +451,7 @@ class MonteCarlo(Player):
                                 pick = child
                                 
             elif(self.heartsBroken == False):
-                if(childTrump != "h"): #if not a heart
+                if(str(child.board[1]) != "h"): #if not a heart
                     if(childTrump == self.curTrump):
                         if(hasChild):
                             if(len(pick.board) != 0):
@@ -468,7 +468,7 @@ class MonteCarlo(Player):
                                 pick = child
                         else:
                             pick = child
-            else:
+            elif(self.heartsBroken or self.hasOnlyHearts):
                 if(childTrump == self.curTrump):
                     if(hasChild):
                         if(len(pick.board) != 0):
@@ -487,35 +487,35 @@ class MonteCarlo(Player):
                         pick = child
         
         
-        for child in node.children:
-            childTrump = str(child.board[1])[-1]
-            if(childTrump == node.curTrump): #if in the correct suit, consider it (will consider anything in right suit)
-                # if(child.value < pick.value):
-                #     pick = child 
-                if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                    pick = child 
-                    # print("pick value is " + str(pick.value))
+        # for child in node.children:
+        #     childTrump = str(child.board[1])[-1]
+        #     if(childTrump == node.curTrump): #if in the correct suit, consider it (will consider anything in right suit)
+        #         # if(child.value < pick.value):
+        #         #     pick = child 
+        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #             pick = child 
+        #             # print("pick value is " + str(pick.value))
 
-            elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())): #if hearts have been broken or monte only has hearts, consider it (only will consider hearts)
-                # if(child.value < pick.value):
-                #     pick = child
-                if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                    pick = child 
-                    # print("pick value is " + str(pick.value))
+        #     elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())): #if hearts have been broken or monte only has hearts, consider it (only will consider hearts)
+        #         # if(child.value < pick.value):
+        #         #     pick = child
+        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #             pick = child 
+        #             # print("pick value is " + str(pick.value))
             
-            elif(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
-                if(childTrump != "h"): #if not a heart
-                   if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
-                        # if(child.value < pick.value): 
-                        #     pick = child
-                        if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                            pick = child 
-                            # print("pick value is " + str(pick.value))  
-            else: 
-                # if(child.value < pick.value):
-                #     pick = child
-                if(self.calculateUCB(child) < self.calculateUCB(pick)):
-                    pick = child 
+        #     elif(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
+        #         if(childTrump != "h"): #if not a heart
+        #            if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
+        #                 # if(child.value < pick.value): 
+        #                 #     pick = child
+        #                 if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #                     pick = child 
+        #                     # print("pick value is " + str(pick.value))  
+        #     else: 
+        #         # if(child.value < pick.value):
+        #         #     pick = child
+        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
+        #             pick = child 
     
         return pick
     
