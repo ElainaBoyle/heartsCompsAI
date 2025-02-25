@@ -201,7 +201,7 @@ class MonteCarlo(Player):
                         node = self.addBranches(node, hand, card)
                         
         else: # Unset
-            if((len(node.curhand.hearts) != 0) and (self.heartsBroken or self.hasOnlyHearts)):
+            if((len(node.curhand.hearts) != 0) and (self.heartsBroken or self.hasOnlyHearts())):
                 for card in node.curhand.hearts:
                     hand = copy.deepcopy(node.curhand)
                     hand = hand.removeCard(card)
