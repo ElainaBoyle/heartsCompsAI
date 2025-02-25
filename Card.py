@@ -51,7 +51,7 @@ class Card: #value = int representation of rank
 
 
 	def __lt__(self, other):
-		if self.rank() < other.rank():
+		if self.rank < other.rank:
 			return True
 		else:
 			return False
