@@ -364,10 +364,11 @@ class MonteCarlo(Player):
                 board = [randPlayer1Card, randPlayer2Card, randPlayer3Card, monteCard] 
                 trump = str(random.choice(board))[-1] 
             
-            high = random.choice(board)
-            for card in board:
-                if((str(card)[-1] == trump) and (card > high)):
+            high = random.choice(board)                
+            for card in board:    
+                if((str(card)[-1] == trump) and (card > high)): #How to get the rank of a card
                     high = card
+                    
                     
             if(board[3] == high):
                 for card in board:
@@ -422,6 +423,68 @@ class MonteCarlo(Player):
         """Returns the "best" node of the one with the most visits - Can be modified to use confidence bounds (better)"""
         pick = Node([], node.curhand)
         pick.value = 30 #highest possible score is 26
+        
+        hasChild = False
+        for child in node.children:
+            
+            childTrump = str(child.board[1])[-1]
+            
+            if(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
+                if(childTrump != "h"): #if not a heart
+                   if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
+                        if(childTrump == self.curTrump):
+                            if(hasChild):
+                                if(len(pick.board) != 0):
+                                    if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                        pick = child
+                                else:
+                                    pick = child
+                            else:
+                                pick = child
+                                hasChild = True
+                        elif(hasChild == False):
+                            if(len(pick.board) != 0):
+                                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                    pick = child
+                            else:
+                                pick = child
+                                
+            elif(self.heartsBroken == False):
+                if(childTrump != "h"): #if not a heart
+                    if(childTrump == self.curTrump):
+                        if(hasChild):
+                            if(len(pick.board) != 0):
+                                if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                    pick = child
+                            else:
+                                pick = child
+                        else:
+                            pick = child
+                            hasChild = True
+                    elif(hasChild == False):
+                        if(len(pick.board) != 0):
+                            if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                pick = child
+                        else:
+                            pick = child
+            else:
+                if(childTrump == self.curTrump):
+                    if(hasChild):
+                        if(len(pick.board) != 0):
+                            if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                                pick = child
+                        else:
+                            pick = child
+                    else:
+                        pick = child
+                        hasChild = True
+                elif(hasChild == False):
+                    if(len(pick.board) != 0):
+                        if(self.calculateUCB(child) < self.calculateUCB(pick)):
+                            pick = child
+                    else:
+                        pick = child
+        
         
         for child in node.children:
             childTrump = str(child.board[1])[-1]
