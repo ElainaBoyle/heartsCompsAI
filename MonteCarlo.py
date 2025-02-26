@@ -37,7 +37,9 @@ class MonteCarlo(Player):
         self.gameDiamonds = [Card(2,1), Card(3,1), Card(4,1), Card(5,1), Card(6,1), Card(7,1), Card(8,1), Card(9,1), Card(10 ,1), Card(11, 1), Card(12,1), Card(13,1), Card(14,1)]
         self.gameSpades = [Card(2,2), Card(3,2), Card(4,2), Card(5,2), Card(6,2), Card(7,2), Card(8,2), Card(9,2), Card(10 ,2), Card(11, 2), Card(12,2), Card(13,2), Card(14,2)]
         self.gameHearts = [Card(2,3), Card(3,3), Card(4,3), Card(5,3), Card(6,3), Card(7,3), Card(8,3), Card(9,3), Card(10 ,3), Card(11, 3), Card(12,3), Card(13,3), Card(14,3)]
-        
+        self.UCBConstant = 0.75
+
+
     def MonteSearch(self, root): #written
         """Monte Carlo Tree Search (calls helper functions)"""
         # amount of time 
@@ -48,19 +50,18 @@ class MonteCarlo(Player):
             simulationResult = self.rollout(leaf)
             self.backProp(leaf, simulationResult)
     
-        # amount of iterations
-        # for i in range(9000):
-        #     leaf = self.traverse(root) #has children
-        #     simulationResult = self.rollout(leaf)
-        #     self.backProp(leaf, simulationResult)
-        #     print(leaf)
-        #     i = i + 1
-        
         return self.bestChild(root) 
         
     def traverse(self, node):#written
         """Traverses the tree"""
         while(node.numVisit != 0): #While explored
+            if(self.score > 7):
+                for cHeart in self.gameHearts:
+                    if(cHeart in node.board):
+                        self.UCBConstant *= -1
+                        break
+            else:
+                self.UCBConstant = 0.75
             
             best = self.calculateUCB(node.children[0])
             bestNode = node.children[0]
@@ -87,13 +88,24 @@ class MonteCarlo(Player):
             parentVisit = 1
         if(node.numVisit > 0):
             selfVisit = node.numVisit
-        value = node.value + (.75 * math.sqrt((math.log(parentVisit)/selfVisit)))
+        value = node.value + (self.calculateUCB * math.sqrt((math.log(parentVisit)/selfVisit)))
         return value
         
     def expand(self, node): #written
         """Adds branches to the tree"""
+        if(self.score > 7):
+            if(len(node.curhand.hearts) != 0 and (self.heartsBroken and self.hasOnlyHearts)):
+                for card in node.curhand.hearts:
+                        hand = copy.deepcopy(node.curhand)
+                        hand = hand.removeCard(card)
+                        node = self.addBranches(node, hand, card)
+            elif((Card(12,2) in node.curhand.spades) and (node.curTrump == "s")):
+                hand = copy.deepcopy(node.curhand)
+                hand = hand.removeCard("Qs")
+                node = self.addBranches(node, hand, "Qs")
+                         
         
-        if(node.curTrump == "h"):
+        elif(node.curTrump == "h"):
             if(len(node.curhand.hearts) != 0):
                 for card in node.curhand.hearts:
                     hand = copy.deepcopy(node.curhand)
