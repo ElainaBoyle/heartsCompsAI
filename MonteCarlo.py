@@ -413,7 +413,7 @@ class MonteCarlo(Player):
             
             childTrump = str(child.board[1])[-1]
             
-            if(self.trickNum == 1): #will consider everything but hearts and the queen of spades on first trick)
+            if(self.trickNum == 0): #will consider everything but hearts and the queen of spades on first trick)
                 if(str(child.board[1]) != "h"): #if not a heart
                    if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
                         if(childTrump == self.curTrump):
@@ -563,6 +563,7 @@ class MonteCarlo(Player):
         root.curTrump = self.curTrump
         card = self.MonteSearch(root) #do the algo and get the best card
         
+        print(self.trickNum)
         return card.board[1] #return the best
     
     def play(self, option='play', discarded=None, c=None, auto=True): #written - taken from player
