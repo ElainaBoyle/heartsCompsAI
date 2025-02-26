@@ -55,7 +55,7 @@ class MonteCarlo(Player):
     def traverse(self, node):#written
         """Traverses the tree"""
         while(node.numVisit != 0): #While explored
-            if(self.score > 7):
+            if(self.score >= 7):
                 for cHeart in self.gameHearts:
                     if(cHeart in node.board):
                         self.UCBConstant *= -1
