@@ -392,30 +392,8 @@ class MonteCarlo(Player):
             
             x = x - 1
             
-        # print(score)
         return score
-        # while(node.curhand is not None): #while non terminal (none because it is a hand)
-        #     if(len(node.children) == 1):
-        #         node = node.children[0]
-        #     elif(len(node.children) != 0):
-        #         node = self.bestMathPick(node)
-        
-        #     if(node.curTrump == "Unset"):
-        #         node.curTrump == str(node.board[0])[-1]
-        #     high = node.board[0]
-        #     for card in node.board:
-        #         if(node.curTrump == str(card)[-1]):     
-        #             if(high.rank < card.rank):
-        #                 high = card
-                    
-        #     score = 0
-        #     if(node.board[1] == high):
-        #         for card in node.board:
-        #             if(str(card)[-1] == "h"):
-        #                 score = score + 1
-        #             if(str(card) == "Qs"):
-        #                 score = score + 13 
-        #     return score
+
                             
     def backProp(self, node, result): #written 
         """Back propagates the tree itteratively (also contains recursive code)"""
@@ -425,13 +403,6 @@ class MonteCarlo(Player):
             node.value = node.value + result
             node = node.parent
         
-        # if(node == None):
-        #     return
-        # else:
-        #     node.numVisit = node.numVisit + 1
-        #     node.value = node.value + result
-        #     self.backProp(node.parent, result)
-    
     def bestChild(self, node): #written
         """Returns the "best" node of the one with the most visits - Can be modified to use confidence bounds (better)"""
         pick = Node([], node.curhand)
@@ -442,7 +413,7 @@ class MonteCarlo(Player):
             
             childTrump = str(child.board[1])[-1]
             
-            if(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
+            if(self.trickNum != 1): #will consider everything but hearts and the queen of spades on first trick)
                 if(str(child.board[1]) != "h"): #if not a heart
                    if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
                         if(childTrump == self.curTrump):
@@ -497,37 +468,6 @@ class MonteCarlo(Player):
                             pick = child
                     else:
                         pick = child
-        
-        
-        # for child in node.children:
-        #     childTrump = str(child.board[1])[-1]
-        #     if(childTrump == node.curTrump): #if in the correct suit, consider it (will consider anything in right suit)
-        #         # if(child.value < pick.value):
-        #         #     pick = child 
-        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
-        #             pick = child 
-        #             # print("pick value is " + str(pick.value))
-
-        #     elif(self.heartsBroken or (len(self.hand.hearts) == self.hand.size())): #if hearts have been broken or monte only has hearts, consider it (only will consider hearts)
-        #         # if(child.value < pick.value):
-        #         #     pick = child
-        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
-        #             pick = child 
-        #             # print("pick value is " + str(pick.value))
-            
-        #     elif(self.trickNum != 0): #will consider everything but hearts and the queen of spades on first trick)
-        #         if(childTrump != "h"): #if not a heart
-        #            if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
-        #                 # if(child.value < pick.value): 
-        #                 #     pick = child
-        #                 if(self.calculateUCB(child) < self.calculateUCB(pick)):
-        #                     pick = child 
-        #                     # print("pick value is " + str(pick.value))  
-        #     else: 
-        #         # if(child.value < pick.value):
-        #         #     pick = child
-        #         if(self.calculateUCB(child) < self.calculateUCB(pick)):
-        #             pick = child 
     
         return pick
     
@@ -617,32 +557,11 @@ class MonteCarlo(Player):
                 
                 if(str(card)[-1] == "s" and (card in self.gameSpades)):
                     self.gameSpades.remove(card)
-                
-        # erCheck = []
-        # for card in self.gameClubs:
-        #     erCheck.append(str(card))
-        # for card in self.gameHearts:
-        #     erCheck.append(str(card))
-        # for card in self.gameDiamonds:
-        #     erCheck.append(str(card))
-        # for card in self.gameSpades:
-        #     erCheck.append(str(card))
-        # print(erCheck)
+
         
         root = Node(self.boardState, self.hand)
         root.curTrump = self.curTrump
         card = self.MonteSearch(root) #do the algo and get the best card
-        
-        # board = []
-        # for item in card.board:
-        #     board.append(str(item))
-        # print(board)
-         
-        # print(self.trickHistory)   
-        
-        # if(self.trickNum == 2): # Printed version exists at the moment for 1 round of tree stuff
-        #     wFile = open("tree.txt", "w")
-        #     self.visualizeTree(root, wFile)
         
         return card.board[1] #return the best
     
@@ -659,12 +578,3 @@ class MonteCarlo(Player):
             card = self.hand.hasCard(card)
         return card
     
-### Next Steps ###
-
-# Find a good constant
-# Write in the consideration for what other players hands are
-    # ex: Player 1 played off the suit, they do not have a suit do not consider that suit
-        #could be expanded into do not consider that combination (will make the tree smaller, might need to adjust constant)
-# Add in shoot the moon
-    # might be as simple as changing the signs to pick greatest value
-        #possible additions: bul to make it stick to one strat, conditions to switch strats (what val could be achevied as close to 26 as pos), etc.
