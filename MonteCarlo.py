@@ -413,7 +413,7 @@ class MonteCarlo(Player):
             
             childTrump = str(child.board[1])[-1]
             
-            if(self.trickNum != 1): #will consider everything but hearts and the queen of spades on first trick)
+            if(self.trickNum == 1): #will consider everything but hearts and the queen of spades on first trick)
                 if(str(child.board[1]) != "h"): #if not a heart
                    if(str(child.board[1]) != "Qs"): #or queen of spades on the first trick, consider it
                         if(childTrump == self.curTrump):
