@@ -88,7 +88,7 @@ class MonteCarlo(Player):
             parentVisit = 1
         if(node.numVisit > 0):
             selfVisit = node.numVisit
-        value = node.value + (self.calculateUCB * math.sqrt((math.log(parentVisit)/selfVisit)))
+        value = node.value + (self.UCBConstant * math.sqrt((math.log(parentVisit)/selfVisit)))
         return value
         
     def expand(self, node): #written
@@ -451,7 +451,7 @@ class MonteCarlo(Player):
                                 pick = child
                         else:
                             pick = child
-            elif(self.heartsBroken or self.hasOnlyHearts):
+            elif(self.heartsBroken or self.hasOnlyHearts()):
                 if(childTrump == self.curTrump):
                     if(hasChild):
                         if(len(pick.board) != 0):
