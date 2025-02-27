@@ -24,10 +24,10 @@ def main():
     global conn
     global cur
     deck_string = generate_deck_string()
-    query = "CREATE TABLE wocg_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), high_card VARCHAR (10), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
+    query = "CREATE TABLE wocg_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), high_card VARCHAR (10), trick_score VARCHAR (100), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
     cur.execute(query)
 
-    query = "CREATE TABLE heuristics_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), high_card VARCHAR (10), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
+    query = "CREATE TABLE heuristics_data(trick_ID VARCHAR(100), " + deck_string + "trump_suit VARCHAR (5), high_card VARCHAR (10), trick_score VARCHAR (100), game_winner SERIAL, card_played VARCHAR (50) NOT NULL, winning_hand VARCHAR (200) NOT NULL);"
     cur.execute(query)
 
     conn.commit()
