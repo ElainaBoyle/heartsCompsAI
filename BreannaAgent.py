@@ -35,7 +35,8 @@ class BreannaAgent(Player):
         elif(self.heartsBroken):
             lowest = self.hand.hearts[0]
         else:
-            lowest = self.hand.getRandomCard()
+            legalCards = self.getLegalMoves(self.hand.fullHand, self.heartsBroken, (self.trickNum == 1), trump = self.curTrick.suit)
+            lowest = self.getRandom(legalCards)
                 
         if(len(self.hand.clubs) != 0):
             if(lowest.rank > self.hand.clubs[0].rank):
