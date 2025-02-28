@@ -198,13 +198,13 @@ class Cbr_Agent(Player):
     def findSimilarFrames(self, myCardSuits, curTrump):
 
         try:
-            conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
+            conn = psycopg2.connect(database = "thomastothe", user = "thomastothe", host= 'localhost', password = "corgi981phone", port = 5432)
             #print("Database connected successfully. MS")
         except:
             print("Database not connected successfully. MS")
 
         cur = conn.cursor()
-        cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM heartsai_data WHERE clubs = cast({0} as varchar)" +
+        cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM WoCG_data WHERE clubs = cast({0} as varchar)" +
                     " AND diamonds = CAST({1} as Varchar)" +
                     " AND spades = CAST({2} as Varchar)" +
                     " AND hearts = CAST({3} as Varchar)" +
