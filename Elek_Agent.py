@@ -87,7 +87,8 @@ class Elek_Agent(Player):
 
             #first card of trick, can only play hearts if nothing else or already been broken
             if cur_suit == "":
-                card = self.hand.getRandomCard()
+                legalCards = self.getLegalMoves(self.hand.fullHand, self.heartsBroken, (self.trickNum == 1), trump = self.curTrick.suit)
+                card = self.getRandom(legalCards)
                 return card
 
 
@@ -114,7 +115,8 @@ class Elek_Agent(Player):
                 card = self.playTrump(suitCards, highCard)
 
             elif firstTrick:
-                card = self.hand.getRandomCard()
+                legalCards = self.getLegalMoves(self.hand.fullHand, self.heartsBroken, (self.trickNum == 1), trump = self.curTrick.suit)
+                card = self.getRandom(legalCards)
             #if can't play trump, play hearts
             else:
                 card = self.playHearts()
