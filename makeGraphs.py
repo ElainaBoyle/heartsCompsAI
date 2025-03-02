@@ -28,7 +28,7 @@ previous = ""
 fileName = "RRRM"
 
 rFile = open(fileName + ".txt", "r")
-players = ["Random 1", "Random 2", "Random 3", "Monte Carlo"]
+players = ["Random 1", "Random 2", "Random 3", "Monte Carlo"] 
 # "Hueristic 1"  #Breanna 
 # "Hueristic 2" #Elek
 # "Random 1" #Random 1
