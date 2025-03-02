@@ -25,10 +25,10 @@ MarySueScoreLine = ""
 MonteScoreLine = ""
 previous = ""
 
-fileName = "RRRM"
+fileName = "SRRR"
 
 rFile = open(fileName + ".txt", "r")
-players = ["Random 1", "Random 2", "Random 3", "Monte Carlo"] 
+players = ["Strong Agent", "Random 1", "Random 2", "Random 3"] 
 # "Hueristic 1"  #Breanna 
 # "Hueristic 2" #Elek
 # "Random 1" #Random 1
