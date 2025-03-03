@@ -25,10 +25,10 @@ MarySueScoreLine = ""
 MonteScoreLine = ""
 previous = ""
 
-fileName = "SRRR"
+fileName = "AARMLow"
 
 rFile = open(fileName + ".txt", "r")
-players = ["Strong Agent", "Random 1", "Random 2", "Random 3"] 
+players = ["Hueristic 1", "Hueristic 2", "Random 1", "Monte Carlo"] 
 # "Hueristic 1"  #Breanna 
 # "Hueristic 2" #Elek
 # "Random 1" #Random 1
@@ -104,7 +104,7 @@ for winner in winnerList:
     elif(winner[0] == "Monte Carlo"):#Monte
         colors.append("#C279D6")
     elif(winner[0] == "CBR"):#MarySue
-        colors.append("#34F9DC")
+        colors.append("#CCF8FF")
     elif(winner[0] == "Strong Agent"):#Strong
         colors.append("#F991CC")
         
