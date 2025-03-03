@@ -1,4 +1,6 @@
 
+"""Takes the name of a file and makes a graph with the colors"""
+
 import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')
