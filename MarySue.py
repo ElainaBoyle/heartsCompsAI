@@ -15,7 +15,6 @@ class Cbr_Agent(Player):
     #myCardSuits = [3, 4, 1, 2] #number of clubs, diamonds, spades, hearts in my hand
     curTrump = 0
 
-
     #get the specified card from hand and returns it
     def playCard(self, cardString):
         return cardString
@@ -197,6 +196,8 @@ class Cbr_Agent(Player):
     #finds similar game moments to the current one and returns them in a list
     def findSimilarFrames(self, myCardSuits, curTrump):
 
+        conn = None
+
         try:
             conn = psycopg2.connect(database = "thomastothe", user = "thomastothe", host= 'localhost', password = "corgi981phone", port = 5432)
             #print("Database connected successfully. MS")
@@ -204,7 +205,7 @@ class Cbr_Agent(Player):
             print("Database not connected successfully. MS")
 
         cur = conn.cursor()
-        cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM WoCG_data WHERE clubs = cast({0} as varchar)" +
+        cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM wocg_data WHERE clubs = cast({0} as varchar)" +
                     " AND diamonds = CAST({1} as Varchar)" +
                     " AND spades = CAST({2} as Varchar)" +
                     " AND hearts = CAST({3} as Varchar)" +
