@@ -209,16 +209,12 @@ class Cbr_Agent(Player):
         conn = None
 
         try:
-             conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
+             conn = psycopg2.connect(database = "thomastothe", user = "thomastothe", host= 'localhost', password = "corgi981phone", port = 5432)
         except:
             print("Database not connected successfully. MS")
 
         cur = conn.cursor()
-<<<<<<< Updated upstream
         cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM heuristics_data WHERE clubs = cast({0} as varchar)" +
-=======
-        cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM heartsai_data3 WHERE clubs = cast({0} as varchar)" +
->>>>>>> Stashed changes
                     " AND diamonds = CAST({1} as Varchar)" +
                     " AND spades = CAST({2} as Varchar)" +
                     " AND hearts = CAST({3} as Varchar)" +

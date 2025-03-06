@@ -6,7 +6,7 @@ from Elek_Agent import Elek_Agent
 from BreannaAgent import BreannaAgent
 from LevelTen import Strong_agent
 from ElainaAgent import ElainaAgent
-#from MarySue import Cbr_Agent
+from MarySue import Cbr_Agent
 from MonteCarlo import MonteCarlo 
 from GameGraphics import GameGraphics
 import pygame
@@ -59,11 +59,7 @@ class Hearts:
 			self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 		else:
 			# Make four players
-<<<<<<< Updated upstream
-			self.players = [Elek_Agent("Elek", auto=True), BreannaAgent("Breanna", auto=True), Player("MarySue", auto=True), Strong_agent("Monte", auto=True)]
-=======
 			self.players = [Elek_Agent("Elek", auto=True), BreannaAgent("Breanna", auto=True), Cbr_Agent("MarySue", auto=True), Player("Monte", auto=True)]
->>>>>>> Stashed changes
   
 		'''
 		Player physical locations:
