@@ -5,7 +5,7 @@ import os
 wFile = open("A2A1C2R.txt", "w")
 
 for i in range(100):
-    result = os.popen("python HeartsGraphics.py").read()
+    result = os.popen("python3 HeartsGraphics.py").read()
     wFile.write(result)
     wFile.write("\n space \n")
     print("Played game:", i)
