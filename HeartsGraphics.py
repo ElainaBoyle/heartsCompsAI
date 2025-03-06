@@ -59,7 +59,11 @@ class Hearts:
 			self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 		else:
 			# Make four players
+<<<<<<< Updated upstream
 			self.players = [Elek_Agent("Elek", auto=True), BreannaAgent("Breanna", auto=True), Player("MarySue", auto=True), Strong_agent("Monte", auto=True)]
+=======
+			self.players = [Elek_Agent("Elek", auto=True), BreannaAgent("Breanna", auto=True), Cbr_Agent("MarySue", auto=True), Player("Monte", auto=True)]
+>>>>>>> Stashed changes
   
 		'''
 		Player physical locations:
@@ -241,7 +245,9 @@ class Hearts:
 			curPlayer.curTrick = self.currentTrick 
 
 
-			while playCard is None: # wait until a valid card is passed
+			attempts = 0
+			while playCard is None and attempts < 20: # wait until a valid card is passed
+				attempts += 1
 				playCard = self.playCard(curPlayer)
 
 			print("Playing card", playCard.getIden())

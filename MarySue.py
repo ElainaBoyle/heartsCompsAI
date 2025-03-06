@@ -87,11 +87,14 @@ class Cbr_Agent(Player):
     def mostSimilar(self, array):
         #
         buckets = self.getDifferenceBuckets(self.hand)
+        chosenCase = None
+        bestSimilarity = 100000
+        winMove = None
 
         for game in array:
 
             #variables
-            #print("trick id is" + game[3])
+            #print("trick id is" + game[4])
             hand = game[0]
             cardPlayed = game[1]
             trick_score = int(game[3])
@@ -105,8 +108,6 @@ class Cbr_Agent(Player):
                 highCardSuit = game[2][-1:]
             cardPlayedRank = int(cardPlayed[:-1])
             cardPlayedSuit = cardPlayed[-1:]
-            bestSimilarity = 100000
-            winMove = None
             lows = 0
             highs = 0
             meds = 0
@@ -149,7 +150,7 @@ class Cbr_Agent(Player):
                                 alignmentPenalty = 0
 
 
-            point_dif = abs(self.curTrick.points - trick_score)
+            pointDif = abs(self.curTrick.points - trick_score)
 
             
             
@@ -175,6 +176,9 @@ class Cbr_Agent(Player):
             diffLow = abs(buckets[0] - lows)
             diffMed = abs(buckets[1] - meds)
             diffHigh = abs(buckets[2] - highs)
+            # print("difLow is ", diffLow)
+            # print("difMed is ", diffMed)
+            # print("difHigh is ", diffHigh)
 
             #Queen of spades penalty
             if self.hand.hasCard("Qs"): #fix this
@@ -184,12 +188,18 @@ class Cbr_Agent(Player):
                 if not queenOfSpades:
                     queenOfSpadesPenalty = 0
 
+            # print("point dif is ", pointDif)
             #Big importatant equation, open to lots of changes, this is still pretty simple
-            similarityScore = diffLow + diffMed + diffHigh + noSimilarCardPenalty + alignmentPenalty + point_dif + queenOfSpadesPenalty
+            similarityScore = diffLow + diffMed + diffHigh + noSimilarCardPenalty + alignmentPenalty + pointDif + queenOfSpadesPenalty
+            # print("simiarlity score is ", similarityScore)
 
             if similarityScore < bestSimilarity:
+                # print("updating most similar case and associated info")
                 winMove = game[1]
                 bestSimilarity = similarityScore
+                chosenCase = game[4]
+
+        #print("chosen case is", chosenCase)
 
         return winMove
                 
@@ -199,13 +209,16 @@ class Cbr_Agent(Player):
         conn = None
 
         try:
-            conn = psycopg2.connect(database = "thomastothe", user = "thomastothe", host= 'localhost', password = "corgi981phone", port = 5432)
-            #print("Database connected successfully. MS")
+             conn = psycopg2.connect(database = "heartsai_data", user = "aicomps", host= 'localhost', password = "12345", port = 5432)
         except:
             print("Database not connected successfully. MS")
 
         cur = conn.cursor()
+<<<<<<< Updated upstream
         cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM heuristics_data WHERE clubs = cast({0} as varchar)" +
+=======
+        cur.execute(("SELECT winning_hand, card_played, high_card, trick_score, trick_id FROM heartsai_data3 WHERE clubs = cast({0} as varchar)" +
+>>>>>>> Stashed changes
                     " AND diamonds = CAST({1} as Varchar)" +
                     " AND spades = CAST({2} as Varchar)" +
                     " AND hearts = CAST({3} as Varchar)" +
