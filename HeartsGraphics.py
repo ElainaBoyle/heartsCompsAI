@@ -59,7 +59,7 @@ class Hearts:
 			self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 		else:
 			# Make four players
-			self.players = [Strong_agent("Elek", auto=True), BreannaAgent("Breanna", auto=True), Cbr_Agent("MarySue", auto=True), MonteCarlo("Monte", auto=True)]
+			self.players = [Player("Elek", auto=True), Player("Breanna", auto=True), Cbr_Agent("MarySue", auto=True), MonteCarlo("Monte", auto=True)]
   
 		'''
 		Player physical locations:

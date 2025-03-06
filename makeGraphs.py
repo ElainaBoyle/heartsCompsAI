@@ -30,7 +30,7 @@ previous = ""
 fileName = "A1A2CR"
 
 rFile = open(fileName + ".txt", "r")
-players = ["Heuristic 2", "Heuristic 1", "CBR", "Random 1"] 
+players = ["Random 1", "Random 2", "CBR", "Monte Carlo"] 
 # "Hueristic 1"  #Breanna 
 # "Hueristic 2" #Elek
 # "Random 1" #Random 1

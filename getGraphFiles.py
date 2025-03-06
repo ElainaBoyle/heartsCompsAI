@@ -2,7 +2,7 @@
 
 import os
 
-wFile = open("A2A1C2R.txt", "w")
+wFile = open("RRCM.txt", "w")
 
 for i in range(100):
     result = os.popen("python3 HeartsGraphics.py").read()
