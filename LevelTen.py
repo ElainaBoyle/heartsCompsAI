@@ -1,5 +1,5 @@
 '''
-LevelTen is designed to be a very strong player, at the level of an intermediate to advanced human
+LevelTen is designed to be a very strong agent, at the level of an intermediate to advanced human
 It generally uses the 'void' strategy in which it prioritizes creating a void suit which can be used
 to dump dangerous cards. Beyond that, it tries to play out the higher cards towards the beginning of
 each hand, and attempts to pass control in the last few tricks of the hand. 
@@ -23,18 +23,16 @@ class Strong_agent(Player):
                     numAbove -= 1
         return numAbove
 
-    
-
     # Returns false if there is no effective difference between any of the legal moves
     # and true otherwise. This should cut down on unnecessary computation
-    # not yet built, currently just returns true
-    def moveMatters(self, adjustedLegalHand):
-        if len(adjustedLegalHand) > 1:
+    # Currently just checks to see if there is more than one option but the agent
+    # proved to be fast enough that this was not important. 
+    def moveMatters(self, legalHand):
+        if len(legalHand) > 1:
             return True
         else:
             return False
     
-
     #returns all of the possible legal moves
     def getLegalMoves(self, hand, heartsBroken, firstTrick, trump = ''):
         legalMoves = []
@@ -57,16 +55,19 @@ class Strong_agent(Player):
                 elif card.suit != 'h':
                     legalMoves.append(card)
 
-        if len(legalMoves) == 0: #should only happen in some weird edge cases with hands of all hearts, not common at all
-            print("You got really lucky to have so many hearts -- or -- there is a bug in the code in getLegalMoves")
+        if len(legalMoves) == 0: #edge case for when hand is all hearts
             for card in hand:
                 legalMoves.append(card)
         return legalMoves
 
-    # not yet built, may never get added
     # Decides if it is worth staying open to shooting the moon
-    # Consider if you control a suit well, have lots of high hearts or spades, don't have low hearts, etc
     def shootingMoon(self):
+        # Currently always returns false. Ultimately this did not fit into the time we had
+        # we also suspect it might make the agent worse and less fun to play against
+
+        # If we were to complete out this method:
+        # Consider if you control a suit well, have lots of high hearts or spades, don't have low hearts, etc
+
         return False
     
     # Take in a suit and returns the assocated int
@@ -169,7 +170,6 @@ class Strong_agent(Player):
     # suits should be an array of chars and players should be an array of integers 0-3
     def playersOut(self, players, suits, discarded):
         for trick in discarded[:-1]:
-            trick_starter = trick[0]
             trump = trick[1].suit
             if trump in suits:
                 for card in trick[1:]:
@@ -179,7 +179,6 @@ class Strong_agent(Player):
     
     # Gets the value of the highcard of the passed in trick
     def getHighCard(self, trick):
-        starter = trick[0]
         trump = trick[1].suit
         highCard = 0
         for card in trick[1:]:
@@ -192,21 +191,7 @@ class Strong_agent(Player):
 
     # Determines which card is played when called in hearts.py
     def play(self, discarded = [], option='play', c=None, auto=True):
-        
-        # for trick in discarded:
-        #     print(trick[0])
-        #     for card in trick[1:]:
-        #         print(card.getIden())
-        # print(self.curTrick.suit)
-       # print(self.hand.fullHand)
-
-        # for card in self.hand.fullHand:
-        #     print(card.getIden())
-
-
-
         if c == None:
-
             hand = self.hand.fullHand            
             trump = self.curTrick.suit
             trickPosition = len(discarded[-1])
@@ -220,32 +205,20 @@ class Strong_agent(Player):
                 firstTrick = True
             legalMoves = self.getLegalMoves(hand, heartsBroken, firstTrick, trump)
 
-            
             if self.moveMatters(legalMoves):
                 if self.shootingMoon():
                     return self.getRandom(legalMoves)
                 else: #try to create a void
                     if trickPosition == 1: #you are starting the trick
-                        print("starting trick")
-
                         if suitCounts[2] > 0:
                             if qsLocation != 1 or (suitCounts[2] >= 5): # Qs not in hand or you just have a ton of spades
-                                print("tried to play a spades")
-                                print(qsLocation)
-                                print(suitCounts)
-                                return self.highestBelow(legalMoves, 's', 12) # This is a temporary fix, could be improved to consider Ks and As
+                                return self.highestBelow(legalMoves, 's', 12)
                             
                         if suitCounts[0] == 1 and not self.playersOut([1,2,3,4], ['c'], discarded):
                             return self.highestBelow(legalMoves, 'c', 15)
 
                         if suitCounts[1] == 1 and not self.playersOut([1,2,3,4], ['d'], discarded):
                             return self.highestBelow(legalMoves, 'd', 15)
-
-
-                        #don't want to lead a suit where someone else is out, esp if the Qs is unknown
-                        # This stuff is fine but lots could be added, should add more here once I have confirmed that everything generally works
-                        #consider how many of the suit you are going to lead in have been played
-
 
                         #if none of the above logic is relevant, just lead a high card early and a low card late
                         if len(discarded) > 7:
@@ -265,9 +238,7 @@ class Strong_agent(Player):
                                     highest = card
                             return highest
 
-            
                     else: #playing 2-4 in the trick
-                        print("not starting trick")
                         if suitCounts[self.suitToInt(trump)] > 0:
                             highCard = self.getHighCard(discarded[-1])
                             if qsLocation == 4: #Qs location unkown
@@ -320,20 +291,13 @@ class Strong_agent(Player):
                                     return self.highestBelow(legalMoves, 'c', 15)
                                 else:
                                     return self.getRandom(legalMoves)
-                                    
                     return self.getRandom(legalMoves)
-
             else:
-                #Play a random card, ideally from legal moves
                 return self.getRandom(legalMoves)
-
         else:
             for card in self.hand.clubs:
                 if card.rank == 2:
                     return card
-
-            
-
         return card
 
 
