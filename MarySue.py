@@ -60,13 +60,6 @@ class Cbr_Agent(Player):
         for card in hand:
             total += int(card[:-1])
         return total
-        
-
-    #Checks each frame in the array for similarity, return the next move of the frame with highest similarity
-
-    #Things to add:
-    #plays to win trick or not -- requires knowing highest card played so far that trick
-    #difference in number of each suit already played out in the game -- may require updating of numbering
 
 
     def mostSimilar(self, array):
@@ -97,9 +90,9 @@ class Cbr_Agent(Player):
             meds = 0
             noSimilarCardPenalty = 10
             playingToWin = False
-            alignmentPenalty = 10
+            alignmentPenalty = 5
             queenOfSpades = False
-            queenOfSpadesPenalty = 1000
+            queenOfSpadesPenalty = 30
 
             #calculates alignment penalty
             if not newTrick:
