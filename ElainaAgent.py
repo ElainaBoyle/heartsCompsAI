@@ -9,11 +9,7 @@ from Hand import Hand
 class ElainaAgent(Player):
 		def __init__(self, name="Elaina", auto=False, game=None):
 			Player.__init__(self, name, auto)
-			self.myGame = game
-   
-   
-			
-			
+			self.myGame = game			
 		
 		def addCard(self, card):
 			#Add cards with graphics
@@ -48,40 +44,3 @@ class ElainaAgent(Player):
 					super().removeCard(card)
 					return
  
-
-
-   
-		'''
-		def play(self):
-			print("YAHOOOO")
-
-
-			cardIden = self.myGame.clickACard()
-			print(cardIden)
-
-			faces = ["J", "Q", "K", "A"]
-			suits = ["c", "d", "s", "h"]
-
-			if cardIden[0] in faces:
-				thisCardRank = 11 + faces.index(cardIden[0])
-			else:
-				thisCardRank = int(cardIden[0])
-
-			if cardIden[1] in suits:
-				thisCardSuit = int(suits.index(cardIden[1]))
-			else:
-				thisCardSuit = cardIden[1]
-
-			addCard = Card(thisCardRank, thisCardSuit)
-			
-			
-			
-			self.myGame.setHand(curPlayer.hand.whatAreMyCards())
-			self.myGame.updateGraphics()
-			
-		def getInput(self, option):
-			card = None
-			while card is None:
-				card = input(self.name + ", select a card to " + option + ": ")
-			return card
-	'''
