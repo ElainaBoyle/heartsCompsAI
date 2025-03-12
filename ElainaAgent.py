@@ -28,14 +28,13 @@ class ElainaAgent(Player):
 				cardIden = c
 			print(cardIden)
 			card = self.hand.hasCard(cardIden)
-			print("Elaina, you picked card", cardIden)
+			print("You picked card", cardIden)
 			return card
 
 		def removeCard(self, card):
 			for cardspr in self.myGame.cards:
 				print(cardspr.getIden(), card.getIden())
 				if cardspr.getIden() == card.getIden():
-					print("ITS HAPPENING")
 					#Move this card to the middle
 					self.myGame.cards.remove(cardspr)
 					
