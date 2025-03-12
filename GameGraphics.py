@@ -3,11 +3,6 @@ import os
 from CardDisp import CardDisp
 from Card import Card
 
-
-
-
-
-
 class GameGraphics:
 
     #game window, screen-related variables
@@ -24,13 +19,11 @@ class GameGraphics:
     cardheight = 140
     overlap = 50
     p1Card_y = 750 #y coordinate for the top of p1's cards
-    
+
+    #Sprite groups
     cards = pygame.sprite.Group()
-    
     trickHolders = pygame.sprite.Group()
-    
     middleCards = pygame.sprite.Group()
-    
     
     waitTime = 300 #change how long it waits between actions
 
@@ -39,13 +32,9 @@ class GameGraphics:
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         pygame.display.set_caption("Hearts")
         self.screen.fill(self.BACKGROUND_COLOR)
-        
         self.makeTrickHolders()
-
         self.reset()
-        
-        
-        
+           
         
     def reset(self):
         self.overlap = 50
@@ -58,9 +47,6 @@ class GameGraphics:
         self.trickHolders.add(CardDisp("back-side", 500, 100))
         self.trickHolders.add(CardDisp("back-side", 900, 500))
         return
-        
-
-
 
     
     def addCard(self, card):
@@ -136,7 +122,6 @@ class GameGraphics:
         concluding = True
         
         while concluding:
-            print("CONCLDUBNGIN")
             for card in self.middleCards:
                 card.rect.move_ip(direction[0], direction[1])
                 if (card.rect.top > self.SCREEN_HEIGHT) or (card.rect.bottom < 0) or (card.rect.left > self.SCREEN_WIDTH) or (card.rect.right < 0):
@@ -144,16 +129,9 @@ class GameGraphics:
             self.updateGraphics()
             if len(self.middleCards) == 0:
                 concluding = False
-        
-                    
-                    
-
+    
     
     def updateGraphics(self):
-        
-        
-        
-        
         self.clock.tick(self.FPS)
         
         #Update background
@@ -165,11 +143,6 @@ class GameGraphics:
         self.middleCards.draw(self.screen)
         self.trickHolders.draw(self.screen)
         
-        #other player assets?
-        #only display available cards
-        #card pool?
-        #card indicator?
-        
         #Handle Events
         ev = pygame.event.get()
         for event in ev:
@@ -179,29 +152,14 @@ class GameGraphics:
         
         pygame.display.flip()
         return
-            
-    
-    #def playCard(self)
+
     
     def test(self):
         self.updateGraphics()
         self.dealHand(self.myHand)
         self.updateGraphics()
         
-        
-
-
-
-
-#myGame = GameGraphics()
-#myGame.test()
-
-
-
-
-
-#pygame.time.wait(10000)
-
+    
 pygame.quit()
 
 
