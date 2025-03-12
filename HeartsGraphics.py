@@ -188,7 +188,6 @@ class Hearts:
 		self.currentTrick = Trick()
 		self.looping = 0
   
-		#self.printMemory() #Take this out!
   
   
 	'''
