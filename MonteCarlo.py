@@ -41,8 +41,7 @@ class MonteCarlo(Player):
         
     def MonteSearch(self, root): #written
         """Monte Carlo Tree Search (calls helper functions)"""
-        # amount of time 
-        # 3 seconds = 10 min per game; 2 seconds = 7 mins per game; 1 second = 3min
+
         startTime = time.time()
         while(time.time() - startTime < 3):
             leaf = self.traverse(root)
@@ -455,19 +454,6 @@ class MonteCarlo(Player):
                     else:
                         pick = child
                         
-        # if(len(pick.board) == 0):
-        #     print("duct tape")
-        #     if(self.curTrump == "c" and (len(self.hand.clubs) != 0)):
-        #         pick.board = ["", random.choice(self.hand.clubs)]
-        #     elif(self.curTrump == "d" and (len(self.hand.diamonds) != 0)):
-        #         pick.board = ["", random.choice(self.hand.diamonds)]
-        #     elif(self.curTrump == "s" and (len(self.hand.spades) != 0)):
-        #         pick.board = ["", random.choice(self.hand.spades)]
-        #     elif(self.curTrump == "h" and (len(self.hand.hearts) != 0)):
-        #         pick.board = ["", random.choice(self.hand.hearts)]
-        #     else:
-        #         pick.board = ["", self.hand.getRandomCard()]
-    
         return pick
     
     def visualizeTree(self, node, file): #written
