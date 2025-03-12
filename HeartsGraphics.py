@@ -11,8 +11,6 @@ from MonteCarlo import MonteCarlo
 from GameGraphics import GameGraphics
 import pygame
 
-#ELAINA ADD MARYSUE AND MONTE BACK IN
-
 
 '''
 A copy of Hearts.py with graphics instead of text-based interaction.
@@ -52,6 +50,7 @@ class Hearts:
 		self.heartsBroken = False
 		self.losingPlayer = None
 		self.memory = [] #Trick history
+		self.looping = 0 
   
 		if realPlayer:
 			pygame.init()
@@ -59,7 +58,7 @@ class Hearts:
 			self.players = [ElainaAgent("Elaina", auto=False, game=self.myGame), Strong_agent("Elek", auto=True), Player("MarySue", auto=True), Player("Monte", auto=True)]
 		else:
 			# Make four players
-			self.players = [Elek_Agent("Elek", auto=True), BreannaAgent("Breanna", auto=True), Strong_agent("MarySue", auto=True), Player("Monte", auto=True)]
+			self.players = [Elek_Agent("Elek", auto=True), BreannaAgent("Breanna", auto=True), Strong_agent("MarySue", auto=True), MonteCarlo("Monte", auto=True)]
   
 		'''
 		Player physical locations:
@@ -97,6 +96,7 @@ class Hearts:
 		#Reset currentTrick
 		self.currentTrick = Trick()
 		self.currentTrick.setTrickSuit('c') #first suit will always be clubs
+		self.looping = 0
   
 		#Reset variables for players
 		for p in self.players:
@@ -186,6 +186,7 @@ class Hearts:
   
 		#Reset the current trick
 		self.currentTrick = Trick()
+		self.looping = 0
   
 		#self.printMemory() #Take this out!
   
@@ -239,6 +240,7 @@ class Hearts:
 			curPlayer = self.players[curPlayerIndex]
 			playCard = None
 			curPlayer.curTrick = self.currentTrick 
+			self.looping = 0
 
 			attempts = 0
 			while playCard is None and attempts < 20: # wait until a valid card is passed
@@ -286,6 +288,7 @@ class Hearts:
 						self.breakHearts()
 					else:
 						print("You can't play a hearts card to start this trick, Hearts have not been broken!")
+						self.looping = self.looping + 1
 						playCard = None
 						return None
 				#Set the trick suit to the suit of the played card!
@@ -295,6 +298,7 @@ class Hearts:
 				#Do you have cards of the correct suit?
 				if player.hasSuit(self.currentTrick.suit):
 					print("Play a card of the correct suit! The current suit is:", self.currentTrick.suit)
+					self.looping = self.looping + 1
 					playCard = None
    
 
@@ -303,13 +307,19 @@ class Hearts:
 			if (playCard.getIden() == "Qs" or playCard.suit == "h"):
 				if self.trickNum == 0 and not player.hasOnlyHearts():
 					print("Cannot play a point card on the first trick.") #unless you only have point cards.
+					self.looping = self.looping + 1
 					playCard = None
 				elif not self.heartsBroken:
 					self.breakHearts()
 		else: 
 			print("You tried to play an illegal card")
+			self.looping = self.looping + 1
+   
 		# if playCard is None: #If we have not found a card for playCard, try again.
 		# 	playCard = self.playCard(player)
+
+		if(self.looping > 20):
+			raise Exception("The code started looping with player", player.name)
 
 		return playCard
 

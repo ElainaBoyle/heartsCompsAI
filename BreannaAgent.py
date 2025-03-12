@@ -118,13 +118,6 @@ class BreannaAgent(Player):
                 else:
                     highCard = 0
     
-                    # for playedCard in self.boardState:
-                    #     playedString = str(playedCard.getIden())
-                    #     if (playedString != "" and highCard == ""):
-                    #         highCard = playedString
-                    #     elif((playedString != "" and highCard != "") and (self.convertRank(playedString) > self.convertRank(highCard))):
-                    #         highCard = playedString
-
                     for card in self.boardState:
                         if card.rank > highCard:
                             highCard = card.rank
@@ -149,7 +142,6 @@ class BreannaAgent(Player):
             for card in self.hand.fullHand:
                 if card.getIden() == c:
                     return card
-        # if not auto:
-        #     card = self.hand.playCard(card)
+
         return card
 

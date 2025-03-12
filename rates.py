@@ -1,3 +1,6 @@
+"""Plays a specificed amount of games and outputs a graph. Not considering who is playing and color coding
+Just for information ussage"""
+
 import os
 import matplotlib
 import matplotlib.pyplot as plt

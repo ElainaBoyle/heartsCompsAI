@@ -1,5 +1,5 @@
 
-"""Takes the name of a file and makes a graph with the colors"""
+"""Takes the name of a file and makes a graph with the colors that were chosen for presenation"""
 
 import matplotlib
 import matplotlib.pyplot as plt
