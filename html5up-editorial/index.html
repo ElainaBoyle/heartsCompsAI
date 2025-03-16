@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Breaking Hearts: AI approaches to the trick-based card game</strong> by Barin, Nwike, Breanna Lefevers-Scott, Elaina Boyle, and Elek Thomas-Toth</a>
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>Using AI to play Hearts</h1>
+											<p>Our methods, work, and results</p>
+										</header>
+										<p>For our Comps project, we were assigned the task of creating an AI to play some kind of board/card game under the tutelage of Professor Dave Musicant. We chose to focus on playing Hearts because it poses an interesting set of problems to tackle. Namely, we were interested in the mechanic of 'shooting the moon' and how various AI approaches would tackle such a problem.</p>
+										<p>We created four different AI agents that employ a variety of strategies which span multiple difficulty levels. Our goals going into the project were to both create agents which could compete against intermediate to advanced level human players and to create agents which would be fun to play against, so some of our design choices weakend the agents in favor of making them a fun opponent.</p>
+									</div>
+									<span class="image object">
+										<img src="images/heartsGraphics2.png" alt="" />
+									</span>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>AI approaches</h2>
+									</header>
+									<div class="features">
+										<article>
+											<div class="content">
+												<h3>Weak Heuristic Approaches</h3>
+												<p>Our first attempt to create agents resulted in two very simple hard-coded agents with opposite approaches. The first always tries to play the highest card below the current high card of the trick, in an attempt to lose as many tricks as possible. The second always tries to play the lowest card above the current high card in an attempt to win as many tricks as possible. The goal with creating these agents was to familiarize ourself with the the code base and create a simple baseline to test future agents against. Ultimately, the first agent is very strong and the second agent is relatively weak.</p>
+											</div>
+										</article>
+										<article>
+											<div class="content">
+												<h3>Strong Heuristic</h3>
+												<p>Although our weak heuristic agents were not designed for simplicity over strength, we believed that a hard-coded approach could result in a very strong overall agent. By researching high level hearts play and creating a set of around 20 rules for the agent to follow, we were able to create a strong heuristic agent which performed very well. It employs the strategy of creating a 'void' in which it attempts set up its hand to not have any cards in some suit. This allows it to dump dangerous or high point value cards like the queen of spades.</p>
+											</div>
+										</article>
+										<article>
+											<div class="content">
+												<h3>Case-Based-Reasoning</h3>
+												<p>Our Case-Based-Reasoning (CBR) agent attempts to use strategies that have worked in previous games of Hearts. It draws from a database of games and finds a game with a similar board state to the current one. It then applies the strategy that that game used to win. Although this approach did not result in the strongest agent, we beleive that it did create a particularly fun agent to play against. Because the CBR agent draws from a variety of games, it utilzes a variety of play patterns and games against the CBR agent are always a little bit different.</p>
+											</div>
+										</article>
+										<article>
+											<div class="content">
+												<h3>Monte-Carlo Tree Search</h3>
+												<p>MCTS is an algorithm that attempts to make optimal future decisions. We used it by comparing all the different possible trick combinations with the current playable cards to choose the best playable card. It runs for 3 seconds with a focus on finding the card that will be played for the least amount of possible points. </p>
+											</div>
+										</article>
+									</div>
+								</section>
+
+							<!-- Section -->
+							<section id="banner">
+								<div class="content">
+									<header>
+										<h2>Results, conclusions and takeaways</h2>
+									</header>
+									<p> Of our agents, our Strong Heuristic agent was by far the strongest, winning over 50% of games. This agent included a variety of high level hearts strategies and the hard-coded style allowed for the agent to follow a cohesive strategy throughout, well suited to the game of Hearts. Our Weak heuristic agent was the next strongest, followed by our CBR agent and then our Monte-Carlo agent. Although we had hoped for the CBR and Monte-Carlo agents to be stronger, they still provide engaging gameplay because they do not follow an obvious strategy and allow for a high degree of variation in the games against them.</p>
+								</div>
+								<span class="image object">
+									<img src="images/heartsdata.png" alt="" />
+								</span>
+							</section>
+
+							<section id="banner">
+								<div class="content">
+									<header>
+										<h2>Creating the database</h2>
+									</header>
+									<p> To create our CBR agent, we needed a database of games to draw from. Holger Sinbaed of <a href = "https://worldofcardgames.com/">WorldOfCardGames.com</a> generously provided us with 5000 games of training data played on his website. Having played a multitude of games on his website for research, we can highly recommend it to anyone looking to experience how Hearts is played.</p>
+									<p> Barin stuff goes here</p>
+								</div>
+								<span class="image object">
+									<img src="images/database.png" alt="" />
+								</span>
+							</section>
+
+							<section id="banner">
+								<div class="content">
+									<header>
+										<h2>Our Hearts implementation and Graphics</h2>
+									</header>
+									<p> For our project, we started with an existing implementation of Hearts from GitHub and spent a few weeks modifying it. The original code had a lot of redundancies, with variable and method names being reused in different classes despite having different inputs, outputs, and purposes. This made the code difficult to follow and debug, so I cleaned it up to improve clarity and organization. Making the code more structured not only helped with debugging but also made it much easier to implement graphics.</p>
+									<p> To create the graphical interface, we used Pygame. First, we set up a display window and added a background. We take the player's hand and render the cards as sprites, which allowed for interactions like clicking and moving them. We organized the sprites into different groups so they could be displayed in different areas of the screen as needed. We also implemented a system for handling the player's turn: when it's their move, the game waits for input, and once they click a card, it disappears from their hand, and the remaining cards shift to adjust for the missing space. Resizing the hand was particularly tricky since every time a card was played,  all the remaining cards had to be repositioned dynamically.</p>
+									<p> Once a card is played, it moves into a separate sprite group representing the current trick. When the trick is complete, the winning player collects the cards, and their score updates based on the points earned. Overall, these graphical features make the game more interactive and provide a clearer way to track the flow of play.</p>
+								</div>
+								<span class="image object">
+									<img src="images/heartsGraphics.png" alt="" />
+								</span>
+							</section>
+
+
+
+							<section>
+								<header class="major">
+									<h2>About Us</h2>
+								</header>
+								<div class="features">
+									<article>
+										<img src="images/Barin.jpg" alt=""  style = "float:left; width: 100px;height: 120px;"/>
+										<div class="content">
+											<h3>Barin Nwike</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+										</div>
+									</article>
+									<article>
+										<img src="images/breanna.jpg" alt=""  style = "float:left; width: 100px;height: 120px;"/>
+										<div class="content">
+											<h3>Breanna Lefevers-Scott</h3>
+											<p>Breanna is a Computer Science and Psychology major who loves a hot cup of tea and a good board game.</p>
+										</div>
+									</article>
+									<article>
+										<img src="images/elaina.png" alt=""  style = "float:left; width: 100px;height: 120px;"/>
+										<div class="content">
+											<h3>Elaina Boyle</h3>
+											<p>Elaina built graphics to play a full game of Hearts on the computer against our AI agents. He also helped to create Mary Sue, our Case-Based Reasoning agent, and rewrote a significant portion of the game implementation to increase robustness. Elaina is a Computer Science and Theater double major. </p>
+										</div>
+									</article>
+									<article>
+										<img src="images/elek.jpg" alt=""  style = "float:left; width: 100px;height: 120px;"/>
+										<div class="content">
+											<h3>Elek Thomas-Toth</h3>
+											<p>Elek Thomas-Toth is a Senior computer science major at Carleton College. He has worked in a variety of educational settings and is interested in teaching. Outside of work, he enjoys playing Ultimate Frisbee, captaining the Carleton CHOP.</p>
+										</div>
+									</article>
+								</div>
+							</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
