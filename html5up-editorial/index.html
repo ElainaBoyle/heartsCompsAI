@@ -33,7 +33,8 @@
 											<p>Our methods, work, and results</p>
 										</header>
 										<p>For our Comps project, we were assigned the task of creating an AI to play some kind of board/card game under the tutelage of Professor Dave Musicant. We chose to focus on playing Hearts because it poses an interesting set of problems to tackle. Namely, we were interested in the mechanic of 'shooting the moon' and how various AI approaches would tackle such a problem.</p>
-										<p>We created four different AI agents that employ a variety of strategies which span multiple difficulty levels. Our goals going into the project were to both create agents which could compete against intermediate to advanced level human players and to create agents which would be fun to play against, so some of our design choices weakend the agents in favor of making them a fun opponent.</p>
+										<p>We created four different AI agents that employ a variety of strategies which span multiple difficulty levels. Our goals going into the project were to both create agents which could compete against intermediate to advanced level human players and to create agents which would be fun to play against, so some of our design choices weakened the agents in favor of making them a fun opponent.</p>
+										<p>This was a great project that taught us all not just about AI, but also about working in a team and building large scale applications.</p>
 									</div>
 									<span class="image object">
 										<img src="images/heartsGraphics2.png" alt="" />
@@ -55,19 +56,19 @@
 										<article>
 											<div class="content">
 												<h3>Strong Heuristic</h3>
-												<p>Although our weak heuristic agents were not designed for simplicity over strength, we believed that a hard-coded approach could result in a very strong overall agent. By researching high level hearts play and creating a set of around 20 rules for the agent to follow, we were able to create a strong heuristic agent which performed very well. It employs the strategy of creating a 'void' in which it attempts set up its hand to not have any cards in some suit. This allows it to dump dangerous or high point value cards like the queen of spades.</p>
+												<p>Although our weak heuristic agents were designed for simplicity over strength, we believed that a hard-coded approach could result in a strong overall agent. By researching high level hearts play and creating a set of around 20 rules for the agent to follow, we were able to create a strong heuristic agent which performed very well. It employs the strategy of creating a 'void' in which it attempts set up its hand to not have any cards in some suit. This allows it to dump dangerous or high point value cards like the queen of spades.</p>
 											</div>
 										</article>
 										<article>
 											<div class="content">
 												<h3>Case-Based-Reasoning</h3>
-												<p>Our Case-Based-Reasoning (CBR) agent attempts to use strategies that have worked in previous games of Hearts. It draws from a database of games and finds a game with a similar board state to the current one. It then applies the strategy that that game used to win. Although this approach did not result in the strongest agent, we beleive that it did create a particularly fun agent to play against. Because the CBR agent draws from a variety of games, it utilzes a variety of play patterns and games against the CBR agent are always a little bit different.</p>
+												<p>Our Case-Based-Reasoning (CBR) agent attempts to use strategies that have worked in previous games of Hearts. It draws from a database of games and finds a game with a similar board state to the current one. It then applies the strategy that that game used to win. Although this approach did not result in the strongest agent, we believe that it did create a particularly fun agent to play against. Because the CBR agent draws from a variety of games, it utilzes a variety of play patterns and games against the CBR agent are always a little bit different.</p>
 											</div>
 										</article>
 										<article>
 											<div class="content">
 												<h3>Monte-Carlo Tree Search</h3>
-												<p>MCTS is an algorithm that attempts to make optimal future decisions. We used it by comparing all the different possible trick combinations with the current playable cards to choose the best playable card. It runs for 3 seconds with a focus on finding the card that will be played for the least amount of possible points. </p>
+												<p>MCTS is an algorithm that attempts to make optimal future decisions. We used it by comparing all the different possible trick combinations with the current playable cards to choose the best playable card. It runs for 3 seconds with a focus on finding the card that will be played for the least amount of possible points. Although this agent had limited success, the self-imposed time limit of 3 seconds hampered its ability to go deep into the search tree.</p>
 											</div>
 										</article>
 									</div>
@@ -91,8 +92,8 @@
 									<header>
 										<h2>Creating the database</h2>
 									</header>
-									<p> To create our CBR agent, we needed a database of games to draw from. Holger Sinbaed of <a href = "https://worldofcardgames.com/">WorldOfCardGames.com</a> generously provided us with 5000 games of training data played on his website. Having played a multitude of games on his website for research, we can highly recommend it to anyone looking to experience how Hearts is played.</p>
-									<p> Barin stuff goes here</p>
+									<p> To create our CBR agent, we needed a database of games to draw from. Holger Sindbaek of <a href = "https://worldofcardgames.com/">WorldOfCardGames.com</a> generously provided us with 5000 games of training data played on his website. Having played a multitude of games on his website for research, we can highly recommend it to anyone looking to experience how Hearts is played.</p>
+									<p> The training data was originally formatted as Json files recording each move of each game. We parsed each Json file, reformatting the data on cards played, the players hands, and scores to create a SQL query which was then pushed using psycopg2 to a SQL table we had prepared. Our final table consists of decision points made by a player who ultimately went on to win the current hand. Each entry records all of the information known to that player including the location of all cards, that player's hand, the current trump suit, and a variety of other metrics.</p>
 								</div>
 								<span class="image object">
 									<img src="images/database.png" alt="" />
@@ -124,7 +125,7 @@
 										<img src="images/Barin.jpg" alt=""  style = "float:left; width: 100px;height: 120px;"/>
 										<div class="content">
 											<h3>Barin Nwike</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<p>Barin is a computer science major with an interset in full-stack software development. Outside of school, Barin enjoys cooking, new experiences, and reading fiction.</p>
 										</div>
 									</article>
 									<article>
@@ -145,7 +146,7 @@
 										<img src="images/elek.jpg" alt=""  style = "float:left; width: 100px;height: 120px;"/>
 										<div class="content">
 											<h3>Elek Thomas-Toth</h3>
-											<p>Elek Thomas-Toth is a Senior computer science major at Carleton College. He has worked in a variety of educational settings and is interested in teaching. Outside of work, he enjoys playing Ultimate Frisbee, captaining the Carleton CHOP.</p>
+											<p>Elek Thomas-Toth is a Senior computer science major always looking for new puzzles to solve. He has worked in a variety of educational settings and is interested in teaching. Outside of work, he enjoys playing Ultimate Frisbee, captaining the Carleton CHOP.</p>
 										</div>
 									</article>
 								</div>
